@@ -1,0 +1,52 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: copy-atlas
+  namespace: dwnkim
+spec:
+  ttlSecondsAfterFinished: 300
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      nodeName: gn144
+      volumes:
+        - name: fedpod
+          persistentVolumeClaim:
+            claimName: fedpod
+      containers:
+        - name: copy-atlas
+          image: 192.168.0.80:30002/dwnkim/myfsl:v1.0
+          volumeMounts:
+            - name: fedpod
+              mountPath: /workspace
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              set -euo pipefail
+              ATLAS_SRC="/usr/share/fsl/5.0/data/atlases"
+              ATLAS_DST="/workspace/fedpod-new/data/atlases"
+              mkdir -p "${ATLAS_DST}"
+
+              echo "=== FSL atlas 목록 ==="
+              ls "${ATLAS_SRC}/"
+
+              echo ""
+              echo "=== Harvard-Oxford 복사 ==="
+              # 확률 맵 (0~100 %)
+              cp "${ATLAS_SRC}/HarvardOxford/HarvardOxford-cort-maxprob-thr25-1mm.nii.gz" \
+                 "${ATLAS_DST}/"
+              cp "${ATLAS_SRC}/HarvardOxford/HarvardOxford-sub-maxprob-thr25-1mm.nii.gz" \
+                 "${ATLAS_DST}/"
+              # 레이블 XML
+              cp "${ATLAS_SRC}/HarvardOxford-Cortical.xml"    "${ATLAS_DST}/"
+              cp "${ATLAS_SRC}/HarvardOxford-Subcortical.xml" "${ATLAS_DST}/"
+
+              echo ""
+              echo "=== 복사된 파일 ==="
+              ls -lh "${ATLAS_DST}/"
+              echo "Done."
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "512Mi"

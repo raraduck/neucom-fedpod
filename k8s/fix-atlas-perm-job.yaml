@@ -1,0 +1,42 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: fix-atlas-perm
+  namespace: dwnkim
+spec:
+  ttlSecondsAfterFinished: 120
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      nodeName: gn144
+      volumes:
+        - name: fedpod
+          persistentVolumeClaim:
+            claimName: fedpod
+      containers:
+        - name: fix
+          image: 192.168.0.80:30002/dwnkim/myfsl:v1.0
+          volumeMounts:
+            - name: fedpod
+              mountPath: /workspace
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              PROJ="/workspace/fedpod-new"
+              ATLAS="${PROJ}/data/atlases"
+              MNI="${PROJ}/data/MNI152_T1_1mm_Brain.nii.gz"
+
+              # MNI 파일을 atlases 폴더로 이동
+              mv "${MNI}" "${ATLAS}/"
+
+              # atlases 폴더 권한을 jovyan(uid=1000) 으로 변경
+              chown -R 1000:100 "${ATLAS}"
+              chmod -R 775 "${ATLAS}"
+
+              echo "=== 완료 ==="
+              ls -la "${ATLAS}/"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"

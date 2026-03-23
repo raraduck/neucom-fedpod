@@ -1,0 +1,133 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: flirt-sample
+  namespace: dwnkim
+spec:
+  ttlSecondsAfterFinished: 600      # 완료 10분 후 자동 삭제
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+
+      # fedpod PVC 가 RWO → 현재 마운트 중인 노드에 고정
+      nodeName: gn144
+
+      volumes:
+        - name: fedpod
+          persistentVolumeClaim:
+            claimName: fedpod
+
+      containers:
+        - name: flirt
+          image: 192.168.0.80:30002/dwnkim/myfsl:v1.0
+
+          env:
+            - name: FSLDIR
+              value: /usr/share/fsl/5.0
+            - name: FSLOUTPUTTYPE
+              value: NIFTI_GZ
+            - name: PATH
+              value: /usr/lib/fsl/5.0:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+            - name: LD_LIBRARY_PATH
+              value: /usr/lib/fsl/5.0
+
+          volumeMounts:
+            - name: fedpod
+              mountPath: /workspace     # → /workspace/fedpod-new/ 이 프로젝트 루트
+
+          # -----------------------------------------------------------------
+          # 처리 흐름:
+          #   1. fets128 T1 → MNI152 12-DOF affine FLIRT (변환행렬 저장)
+          #   2. t1ce / t2 / flair → 동일 변환행렬 적용 (trilinear)
+          #   3. seg / sub (WT 마스크) → 동일 변환행렬 적용 (nearestneighbour)
+          #
+          # 목적: MNI 공간에서 WT centroid 좌표로 lobar 위치 / laterality 파악
+          #
+          # 입력:  data/fets128/inst_01/{CASE_ID}/
+          # 기준:  data/atlases/MNI152_T1_1mm_Brain.nii.gz  (182×218×182, 1mm)
+          # 출력:  data/fets128-mni-reg/{CASE_ID}/
+          #          {CASE_ID}_t1.nii.gz          ← MNI 공간 T1
+          #          {CASE_ID}_t1ce/t2/flair.nii.gz
+          #          {CASE_ID}_seg.nii.gz          ← MNI 공간 WT 마스크
+          #          {CASE_ID}_sub.nii.gz          ← MNI 공간 subregion 마스크
+          #          {CASE_ID}_t1_to_mni.mat       ← 변환행렬 (재사용 가능)
+          # -----------------------------------------------------------------
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              set -euo pipefail
+
+              PROJ="/workspace/fedpod-new"
+              REF="${PROJ}/data/atlases/MNI152_T1_1mm_Brain.nii.gz"
+              CASES="FeTS2022_00000 FeTS2022_00002 FeTS2022_00003"
+
+              echo "Ref    : MNI152 T1 1mm (182×218×182)"
+              echo "Cases  : ${CASES}"
+              echo ""
+
+              for CASE_ID in ${CASES}; do
+                SRC_DIR="${PROJ}/data/fets128/inst_01/${CASE_ID}"
+                OUT_DIR="${PROJ}/data/fets128-mni-reg/${CASE_ID}"
+                mkdir -p "${OUT_DIR}"
+
+                echo "========================================"
+                echo "Case: ${CASE_ID}"
+                echo "========================================"
+
+                # Step 1: T1 → MNI affine registration (변환행렬 저장)
+                echo "[1/6] FLIRT T1 → MNI (12-DOF, mutualinfo)..."
+                flirt \
+                  -in     "${SRC_DIR}/${CASE_ID}_t1.nii.gz" \
+                  -ref    "${REF}" \
+                  -out    "${OUT_DIR}/${CASE_ID}_t1.nii.gz" \
+                  -omat   "${OUT_DIR}/${CASE_ID}_t1_to_mni.mat" \
+                  -dof    12 \
+                  -cost   mutualinfo \
+                  -bins   256 \
+                  -interp trilinear
+                echo "  T1 done"
+
+                # Step 2-4: 이미지 모달리티 — 동일 변환행렬 적용 (trilinear)
+                for MOD in t1ce t2 flair; do
+                  echo "[apply] ${MOD} (trilinear)..."
+                  flirt \
+                    -in       "${SRC_DIR}/${CASE_ID}_${MOD}.nii.gz" \
+                    -ref      "${REF}" \
+                    -out      "${OUT_DIR}/${CASE_ID}_${MOD}.nii.gz" \
+                    -init     "${OUT_DIR}/${CASE_ID}_t1_to_mni.mat" \
+                    -applyxfm \
+                    -interp   trilinear
+                  echo "  ${MOD} done"
+                done
+
+                # Step 5-6: 마스크 — nearest neighbour (라벨 보존)
+                for MASK in seg sub; do
+                  echo "[apply] ${MASK} (nearestneighbour)..."
+                  flirt \
+                    -in       "${SRC_DIR}/${CASE_ID}_${MASK}.nii.gz" \
+                    -ref      "${REF}" \
+                    -out      "${OUT_DIR}/${CASE_ID}_${MASK}.nii.gz" \
+                    -init     "${OUT_DIR}/${CASE_ID}_t1_to_mni.mat" \
+                    -applyxfm \
+                    -interp   nearestneighbour
+                  echo "  ${MASK} done"
+                done
+
+                echo "변환행렬:"
+                cat "${OUT_DIR}/${CASE_ID}_t1_to_mni.mat"
+                echo ""
+              done
+
+              echo "========================================"
+              echo "전체 결과:"
+              ls -lh "${PROJ}/data/fets128-mni-reg/"
+              echo "Done."
+
+          resources:
+            requests:
+              cpu: "2"
+              memory: "4Gi"
+            limits:
+              cpu: "4"
+              memory: "8Gi"
