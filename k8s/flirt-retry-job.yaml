@@ -1,0 +1,150 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: flirt-retry
+  namespace: dwnkim
+spec:
+  # 실패 79케이스만 재처리 (completions 는 아래 CASES 배열 길이와 맞춤)
+  completions: 79
+  parallelism: 16
+  completionMode: Indexed
+  backoffLimit: 2
+  template:
+    spec:
+      restartPolicy: Never
+      nodeName: gn144
+      volumes:
+        - name: fedpod
+          persistentVolumeClaim:
+            claimName: fedpod
+      containers:
+        - name: flirt-retry
+          image: 192.168.0.80:30002/dwnkim/myfsl:v1.0
+          env:
+            - name: FSLDIR
+              value: /usr/share/fsl/5.0
+            - name: FSLOUTPUTTYPE
+              value: NIFTI_GZ
+            - name: PATH
+              value: /usr/lib/fsl/5.0:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+            - name: LD_LIBRARY_PATH
+              value: /usr/lib/fsl/5.0
+          volumeMounts:
+            - name: fedpod
+              mountPath: /workspace
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              set -euo pipefail
+
+              PROJ="/workspace/fedpod-new"
+              REF="${PROJ}/data/atlases/MNI152_T1_1mm_Brain.nii.gz"
+              TMP=$(mktemp -d)
+
+              # 실패 케이스 목록 (flirt_qc.csv 에서 flirt_failed=True)
+              CASES=(
+                FeTS2022_00002 FeTS2022_00032 FeTS2022_00081 FeTS2022_00097
+                FeTS2022_00109 FeTS2022_00158 FeTS2022_00194 FeTS2022_00247
+                FeTS2022_00251 FeTS2022_00320 FeTS2022_00392 FeTS2022_00405
+                FeTS2022_00413 FeTS2022_00423 FeTS2022_00432 FeTS2022_00466
+                FeTS2022_00479 FeTS2022_00499 FeTS2022_00502 FeTS2022_00520
+                FeTS2022_00529 FeTS2022_00538 FeTS2022_00540 FeTS2022_00545
+                FeTS2022_00548 FeTS2022_00551 FeTS2022_00558 FeTS2022_00571
+                FeTS2022_00574 FeTS2022_00578 FeTS2022_00582 FeTS2022_00589
+                FeTS2022_00624 FeTS2022_00640 FeTS2022_00679 FeTS2022_00693
+                FeTS2022_00698 FeTS2022_00703 FeTS2022_00724 FeTS2022_00737
+                FeTS2022_00739 FeTS2022_00757 FeTS2022_00764 FeTS2022_00765
+                FeTS2022_00799 FeTS2022_00803 FeTS2022_00824 FeTS2022_01087
+                FeTS2022_01089 FeTS2022_01095 FeTS2022_01113 FeTS2022_01143
+                FeTS2022_01150 FeTS2022_01158 FeTS2022_01172 FeTS2022_01175
+                FeTS2022_01222 FeTS2022_01229 FeTS2022_01251 FeTS2022_01285
+                FeTS2022_01301 FeTS2022_01335 FeTS2022_01362 FeTS2022_01368
+                FeTS2022_01377 FeTS2022_01397 FeTS2022_01482 FeTS2022_01540
+                FeTS2022_01542 FeTS2022_01546 FeTS2022_01563 FeTS2022_01573
+                FeTS2022_01586 FeTS2022_01601 FeTS2022_01602 FeTS2022_01609
+                FeTS2022_01618 FeTS2022_01634 FeTS2022_01656
+              )
+
+              CASE_ID="${CASES[$JOB_COMPLETION_INDEX]}"
+              SRC_DIR="${PROJ}/data/fets128/inst_01/${CASE_ID}"
+              OUT_DIR="${PROJ}/data/fets128-mni-reg/${CASE_ID}"
+              mkdir -p "${OUT_DIR}"
+
+              echo "[START] ${CASE_ID} (index=${JOB_COMPLETION_INDEX})"
+
+              # ── Step 1: fslreorient2std → T1 를 MNI 와 유사한 방향으로 재정렬 ──
+              # reorient 행렬도 함께 저장 (flirt 변환과 합성에 필요)
+              T1_STD="${TMP}/${CASE_ID}_t1_std.nii.gz"
+              REORIENT_MAT="${TMP}/${CASE_ID}_reorient.mat"
+
+              fslreorient2std \
+                "${SRC_DIR}/${CASE_ID}_t1.nii.gz" \
+                "${T1_STD}" \
+                "${REORIENT_MAT}"
+
+              echo "  reorient done"
+
+              # ── Step 2: reoriented T1 → MNI FLIRT (12-DOF) ──────────────────
+              FLIRT_MAT="${TMP}/${CASE_ID}_flirt.mat"
+
+              flirt \
+                -in     "${T1_STD}" \
+                -ref    "${REF}" \
+                -out    "${TMP}/${CASE_ID}_t1_check.nii.gz" \
+                -omat   "${FLIRT_MAT}" \
+                -dof    12 \
+                -cost   mutualinfo \
+                -bins   256 \
+                -interp trilinear
+
+              echo "  flirt done"
+
+              # ── Step 3: 변환 합성 reorient × flirt → 최종 mat ────────────────
+              FINAL_MAT="${OUT_DIR}/${CASE_ID}_t1_to_mni.mat"
+
+              convert_xfm \
+                -omat  "${FINAL_MAT}" \
+                -concat "${FLIRT_MAT}" "${REORIENT_MAT}"
+
+              echo "  matrix concat done: $(cat ${FINAL_MAT} | head -1)"
+
+              # ── Step 4: 최종 변환을 원본 fets128 T1 에 적용 ──────────────────
+              flirt \
+                -in       "${SRC_DIR}/${CASE_ID}_t1.nii.gz" \
+                -ref      "${REF}" \
+                -out      "${OUT_DIR}/${CASE_ID}_t1.nii.gz" \
+                -init     "${FINAL_MAT}" \
+                -applyxfm \
+                -interp   trilinear
+
+              # ── Step 5-7: 나머지 모달리티 ──────────────────────────────────
+              for MOD in t1ce t2 flair; do
+                flirt \
+                  -in       "${SRC_DIR}/${CASE_ID}_${MOD}.nii.gz" \
+                  -ref      "${REF}" \
+                  -out      "${OUT_DIR}/${CASE_ID}_${MOD}.nii.gz" \
+                  -init     "${FINAL_MAT}" \
+                  -applyxfm \
+                  -interp   trilinear
+              done
+
+              for MASK in seg sub; do
+                flirt \
+                  -in       "${SRC_DIR}/${CASE_ID}_${MASK}.nii.gz" \
+                  -ref      "${REF}" \
+                  -out      "${OUT_DIR}/${CASE_ID}_${MASK}.nii.gz" \
+                  -init     "${FINAL_MAT}" \
+                  -applyxfm \
+                  -interp   nearestneighbour
+              done
+
+              rm -rf "${TMP}"
+              echo "[DONE] ${CASE_ID}"
+
+          resources:
+            requests:
+              cpu: "1"
+              memory: "2Gi"
+            limits:
+              cpu: "2"
+              memory: "4Gi"

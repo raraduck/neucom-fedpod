@@ -1,0 +1,71 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: backup-failed
+  namespace: dwnkim
+spec:
+  ttlSecondsAfterFinished: 300
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      nodeName: gn144
+      volumes:
+        - name: fedpod
+          persistentVolumeClaim:
+            claimName: fedpod
+      containers:
+        - name: backup
+          image: 192.168.0.80:30002/dwnkim/myfsl:v1.0
+          volumeMounts:
+            - name: fedpod
+              mountPath: /workspace
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              set -euo pipefail
+
+              SRC="/workspace/fedpod-new/data/fets128-mni-reg"
+              BAK="/workspace/fedpod-new/data/fets128-mni-reg-bak"
+
+              FAILED=(
+                FeTS2022_00002 FeTS2022_00032 FeTS2022_00081 FeTS2022_00097
+                FeTS2022_00109 FeTS2022_00158 FeTS2022_00194 FeTS2022_00247
+                FeTS2022_00251 FeTS2022_00320 FeTS2022_00392 FeTS2022_00405
+                FeTS2022_00413 FeTS2022_00423 FeTS2022_00432 FeTS2022_00466
+                FeTS2022_00479 FeTS2022_00499 FeTS2022_00502 FeTS2022_00520
+                FeTS2022_00529 FeTS2022_00538 FeTS2022_00540 FeTS2022_00545
+                FeTS2022_00548 FeTS2022_00551 FeTS2022_00558 FeTS2022_00571
+                FeTS2022_00574 FeTS2022_00578 FeTS2022_00582 FeTS2022_00589
+                FeTS2022_00624 FeTS2022_00640 FeTS2022_00679 FeTS2022_00693
+                FeTS2022_00698 FeTS2022_00703 FeTS2022_00724 FeTS2022_00737
+                FeTS2022_00739 FeTS2022_00757 FeTS2022_00764 FeTS2022_00765
+                FeTS2022_00799 FeTS2022_00803 FeTS2022_00824 FeTS2022_01087
+                FeTS2022_01089 FeTS2022_01095 FeTS2022_01113 FeTS2022_01143
+                FeTS2022_01150 FeTS2022_01158 FeTS2022_01172 FeTS2022_01175
+                FeTS2022_01222 FeTS2022_01229 FeTS2022_01251 FeTS2022_01285
+                FeTS2022_01301 FeTS2022_01335 FeTS2022_01362 FeTS2022_01368
+                FeTS2022_01377 FeTS2022_01397 FeTS2022_01482 FeTS2022_01540
+                FeTS2022_01542 FeTS2022_01546 FeTS2022_01563 FeTS2022_01573
+                FeTS2022_01586 FeTS2022_01601 FeTS2022_01602 FeTS2022_01609
+                FeTS2022_01618 FeTS2022_01634 FeTS2022_01656
+              )
+
+              mkdir -p "${BAK}"
+
+              echo "백업 시작: ${#FAILED[@]} 케이스 → ${BAK}"
+              for CASE_ID in "${FAILED[@]}"; do
+                cp -r "${SRC}/${CASE_ID}" "${BAK}/${CASE_ID}"
+              done
+
+              # 소유권을 jovyan(uid=1000) 으로 변경
+              chown -R 1000:100 "${BAK}"
+
+              echo "완료: $(ls ${BAK} | wc -l) 케이스 백업됨"
+              ls "${BAK}" | head -5
+              echo "..."
+
+          resources:
+            requests:
+              cpu: "1"
+              memory: "1Gi"

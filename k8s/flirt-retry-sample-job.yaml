@@ -1,0 +1,126 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: flirt-retry-sample
+  namespace: dwnkim
+spec:
+  completions: 3
+  parallelism: 3
+  completionMode: Indexed
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 600
+  template:
+    spec:
+      restartPolicy: Never
+      nodeName: gn144
+      volumes:
+        - name: fedpod
+          persistentVolumeClaim:
+            claimName: fedpod
+      containers:
+        - name: flirt-retry
+          image: 192.168.0.80:30002/dwnkim/myfsl:v1.0
+          env:
+            - name: FSLDIR
+              value: /usr/share/fsl/5.0
+            - name: FSLOUTPUTTYPE
+              value: NIFTI_GZ
+            - name: PATH
+              value: /usr/lib/fsl/5.0:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+            - name: LD_LIBRARY_PATH
+              value: /usr/lib/fsl/5.0
+          volumeMounts:
+            - name: fedpod
+              mountPath: /workspace
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              set -euo pipefail
+
+              PROJ="/workspace/fedpod-new"
+              REF="${PROJ}/data/atlases/MNI152_T1_1mm_Brain.nii.gz"
+              TMP=$(mktemp -d)
+
+              # 샘플 3케이스: flip 심한 것 / 중간 / 경계
+              CASES=(FeTS2022_00002 FeTS2022_00081 FeTS2022_00589)
+              CASE_ID="${CASES[$JOB_COMPLETION_INDEX]}"
+
+              SRC_DIR="${PROJ}/data/fets128/inst_01/${CASE_ID}"
+              OUT_DIR="${PROJ}/data/fets128-mni-reg/${CASE_ID}"
+              mkdir -p "${OUT_DIR}"
+
+              echo "========================================"
+              echo "Case : ${CASE_ID}  (index=${JOB_COMPLETION_INDEX})"
+              echo "========================================"
+
+              # ── 전처리: fslswapdim x -y z ─────────────────────────────────
+              # fets128 LPS (det>0, NEUROLOGICAL) → LAS (det<0, RADIOLOGICAL)
+              # y 축 반전으로 MNI와 동일한 방향으로 맞춤 → FLIRT local-min flip 방지
+
+              echo "[swapdim] LPS → LAS (y 반전)..."
+              for MOD in t1 t1ce t2 flair; do
+                fslswapdim \
+                  "${SRC_DIR}/${CASE_ID}_${MOD}.nii.gz" \
+                  x -y z \
+                  "${TMP}/${CASE_ID}_${MOD}_las.nii.gz"
+              done
+              for MASK in seg sub; do
+                fslswapdim \
+                  "${SRC_DIR}/${CASE_ID}_${MASK}.nii.gz" \
+                  x -y z \
+                  "${TMP}/${CASE_ID}_${MASK}_las.nii.gz"
+              done
+
+              echo "[swapdim 후 orientation]"
+              fslorient -getorient "${TMP}/${CASE_ID}_t1_las.nii.gz"
+
+              # ── Step 1: LAS T1 → MNI FLIRT (matrix 저장) ─────────────────
+              FLIRT_MAT="${OUT_DIR}/${CASE_ID}_t1_to_mni.mat"
+
+              flirt \
+                -in     "${TMP}/${CASE_ID}_t1_las.nii.gz" \
+                -ref    "${REF}" \
+                -out    "${OUT_DIR}/${CASE_ID}_t1.nii.gz" \
+                -omat   "${FLIRT_MAT}" \
+                -dof    12 \
+                -cost   mutualinfo \
+                -bins   256 \
+                -interp trilinear
+
+              echo "[FLIRT mat (LAS→MNI)]"
+              cat "${FLIRT_MAT}"
+
+              # ── Step 2-4: 이미지 모달리티 ─────────────────────────────────
+              for MOD in t1ce t2 flair; do
+                flirt \
+                  -in       "${TMP}/${CASE_ID}_${MOD}_las.nii.gz" \
+                  -ref      "${REF}" \
+                  -out      "${OUT_DIR}/${CASE_ID}_${MOD}.nii.gz" \
+                  -init     "${FLIRT_MAT}" \
+                  -applyxfm \
+                  -interp   trilinear
+                echo "  ${MOD} done"
+              done
+
+              # ── Step 5-6: 마스크 ──────────────────────────────────────────
+              for MASK in seg sub; do
+                flirt \
+                  -in       "${TMP}/${CASE_ID}_${MASK}_las.nii.gz" \
+                  -ref      "${REF}" \
+                  -out      "${OUT_DIR}/${CASE_ID}_${MASK}.nii.gz" \
+                  -init     "${FLIRT_MAT}" \
+                  -applyxfm \
+                  -interp   nearestneighbour
+                echo "  ${MASK} done"
+              done
+
+              rm -rf "${TMP}"
+              echo "[DONE] ${CASE_ID}"
+
+          resources:
+            requests:
+              cpu: "2"
+              memory: "4Gi"
+            limits:
+              cpu: "4"
+              memory: "8Gi"

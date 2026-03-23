@@ -1,0 +1,106 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: flirt-all
+  namespace: dwnkim
+spec:
+  completions: 1251          # 전체 케이스 수
+  parallelism: 16            # 동시 실행 pod 수 (노드 부하에 맞게 조절)
+  completionMode: Indexed    # 각 pod 에 JOB_COMPLETION_INDEX 부여
+  backoffLimit: 3            # 개별 pod 실패 시 재시도 횟수
+  template:
+    spec:
+      restartPolicy: Never
+
+      # fedpod PVC (RWO) → 현재 마운트 중인 노드에 고정
+      nodeName: gn144
+
+      volumes:
+        - name: fedpod
+          persistentVolumeClaim:
+            claimName: fedpod
+
+      containers:
+        - name: flirt
+          image: 192.168.0.80:30002/dwnkim/myfsl:v1.0
+
+          env:
+            - name: FSLDIR
+              value: /usr/share/fsl/5.0
+            - name: FSLOUTPUTTYPE
+              value: NIFTI_GZ
+            - name: PATH
+              value: /usr/lib/fsl/5.0:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+            - name: LD_LIBRARY_PATH
+              value: /usr/lib/fsl/5.0
+
+          volumeMounts:
+            - name: fedpod
+              mountPath: /workspace
+
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              set -euo pipefail
+
+              PROJ="/workspace/fedpod-new"
+              REF="${PROJ}/data/atlases/MNI152_T1_1mm_Brain.nii.gz"
+
+              # JOB_COMPLETION_INDEX → 케이스 ID 매핑
+              CASES=($(ls "${PROJ}/data/fets128/inst_01/" | sort))
+              CASE_ID="${CASES[$JOB_COMPLETION_INDEX]}"
+
+              SRC_DIR="${PROJ}/data/fets128/inst_01/${CASE_ID}"
+              OUT_DIR="${PROJ}/data/fets128-mni-reg/${CASE_ID}"
+
+              # 이미 처리된 케이스는 스킵 (재실행 안전)
+              if [ -f "${OUT_DIR}/${CASE_ID}_t1_to_mni.mat" ]; then
+                echo "[SKIP] ${CASE_ID} already done (index=${JOB_COMPLETION_INDEX})"
+                exit 0
+              fi
+
+              mkdir -p "${OUT_DIR}"
+              echo "[START] ${CASE_ID} (index=${JOB_COMPLETION_INDEX})"
+
+              # Step 1: T1 → MNI 12-DOF affine (변환행렬 저장)
+              flirt \
+                -in     "${SRC_DIR}/${CASE_ID}_t1.nii.gz" \
+                -ref    "${REF}" \
+                -out    "${OUT_DIR}/${CASE_ID}_t1.nii.gz" \
+                -omat   "${OUT_DIR}/${CASE_ID}_t1_to_mni.mat" \
+                -dof    12 \
+                -cost   mutualinfo \
+                -bins   256 \
+                -interp trilinear
+
+              # Step 2-4: 이미지 모달리티 (trilinear)
+              for MOD in t1ce t2 flair; do
+                flirt \
+                  -in       "${SRC_DIR}/${CASE_ID}_${MOD}.nii.gz" \
+                  -ref      "${REF}" \
+                  -out      "${OUT_DIR}/${CASE_ID}_${MOD}.nii.gz" \
+                  -init     "${OUT_DIR}/${CASE_ID}_t1_to_mni.mat" \
+                  -applyxfm \
+                  -interp   trilinear
+              done
+
+              # Step 5-6: 마스크 (nearestneighbour)
+              for MASK in seg sub; do
+                flirt \
+                  -in       "${SRC_DIR}/${CASE_ID}_${MASK}.nii.gz" \
+                  -ref      "${REF}" \
+                  -out      "${OUT_DIR}/${CASE_ID}_${MASK}.nii.gz" \
+                  -init     "${OUT_DIR}/${CASE_ID}_t1_to_mni.mat" \
+                  -applyxfm \
+                  -interp   nearestneighbour
+              done
+
+              echo "[DONE] ${CASE_ID}"
+
+          resources:
+            requests:
+              cpu: "1"
+              memory: "2Gi"
+            limits:
+              cpu: "2"
+              memory: "4Gi"
