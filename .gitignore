@@ -20,6 +20,7 @@ analysis/results/*
 analysis/results/atlas/*
 !analysis/results/atlas/summary.csv
 !analysis/results/seg_summary.csv
+!analysis/results/report_summary.csv
 
 # =============================================================
 # 데이터 — 무거운 원본/전처리 데이터 (폴더 구조만 유지)
