@@ -1,0 +1,1252 @@
+Subject_ID,WT_voxels_mni,centroid_x_mm,centroid_y_mm,centroid_z_mm,laterality,sub_left_vox,sub_right_vox,top_lobe,top_lobe_pct,top1_region,top1_pct,top2_region,top2_pct,top3_region,top3_pct
+FeTS2022_00000,74160,-16.7,28.5,-5.4,Left,70738,2816,Frontal,41.7,Left Cerebral White Matter,43.67,Left Cerebral Cortex,39.63,Frontal Orbital Cortex,13.57
+FeTS2022_00002,264991,-19.1,15.3,3.9,Left,224684,35454,Frontal,32.7,Left Cerebral White Matter,38.74,Left Cerebral Cortex,34.19,Frontal Pole,7.96
+FeTS2022_00003,114837,-17.9,-2.4,39.2,Left,108380,6419,Frontal,39.0,Left Cerebral White Matter,57.12,Left Cerebral Cortex,29.47,Superior Frontal Gyrus,9.94
+FeTS2022_00005,184945,-26.8,-39.4,35.5,Left,183966,749,Parietal,32.6,Left Cerebral White Matter,48.84,Left Cerebral Cortex,44.89,"Lateral Occipital Cortex, superior division",10.2
+FeTS2022_00006,180682,-19.2,35.8,4.4,Left,156913,20124,Frontal,57.8,Left Cerebral Cortex,49.1,Left Cerebral White Matter,32.3,Frontal Pole,27.39
+FeTS2022_00008,25889,46.3,-53.1,2.3,Right,0,25887,Temporal,35.6,Right Cerebral White Matter,52.58,Right Cerebral Cortex,46.72,"Middle Temporal Gyrus, temporooccipital part",22.71
+FeTS2022_00009,37846,-23.8,30.1,31.8,Left,35047,1436,Frontal,79.3,Left Cerebral Cortex,67.91,Middle Frontal Gyrus,31.51,Left Cerebral White Matter,24.69
+FeTS2022_00011,95106,44.4,-38.0,28.6,Right,0,95088,Parietal,43.7,Right Cerebral Cortex,57.96,Right Cerebral White Matter,41.04,Postcentral Gyrus,10.18
+FeTS2022_00012,315136,-10.3,14.8,22.8,Left,229569,83164,Frontal,39.6,Left Cerebral White Matter,36.27,Left Cerebral Cortex,29.07,Right Cerebral White Matter,13.94
+FeTS2022_00014,50455,-32.3,-11.7,-18.1,Left,49507,0,Temporal,25.9,Left Cerebral Cortex,39.43,Left Cerebral White Matter,38.89,Temporal Pole,10.36
+FeTS2022_00016,102239,-37.4,-61.0,11.8,Left,102214,0,Occipital,31.0,Left Cerebral Cortex,49.83,Left Cerebral White Matter,49.1,"Lateral Occipital Cortex, superior division",15.64
+FeTS2022_00017,118005,-48.1,-36.5,-0.2,Left,117924,0,Temporal,43.7,Left Cerebral Cortex,65.01,Left Cerebral White Matter,33.98,"Middle Temporal Gyrus, posterior division",8.46
+FeTS2022_00018,210337,-34.5,-16.9,29.6,Left,210337,0,Frontal,21.3,Left Cerebral White Matter,50.66,Left Cerebral Cortex,43.5,Postcentral Gyrus,9.15
+FeTS2022_00019,168491,-25.4,7.7,0.0,Left,162109,3617,Frontal,20.4,Left Cerebral White Matter,49.91,Left Cerebral Cortex,29.36,Frontal Orbital Cortex,6.67
+FeTS2022_00020,70508,30.6,-68.6,3.8,Right,96,69869,Occipital,50.3,Right Cerebral White Matter,49.89,Right Cerebral Cortex,46.96,"Lateral Occipital Cortex, inferior division",16.34
+FeTS2022_00021,111595,14.7,11.2,-4.7,Right,23498,87124,Frontal,21.8,Right Cerebral White Matter,30.51,Right Cerebral Cortex,30.09,Left Cerebral Cortex,9.95
+FeTS2022_00022,155131,32.9,-44.3,31.2,Right,0,155097,Parietal,31.2,Right Cerebral White Matter,51.27,Right Cerebral Cortex,46.33,"Lateral Occipital Cortex, superior division",11.65
+FeTS2022_00024,116620,-42.6,-21.5,-12.9,Left,109623,0,Temporal,42.5,Left Cerebral Cortex,50.2,Left Cerebral White Matter,34.65,"Inferior Temporal Gyrus, posterior division",6.96
+FeTS2022_00025,35817,-53.6,-52.2,-3.1,Left,35428,0,Temporal,53.5,Left Cerebral Cortex,85.16,"Lateral Occipital Cortex, inferior division",16.92,"Middle Temporal Gyrus, temporooccipital part",16.02
+FeTS2022_00026,75393,-37.9,-5.0,6.3,Left,75318,0,Frontal,16.5,Left Cerebral White Matter,49.92,Left Cerebral Cortex,42.83,Insular Cortex,13.26
+FeTS2022_00028,30899,-36.2,2.7,-0.9,Left,30862,0,Frontal,31.5,Left Cerebral Cortex,45.92,Left Cerebral White Matter,37.91,Insular Cortex,12.02
+FeTS2022_00030,137735,23.2,-45.1,43.2,Right,1973,135247,Parietal,43.0,Right Cerebral Cortex,51.82,Right Cerebral White Matter,45.2,Precuneous Cortex,14.88
+FeTS2022_00031,270021,38.4,-37.2,20.1,Right,1183,267277,Parietal,23.6,Right Cerebral Cortex,55.64,Right Cerebral White Matter,38.98,"Lateral Occipital Cortex, superior division",9.86
+FeTS2022_00032,100612,-39.9,-30.8,32.5,Left,100602,0,Parietal,35.7,Left Cerebral White Matter,52.21,Left Cerebral Cortex,46.19,Postcentral Gyrus,13.01
+FeTS2022_00033,211550,-40.0,-24.1,-9.2,Left,205238,0,Temporal,37.3,Left Cerebral Cortex,57.57,Left Cerebral White Matter,30.19,Temporal Pole,7.64
+FeTS2022_00035,56818,-38.1,-40.2,26.1,Left,56818,0,Parietal,31.4,Left Cerebral White Matter,65.11,Left Cerebral Cortex,31.37,"Supramarginal Gyrus, posterior division",7.19
+FeTS2022_00036,158843,-23.2,32.3,9.5,Left,156159,2288,Frontal,54.2,Left Cerebral Cortex,47.17,Left Cerebral White Matter,45.82,Frontal Pole,25.92
+FeTS2022_00043,127208,-36.3,-16.1,-16.5,Left,118965,0,Temporal,37.9,Left Cerebral Cortex,51.48,Left Cerebral White Matter,30.0,Temporal Pole,9.78
+FeTS2022_00044,21786,-44.4,-2.0,11.4,Left,21786,0,Frontal,47.0,Left Cerebral Cortex,67.63,Left Cerebral White Matter,32.31,Central Opercular Cortex,24.21
+FeTS2022_00045,38000,-41.1,0.4,-18.3,Left,37973,0,Temporal,47.8,Left Cerebral Cortex,63.39,Left Cerebral White Matter,31.67,Temporal Pole,30.71
+FeTS2022_00046,48904,33.3,-26.2,43.8,Right,0,48904,Parietal,37.7,Right Cerebral White Matter,58.1,Right Cerebral Cortex,41.9,Postcentral Gyrus,28.2
+FeTS2022_00048,92558,-31.7,-71.5,2.2,Left,85911,0,Occipital,51.6,Left Cerebral Cortex,53.4,Left Cerebral White Matter,38.14,"Lateral Occipital Cortex, superior division",16.09
+FeTS2022_00049,164516,-25.4,7.6,39.0,Left,161365,2,Frontal,48.8,Left Cerebral White Matter,50.22,Left Cerebral Cortex,46.15,Middle Frontal Gyrus,12.52
+FeTS2022_00051,145170,-32.4,0.4,11.7,Left,145031,30,Frontal,18.4,Left Cerebral White Matter,59.02,Left Cerebral Cortex,29.25,Insular Cortex,6.92
+FeTS2022_00052,180410,37.4,-11.2,0.8,Right,4,179649,Temporal,21.4,Right Cerebral White Matter,46.84,Right Cerebral Cortex,40.2,Temporal Pole,6.58
+FeTS2022_00053,120513,-16.8,2.5,35.3,Left,108884,11408,Frontal,34.1,Left Cerebral White Matter,53.95,Left Cerebral Cortex,27.27,Superior Frontal Gyrus,12.27
+FeTS2022_00054,150003,-35.6,15.7,18.4,Left,145388,0,Frontal,45.9,Left Cerebral Cortex,51.02,Left Cerebral White Matter,40.8,Middle Frontal Gyrus,11.14
+FeTS2022_00056,137406,-36.9,-10.7,-10.3,Left,135061,0,Temporal,31.4,Left Cerebral Cortex,53.35,Left Cerebral White Matter,31.33,Temporal Pole,10.83
+FeTS2022_00058,39341,-31.9,-63.0,-3.5,Left,39079,0,Occipital,33.5,Left Cerebral White Matter,52.45,Left Cerebral Cortex,44.98,"Lateral Occipital Cortex, inferior division",12.72
+FeTS2022_00059,157721,-26.9,12.4,2.5,Left,155787,1587,Frontal,25.1,Left Cerebral White Matter,56.44,Left Cerebral Cortex,32.65,Insular Cortex,6.69
+FeTS2022_00060,245133,35.6,-22.5,0.1,Right,688,241734,Temporal,25.0,Right Cerebral White Matter,44.7,Right Cerebral Cortex,41.91,Temporal Pole,4.29
+FeTS2022_00061,22311,-29.4,-24.1,-15.0,Left,21830,0,Other,20.9,Left Cerebral White Matter,43.97,Left Cerebral Cortex,31.68,Left Hippocampus,17.52
+FeTS2022_00062,167114,19.6,39.2,9.3,Right,9844,153947,Frontal,62.0,Right Cerebral Cortex,52.87,Right Cerebral White Matter,36.48,Frontal Pole,34.4
+FeTS2022_00063,27300,17.4,-23.1,60.8,Right,0,27210,Frontal,50.2,Right Cerebral Cortex,57.84,Precentral Gyrus,44.96,Right Cerebral White Matter,41.83
+FeTS2022_00064,112121,-28.9,12.8,3.8,Left,111239,870,Frontal,27.4,Left Cerebral White Matter,59.03,Left Cerebral Cortex,32.53,Frontal Pole,8.9
+FeTS2022_00066,50345,40.5,-0.6,25.9,Right,0,50342,Frontal,44.9,Right Cerebral White Matter,58.23,Right Cerebral Cortex,41.68,Precentral Gyrus,22.94
+FeTS2022_00068,169708,34.2,-12.2,3.2,Right,658,165827,Temporal,17.4,Right Cerebral White Matter,53.01,Right Cerebral Cortex,28.68,Insular Cortex,5.72
+FeTS2022_00070,182692,-24.6,8.7,35.1,Left,177217,5442,Frontal,52.0,Left Cerebral Cortex,46.84,Left Cerebral White Matter,46.39,Middle Frontal Gyrus,11.69
+FeTS2022_00071,101629,30.7,-69.2,15.4,Right,12,101591,Occipital,58.5,Right Cerebral Cortex,56.84,Right Cerebral White Matter,41.42,"Lateral Occipital Cortex, superior division",22.67
+FeTS2022_00072,84272,-40.2,-33.1,9.2,Left,84118,0,Temporal,18.8,Left Cerebral White Matter,51.49,Left Cerebral Cortex,39.89,Central Opercular Cortex,6.14
+FeTS2022_00074,191756,27.7,27.2,7.8,Right,5755,184399,Frontal,51.2,Right Cerebral Cortex,49.56,Right Cerebral White Matter,40.15,Frontal Pole,24.25
+FeTS2022_00077,224335,22.1,25.9,11.5,Right,24238,199961,Frontal,46.8,Right Cerebral White Matter,42.85,Right Cerebral Cortex,39.43,Frontal Pole,20.18
+FeTS2022_00078,81731,25.1,-50.6,36.9,Right,14,81707,Parietal,35.9,Right Cerebral White Matter,54.85,Right Cerebral Cortex,42.03,Precuneous Cortex,16.46
+FeTS2022_00081,117974,-37.6,-48.2,23.3,Left,117974,0,Parietal,26.0,Left Cerebral White Matter,54.14,Left Cerebral Cortex,43.16,"Lateral Occipital Cortex, superior division",14.83
+FeTS2022_00084,100312,45.1,-27.1,31.4,Right,0,100047,Parietal,42.8,Right Cerebral Cortex,58.65,Right Cerebral White Matter,40.93,Postcentral Gyrus,13.5
+FeTS2022_00085,88856,-19.2,-56.8,41.0,Left,87642,831,Parietal,41.6,Left Cerebral Cortex,59.51,Left Cerebral White Matter,38.08,"Lateral Occipital Cortex, superior division",23.41
+FeTS2022_00087,153982,-37.7,-15.2,-4.0,Left,149954,0,Temporal,25.7,Left Cerebral Cortex,53.86,Left Cerebral White Matter,28.93,Temporal Pole,7.24
+FeTS2022_00088,163641,28.1,-51.1,24.0,Right,642,162698,Parietal,25.6,Right Cerebral White Matter,51.49,Right Cerebral Cortex,43.2,"Lateral Occipital Cortex, superior division",13.9
+FeTS2022_00089,48887,-28.3,1.7,36.5,Left,48186,701,Frontal,39.9,Left Cerebral White Matter,64.07,Left Cerebral Cortex,31.86,Middle Frontal Gyrus,16.55
+FeTS2022_00090,127451,-39.5,-26.9,1.4,Left,125297,0,Temporal,28.8,Left Cerebral White Matter,43.08,Left Cerebral Cortex,40.8,"Middle Temporal Gyrus, posterior division",7.38
+FeTS2022_00094,184538,36.6,-50.7,21.1,Right,0,184366,Occipital,25.9,Right Cerebral Cortex,48.64,Right Cerebral White Matter,48.4,"Lateral Occipital Cortex, superior division",14.54
+FeTS2022_00095,257213,20.1,23.1,12.0,Right,34710,221850,Frontal,45.5,Right Cerebral White Matter,40.14,Right Cerebral Cortex,37.65,Frontal Pole,16.93
+FeTS2022_00096,135128,43.9,-36.6,6.2,Right,0,134470,Temporal,25.3,Right Cerebral White Matter,49.95,Right Cerebral Cortex,44.09,"Middle Temporal Gyrus, posterior division",6.79
+FeTS2022_00097,55220,-44.9,-43.1,27.0,Left,55220,0,Parietal,45.6,Left Cerebral Cortex,55.5,Left Cerebral White Matter,44.4,"Supramarginal Gyrus, posterior division",11.47
+FeTS2022_00098,90177,35.7,-25.2,-10.4,Right,0,89785,Temporal,27.1,Right Cerebral White Matter,51.03,Right Cerebral Cortex,33.82,Right Hippocampus,5.97
+FeTS2022_00099,119038,21.4,-43.7,39.5,Right,6066,112955,Parietal,35.9,Right Cerebral White Matter,51.72,Right Cerebral Cortex,41.44,Precuneous Cortex,12.3
+FeTS2022_00100,141917,-27.9,11.5,24.2,Left,141913,0,Frontal,37.0,Left Cerebral White Matter,56.84,Left Cerebral Cortex,34.22,Middle Frontal Gyrus,9.99
+FeTS2022_00101,77922,-32.8,-40.9,43.4,Left,76910,0,Parietal,48.4,Left Cerebral White Matter,48.91,Left Cerebral Cortex,48.7,Postcentral Gyrus,18.34
+FeTS2022_00102,16834,26.4,-48.3,-4.1,Right,0,16537,Occipital,32.2,Right Cerebral White Matter,46.45,Right Cerebral Cortex,43.36,Lingual Gyrus,28.86
+FeTS2022_00103,243718,31.8,-8.6,5.7,Right,3460,234023,Temporal,15.8,Right Cerebral White Matter,53.59,Right Cerebral Cortex,28.7,Temporal Pole,4.79
+FeTS2022_00104,98423,-12.4,18.3,35.4,Left,84617,12738,Frontal,51.0,Left Cerebral White Matter,45.73,Left Cerebral Cortex,36.78,Superior Frontal Gyrus,15.73
+FeTS2022_00105,215435,-31.4,-29.4,29.3,Left,214873,327,Parietal,23.2,Left Cerebral White Matter,56.41,Left Cerebral Cortex,37.46,Postcentral Gyrus,8.84
+FeTS2022_00106,273136,25.3,11.8,25.8,Right,7002,265772,Frontal,44.5,Right Cerebral White Matter,47.32,Right Cerebral Cortex,44.36,Frontal Pole,11.84
+FeTS2022_00107,110687,-39.2,6.2,20.5,Left,110293,0,Frontal,42.6,Left Cerebral Cortex,52.01,Left Cerebral White Matter,44.33,Precentral Gyrus,12.55
+FeTS2022_00108,89005,-40.4,-1.0,-14.1,Left,86998,0,Temporal,39.8,Left Cerebral Cortex,58.99,Left Cerebral White Matter,29.12,Temporal Pole,18.03
+FeTS2022_00109,186550,-36.5,-20.8,30.5,Left,185086,0,Parietal,25.7,Left Cerebral Cortex,48.8,Left Cerebral White Matter,45.7,Postcentral Gyrus,11.16
+FeTS2022_00110,139966,-27.4,4.4,38.4,Left,139303,0,Frontal,45.5,Left Cerebral White Matter,53.87,Left Cerebral Cortex,44.06,Middle Frontal Gyrus,13.87
+FeTS2022_00111,224813,-38.2,-16.6,-1.8,Left,221524,4,Temporal,29.8,Left Cerebral Cortex,49.25,Left Cerebral White Matter,36.82,Temporal Pole,6.98
+FeTS2022_00112,113977,-43.4,-57.6,10.6,Left,113251,0,Occipital,31.2,Left Cerebral Cortex,59.44,Left Cerebral White Matter,38.88,"Lateral Occipital Cortex, superior division",14.97
+FeTS2022_00113,49812,-43.6,-0.8,-22.4,Left,47444,0,Temporal,55.2,Left Cerebral Cortex,63.72,Temporal Pole,29.12,Left Cerebral White Matter,25.72
+FeTS2022_00115,114869,40.5,-48.9,19.3,Right,2,112972,Occipital,23.7,Right Cerebral White Matter,49.69,Right Cerebral Cortex,45.56,"Lateral Occipital Cortex, superior division",16.38
+FeTS2022_00116,206885,33.2,-47.0,21.0,Right,14,206310,Occipital,21.6,Right Cerebral White Matter,50.61,Right Cerebral Cortex,45.35,"Lateral Occipital Cortex, superior division",12.43
+FeTS2022_00117,106639,14.5,-34.0,36.5,Right,13195,93277,Parietal,35.3,Right Cerebral White Matter,51.68,Right Cerebral Cortex,34.25,"Cingulate Gyrus, posterior division",13.93
+FeTS2022_00118,194100,24.6,23.1,27.2,Right,1586,189683,Frontal,52.8,Right Cerebral White Matter,48.1,Right Cerebral Cortex,46.89,Frontal Pole,19.06
+FeTS2022_00120,145935,38.2,-8.4,21.6,Right,653,144458,Frontal,23.7,Right Cerebral White Matter,49.34,Right Cerebral Cortex,41.9,Precentral Gyrus,8.66
+FeTS2022_00121,100363,-24.9,-68.9,25.2,Left,99501,0,Occipital,45.4,Left Cerebral White Matter,50.5,Left Cerebral Cortex,48.56,"Lateral Occipital Cortex, superior division",24.04
+FeTS2022_00122,58308,-38.2,-45.6,5.2,Left,58308,0,Temporal,19.2,Left Cerebral White Matter,67.52,Left Cerebral Cortex,27.44,Planum Temporale,3.74
+FeTS2022_00123,279177,35.3,-22.9,13.6,Right,767,276755,Parietal,15.7,Right Cerebral White Matter,46.79,Right Cerebral Cortex,42.05,"Lateral Occipital Cortex, superior division",5.17
+FeTS2022_00124,217870,-35.7,-13.5,-4.0,Left,212251,1350,Temporal,27.5,Left Cerebral Cortex,46.84,Left Cerebral White Matter,37.28,Temporal Pole,6.63
+FeTS2022_00126,201350,31.2,-39.9,26.2,Right,340,200601,Parietal,22.4,Right Cerebral White Matter,55.36,Right Cerebral Cortex,37.19,"Lateral Occipital Cortex, superior division",11.5
+FeTS2022_00127,147769,-44.3,-22.0,-8.4,Left,146450,0,Temporal,47.4,Left Cerebral Cortex,61.76,Left Cerebral White Matter,32.61,Temporal Pole,9.49
+FeTS2022_00128,202232,36.8,-30.3,27.5,Right,0,202214,Parietal,23.1,Right Cerebral White Matter,53.58,Right Cerebral Cortex,42.53,"Lateral Occipital Cortex, superior division",7.79
+FeTS2022_00130,199048,37.6,-43.9,13.8,Right,0,198870,Occipital,19.2,Right Cerebral White Matter,50.23,Right Cerebral Cortex,44.03,"Lateral Occipital Cortex, superior division",10.33
+FeTS2022_00131,126063,-36.9,-48.4,27.9,Left,125269,0,Parietal,27.9,Left Cerebral White Matter,50.38,Left Cerebral Cortex,46.09,"Lateral Occipital Cortex, superior division",17.38
+FeTS2022_00132,181637,-35.6,-11.9,-0.9,Left,180730,0,Temporal,22.1,Left Cerebral White Matter,47.88,Left Cerebral Cortex,41.5,Temporal Pole,7.1
+FeTS2022_00133,99189,34.7,-12.3,-6.9,Right,25,97732,Temporal,27.9,Right Cerebral White Matter,44.33,Right Cerebral Cortex,35.92,Temporal Pole,8.83
+FeTS2022_00134,176682,-17.7,17.3,0.9,Left,145028,27487,Frontal,31.0,Left Cerebral White Matter,37.94,Left Cerebral Cortex,31.19,Frontal Orbital Cortex,6.21
+FeTS2022_00136,74732,-37.7,-53.2,-3.5,Left,74275,0,Occipital,26.4,Left Cerebral Cortex,49.72,Left Cerebral White Matter,46.94,"Lateral Occipital Cortex, inferior division",14.3
+FeTS2022_00137,275444,35.6,-38.0,4.5,Right,1149,265387,Temporal,19.5,Right Cerebral Cortex,44.63,Right Cerebral White Matter,42.84,"Lateral Occipital Cortex, inferior division",5.14
+FeTS2022_00138,201428,38.4,-36.7,9.6,Right,905,199991,Temporal,20.2,Right Cerebral White Matter,48.27,Right Cerebral Cortex,44.17,"Lateral Occipital Cortex, superior division",9.1
+FeTS2022_00139,122669,-29.0,-6.1,-12.7,Left,113340,653,Temporal,22.8,Left Cerebral Cortex,46.91,Left Cerebral White Matter,27.45,Temporal Pole,13.01
+FeTS2022_00140,21484,-48.6,-56.4,33.4,Left,21312,0,Parietal,50.7,Left Cerebral Cortex,86.19,"Lateral Occipital Cortex, superior division",30.84,Angular Gyrus,30.19
+FeTS2022_00142,105531,-27.4,-18.0,1.8,Left,104146,245,Frontal,7.8,Left Cerebral White Matter,59.96,Left Cerebral Cortex,27.79,Left Hippocampus,5.16
+FeTS2022_00143,210077,38.1,-19.7,1.5,Right,24,207835,Temporal,29.8,Right Cerebral White Matter,49.0,Right Cerebral Cortex,43.1,Temporal Pole,7.03
+FeTS2022_00144,87826,44.6,-21.6,-14.2,Right,0,87055,Temporal,50.9,Right Cerebral Cortex,52.58,Right Cerebral White Matter,39.52,"Middle Temporal Gyrus, posterior division",10.88
+FeTS2022_00146,239495,-15.0,17.5,25.7,Left,194035,41402,Frontal,46.0,Left Cerebral Cortex,36.84,Left Cerebral White Matter,36.12,Frontal Pole,9.46
+FeTS2022_00147,207331,-26.5,-48.1,36.1,Left,205627,419,Parietal,33.7,Left Cerebral Cortex,50.55,Left Cerebral White Matter,46.85,"Lateral Occipital Cortex, superior division",14.27
+FeTS2022_00148,74331,-47.3,-15.4,-15.0,Left,72746,0,Temporal,53.6,Left Cerebral Cortex,62.1,Left Cerebral White Matter,31.8,"Middle Temporal Gyrus, posterior division",11.84
+FeTS2022_00149,36497,43.7,-17.2,20.1,Right,0,36493,Parietal,28.2,Right Cerebral Cortex,53.4,Right Cerebral White Matter,46.13,Insular Cortex,12.92
+FeTS2022_00150,237375,32.4,-5.1,-0.8,Right,4713,228497,Temporal,21.6,Right Cerebral White Matter,43.47,Right Cerebral Cortex,37.45,Temporal Pole,6.31
+FeTS2022_00151,267963,-7.6,23.8,4.6,Left,166755,96971,Frontal,37.8,Left Cerebral Cortex,29.98,Left Cerebral White Matter,25.76,Right Cerebral White Matter,21.32
+FeTS2022_00152,62785,-41.1,2.0,-24.6,Left,58730,0,Temporal,52.5,Left Cerebral Cortex,70.48,Temporal Pole,28.71,Left Cerebral White Matter,19.31
+FeTS2022_00154,123908,32.5,-63.3,9.5,Right,22,122594,Occipital,41.1,Right Cerebral Cortex,49.48,Right Cerebral White Matter,48.22,"Lateral Occipital Cortex, inferior division",10.6
+FeTS2022_00155,29552,15.2,-13.5,-12.2,Right,623,17020,Other,1.8,Right Cerebral White Matter,21.44,Brain-Stem,18.51,Right Hippocampus,11.24
+FeTS2022_00156,171259,-19.8,32.3,6.1,Left,155228,15205,Frontal,53.2,Left Cerebral Cortex,46.21,Left Cerebral White Matter,37.51,Frontal Pole,23.31
+FeTS2022_00157,49532,-46.1,-42.4,-5.6,Left,49124,0,Temporal,45.8,Left Cerebral White Matter,49.15,Left Cerebral Cortex,47.56,"Middle Temporal Gyrus, posterior division",11.19
+FeTS2022_00158,225667,34.9,-34.9,9.1,Right,3339,220733,Temporal,15.8,Right Cerebral White Matter,49.96,Right Cerebral Cortex,36.21,"Lateral Occipital Cortex, superior division",4.62
+FeTS2022_00159,111349,-13.5,17.7,20.1,Left,89565,21493,Frontal,31.9,Left Cerebral White Matter,48.11,Left Cerebral Cortex,24.25,"Cingulate Gyrus, anterior division",10.63
+FeTS2022_00160,168477,42.8,-30.4,6.4,Right,0,168385,Temporal,26.9,Right Cerebral White Matter,47.67,Right Cerebral Cortex,45.7,"Middle Temporal Gyrus, posterior division",5.78
+FeTS2022_00162,44021,-30.5,-7.9,-25.3,Left,42867,0,Temporal,36.7,Left Cerebral Cortex,52.46,Left Cerebral White Matter,26.49,Temporal Pole,18.91
+FeTS2022_00165,91468,-18.9,-7.4,35.7,Left,81619,9746,Frontal,25.9,Left Cerebral White Matter,62.45,Left Cerebral Cortex,19.55,Precentral Gyrus,9.86
+FeTS2022_00166,158942,21.4,28.1,26.8,Right,3846,153322,Frontal,54.8,Right Cerebral Cortex,46.46,Right Cerebral White Matter,45.44,Frontal Pole,20.14
+FeTS2022_00167,84150,25.8,-62.5,18.8,Right,661,83470,Occipital,35.8,Right Cerebral White Matter,59.39,Right Cerebral Cortex,38.6,"Lateral Occipital Cortex, superior division",15.64
+FeTS2022_00170,34111,19.6,5.4,56.9,Right,0,33698,Frontal,69.0,Right Cerebral Cortex,64.78,Superior Frontal Gyrus,39.14,Right Cerebral White Matter,34.01
+FeTS2022_00171,78063,-36.1,-3.9,-25.1,Left,71558,0,Temporal,44.7,Left Cerebral Cortex,58.68,Left Cerebral White Matter,21.27,Temporal Pole,20.86
+FeTS2022_00172,172759,-43.2,-28.9,2.8,Left,170058,47,Temporal,28.0,Left Cerebral Cortex,50.44,Left Cerebral White Matter,39.79,"Middle Temporal Gyrus, posterior division",5.57
+FeTS2022_00176,171795,-39.5,-20.5,0.5,Left,170573,0,Temporal,31.1,Left Cerebral White Matter,47.46,Left Cerebral Cortex,44.82,Temporal Pole,8.24
+FeTS2022_00177,176866,40.2,-15.4,1.2,Right,184,172964,Temporal,26.1,Right Cerebral Cortex,42.09,Right Cerebral White Matter,41.39,"Middle Temporal Gyrus, posterior division",6.0
+FeTS2022_00178,158525,-27.1,-22.9,12.9,Left,145256,7715,Temporal,8.3,Left Cerebral White Matter,57.54,Left Cerebral Cortex,18.72,Left Thalamus,6.02
+FeTS2022_00183,218726,-19.3,28.4,12.3,Left,192311,23449,Frontal,51.6,Left Cerebral Cortex,43.85,Left Cerebral White Matter,38.5,Frontal Pole,17.71
+FeTS2022_00184,91079,-28.6,-22.6,7.4,Left,85876,3163,Temporal,10.2,Left Cerebral White Matter,57.76,Left Cerebral Cortex,16.71,Left Thalamus,9.21
+FeTS2022_00185,73934,47.1,-48.0,23.0,Right,286,73571,Parietal,34.2,Right Cerebral Cortex,63.99,Right Cerebral White Matter,34.95,"Lateral Occipital Cortex, superior division",14.16
+FeTS2022_00186,112793,13.2,-4.0,39.0,Right,13167,99618,Frontal,34.3,Right Cerebral White Matter,52.59,Right Cerebral Cortex,33.19,"Cingulate Gyrus, anterior division",11.74
+FeTS2022_00187,211250,-24.7,27.0,12.9,Left,201571,6338,Frontal,50.6,Left Cerebral Cortex,48.6,Left Cerebral White Matter,40.44,Frontal Pole,19.43
+FeTS2022_00188,61719,-18.9,-20.3,45.4,Left,60928,95,Frontal,29.3,Left Cerebral White Matter,67.36,Left Cerebral Cortex,29.45,Precentral Gyrus,14.37
+FeTS2022_00191,157771,-36.9,-23.7,0.5,Left,156563,0,Temporal,28.3,Left Cerebral White Matter,42.92,Left Cerebral Cortex,42.08,"Middle Temporal Gyrus, posterior division",5.91
+FeTS2022_00192,46578,41.2,-28.7,-13.2,Right,1449,45092,Temporal,44.5,Right Cerebral White Matter,49.5,Right Cerebral Cortex,42.54,"Inferior Temporal Gyrus, posterior division",9.73
+FeTS2022_00193,78642,1.8,-41.9,-17.5,Right,9212,8528,Other,1.1,Brain-Stem,16.74,Left Thalamus,8.26,Right Thalamus,7.33
+FeTS2022_00194,63208,27.8,-41.2,0.9,Right,0,60792,Occipital,8.1,Right Cerebral White Matter,63.71,Right Cerebral Cortex,16.62,Right Hippocampus,7.07
+FeTS2022_00195,97081,19.4,-22.7,45.6,Right,1170,95903,Frontal,23.5,Right Cerebral White Matter,59.11,Right Cerebral Cortex,36.33,Precentral Gyrus,12.44
+FeTS2022_00196,134458,14.7,6.5,36.2,Right,22694,111724,Frontal,37.4,Right Cerebral White Matter,47.96,Right Cerebral Cortex,29.63,Left Cerebral White Matter,9.87
+FeTS2022_00199,94081,-14.4,-6.7,34.3,Left,85730,8228,Frontal,24.4,Left Cerebral White Matter,62.95,Left Cerebral Cortex,19.95,"Cingulate Gyrus, anterior division",10.45
+FeTS2022_00201,178970,-25.7,-41.7,39.9,Left,177314,12,Parietal,30.6,Left Cerebral White Matter,49.61,Left Cerebral Cortex,46.11,"Lateral Occipital Cortex, superior division",11.83
+FeTS2022_00203,142768,-32.0,-2.2,-2.1,Left,141379,181,Temporal,17.3,Left Cerebral White Matter,48.86,Left Cerebral Cortex,36.68,Temporal Pole,8.59
+FeTS2022_00204,38601,-8.4,-18.9,32.8,Left,24338,14062,Frontal,17.6,Left Cerebral White Matter,47.29,Right Cerebral White Matter,26.56,Right Cerebral Cortex,9.44
+FeTS2022_00206,44980,17.3,-6.9,54.9,Right,241,44475,Frontal,58.8,Right Cerebral Cortex,56.44,Right Cerebral White Matter,42.44,Precentral Gyrus,28.16
+FeTS2022_00207,179758,38.8,-9.8,8.6,Right,0,178800,Temporal,24.5,Right Cerebral White Matter,46.64,Right Cerebral Cortex,45.36,Temporal Pole,8.54
+FeTS2022_00209,47842,45.5,-30.0,-6.0,Right,0,47764,Temporal,44.0,Right Cerebral White Matter,49.69,Right Cerebral Cortex,40.7,"Middle Temporal Gyrus, posterior division",15.45
+FeTS2022_00210,37776,21.5,-29.9,8.2,Right,112,36044,Insula,1.9,Right Cerebral White Matter,55.72,Right Thalamus,19.05,Right Lateral Ventricle,9.3
+FeTS2022_00211,159881,-23.0,-49.1,30.1,Left,158750,991,Parietal,31.2,Left Cerebral White Matter,52.77,Left Cerebral Cortex,42.75,Precuneous Cortex,11.48
+FeTS2022_00212,92912,-3.6,10.4,27.6,Left,62362,30516,Frontal,32.3,Left Cerebral White Matter,44.19,Right Cerebral White Matter,24.5,Left Cerebral Cortex,21.37
+FeTS2022_00214,81177,37.3,-33.8,38.4,Right,0,81168,Parietal,48.6,Right Cerebral Cortex,48.7,Right Cerebral White Matter,47.82,Postcentral Gyrus,15.68
+FeTS2022_00216,239009,29.9,10.4,22.6,Right,3066,235504,Frontal,37.6,Right Cerebral White Matter,49.25,Right Cerebral Cortex,40.78,Frontal Pole,9.39
+FeTS2022_00217,198236,34.4,-7.7,-3.0,Right,271,195225,Temporal,24.2,Right Cerebral White Matter,47.33,Right Cerebral Cortex,37.58,Temporal Pole,7.91
+FeTS2022_00218,12916,-19.8,4.2,61.2,Left,12410,0,Frontal,75.2,Left Cerebral Cortex,69.46,Superior Frontal Gyrus,62.64,Left Cerebral White Matter,26.62
+FeTS2022_00219,12234,-21.7,-7.5,14.8,Left,12234,0,Frontal,6.9,Left Cerebral White Matter,53.29,Left Thalamus,15.63,Left Lateral Ventrical,8.06
+FeTS2022_00220,53835,49.7,-1.3,17.4,Right,0,53084,Frontal,43.8,Right Cerebral Cortex,71.39,Right Cerebral White Matter,26.57,Precentral Gyrus,20.2
+FeTS2022_00221,39861,19.7,-78.1,15.1,Right,0,39861,Occipital,56.1,Right Cerebral Cortex,52.42,Right Cerebral White Matter,47.58,Occipital Pole,17.23
+FeTS2022_00222,21588,28.2,-26.7,51.5,Right,0,21582,Frontal,31.4,Right Cerebral White Matter,56.48,Right Cerebral Cortex,43.5,Precentral Gyrus,31.39
+FeTS2022_00227,37558,-44.4,-5.5,-21.2,Left,37074,0,Temporal,53.7,Left Cerebral Cortex,65.87,Left Cerebral White Matter,24.95,Temporal Pole,21.12
+FeTS2022_00228,63738,-27.1,-18.5,50.5,Left,63716,0,Frontal,38.0,Left Cerebral White Matter,55.19,Left Cerebral Cortex,44.77,Precentral Gyrus,27.6
+FeTS2022_00230,103370,-21.4,-51.1,32.7,Left,103156,212,Parietal,31.9,Left Cerebral White Matter,56.88,Left Cerebral Cortex,39.84,Precuneous Cortex,14.28
+FeTS2022_00231,99554,-41.4,-23.2,25.5,Left,99516,0,Parietal,27.8,Left Cerebral Cortex,49.0,Left Cerebral White Matter,48.98,Postcentral Gyrus,12.39
+FeTS2022_00233,118103,28.0,-3.9,19.2,Right,0,118021,Frontal,10.3,Right Cerebral White Matter,68.31,Right Cerebral Cortex,16.61,Insular Cortex,7.59
+FeTS2022_00234,115271,29.0,2.1,-4.5,Right,1626,112368,Temporal,15.7,Right Cerebral White Matter,46.38,Right Cerebral Cortex,31.92,Temporal Pole,9.48
+FeTS2022_00235,153013,25.9,-48.1,31.3,Right,173,152831,Parietal,26.0,Right Cerebral White Matter,58.57,Right Cerebral Cortex,38.86,"Lateral Occipital Cortex, superior division",10.51
+FeTS2022_00236,55726,31.1,13.8,18.4,Right,1877,53849,Frontal,24.6,Right Cerebral White Matter,68.72,Right Cerebral Cortex,25.86,Insular Cortex,7.95
+FeTS2022_00237,66692,-45.1,-40.8,-5.2,Left,66083,0,Temporal,46.0,Left Cerebral Cortex,52.75,Left Cerebral White Matter,42.62,"Middle Temporal Gyrus, temporooccipital part",9.27
+FeTS2022_00238,78461,1.0,-13.5,34.4,Right,41158,36609,Frontal,18.4,Left Cerebral White Matter,32.49,Right Cerebral White Matter,31.17,Left Cerebral Cortex,8.97
+FeTS2022_00239,84783,-41.0,-26.6,-5.1,Left,84769,0,Temporal,37.2,Left Cerebral White Matter,51.69,Left Cerebral Cortex,42.31,Temporal Pole,8.42
+FeTS2022_00240,196486,18.6,21.8,28.9,Right,17310,176965,Frontal,50.2,Right Cerebral White Matter,46.14,Right Cerebral Cortex,38.77,Frontal Pole,12.17
+FeTS2022_00241,55507,-45.2,-45.2,5.0,Left,55493,0,Temporal,28.9,Left Cerebral White Matter,54.38,Left Cerebral Cortex,43.71,"Middle Temporal Gyrus, temporooccipital part",9.72
+FeTS2022_00242,220267,-28.9,-35.0,8.8,Left,201662,16979,Temporal,17.0,Left Cerebral White Matter,45.61,Left Cerebral Cortex,41.44,"Lateral Occipital Cortex, superior division",9.74
+FeTS2022_00243,120694,18.3,-51.7,-36.2,Right,0,1984,Temporal,0.9,Brain-Stem,16.51,Right Cerebral Cortex,1.58,Temporal Occipital Fusiform Cortex,0.57
+FeTS2022_00246,27612,16.5,-44.6,17.0,Right,3249,24207,Parietal,16.2,Right Cerebral White Matter,63.37,Left Cerebral White Matter,9.9,Precuneous Cortex,9.72
+FeTS2022_00247,220905,-32.9,-2.1,11.1,Left,220572,164,Frontal,15.8,Left Cerebral White Matter,53.48,Left Cerebral Cortex,38.44,Temporal Pole,5.68
+FeTS2022_00249,164702,-36.9,-12.7,-1.8,Left,163589,0,Temporal,23.3,Left Cerebral Cortex,43.41,Left Cerebral White Matter,41.85,Temporal Pole,8.57
+FeTS2022_00250,152048,27.4,-13.7,31.2,Right,7999,143982,Frontal,22.4,Right Cerebral White Matter,56.48,Right Cerebral Cortex,32.99,Precentral Gyrus,9.54
+FeTS2022_00251,11410,24.1,25.7,14.0,Right,0,11410,Frontal,3.5,Right Cerebral White Matter,87.13,Right Caudate,5.13,Right Cerebral Cortex,5.0
+FeTS2022_00253,71848,45.0,-15.3,-6.3,Right,0,71407,Temporal,38.3,Right Cerebral Cortex,53.11,Right Cerebral White Matter,36.73,"Middle Temporal Gyrus, posterior division",10.04
+FeTS2022_00254,127503,41.1,-15.4,-8.2,Right,1,125396,Temporal,36.5,Right Cerebral Cortex,46.54,Right Cerebral White Matter,40.39,Temporal Pole,8.77
+FeTS2022_00258,28709,-24.9,-7.0,-8.0,Left,28440,195,Frontal,18.6,Left Cerebral White Matter,38.89,Left Cerebral Cortex,36.88,Insular Cortex,15.78
+FeTS2022_00259,122293,-25.9,-46.7,31.7,Left,122293,0,Parietal,24.8,Left Cerebral White Matter,64.26,Left Cerebral Cortex,33.39,"Lateral Occipital Cortex, superior division",10.48
+FeTS2022_00260,109930,22.2,11.3,34.9,Right,2660,106578,Frontal,41.3,Right Cerebral White Matter,62.8,Right Cerebral Cortex,33.16,Superior Frontal Gyrus,10.05
+FeTS2022_00261,163948,-40.9,-22.8,-2.0,Left,162783,15,Temporal,33.6,Left Cerebral Cortex,48.65,Left Cerebral White Matter,41.18,Temporal Pole,6.57
+FeTS2022_00262,21102,-52.7,-17.3,-13.6,Left,21102,0,Temporal,59.9,Left Cerebral Cortex,60.9,Left Cerebral White Matter,38.79,"Middle Temporal Gyrus, posterior division",29.39
+FeTS2022_00263,94898,24.0,-11.6,34.2,Right,3506,91266,Frontal,21.2,Right Cerebral White Matter,64.9,Right Cerebral Cortex,22.88,Precentral Gyrus,11.25
+FeTS2022_00266,245504,36.4,-18.4,-0.0,Right,5101,235803,Temporal,25.6,Right Cerebral Cortex,41.82,Right Cerebral White Matter,40.25,"Middle Temporal Gyrus, posterior division",4.31
+FeTS2022_00267,123907,-30.9,4.7,7.8,Left,123530,0,Frontal,13.6,Left Cerebral White Matter,60.88,Left Cerebral Cortex,30.39,Temporal Pole,8.04
+FeTS2022_00269,110966,-24.8,-43.6,41.8,Left,110453,0,Parietal,29.5,Left Cerebral White Matter,55.86,Left Cerebral Cortex,42.54,"Lateral Occipital Cortex, superior division",12.89
+FeTS2022_00270,74562,37.8,-33.0,-6.4,Right,0,74152,Temporal,31.4,Right Cerebral Cortex,47.3,Right Cerebral White Matter,45.79,Insular Cortex,8.01
+FeTS2022_00271,197223,24.1,-17.3,39.5,Right,1548,195413,Frontal,25.1,Right Cerebral White Matter,56.6,Right Cerebral Cortex,38.4,Precentral Gyrus,9.64
+FeTS2022_00273,168912,-38.6,-8.9,-7.3,Left,166248,0,Temporal,30.3,Left Cerebral Cortex,52.76,Left Cerebral White Matter,35.24,Temporal Pole,10.26
+FeTS2022_00274,62330,20.1,-52.7,43.0,Right,0,62095,Parietal,39.8,Right Cerebral White Matter,50.0,Right Cerebral Cortex,49.12,Precuneous Cortex,19.71
+FeTS2022_00275,85838,-35.9,-59.6,5.0,Left,85821,0,Occipital,32.0,Left Cerebral White Matter,48.97,Left Cerebral Cortex,48.16,"Lateral Occipital Cortex, inferior division",13.85
+FeTS2022_00280,38042,42.6,2.4,-3.8,Right,0,37652,Temporal,27.7,Right Cerebral Cortex,73.38,Insular Cortex,24.71,Right Cerebral White Matter,24.25
+FeTS2022_00281,167027,21.0,38.8,13.1,Right,4519,157688,Frontal,61.9,Right Cerebral Cortex,53.54,Right Cerebral White Matter,38.24,Frontal Pole,32.19
+FeTS2022_00282,62332,42.1,-5.3,9.7,Right,0,62332,Frontal,23.2,Right Cerebral Cortex,48.84,Right Cerebral White Matter,48.4,Insular Cortex,13.96
+FeTS2022_00283,82822,20.5,-8.5,28.3,Right,20559,62085,Frontal,17.8,Right Cerebral White Matter,49.88,Right Cerebral Cortex,22.54,Left Cerebral White Matter,22.11
+FeTS2022_00284,24251,9.6,9.6,29.5,Right,6469,17782,Frontal,24.1,Right Cerebral White Matter,45.06,Left Cerebral Cortex,13.21,Left Cerebral White Matter,12.66
+FeTS2022_00285,7957,35.9,-77.5,27.9,Right,0,7764,Occipital,91.8,"Lateral Occipital Cortex, superior division",91.62,Right Cerebral Cortex,78.35,Right Cerebral White Matter,19.23
+FeTS2022_00286,81690,-7.8,-9.4,15.9,Left,55832,24797,Frontal,13.1,Left Cerebral White Matter,37.19,Left Cerebral Cortex,18.31,Right Cerebral White Matter,14.05
+FeTS2022_00288,24660,18.2,-12.4,53.3,Right,0,24624,Frontal,40.9,Right Cerebral White Matter,66.03,Right Cerebral Cortex,33.82,Precentral Gyrus,21.81
+FeTS2022_00289,51121,-35.4,-49.0,-5.3,Left,51083,0,Occipital,22.2,Left Cerebral White Matter,53.68,Left Cerebral Cortex,38.38,"Lateral Occipital Cortex, inferior division",13.29
+FeTS2022_00290,131672,-43.2,-35.8,9.8,Left,131256,0,Temporal,20.8,Left Cerebral Cortex,47.35,Left Cerebral White Matter,46.15,"Middle Temporal Gyrus, posterior division",4.62
+FeTS2022_00291,66035,28.4,-54.2,33.5,Right,0,65870,Parietal,41.5,Right Cerebral Cortex,59.95,Right Cerebral White Matter,39.8,Precuneous Cortex,19.95
+FeTS2022_00292,45470,33.3,0.5,-14.2,Right,43,43815,Temporal,27.5,Right Cerebral Cortex,50.75,Right Cerebral White Matter,25.12,Temporal Pole,21.12
+FeTS2022_00293,43195,-40.4,31.6,7.6,Left,42953,0,Frontal,66.4,Left Cerebral Cortex,70.38,Frontal Pole,30.59,Left Cerebral White Matter,28.47
+FeTS2022_00294,168921,24.0,-55.4,32.7,Right,124,167554,Occipital,27.7,Right Cerebral Cortex,48.31,Right Cerebral White Matter,48.31,"Lateral Occipital Cortex, superior division",17.96
+FeTS2022_00296,43974,-12.7,13.7,30.6,Left,38169,5713,Frontal,36.3,Left Cerebral White Matter,60.51,"Cingulate Gyrus, anterior division",23.4,Left Cerebral Cortex,22.1
+FeTS2022_00297,129673,25.9,-54.8,23.8,Right,4,129239,Occipital,25.2,Right Cerebral White Matter,56.58,Right Cerebral Cortex,38.39,"Lateral Occipital Cortex, superior division",12.35
+FeTS2022_00298,39594,40.7,-47.3,10.4,Right,0,39594,Temporal,18.6,Right Cerebral White Matter,69.93,Right Cerebral Cortex,25.91,"Middle Temporal Gyrus, temporooccipital part",12.72
+FeTS2022_00299,75639,32.7,-64.4,5.1,Right,0,74937,Occipital,40.4,Right Cerebral White Matter,57.44,Right Cerebral Cortex,41.04,"Lateral Occipital Cortex, inferior division",11.88
+FeTS2022_00300,201160,38.7,-20.9,8.5,Right,540,199658,Temporal,20.1,Right Cerebral White Matter,46.4,Right Cerebral Cortex,41.43,Insular Cortex,4.3
+FeTS2022_00301,90115,-23.1,-24.1,12.1,Left,81740,2615,Insula,4.9,Left Cerebral White Matter,56.28,Left Cerebral Cortex,12.82,Left Thalamus,10.67
+FeTS2022_00303,129273,-37.5,-52.6,6.4,Left,129009,0,Occipital,23.5,Left Cerebral White Matter,53.97,Left Cerebral Cortex,42.94,"Lateral Occipital Cortex, superior division",8.75
+FeTS2022_00304,199465,39.3,-22.2,-0.1,Right,0,198278,Temporal,28.7,Right Cerebral White Matter,45.8,Right Cerebral Cortex,45.22,Temporal Pole,7.66
+FeTS2022_00305,80646,-35.9,2.4,24.7,Left,80275,0,Frontal,37.2,Left Cerebral White Matter,55.0,Left Cerebral Cortex,41.1,Precentral Gyrus,13.34
+FeTS2022_00306,95717,-44.1,-20.3,-5.0,Left,95527,0,Temporal,39.4,Left Cerebral Cortex,53.64,Left Cerebral White Matter,37.32,"Middle Temporal Gyrus, posterior division",9.3
+FeTS2022_00309,51140,43.5,-40.1,28.4,Right,0,51111,Parietal,39.0,Right Cerebral White Matter,56.56,Right Cerebral Cortex,43.33,Angular Gyrus,14.66
+FeTS2022_00310,139873,27.6,-47.3,25.2,Right,564,139026,Parietal,26.0,Right Cerebral White Matter,56.46,Right Cerebral Cortex,37.84,Precuneous Cortex,11.3
+FeTS2022_00311,23400,-48.6,-10.6,18.8,Left,23377,0,Frontal,34.1,Left Cerebral Cortex,65.88,Left Cerebral White Matter,34.02,Central Opercular Cortex,25.43
+FeTS2022_00312,171707,-32.6,-46.9,13.9,Left,170553,420,Occipital,17.9,Left Cerebral White Matter,56.7,Left Cerebral Cortex,36.98,"Lateral Occipital Cortex, superior division",10.4
+FeTS2022_00313,44681,-11.6,-53.3,46.2,Left,44353,37,Parietal,51.7,Left Cerebral Cortex,61.58,Left Cerebral White Matter,37.69,Precuneous Cortex,33.48
+FeTS2022_00314,26480,37.4,-18.5,21.1,Right,0,26480,Parietal,10.4,Right Cerebral White Matter,71.63,Right Cerebral Cortex,26.79,Parietal Operculum Cortex,9.77
+FeTS2022_00316,42191,16.1,2.1,31.1,Right,3002,39189,Frontal,20.5,Right Cerebral White Matter,69.04,Right Cerebral Cortex,14.19,"Cingulate Gyrus, anterior division",13.26
+FeTS2022_00317,76285,16.3,-13.4,45.3,Right,1563,74578,Frontal,34.3,Right Cerebral White Matter,59.84,Right Cerebral Cortex,33.24,Precentral Gyrus,15.24
+FeTS2022_00318,191861,-10.2,32.8,1.7,Left,133743,56342,Frontal,48.7,Left Cerebral Cortex,34.92,Left Cerebral White Matter,29.54,Frontal Pole,19.93
+FeTS2022_00320,52232,27.2,-32.0,-5.7,Right,3,52039,Occipital,10.0,Right Cerebral White Matter,47.84,Right Cerebral Cortex,21.67,Right Thalamus,12.51
+FeTS2022_00321,24156,60.0,-19.5,-12.4,Right,0,22568,Temporal,73.8,Right Cerebral Cortex,78.02,"Middle Temporal Gyrus, posterior division",37.03,Right Cerebral White Matter,15.4
+FeTS2022_00322,184052,14.7,-0.9,38.1,Right,68904,114823,Frontal,39.9,Right Cerebral White Matter,36.93,Right Cerebral Cortex,23.53,Left Cerebral White Matter,22.24
+FeTS2022_00324,99711,-23.6,-60.3,33.0,Left,99485,10,Occipital,27.7,Left Cerebral White Matter,54.35,Left Cerebral Cortex,44.59,"Lateral Occipital Cortex, superior division",23.4
+FeTS2022_00325,190200,30.5,-31.6,28.0,Right,2592,187193,Parietal,28.7,Right Cerebral White Matter,52.57,Right Cerebral Cortex,37.64,Precuneous Cortex,4.98
+FeTS2022_00327,132201,-34.4,-34.8,-9.1,Left,123358,0,Temporal,28.9,Left Cerebral Cortex,44.64,Left Cerebral White Matter,39.86,"Lateral Occipital Cortex, inferior division",4.49
+FeTS2022_00328,72780,39.0,-56.4,-5.3,Right,0,70612,Occipital,28.9,Right Cerebral Cortex,48.65,Right Cerebral White Matter,45.63,"Lateral Occipital Cortex, inferior division",15.15
+FeTS2022_00329,35409,33.9,2.7,-26.7,Right,274,33847,Temporal,46.6,Right Cerebral Cortex,56.66,Temporal Pole,32.05,Right Cerebral White Matter,25.31
+FeTS2022_00331,35667,-53.0,-49.3,5.4,Left,35060,0,Temporal,39.6,Left Cerebral Cortex,67.72,Left Cerebral White Matter,30.57,"Middle Temporal Gyrus, temporooccipital part",18.04
+FeTS2022_00332,68165,27.0,4.1,46.2,Right,397,67449,Frontal,62.9,Right Cerebral Cortex,54.77,Right Cerebral White Matter,43.88,Middle Frontal Gyrus,18.02
+FeTS2022_00334,58723,19.8,-30.0,12.9,Right,3790,53584,Parietal,4.4,Right Cerebral White Matter,59.24,Right Thalamus,15.51,Right Lateral Ventricle,7.73
+FeTS2022_00336,173877,-24.6,26.5,11.2,Left,167223,6530,Frontal,50.7,Left Cerebral White Matter,44.78,Left Cerebral Cortex,44.03,Frontal Pole,18.21
+FeTS2022_00338,144707,-37.6,-46.1,4.2,Left,144505,0,Temporal,23.4,Left Cerebral White Matter,51.6,Left Cerebral Cortex,44.04,"Lateral Occipital Cortex, inferior division",6.49
+FeTS2022_00339,110115,-21.1,-31.9,47.2,Left,109138,171,Parietal,30.3,Left Cerebral White Matter,55.09,Left Cerebral Cortex,41.98,Postcentral Gyrus,13.22
+FeTS2022_00340,39159,-28.1,-10.1,34.1,Left,39097,37,Frontal,22.5,Left Cerebral White Matter,77.72,Left Cerebral Cortex,18.49,Middle Frontal Gyrus,17.56
+FeTS2022_00341,35970,-21.2,-58.9,25.4,Left,35930,0,Occipital,28.0,Left Cerebral White Matter,61.65,Left Cerebral Cortex,30.08,"Lateral Occipital Cortex, superior division",20.73
+FeTS2022_00343,39302,40.0,-64.9,10.7,Right,0,39284,Occipital,47.4,Right Cerebral White Matter,50.42,Right Cerebral Cortex,49.51,"Lateral Occipital Cortex, inferior division",23.52
+FeTS2022_00344,51915,36.8,-6.5,-17.6,Right,0,51101,Temporal,37.3,Right Cerebral Cortex,48.14,Right Cerebral White Matter,33.78,Temporal Pole,24.26
+FeTS2022_00346,53207,-38.3,-10.1,36.6,Left,52892,0,Frontal,43.5,Left Cerebral White Matter,55.17,Left Cerebral Cortex,44.22,Precentral Gyrus,28.27
+FeTS2022_00347,108699,38.1,-14.6,-6.2,Right,0,108234,Temporal,31.7,Right Cerebral White Matter,45.7,Right Cerebral Cortex,40.43,Temporal Pole,8.23
+FeTS2022_00348,29926,-51.7,-46.6,-3.3,Left,29655,0,Temporal,47.9,Left Cerebral Cortex,58.6,Left Cerebral White Matter,40.49,"Middle Temporal Gyrus, temporooccipital part",21.4
+FeTS2022_00349,133369,43.5,-12.5,-2.3,Right,0,130359,Temporal,30.3,Right Cerebral Cortex,51.2,Right Cerebral White Matter,37.57,Temporal Pole,11.33
+FeTS2022_00350,81691,18.6,39.8,28.4,Right,791,78938,Frontal,63.8,Right Cerebral Cortex,55.29,Right Cerebral White Matter,40.93,Frontal Pole,33.03
+FeTS2022_00351,120317,36.7,-4.9,-13.8,Right,0,116184,Temporal,33.0,Right Cerebral Cortex,49.37,Right Cerebral White Matter,33.23,Temporal Pole,13.14
+FeTS2022_00352,64934,43.1,-48.8,-0.6,Right,0,64409,Temporal,32.0,Right Cerebral White Matter,50.74,Right Cerebral Cortex,45.07,"Middle Temporal Gyrus, temporooccipital part",11.02
+FeTS2022_00353,98943,-25.3,19.1,36.1,Left,98548,0,Frontal,55.2,Left Cerebral White Matter,49.83,Left Cerebral Cortex,49.24,Middle Frontal Gyrus,17.29
+FeTS2022_00356,50739,18.0,-24.6,7.6,Right,2273,43424,Insula,2.1,Right Cerebral White Matter,45.71,Right Thalamus,19.07,Right Lateral Ventricle,7.29
+FeTS2022_00359,99778,40.9,-37.8,29.3,Right,0,99662,Parietal,36.0,Right Cerebral White Matter,52.9,Right Cerebral Cortex,46.14,"Supramarginal Gyrus, posterior division",8.84
+FeTS2022_00360,105354,-18.6,-45.0,27.3,Left,101201,2756,Parietal,24.7,Left Cerebral White Matter,55.37,Left Cerebral Cortex,32.37,Precuneous Cortex,11.45
+FeTS2022_00364,103743,-19.5,8.2,30.7,Left,95097,8646,Frontal,32.8,Left Cerebral White Matter,58.64,Left Cerebral Cortex,25.22,Middle Frontal Gyrus,10.66
+FeTS2022_00366,147235,39.3,-22.1,15.7,Right,0,147168,Parietal,18.2,Right Cerebral White Matter,49.49,Right Cerebral Cortex,39.24,"Supramarginal Gyrus, posterior division",5.12
+FeTS2022_00367,102565,-14.0,37.5,17.5,Left,86606,15283,Frontal,48.8,Left Cerebral White Matter,45.94,Left Cerebral Cortex,38.38,Frontal Pole,32.15
+FeTS2022_00369,266735,-33.3,-11.9,27.7,Left,265269,108,Frontal,24.3,Left Cerebral Cortex,45.96,Left Cerebral White Matter,45.18,Precentral Gyrus,8.01
+FeTS2022_00370,110789,22.3,-60.6,11.5,Right,3078,104479,Occipital,37.8,Right Cerebral White Matter,50.99,Right Cerebral Cortex,38.93,Lingual Gyrus,13.16
+FeTS2022_00371,113846,25.7,-50.1,37.8,Right,0,113754,Parietal,31.3,Right Cerebral White Matter,53.38,Right Cerebral Cortex,43.86,"Lateral Occipital Cortex, superior division",16.77
+FeTS2022_00373,22874,-38.8,-43.5,-12.3,Left,22869,4,Temporal,46.7,Left Cerebral White Matter,52.44,Left Cerebral Cortex,45.96,"Temporal Fusiform Cortex, posterior division",17.98
+FeTS2022_00375,162106,38.7,-34.2,27.2,Right,0,160584,Parietal,30.1,Right Cerebral White Matter,49.31,Right Cerebral Cortex,43.37,Postcentral Gyrus,6.88
+FeTS2022_00376,37908,-40.9,-31.1,45.5,Left,37793,0,Parietal,61.7,Left Cerebral Cortex,66.62,Left Cerebral White Matter,33.07,Postcentral Gyrus,32.75
+FeTS2022_00377,42668,29.4,1.6,20.4,Right,0,42666,Frontal,14.6,Right Cerebral White Matter,75.8,Right Cerebral Cortex,11.67,Middle Frontal Gyrus,8.2
+FeTS2022_00378,46957,-32.0,-1.1,-25.1,Left,45900,0,Temporal,37.3,Left Cerebral Cortex,61.98,Temporal Pole,23.9,Left Cerebral White Matter,19.79
+FeTS2022_00379,29993,-43.0,-22.4,32.8,Left,29993,0,Parietal,43.1,Left Cerebral White Matter,56.72,Left Cerebral Cortex,43.28,Postcentral Gyrus,31.4
+FeTS2022_00380,12854,-58.4,-26.0,-8.2,Left,12854,0,Temporal,78.7,Left Cerebral Cortex,81.67,"Middle Temporal Gyrus, posterior division",54.26,Left Cerebral White Matter,18.33
+FeTS2022_00382,63262,43.0,-5.8,-17.2,Right,0,63041,Temporal,46.3,Right Cerebral Cortex,58.68,Right Cerebral White Matter,32.94,Temporal Pole,16.87
+FeTS2022_00383,120015,34.1,-38.6,35.4,Right,0,119923,Parietal,31.2,Right Cerebral White Matter,57.33,Right Cerebral Cortex,41.38,"Lateral Occipital Cortex, superior division",11.92
+FeTS2022_00386,93081,-44.1,-6.7,-6.8,Left,91694,0,Temporal,34.6,Left Cerebral Cortex,62.45,Left Cerebral White Matter,30.47,Temporal Pole,13.4
+FeTS2022_00387,29739,3.1,-26.4,-26.6,Right,4340,4175,Frontal,12.0,Right Cerebral Cortex,10.82,Brain-Stem,10.52,Subcallosal Cortex,10.16
+FeTS2022_00388,228818,31.3,-4.0,1.6,Right,3652,220248,Temporal,16.6,Right Cerebral White Matter,48.14,Right Cerebral Cortex,34.0,Temporal Pole,6.38
+FeTS2022_00389,23041,-50.1,-14.4,20.8,Left,22991,0,Frontal,31.9,Left Cerebral Cortex,66.03,Left Cerebral White Matter,33.76,Central Opercular Cortex,19.62
+FeTS2022_00390,20261,-51.1,-5.4,-17.5,Left,19589,624,Temporal,71.2,Left Cerebral Cortex,75.13,Left Cerebral White Matter,21.55,"Middle Temporal Gyrus, posterior division",18.87
+FeTS2022_00391,101039,43.0,-43.9,5.4,Right,0,100461,Temporal,26.7,Right Cerebral White Matter,54.36,Right Cerebral Cortex,41.1,"Middle Temporal Gyrus, temporooccipital part",9.02
+FeTS2022_00392,78516,38.9,-46.6,14.3,Right,0,78516,Parietal,15.7,Right Cerebral White Matter,66.72,Right Cerebral Cortex,30.09,Angular Gyrus,8.81
+FeTS2022_00395,126938,-27.2,-51.5,10.8,Left,123455,2994,Occipital,21.0,Left Cerebral White Matter,59.6,Left Cerebral Cortex,29.48,"Lateral Occipital Cortex, superior division",9.05
+FeTS2022_00397,210970,30.0,-37.0,18.7,Right,12085,197700,Parietal,18.3,Right Cerebral White Matter,54.67,Right Cerebral Cortex,32.15,"Lateral Occipital Cortex, superior division",4.78
+FeTS2022_00399,86948,30.3,-37.1,9.3,Right,4,85643,Temporal,8.3,Right Cerebral White Matter,68.24,Right Cerebral Cortex,16.77,Right Thalamus,4.97
+FeTS2022_00400,225301,29.2,-2.8,-7.4,Right,7774,203370,Temporal,21.1,Right Cerebral Cortex,41.29,Right Cerebral White Matter,34.43,Temporal Pole,7.89
+FeTS2022_00401,161688,-18.1,23.9,8.2,Left,138659,22840,Frontal,37.8,Left Cerebral White Matter,46.3,Left Cerebral Cortex,30.46,Frontal Pole,10.75
+FeTS2022_00402,271067,32.2,7.5,0.9,Right,1196,266788,Frontal,28.5,Right Cerebral Cortex,47.44,Right Cerebral White Matter,41.54,Frontal Pole,14.92
+FeTS2022_00403,51475,-45.9,-40.6,0.4,Left,51475,0,Temporal,36.0,Left Cerebral White Matter,53.23,Left Cerebral Cortex,43.55,"Middle Temporal Gyrus, posterior division",13.29
+FeTS2022_00404,180194,-9.3,23.7,16.9,Left,134715,45066,Frontal,42.5,Left Cerebral White Matter,41.6,Left Cerebral Cortex,27.43,"Cingulate Gyrus, anterior division",11.04
+FeTS2022_00405,210962,-39.0,-29.8,0.7,Left,210475,0,Temporal,28.3,Left Cerebral Cortex,48.85,Left Cerebral White Matter,41.0,"Middle Temporal Gyrus, posterior division",4.53
+FeTS2022_00406,84432,47.0,-36.3,14.8,Right,544,83869,Parietal,24.8,Right Cerebral Cortex,55.31,Right Cerebral White Matter,42.49,Angular Gyrus,11.72
+FeTS2022_00407,170591,34.8,-17.9,29.4,Right,0,170355,Parietal,22.6,Right Cerebral White Matter,56.55,Right Cerebral Cortex,38.07,Postcentral Gyrus,10.49
+FeTS2022_00409,129389,-37.4,-14.3,-9.4,Left,128821,0,Temporal,34.2,Left Cerebral Cortex,49.6,Left Cerebral White Matter,38.01,Temporal Pole,10.44
+FeTS2022_00410,72860,16.1,-43.8,30.0,Right,10542,61743,Parietal,23.4,Right Cerebral White Matter,47.78,Right Cerebral Cortex,30.22,Precuneous Cortex,15.66
+FeTS2022_00412,67556,-45.2,-25.7,32.1,Left,67339,0,Parietal,50.3,Left Cerebral Cortex,65.26,Left Cerebral White Matter,33.61,Postcentral Gyrus,23.32
+FeTS2022_00413,138299,23.3,-44.5,39.7,Right,12,138119,Parietal,38.2,Right Cerebral White Matter,49.87,Right Cerebral Cortex,46.94,Precuneous Cortex,13.85
+FeTS2022_00414,118998,-41.0,-33.3,12.1,Left,118912,0,Temporal,18.4,Left Cerebral White Matter,52.08,Left Cerebral Cortex,41.98,"Middle Temporal Gyrus, posterior division",4.55
+FeTS2022_00416,239042,35.3,-21.4,5.3,Right,1871,236343,Temporal,22.6,Right Cerebral White Matter,50.91,Right Cerebral Cortex,35.71,Temporal Pole,3.86
+FeTS2022_00417,265195,37.7,-17.5,-3.8,Right,0,254493,Temporal,29.1,Right Cerebral Cortex,46.98,Right Cerebral White Matter,38.31,Temporal Pole,6.7
+FeTS2022_00418,246411,33.3,10.7,11.1,Right,7,244519,Frontal,32.4,Right Cerebral White Matter,50.72,Right Cerebral Cortex,43.63,Frontal Pole,12.83
+FeTS2022_00419,41788,-43.8,-22.3,-16.9,Left,41174,0,Temporal,57.5,Left Cerebral Cortex,64.45,Left Cerebral White Matter,23.71,"Middle Temporal Gyrus, posterior division",18.9
+FeTS2022_00421,153276,24.9,-39.1,41.2,Right,496,152384,Parietal,34.2,Right Cerebral White Matter,50.49,Right Cerebral Cortex,45.68,Postcentral Gyrus,11.96
+FeTS2022_00423,70977,6.8,10.9,23.2,Right,28375,42558,Frontal,35.8,Right Cerebral White Matter,30.08,Right Cerebral Cortex,21.17,Left Cerebral White Matter,19.43
+FeTS2022_00425,28947,40.3,1.4,-4.1,Right,0,28947,Insula,31.5,Right Cerebral Cortex,66.82,Insular Cortex,31.53,Right Cerebral White Matter,28.91
+FeTS2022_00426,209265,-33.2,4.6,-3.2,Left,205509,880,Frontal,25.5,Left Cerebral Cortex,47.33,Left Cerebral White Matter,42.44,Frontal Pole,8.14
+FeTS2022_00429,156336,18.5,19.2,14.2,Right,41323,114803,Frontal,35.6,Right Cerebral White Matter,39.39,Right Cerebral Cortex,30.52,Left Cerebral White Matter,17.54
+FeTS2022_00430,89434,38.7,-23.0,3.5,Right,0,89274,Temporal,20.6,Right Cerebral White Matter,58.03,Right Cerebral Cortex,30.61,Parietal Operculum Cortex,3.53
+FeTS2022_00431,21512,-38.1,24.6,11.5,Left,21512,0,Frontal,49.4,Left Cerebral White Matter,51.21,Left Cerebral Cortex,48.79,"Inferior Frontal Gyrus, pars triangularis",18.15
+FeTS2022_00432,228904,14.4,23.2,25.1,Right,56690,170694,Frontal,48.9,Right Cerebral Cortex,37.78,Right Cerebral White Matter,32.83,Left Cerebral White Matter,14.95
+FeTS2022_00433,40359,11.3,1.4,37.1,Right,5545,34806,Frontal,40.0,Right Cerebral White Matter,54.18,Right Cerebral Cortex,26.98,"Cingulate Gyrus, anterior division",21.21
+FeTS2022_00436,162286,30.8,-9.9,10.9,Right,0,161828,Frontal,8.5,Right Cerebral White Matter,60.79,Right Cerebral Cortex,22.25,Insular Cortex,6.52
+FeTS2022_00440,117418,23.0,-53.9,28.1,Right,1944,115161,Parietal,25.9,Right Cerebral White Matter,52.93,Right Cerebral Cortex,42.02,"Lateral Occipital Cortex, superior division",14.97
+FeTS2022_00441,60740,-19.5,-63.9,-37.8,Left,11,0,Unknown,0.0,Brain-Stem,0.12,Left Cerebral Cortex,0.02,,0.0
+FeTS2022_00442,55121,12.3,-4.9,40.2,Right,7028,48086,Frontal,37.7,Right Cerebral White Matter,52.54,Right Cerebral Cortex,27.63,"Cingulate Gyrus, anterior division",13.17
+FeTS2022_00443,136652,19.1,-54.1,36.7,Right,6123,129191,Parietal,33.3,Right Cerebral Cortex,48.73,Right Cerebral White Matter,43.24,Precuneous Cortex,17.24
+FeTS2022_00444,23707,-16.1,-31.2,5.6,Left,19367,277,Parietal,2.1,Left Cerebral White Matter,47.35,Left Thalamus,14.29,Left Lateral Ventrical,10.85
+FeTS2022_00445,185680,-29.2,-40.6,6.8,Left,177689,6064,Temporal,20.6,Left Cerebral White Matter,52.53,Left Cerebral Cortex,34.45,"Middle Temporal Gyrus, posterior division",4.05
+FeTS2022_00446,262216,38.5,-19.3,4.2,Right,0,258097,Temporal,24.3,Right Cerebral White Matter,46.31,Right Cerebral Cortex,42.98,Temporal Pole,6.62
+FeTS2022_00448,119580,-21.4,-60.5,24.4,Left,119161,417,Occipital,29.8,Left Cerebral White Matter,55.89,Left Cerebral Cortex,41.68,"Lateral Occipital Cortex, superior division",11.76
+FeTS2022_00449,273508,-13.1,28.8,8.4,Left,203229,64475,Frontal,45.5,Left Cerebral Cortex,38.29,Left Cerebral White Matter,29.36,Frontal Pole,18.34
+FeTS2022_00451,204632,26.9,20.4,23.0,Right,6045,197461,Frontal,48.8,Right Cerebral White Matter,46.89,Right Cerebral Cortex,42.66,Frontal Pole,15.07
+FeTS2022_00452,165680,17.1,27.7,25.4,Right,16225,147824,Frontal,50.0,Right Cerebral White Matter,47.41,Right Cerebral Cortex,38.03,Frontal Pole,17.24
+FeTS2022_00453,104716,-25.5,-42.8,46.6,Left,103432,0,Parietal,38.0,Left Cerebral Cortex,50.47,Left Cerebral White Matter,45.67,Postcentral Gyrus,15.09
+FeTS2022_00454,232123,-38.6,-29.7,7.3,Left,227746,205,Temporal,22.6,Left Cerebral White Matter,44.16,Left Cerebral Cortex,43.74,"Middle Temporal Gyrus, posterior division",4.09
+FeTS2022_00455,166647,-18.4,0.1,40.8,Left,153630,12803,Frontal,46.4,Left Cerebral White Matter,47.94,Left Cerebral Cortex,39.05,Precentral Gyrus,12.21
+FeTS2022_00456,251633,22.6,25.1,11.6,Right,21070,227869,Frontal,47.0,Right Cerebral Cortex,43.36,Right Cerebral White Matter,38.97,Frontal Pole,19.86
+FeTS2022_00457,101883,-40.8,-11.2,-4.6,Left,101664,0,Temporal,31.1,Left Cerebral Cortex,51.18,Left Cerebral White Matter,37.65,Temporal Pole,10.21
+FeTS2022_00459,120304,-39.3,-0.7,-13.1,Left,115128,0,Temporal,32.7,Left Cerebral Cortex,58.64,Left Cerebral White Matter,25.8,Temporal Pole,14.35
+FeTS2022_00464,13889,-49.6,-4.8,12.3,Left,13889,0,Frontal,60.4,Left Cerebral Cortex,77.23,Central Opercular Cortex,40.51,Left Cerebral White Matter,22.77
+FeTS2022_00466,167414,32.3,23.6,16.9,Right,0,166276,Frontal,50.1,Right Cerebral Cortex,47.45,Right Cerebral White Matter,46.1,Frontal Pole,20.01
+FeTS2022_00468,235619,36.9,-11.3,9.7,Right,945,231945,Frontal,15.3,Right Cerebral White Matter,46.03,Right Cerebral Cortex,41.03,Precentral Gyrus,5.76
+FeTS2022_00469,106453,-33.9,-26.5,10.1,Left,105619,0,Temporal,13.5,Left Cerebral White Matter,62.08,Left Cerebral Cortex,24.26,Insular Cortex,4.67
+FeTS2022_00470,124580,-29.0,-14.1,40.2,Left,124510,44,Frontal,30.4,Left Cerebral White Matter,57.61,Left Cerebral Cortex,38.24,Precentral Gyrus,18.18
+FeTS2022_00472,88636,-39.4,-13.9,-14.0,Left,87172,0,Temporal,39.7,Left Cerebral Cortex,50.95,Left Cerebral White Matter,37.62,Temporal Pole,12.48
+FeTS2022_00477,220712,-20.8,23.0,0.7,Left,187702,27705,Frontal,41.0,Left Cerebral Cortex,40.0,Left Cerebral White Matter,37.27,Frontal Pole,15.41
+FeTS2022_00478,106440,42.2,-29.1,31.9,Right,0,104574,Parietal,38.9,Right Cerebral Cortex,49.53,Right Cerebral White Matter,47.39,Postcentral Gyrus,11.58
+FeTS2022_00479,60739,37.1,-7.4,22.5,Right,0,60739,Frontal,21.3,Right Cerebral White Matter,62.57,Right Cerebral Cortex,31.65,Precentral Gyrus,9.07
+FeTS2022_00480,102722,-19.6,-57.3,15.8,Left,97981,1867,Occipital,23.2,Left Cerebral White Matter,57.82,Left Cerebral Cortex,31.02,Precuneous Cortex,11.04
+FeTS2022_00481,197250,24.3,29.6,20.6,Right,2942,190631,Frontal,55.4,Right Cerebral Cortex,49.99,Right Cerebral White Matter,42.57,Frontal Pole,23.37
+FeTS2022_00483,203128,31.8,-21.8,14.1,Right,2967,193517,Parietal,10.8,Right Cerebral White Matter,55.53,Right Cerebral Cortex,26.39,Right Thalamus,4.55
+FeTS2022_00485,42693,-36.0,-2.0,-8.9,Left,41576,103,Temporal,39.6,Left Cerebral Cortex,54.27,Temporal Pole,26.41,Left Cerebral White Matter,21.13
+FeTS2022_00488,70052,23.4,-52.3,14.7,Right,85,68656,Occipital,21.2,Right Cerebral White Matter,61.19,Right Cerebral Cortex,27.73,"Lateral Occipital Cortex, superior division",9.94
+FeTS2022_00491,118134,29.1,-59.2,26.2,Right,0,118115,Occipital,34.0,Right Cerebral White Matter,53.34,Right Cerebral Cortex,44.7,"Lateral Occipital Cortex, superior division",22.05
+FeTS2022_00493,49607,-11.8,-17.9,2.0,Left,32359,8775,Insula,3.4,Left Cerebral White Matter,31.24,Left Thalamus,18.94,Right Thalamus,8.15
+FeTS2022_00494,204152,41.7,-32.3,26.9,Right,0,203122,Parietal,25.5,Right Cerebral Cortex,55.88,Right Cerebral White Matter,42.16,"Lateral Occipital Cortex, superior division",10.54
+FeTS2022_00495,131618,22.4,-61.5,29.9,Right,1037,128586,Occipital,36.6,Right Cerebral Cortex,48.34,Right Cerebral White Matter,47.86,"Lateral Occipital Cortex, superior division",17.62
+FeTS2022_00496,57268,38.8,-5.3,-25.5,Right,0,55416,Temporal,54.1,Right Cerebral Cortex,61.8,Temporal Pole,22.77,Right Cerebral White Matter,21.05
+FeTS2022_00498,138919,-39.1,-9.2,-10.5,Left,137732,0,Temporal,37.1,Left Cerebral Cortex,54.74,Left Cerebral White Matter,32.5,Temporal Pole,10.4
+FeTS2022_00499,115712,26.8,-57.8,10.8,Right,109,113230,Occipital,35.7,Right Cerebral White Matter,54.19,Right Cerebral Cortex,40.23,"Lateral Occipital Cortex, superior division",11.29
+FeTS2022_00500,68844,-39.6,9.9,25.9,Left,66922,0,Frontal,51.5,Left Cerebral Cortex,49.94,Left Cerebral White Matter,46.47,Middle Frontal Gyrus,19.28
+FeTS2022_00501,266834,-29.0,0.3,-5.3,Left,240046,10447,Temporal,18.7,Left Cerebral Cortex,40.06,Left Cerebral White Matter,37.31,Temporal Pole,6.75
+FeTS2022_00502,112754,-45.6,-16.4,-3.4,Left,112234,0,Temporal,38.3,Left Cerebral Cortex,59.6,Left Cerebral White Matter,36.29,"Middle Temporal Gyrus, posterior division",8.75
+FeTS2022_00504,133424,18.5,27.1,30.3,Right,5394,126357,Frontal,52.9,Right Cerebral White Matter,46.59,Right Cerebral Cortex,43.59,Frontal Pole,18.76
+FeTS2022_00505,116876,-46.2,-41.6,2.1,Left,116461,0,Temporal,34.5,Left Cerebral Cortex,56.68,Left Cerebral White Matter,39.09,"Middle Temporal Gyrus, posterior division",7.82
+FeTS2022_00506,102397,20.3,-43.2,39.1,Right,532,101857,Parietal,40.0,Right Cerebral White Matter,53.93,Right Cerebral Cortex,41.74,Precuneous Cortex,17.74
+FeTS2022_00507,227608,-22.6,25.7,14.8,Left,210643,13169,Frontal,51.1,Left Cerebral Cortex,44.43,Left Cerebral White Matter,41.81,Frontal Pole,18.52
+FeTS2022_00510,124938,-39.7,-50.6,-3.9,Left,120755,0,Temporal,30.3,Left Cerebral Cortex,51.64,Left Cerebral White Matter,42.05,"Lateral Occipital Cortex, inferior division",8.82
+FeTS2022_00511,101882,-40.3,-2.7,-13.7,Left,97790,0,Temporal,37.1,Left Cerebral Cortex,58.54,Left Cerebral White Matter,30.1,Temporal Pole,17.84
+FeTS2022_00512,226117,34.7,-16.9,0.1,Right,0,223410,Temporal,25.7,Right Cerebral White Matter,47.4,Right Cerebral Cortex,38.84,Temporal Pole,5.44
+FeTS2022_00513,207440,36.1,-10.5,-5.1,Right,0,199809,Temporal,27.2,Right Cerebral Cortex,42.87,Right Cerebral White Matter,40.28,Temporal Pole,8.16
+FeTS2022_00514,51007,-33.8,-25.7,33.7,Left,50963,44,Parietal,25.3,Left Cerebral White Matter,74.4,Left Cerebral Cortex,25.51,Postcentral Gyrus,19.68
+FeTS2022_00516,253483,21.5,21.6,23.8,Right,14294,235034,Frontal,50.0,Right Cerebral Cortex,43.04,Right Cerebral White Matter,42.82,Frontal Pole,15.21
+FeTS2022_00517,156536,26.9,-47.8,18.5,Right,7737,146997,Occipital,17.1,Right Cerebral White Matter,56.98,Right Cerebral Cortex,29.72,"Lateral Occipital Cortex, superior division",10.38
+FeTS2022_00518,67952,-37.3,8.7,15.9,Left,67940,0,Frontal,36.5,Left Cerebral White Matter,51.34,Left Cerebral Cortex,43.35,Central Opercular Cortex,8.93
+FeTS2022_00519,77443,-33.6,-35.6,-4.7,Left,76012,0,Temporal,21.7,Left Cerebral White Matter,58.41,Left Cerebral Cortex,28.8,Left Hippocampus,5.64
+FeTS2022_00520,56503,-43.0,-27.2,28.1,Left,56503,0,Parietal,36.5,Left Cerebral White Matter,52.39,Left Cerebral Cortex,47.38,Postcentral Gyrus,12.54
+FeTS2022_00523,81907,31.8,-20.2,-17.3,Right,0,76644,Temporal,28.5,Right Cerebral Cortex,41.13,Right Cerebral White Matter,37.02,Right Hippocampus,6.94
+FeTS2022_00524,112127,44.7,-29.4,11.5,Right,608,111449,Temporal,21.1,Right Cerebral Cortex,47.05,Right Cerebral White Matter,46.18,"Supramarginal Gyrus, posterior division",5.84
+FeTS2022_00525,112153,-33.9,-1.8,-15.1,Left,105408,0,Temporal,30.9,Left Cerebral Cortex,50.76,Left Cerebral White Matter,28.95,Temporal Pole,16.01
+FeTS2022_00526,174719,21.0,-24.5,39.8,Right,8241,165493,Parietal,25.2,Right Cerebral White Matter,49.23,Right Cerebral Cortex,38.53,Precentral Gyrus,10.24
+FeTS2022_00528,228693,-8.9,-36.4,25.2,Left,165568,61249,Parietal,23.9,Left Cerebral White Matter,37.84,Left Cerebral Cortex,29.27,Right Cerebral White Matter,18.65
+FeTS2022_00529,63541,-39.5,19.7,10.1,Left,63510,0,Frontal,50.4,Left Cerebral Cortex,60.08,Left Cerebral White Matter,37.67,Frontal Pole,10.49
+FeTS2022_00530,9497,27.7,-9.3,49.2,Right,0,9497,Frontal,38.5,Right Cerebral White Matter,69.89,Precentral Gyrus,30.74,Right Cerebral Cortex,30.11
+FeTS2022_00532,218638,17.4,29.3,18.5,Right,34257,181495,Frontal,48.7,Right Cerebral White Matter,38.09,Right Cerebral Cortex,37.82,Frontal Pole,21.47
+FeTS2022_00533,92481,-33.8,-61.5,23.0,Left,92444,0,Occipital,38.4,Left Cerebral White Matter,52.39,Left Cerebral Cortex,45.17,"Lateral Occipital Cortex, superior division",30.56
+FeTS2022_00537,106963,10.5,9.5,37.3,Right,28183,78752,Frontal,34.1,Right Cerebral White Matter,47.61,Right Cerebral Cortex,22.79,Left Cerebral White Matter,17.94
+FeTS2022_00538,287950,23.5,3.9,3.7,Right,37624,236994,Frontal,21.2,Right Cerebral White Matter,37.91,Right Cerebral Cortex,35.12,Left Cerebral White Matter,6.63
+FeTS2022_00539,169170,-37.4,-34.3,25.7,Left,169026,0,Parietal,27.2,Left Cerebral White Matter,49.64,Left Cerebral Cortex,43.69,Postcentral Gyrus,5.93
+FeTS2022_00540,15515,9.0,-35.7,41.9,Right,4,15511,Parietal,65.3,Right Cerebral Cortex,67.52,"Cingulate Gyrus, posterior division",38.08,Right Cerebral White Matter,32.45
+FeTS2022_00542,116410,-39.5,-2.0,-14.7,Left,107627,0,Temporal,36.5,Left Cerebral Cortex,58.85,Left Cerebral White Matter,27.62,Temporal Pole,15.85
+FeTS2022_00543,150366,-24.5,19.0,-7.1,Left,139292,7416,Frontal,31.8,Left Cerebral Cortex,45.12,Left Cerebral White Matter,38.34,Temporal Pole,9.12
+FeTS2022_00544,34255,-37.3,2.2,-26.2,Left,33262,0,Temporal,52.0,Left Cerebral Cortex,65.9,Temporal Pole,35.4,Left Cerebral White Matter,26.41
+FeTS2022_00545,98632,-44.9,-19.2,-13.9,Left,92826,0,Temporal,46.5,Left Cerebral Cortex,52.91,Left Cerebral White Matter,34.72,Temporal Pole,8.14
+FeTS2022_00547,40160,-32.4,10.9,33.0,Left,40024,0,Frontal,40.8,Left Cerebral White Matter,65.79,Left Cerebral Cortex,33.75,Middle Frontal Gyrus,27.56
+FeTS2022_00548,269262,36.5,-16.9,1.4,Right,147,263823,Temporal,25.0,Right Cerebral Cortex,44.36,Right Cerebral White Matter,40.97,Temporal Pole,6.25
+FeTS2022_00549,143324,23.1,23.5,29.2,Right,1197,141753,Frontal,52.4,Right Cerebral White Matter,47.7,Right Cerebral Cortex,46.8,Frontal Pole,13.83
+FeTS2022_00550,43173,-32.4,-1.3,-24.2,Left,41619,0,Temporal,38.8,Left Cerebral Cortex,51.9,Temporal Pole,27.58,Left Cerebral White Matter,26.84
+FeTS2022_00551,131308,-25.8,-65.9,18.8,Left,130802,0,Occipital,43.1,Left Cerebral White Matter,50.96,Left Cerebral Cortex,45.98,"Lateral Occipital Cortex, superior division",20.59
+FeTS2022_00552,165315,-29.4,-15.7,-7.2,Left,152980,1228,Temporal,24.8,Left Cerebral White Matter,36.83,Left Cerebral Cortex,36.74,Temporal Pole,8.99
+FeTS2022_00554,166678,40.8,-21.3,-4.3,Right,0,166067,Temporal,35.0,Right Cerebral Cortex,46.2,Right Cerebral White Matter,45.52,Temporal Pole,7.83
+FeTS2022_00555,64436,-23.3,-68.7,17.9,Left,64214,172,Occipital,43.7,Left Cerebral White Matter,56.61,Left Cerebral Cortex,40.9,"Lateral Occipital Cortex, superior division",21.83
+FeTS2022_00556,135361,43.3,-37.4,30.9,Right,0,135261,Parietal,37.6,Right Cerebral Cortex,57.96,Right Cerebral White Matter,40.44,"Lateral Occipital Cortex, superior division",13.47
+FeTS2022_00557,60500,33.6,11.7,39.5,Right,0,59591,Frontal,55.8,Right Cerebral White Matter,49.3,Right Cerebral Cortex,49.19,Middle Frontal Gyrus,33.3
+FeTS2022_00558,206215,20.8,28.0,19.1,Right,21745,183258,Frontal,53.0,Right Cerebral White Matter,42.01,Right Cerebral Cortex,41.81,Frontal Pole,20.01
+FeTS2022_00559,205336,0.6,-4.4,26.4,Right,69143,135314,Frontal,35.5,Right Cerebral White Matter,36.07,Right Cerebral Cortex,26.03,Left Cerebral Cortex,21.29
+FeTS2022_00561,228666,-27.8,-46.4,22.6,Left,228496,0,Occipital,23.4,Left Cerebral White Matter,55.16,Left Cerebral Cortex,39.61,"Lateral Occipital Cortex, superior division",8.9
+FeTS2022_00563,176182,-37.6,-15.1,-6.8,Left,171306,0,Temporal,31.9,Left Cerebral Cortex,49.28,Left Cerebral White Matter,35.62,Temporal Pole,9.82
+FeTS2022_00565,106484,-42.6,-37.8,3.2,Left,105872,0,Temporal,31.2,Left Cerebral White Matter,53.12,Left Cerebral Cortex,42.6,"Middle Temporal Gyrus, posterior division",7.2
+FeTS2022_00567,55833,-39.9,-60.4,19.4,Left,55830,0,Occipital,39.3,Left Cerebral Cortex,51.98,Left Cerebral White Matter,46.1,"Lateral Occipital Cortex, superior division",27.9
+FeTS2022_00568,231383,1.2,-6.0,27.4,Right,75015,153562,Frontal,30.8,Right Cerebral White Matter,35.54,Right Cerebral Cortex,26.82,Left Cerebral White Matter,20.94
+FeTS2022_00569,223754,36.4,-15.9,24.3,Right,3748,218865,Parietal,19.2,Right Cerebral White Matter,49.36,Right Cerebral Cortex,40.35,Precentral Gyrus,7.54
+FeTS2022_00570,116020,37.5,-3.7,-4.8,Right,0,114837,Temporal,22.9,Right Cerebral Cortex,45.74,Right Cerebral White Matter,39.54,Temporal Pole,10.86
+FeTS2022_00571,84678,-27.4,-70.9,8.9,Left,84078,0,Occipital,49.8,Left Cerebral White Matter,54.77,Left Cerebral Cortex,42.15,"Lateral Occipital Cortex, superior division",13.7
+FeTS2022_00572,117092,-39.6,-38.3,27.0,Left,116699,0,Parietal,30.6,Left Cerebral White Matter,53.27,Left Cerebral Cortex,43.46,"Supramarginal Gyrus, posterior division",6.79
+FeTS2022_00574,125369,-39.4,-17.2,-5.0,Left,125310,2,Temporal,34.2,Left Cerebral Cortex,48.27,Left Cerebral White Matter,41.55,Temporal Pole,9.61
+FeTS2022_00575,173533,-36.3,-12.3,-3.3,Left,170974,0,Temporal,29.0,Left Cerebral Cortex,44.88,Left Cerebral White Matter,41.82,Temporal Pole,9.64
+FeTS2022_00576,118704,-44.1,-31.5,-3.2,Left,117567,0,Temporal,37.8,Left Cerebral Cortex,54.17,Left Cerebral White Matter,36.81,"Middle Temporal Gyrus, posterior division",7.01
+FeTS2022_00577,136973,23.8,-49.1,37.6,Right,305,135528,Parietal,33.6,Right Cerebral White Matter,50.58,Right Cerebral Cortex,46.05,"Lateral Occipital Cortex, superior division",14.47
+FeTS2022_00578,279209,24.8,22.9,14.0,Right,22058,255244,Frontal,49.2,Right Cerebral Cortex,45.67,Right Cerebral White Matter,38.61,Frontal Pole,18.53
+FeTS2022_00579,131134,22.4,-48.3,29.9,Right,1350,129562,Parietal,32.1,Right Cerebral White Matter,54.09,Right Cerebral Cortex,39.81,Precuneous Cortex,12.98
+FeTS2022_00580,187491,40.0,-29.2,-2.4,Right,0,185762,Temporal,30.2,Right Cerebral Cortex,46.7,Right Cerebral White Matter,42.64,Insular Cortex,4.37
+FeTS2022_00581,210033,27.9,-0.7,-0.8,Right,8558,194399,Temporal,14.7,Right Cerebral White Matter,44.84,Right Cerebral Cortex,31.22,Temporal Pole,5.72
+FeTS2022_00582,66571,36.8,-58.5,39.0,Right,0,64883,Occipital,43.0,Right Cerebral Cortex,63.09,"Lateral Occipital Cortex, superior division",42.38,Right Cerebral White Matter,34.38
+FeTS2022_00583,198377,-36.5,-15.8,-2.3,Left,196875,0,Temporal,27.4,Left Cerebral Cortex,44.59,Left Cerebral White Matter,41.02,Temporal Pole,7.3
+FeTS2022_00584,18053,-56.5,-19.3,-13.9,Left,18053,0,Temporal,69.5,Left Cerebral Cortex,72.03,"Middle Temporal Gyrus, posterior division",38.41,Left Cerebral White Matter,27.97
+FeTS2022_00586,142548,-21.1,-57.9,32.1,Left,142025,428,Occipital,28.0,Left Cerebral White Matter,49.88,Left Cerebral Cortex,47.16,"Lateral Occipital Cortex, superior division",16.67
+FeTS2022_00587,193240,27.2,12.1,14.6,Right,7817,185414,Frontal,30.8,Right Cerebral White Matter,55.06,Right Cerebral Cortex,33.02,Frontal Pole,12.07
+FeTS2022_00588,124463,32.7,-36.7,28.0,Right,50,124410,Parietal,23.0,Right Cerebral White Matter,64.2,Right Cerebral Cortex,35.42,"Lateral Occipital Cortex, superior division",10.64
+FeTS2022_00589,190990,33.0,3.5,23.2,Right,225,190571,Frontal,34.7,Right Cerebral White Matter,49.31,Right Cerebral Cortex,40.36,Precentral Gyrus,8.21
+FeTS2022_00590,165693,42.7,-29.9,7.3,Right,0,165534,Temporal,26.1,Right Cerebral Cortex,50.03,Right Cerebral White Matter,43.89,"Middle Temporal Gyrus, temporooccipital part",5.18
+FeTS2022_00591,200608,22.9,-42.4,24.3,Right,17809,181522,Parietal,26.1,Right Cerebral White Matter,50.4,Right Cerebral Cortex,34.6,Precuneous Cortex,8.46
+FeTS2022_00593,102654,-19.7,-28.6,40.1,Left,101758,791,Parietal,25.8,Left Cerebral White Matter,63.67,Left Cerebral Cortex,31.2,Precentral Gyrus,9.14
+FeTS2022_00594,97855,7.9,-16.7,31.7,Right,26205,70815,Frontal,13.3,Right Cerebral White Matter,44.47,Right Cerebral Cortex,15.85,Left Cerebral White Matter,14.01
+FeTS2022_00596,93297,16.1,-31.2,35.5,Right,5992,86838,Parietal,29.4,Right Cerebral White Matter,55.52,Right Cerebral Cortex,26.88,"Cingulate Gyrus, posterior division",11.42
+FeTS2022_00597,89949,-19.2,-52.0,45.2,Left,88885,531,Parietal,44.1,Left Cerebral Cortex,57.96,Left Cerebral White Matter,39.32,Precuneous Cortex,19.34
+FeTS2022_00598,102059,43.0,-15.1,-2.8,Right,0,100861,Temporal,31.6,Right Cerebral White Matter,49.1,Right Cerebral Cortex,45.53,Temporal Pole,11.13
+FeTS2022_00599,181692,19.0,27.8,25.1,Right,12685,165610,Frontal,53.5,Right Cerebral White Matter,46.08,Right Cerebral Cortex,41.33,Frontal Pole,16.82
+FeTS2022_00601,102243,39.0,-8.9,-14.8,Right,0,100944,Temporal,39.6,Right Cerebral Cortex,55.5,Right Cerebral White Matter,29.77,Temporal Pole,12.48
+FeTS2022_00602,56162,-28.0,-28.3,27.6,Left,55013,1149,Parietal,17.2,Left Cerebral White Matter,67.63,Left Cerebral Cortex,26.64,Central Opercular Cortex,5.73
+FeTS2022_00604,173452,23.1,19.6,27.9,Right,10436,161828,Frontal,46.5,Right Cerebral White Matter,45.6,Right Cerebral Cortex,40.73,Frontal Pole,11.86
+FeTS2022_00605,305098,22.7,16.2,20.7,Right,33676,270569,Frontal,45.3,Right Cerebral Cortex,41.39,Right Cerebral White Matter,40.56,Frontal Pole,12.0
+FeTS2022_00606,193527,33.0,-14.0,-2.7,Right,10228,180141,Temporal,25.0,Right Cerebral White Matter,41.99,Right Cerebral Cortex,38.68,Temporal Pole,8.31
+FeTS2022_00607,112370,-17.3,-40.1,22.6,Left,93892,18355,Occipital,18.9,Left Cerebral White Matter,61.26,Left Cerebral Cortex,20.56,Right Cerebral White Matter,14.27
+FeTS2022_00608,134375,42.0,-9.6,19.2,Right,0,133195,Frontal,22.2,Right Cerebral White Matter,49.1,Right Cerebral Cortex,45.55,Precentral Gyrus,9.09
+FeTS2022_00610,85710,44.9,1.7,24.4,Right,0,85136,Frontal,47.7,Right Cerebral Cortex,56.86,Right Cerebral White Matter,42.4,Precentral Gyrus,16.45
+FeTS2022_00611,126600,-44.6,-16.2,-2.6,Left,124618,0,Temporal,37.6,Left Cerebral Cortex,70.21,Left Cerebral White Matter,25.15,Temporal Pole,13.85
+FeTS2022_00612,200471,30.8,-5.0,-9.7,Right,8182,177542,Temporal,23.8,Right Cerebral Cortex,39.98,Right Cerebral White Matter,35.55,Insular Cortex,5.25
+FeTS2022_00613,109209,-25.6,-28.8,44.5,Left,108307,750,Frontal,26.5,Left Cerebral Cortex,49.56,Left Cerebral White Matter,49.21,Precentral Gyrus,15.25
+FeTS2022_00615,34126,35.8,-64.2,-1.9,Right,0,34118,Occipital,41.0,Right Cerebral White Matter,56.35,Right Cerebral Cortex,43.21,"Lateral Occipital Cortex, inferior division",23.75
+FeTS2022_00616,165975,-37.2,-13.2,-0.6,Left,164604,3,Temporal,26.5,Left Cerebral Cortex,43.49,Left Cerebral White Matter,43.11,Temporal Pole,9.21
+FeTS2022_00618,117816,43.8,-21.6,1.8,Right,0,117144,Temporal,30.8,Right Cerebral Cortex,47.79,Right Cerebral White Matter,44.83,"Middle Temporal Gyrus, posterior division",7.13
+FeTS2022_00619,166791,41.5,-16.6,1.7,Right,0,164504,Temporal,29.5,Right Cerebral White Matter,49.01,Right Cerebral Cortex,47.45,Temporal Pole,9.03
+FeTS2022_00620,134993,-31.6,5.1,12.2,Left,134978,0,Frontal,22.4,Left Cerebral White Matter,65.62,Left Cerebral Cortex,26.77,Insular Cortex,6.38
+FeTS2022_00621,33376,-28.5,14.0,-0.8,Left,31986,95,Frontal,13.6,Left Cerebral White Matter,53.04,Left Cerebral Cortex,37.69,Insular Cortex,10.6
+FeTS2022_00622,47460,-40.8,-45.6,8.5,Left,47460,0,Temporal,19.6,Left Cerebral White Matter,58.93,Left Cerebral Cortex,36.47,"Lateral Occipital Cortex, inferior division",9.51
+FeTS2022_00623,200928,-3.5,24.2,5.5,Left,123141,77332,Frontal,36.6,Left Cerebral White Matter,33.58,Left Cerebral Cortex,22.65,Right Cerebral White Matter,21.64
+FeTS2022_00624,89158,-37.2,-22.2,29.1,Left,89156,0,Parietal,25.7,Left Cerebral White Matter,59.52,Left Cerebral Cortex,35.84,Postcentral Gyrus,12.22
+FeTS2022_00625,145953,-24.0,-47.9,39.7,Left,145443,1,Parietal,34.5,Left Cerebral White Matter,50.93,Left Cerebral Cortex,47.04,"Lateral Occipital Cortex, superior division",13.96
+FeTS2022_00626,21949,-28.3,-34.1,-11.0,Left,21706,0,Other,17.8,Left Cerebral White Matter,43.75,Left Cerebral Cortex,36.12,Left Hippocampus,15.21
+FeTS2022_00628,73173,36.6,18.8,20.9,Right,0,72228,Frontal,41.7,Right Cerebral White Matter,61.06,Right Cerebral Cortex,36.32,Middle Frontal Gyrus,13.13
+FeTS2022_00630,76982,-21.1,-22.1,12.6,Left,68377,4384,Insula,4.4,Left Cerebral White Matter,54.11,Left Thalamus,12.37,Left Cerebral Cortex,9.6
+FeTS2022_00631,148017,-16.1,16.0,33.4,Left,139745,7717,Frontal,46.6,Left Cerebral White Matter,51.79,Left Cerebral Cortex,36.85,Superior Frontal Gyrus,10.95
+FeTS2022_00636,40797,-45.2,-1.2,18.5,Left,40383,0,Frontal,50.6,Left Cerebral Cortex,63.09,Left Cerebral White Matter,34.39,Precentral Gyrus,25.18
+FeTS2022_00638,170432,19.2,-23.5,35.7,Right,30531,139067,Parietal,29.8,Right Cerebral Cortex,48.9,Right Cerebral White Matter,30.18,Postcentral Gyrus,9.75
+FeTS2022_00639,59544,34.5,10.5,39.5,Right,0,59048,Frontal,57.4,Right Cerebral Cortex,50.35,Right Cerebral White Matter,48.82,Middle Frontal Gyrus,33.31
+FeTS2022_00640,130901,20.1,14.7,21.7,Right,15077,115741,Frontal,31.6,Right Cerebral White Matter,49.12,Right Cerebral Cortex,27.18,Middle Frontal Gyrus,7.84
+FeTS2022_00641,38158,44.4,-20.6,29.0,Right,0,38158,Parietal,34.0,Right Cerebral White Matter,58.08,Right Cerebral Cortex,41.92,Postcentral Gyrus,13.99
+FeTS2022_00642,27337,-37.0,-46.2,19.5,Left,27337,0,Occipital,18.8,Left Cerebral White Matter,67.56,Left Cerebral Cortex,32.37,"Lateral Occipital Cortex, superior division",18.45
+FeTS2022_00645,22153,-23.4,11.5,47.7,Left,21842,0,Frontal,62.4,Left Cerebral Cortex,56.72,Superior Frontal Gyrus,42.09,Left Cerebral White Matter,41.88
+FeTS2022_00646,151345,23.5,22.5,20.2,Right,1593,149401,Frontal,40.1,Right Cerebral White Matter,53.08,Right Cerebral Cortex,35.19,Frontal Pole,14.48
+FeTS2022_00649,190180,-29.3,-33.5,37.5,Left,189524,24,Parietal,30.5,Left Cerebral White Matter,49.15,Left Cerebral Cortex,46.97,Postcentral Gyrus,11.42
+FeTS2022_00650,108610,-20.0,19.7,35.1,Left,107789,250,Frontal,52.5,Left Cerebral White Matter,51.6,Left Cerebral Cortex,46.21,Superior Frontal Gyrus,16.63
+FeTS2022_00651,24027,-13.3,-24.4,63.9,Left,23285,26,Frontal,48.4,Left Cerebral Cortex,53.93,Precentral Gyrus,43.61,Left Cerebral White Matter,42.98
+FeTS2022_00652,223640,39.6,-23.5,-3.1,Right,10,216051,Temporal,26.8,Right Cerebral Cortex,47.63,Right Cerebral White Matter,40.27,"Middle Temporal Gyrus, posterior division",4.31
+FeTS2022_00654,135069,27.4,8.9,25.8,Right,11661,121929,Frontal,34.6,Right Cerebral White Matter,49.06,Right Cerebral Cortex,37.01,Middle Frontal Gyrus,12.18
+FeTS2022_00655,150106,-33.7,-7.2,-1.6,Left,147786,0,Temporal,24.9,Left Cerebral White Matter,50.92,Left Cerebral Cortex,35.26,Temporal Pole,10.01
+FeTS2022_00656,160040,44.4,-14.9,-6.8,Right,0,155945,Temporal,38.6,Right Cerebral Cortex,57.14,Right Cerebral White Matter,31.1,"Middle Temporal Gyrus, posterior division",6.79
+FeTS2022_00657,296336,-16.5,23.1,16.2,Left,235679,58220,Frontal,47.4,Left Cerebral Cortex,37.4,Left Cerebral White Matter,35.31,Frontal Pole,13.64
+FeTS2022_00658,78859,-40.0,-2.1,-17.5,Left,78223,0,Temporal,43.0,Left Cerebral Cortex,64.37,Left Cerebral White Matter,25.9,Temporal Pole,20.04
+FeTS2022_00659,40978,-25.3,-42.9,51.9,Left,40887,0,Parietal,51.6,Left Cerebral Cortex,56.38,Left Cerebral White Matter,43.4,Superior Parietal Lobule,24.49
+FeTS2022_00661,150859,-23.5,-45.9,36.7,Left,149628,863,Parietal,29.9,Left Cerebral White Matter,54.65,Left Cerebral Cortex,42.15,"Lateral Occipital Cortex, superior division",12.82
+FeTS2022_00663,212698,35.0,-42.4,23.4,Right,0,212675,Parietal,20.8,Right Cerebral White Matter,50.42,Right Cerebral Cortex,45.56,"Lateral Occipital Cortex, superior division",13.83
+FeTS2022_00667,103247,16.2,33.9,4.7,Right,10855,92326,Frontal,45.5,Right Cerebral White Matter,47.6,Right Cerebral Cortex,34.84,Frontal Pole,18.91
+FeTS2022_00668,238288,-19.2,-18.1,20.7,Left,183019,48636,Frontal,11.1,Left Cerebral White Matter,52.59,Left Cerebral Cortex,17.91,Right Cerebral White Matter,16.51
+FeTS2022_00674,150491,18.1,16.5,15.9,Right,54879,94930,Frontal,46.7,Right Cerebral Cortex,33.71,Right Cerebral White Matter,29.27,Left Cerebral White Matter,18.55
+FeTS2022_00675,22490,-50.8,0.1,-17.3,Left,21821,0,Temporal,69.8,Left Cerebral Cortex,74.79,Temporal Pole,31.36,Left Cerebral White Matter,22.24
+FeTS2022_00676,100073,-16.8,-8.9,36.2,Left,88616,11308,Frontal,26.1,Left Cerebral White Matter,54.63,Left Cerebral Cortex,24.75,Precentral Gyrus,8.99
+FeTS2022_00677,201124,-25.4,7.6,10.8,Left,191159,9308,Frontal,26.0,Left Cerebral White Matter,53.38,Left Cerebral Cortex,28.84,Frontal Pole,5.11
+FeTS2022_00679,243493,25.5,22.2,18.3,Right,11223,225926,Frontal,50.2,Right Cerebral Cortex,44.53,Right Cerebral White Matter,44.37,Frontal Pole,15.62
+FeTS2022_00680,78167,-30.1,7.6,9.9,Left,78167,0,Frontal,16.8,Left Cerebral White Matter,62.15,Left Cerebral Cortex,28.77,Insular Cortex,12.84
+FeTS2022_00682,95179,-38.2,-32.0,33.6,Left,95179,0,Parietal,37.4,Left Cerebral White Matter,53.64,Left Cerebral Cortex,44.88,Postcentral Gyrus,14.78
+FeTS2022_00683,132239,-36.4,-46.3,2.1,Left,131635,0,Temporal,23.7,Left Cerebral White Matter,54.18,Left Cerebral Cortex,40.48,"Middle Temporal Gyrus, posterior division",4.99
+FeTS2022_00684,32866,-11.6,13.9,51.1,Left,28395,742,Frontal,61.6,Left Cerebral Cortex,53.23,Left Cerebral White Matter,33.17,Superior Frontal Gyrus,30.72
+FeTS2022_00685,105700,30.5,-46.8,4.4,Right,46,105001,Occipital,27.8,Right Cerebral White Matter,54.04,Right Cerebral Cortex,41.63,"Lateral Occipital Cortex, superior division",6.17
+FeTS2022_00686,280294,33.3,-9.4,-0.3,Right,6293,267997,Temporal,22.7,Right Cerebral White Matter,44.18,Right Cerebral Cortex,38.92,Temporal Pole,6.4
+FeTS2022_00687,122321,-18.0,-3.0,42.0,Left,115729,5898,Frontal,41.0,Left Cerebral White Matter,59.47,Left Cerebral Cortex,31.68,Precentral Gyrus,11.66
+FeTS2022_00688,28365,-28.9,-21.0,-21.1,Left,26016,0,Other,23.1,Left Cerebral Cortex,44.64,Left Cerebral White Matter,25.09,"Temporal Fusiform Cortex, posterior division",16.52
+FeTS2022_00689,194601,-40.1,-20.9,-1.8,Left,193030,0,Temporal,31.7,Left Cerebral Cortex,49.06,Left Cerebral White Matter,38.63,Temporal Pole,5.9
+FeTS2022_00690,62334,-26.4,20.0,35.8,Left,61295,0,Frontal,47.2,Left Cerebral White Matter,57.51,Left Cerebral Cortex,40.54,Middle Frontal Gyrus,25.2
+FeTS2022_00691,98339,-31.8,-7.6,8.8,Left,98095,0,Frontal,10.8,Left Cerebral White Matter,60.69,Left Cerebral Cortex,26.01,Insular Cortex,9.71
+FeTS2022_00692,68653,20.9,-21.2,48.7,Right,199,68454,Frontal,29.3,Right Cerebral White Matter,62.05,Right Cerebral Cortex,37.37,Precentral Gyrus,19.28
+FeTS2022_00693,186223,-38.8,-28.8,4.2,Left,184466,11,Temporal,25.8,Left Cerebral White Matter,48.33,Left Cerebral Cortex,41.97,"Middle Temporal Gyrus, posterior division",4.4
+FeTS2022_00694,97757,24.7,-36.8,41.9,Right,1293,96437,Parietal,28.5,Right Cerebral White Matter,59.72,Right Cerebral Cortex,36.87,Postcentral Gyrus,11.04
+FeTS2022_00697,178871,29.3,20.6,16.2,Right,178,177991,Frontal,42.2,Right Cerebral White Matter,54.98,Right Cerebral Cortex,39.88,Frontal Pole,20.5
+FeTS2022_00698,133843,39.9,-33.5,29.2,Right,0,133599,Parietal,35.7,Right Cerebral White Matter,52.19,Right Cerebral Cortex,44.2,Postcentral Gyrus,9.06
+FeTS2022_00703,103880,22.0,29.3,19.4,Right,43,102504,Frontal,46.4,Right Cerebral White Matter,58.27,Right Cerebral Cortex,38.24,Frontal Pole,19.48
+FeTS2022_00704,98946,34.4,-8.0,4.3,Right,0,98535,Insula,10.8,Right Cerebral White Matter,52.97,Right Cerebral Cortex,29.88,Insular Cortex,10.82
+FeTS2022_00705,18426,-18.9,8.4,62.5,Left,16509,0,Frontal,78.6,Left Cerebral Cortex,75.44,Superior Frontal Gyrus,60.84,Left Cerebral White Matter,14.15
+FeTS2022_00706,158459,32.7,0.2,-2.2,Right,0,158059,Temporal,21.3,Right Cerebral White Matter,50.08,Right Cerebral Cortex,35.01,Temporal Pole,8.42
+FeTS2022_00707,122048,30.3,-60.2,21.1,Right,0,121835,Occipital,37.8,Right Cerebral White Matter,59.75,Right Cerebral Cortex,39.9,"Lateral Occipital Cortex, superior division",16.5
+FeTS2022_00708,22766,-25.1,-53.2,48.5,Left,22743,0,Parietal,33.2,Left Cerebral Cortex,53.69,Left Cerebral White Matter,46.21,Superior Parietal Lobule,31.25
+FeTS2022_00709,137753,-36.6,-59.1,16.9,Left,136546,0,Occipital,33.3,Left Cerebral White Matter,50.15,Left Cerebral Cortex,48.4,"Lateral Occipital Cortex, superior division",15.45
+FeTS2022_00714,291897,-28.8,13.7,10.3,Left,273975,15917,Frontal,38.8,Left Cerebral Cortex,46.37,Left Cerebral White Matter,40.78,Frontal Pole,11.79
+FeTS2022_00715,90659,-18.2,-21.3,39.1,Left,90320,339,Frontal,18.8,Left Cerebral White Matter,68.75,Left Cerebral Cortex,25.3,Precentral Gyrus,9.91
+FeTS2022_00716,42801,34.4,-12.0,10.4,Right,0,42801,Insula,16.8,Right Cerebral White Matter,59.61,Right Cerebral Cortex,30.39,Insular Cortex,16.75
+FeTS2022_00718,145196,32.8,-58.0,6.7,Right,0,140448,Occipital,33.2,Right Cerebral White Matter,48.07,Right Cerebral Cortex,46.01,"Lateral Occipital Cortex, superior division",9.21
+FeTS2022_00723,115149,-38.8,-20.9,-7.5,Left,114326,0,Temporal,32.5,Left Cerebral Cortex,47.89,Left Cerebral White Matter,39.73,"Middle Temporal Gyrus, posterior division",5.78
+FeTS2022_00724,154560,25.0,30.0,22.3,Right,1969,151049,Frontal,52.1,Right Cerebral White Matter,47.84,Right Cerebral Cortex,45.39,Frontal Pole,23.55
+FeTS2022_00725,129041,-1.9,24.2,16.9,Left,69146,59387,Frontal,20.3,Left Cerebral White Matter,42.45,Right Cerebral White Matter,37.51,Frontal Pole,9.49
+FeTS2022_00727,147476,42.5,-21.6,-2.3,Right,0,146540,Temporal,33.8,Right Cerebral Cortex,47.73,Right Cerebral White Matter,44.98,Temporal Pole,8.32
+FeTS2022_00728,40463,-33.3,8.9,-2.2,Left,40461,0,Frontal,26.2,Left Cerebral Cortex,52.79,Left Cerebral White Matter,38.86,Insular Cortex,24.04
+FeTS2022_00729,23643,-34.9,-51.3,-7.8,Left,23642,0,Temporal,35.2,Left Cerebral White Matter,59.4,Left Cerebral Cortex,37.41,Temporal Occipital Fusiform Cortex,11.96
+FeTS2022_00730,103073,29.4,-15.8,44.6,Right,0,102618,Frontal,34.2,Right Cerebral White Matter,55.19,Right Cerebral Cortex,43.28,Precentral Gyrus,24.29
+FeTS2022_00731,17513,54.8,-12.6,-9.7,Right,0,17357,Temporal,71.3,Right Cerebral Cortex,74.92,"Middle Temporal Gyrus, posterior division",32.88,Right Cerebral White Matter,24.19
+FeTS2022_00732,8849,-53.6,-31.6,-1.5,Left,8849,0,Temporal,55.0,Left Cerebral Cortex,75.57,Left Cerebral White Matter,24.43,"Middle Temporal Gyrus, posterior division",22.83
+FeTS2022_00733,94147,42.6,-44.0,22.1,Right,0,94139,Parietal,28.9,Right Cerebral White Matter,51.55,Right Cerebral Cortex,46.14,Angular Gyrus,10.59
+FeTS2022_00734,203161,-38.8,-41.5,5.9,Left,200632,0,Temporal,21.1,Left Cerebral Cortex,49.38,Left Cerebral White Matter,43.86,"Lateral Occipital Cortex, inferior division",7.18
+FeTS2022_00735,35235,-35.8,2.9,-18.1,Left,34695,0,Temporal,41.2,Left Cerebral Cortex,66.73,Temporal Pole,34.97,Left Cerebral White Matter,21.96
+FeTS2022_00736,59676,24.8,5.6,43.6,Right,23,59361,Frontal,50.1,Right Cerebral White Matter,56.2,Right Cerebral Cortex,41.1,Middle Frontal Gyrus,21.35
+FeTS2022_00737,39006,-32.5,-4.8,23.5,Left,38994,12,Frontal,20.1,Left Cerebral White Matter,72.36,Left Cerebral Cortex,23.52,Central Opercular Cortex,9.9
+FeTS2022_00739,249715,35.1,-27.2,24.1,Right,1245,244303,Parietal,22.0,Right Cerebral White Matter,47.48,Right Cerebral Cortex,41.51,"Lateral Occipital Cortex, superior division",7.41
+FeTS2022_00740,116113,-37.1,-43.8,27.9,Left,116021,0,Parietal,31.1,Left Cerebral White Matter,52.85,Left Cerebral Cortex,43.05,"Lateral Occipital Cortex, superior division",11.54
+FeTS2022_00742,243978,28.5,-28.5,35.2,Right,6580,237017,Parietal,27.0,Right Cerebral White Matter,50.55,Right Cerebral Cortex,44.31,Postcentral Gyrus,6.7
+FeTS2022_00744,88875,-26.4,-3.6,36.7,Left,88421,454,Frontal,35.3,Left Cerebral White Matter,67.75,Left Cerebral Cortex,27.74,Precentral Gyrus,14.4
+FeTS2022_00746,26793,34.5,-17.5,55.2,Right,0,25934,Frontal,48.5,Right Cerebral Cortex,64.26,Precentral Gyrus,44.64,Right Cerebral White Matter,32.53
+FeTS2022_00747,83688,19.7,-40.4,35.6,Right,440,83228,Parietal,37.9,Right Cerebral White Matter,60.97,Right Cerebral Cortex,34.9,Precuneous Cortex,14.43
+FeTS2022_00750,56482,20.4,-39.5,42.4,Right,28,56452,Parietal,37.7,Right Cerebral White Matter,63.22,Right Cerebral Cortex,36.51,Precuneous Cortex,10.82
+FeTS2022_00751,74620,-21.7,-26.5,7.5,Left,64032,2430,Temporal,5.0,Left Cerebral White Matter,49.33,Left Thalamus,13.67,Left Cerebral Cortex,10.86
+FeTS2022_00753,9622,24.3,-31.8,-15.1,Right,6,6234,Occipital,13.9,Right Cerebral White Matter,37.77,Right Cerebral Cortex,27.0,Lingual Gyrus,13.95
+FeTS2022_00756,176859,20.9,15.3,32.3,Right,6518,169709,Frontal,47.2,Right Cerebral White Matter,49.13,Right Cerebral Cortex,40.58,Superior Frontal Gyrus,10.77
+FeTS2022_00757,81595,27.9,-22.4,31.1,Right,3456,78084,Frontal,15.2,Right Cerebral White Matter,70.24,Right Cerebral Cortex,20.93,Precentral Gyrus,5.8
+FeTS2022_00758,26896,-28.6,-35.6,-9.3,Left,26630,0,Other,13.1,Left Cerebral White Matter,48.78,Left Cerebral Cortex,31.59,Left Hippocampus,13.89
+FeTS2022_00759,146629,40.8,-30.3,20.3,Right,0,146458,Parietal,25.5,Right Cerebral White Matter,49.07,Right Cerebral Cortex,43.24,Postcentral Gyrus,6.1
+FeTS2022_00760,176409,28.1,-32.6,25.1,Right,1433,174119,Parietal,21.0,Right Cerebral White Matter,56.91,Right Cerebral Cortex,31.51,"Lateral Occipital Cortex, superior division",6.59
+FeTS2022_00764,111198,13.7,-39.6,16.1,Right,19773,89971,Occipital,14.0,Right Cerebral White Matter,45.45,Right Cerebral Cortex,25.95,Left Cerebral White Matter,14.08
+FeTS2022_00765,130951,36.6,-1.9,-11.8,Right,0,124771,Temporal,29.8,Right Cerebral Cortex,45.8,Right Cerebral White Matter,38.57,Temporal Pole,13.6
+FeTS2022_00767,144013,-28.1,-39.3,43.2,Left,143548,0,Parietal,36.2,Left Cerebral Cortex,49.95,Left Cerebral White Matter,47.2,Postcentral Gyrus,12.12
+FeTS2022_00768,142344,-7.6,24.9,17.1,Left,103710,38135,Frontal,39.2,Left Cerebral White Matter,40.52,Left Cerebral Cortex,23.28,Paracingulate Gyrus,13.04
+FeTS2022_00772,13064,-51.8,-23.9,-7.3,Left,13052,0,Temporal,53.6,Left Cerebral Cortex,52.84,Left Cerebral White Matter,47.07,"Middle Temporal Gyrus, posterior division",35.64
+FeTS2022_00773,151443,28.3,22.7,13.3,Right,15538,133895,Frontal,46.1,Right Cerebral Cortex,42.78,Right Cerebral White Matter,41.95,Frontal Pole,10.96
+FeTS2022_00774,189385,25.5,-52.7,28.0,Right,15059,173239,Parietal,26.9,Right Cerebral White Matter,45.69,Right Cerebral Cortex,43.81,"Lateral Occipital Cortex, superior division",15.22
+FeTS2022_00775,71641,33.9,-7.7,-22.3,Right,0,70499,Temporal,38.9,Right Cerebral Cortex,54.17,Right Cerebral White Matter,28.73,Temporal Pole,18.52
+FeTS2022_00777,147965,39.3,-10.8,25.7,Right,0,147962,Frontal,20.5,Right Cerebral White Matter,50.69,Right Cerebral Cortex,45.23,Postcentral Gyrus,9.47
+FeTS2022_00778,69746,-47.1,-18.5,-19.9,Left,67643,0,Temporal,62.2,Left Cerebral Cortex,66.76,Left Cerebral White Matter,28.6,"Inferior Temporal Gyrus, posterior division",11.34
+FeTS2022_00780,147303,-40.0,-20.4,-9.4,Left,145344,0,Temporal,41.1,Left Cerebral Cortex,53.72,Left Cerebral White Matter,35.92,Temporal Pole,9.39
+FeTS2022_00781,145828,-34.5,-13.5,-11.4,Left,137246,2907,Temporal,32.5,Left Cerebral Cortex,54.43,Left Cerebral White Matter,29.05,Temporal Pole,11.14
+FeTS2022_00782,48613,26.9,-30.5,45.5,Right,0,48613,Parietal,32.7,Right Cerebral White Matter,65.29,Right Cerebral Cortex,34.34,Postcentral Gyrus,17.06
+FeTS2022_00784,296834,-17.7,18.5,23.7,Left,250919,44834,Frontal,49.7,Left Cerebral White Matter,39.68,Left Cerebral Cortex,39.42,Frontal Pole,10.81
+FeTS2022_00787,210931,-38.0,-14.7,-1.9,Left,206484,0,Temporal,27.3,Left Cerebral Cortex,47.18,Left Cerebral White Matter,40.28,Temporal Pole,8.8
+FeTS2022_00788,28445,-36.7,3.8,-32.5,Left,26206,0,Temporal,62.6,Left Cerebral Cortex,69.54,Temporal Pole,43.08,Left Cerebral White Matter,15.01
+FeTS2022_00789,178465,-27.2,12.3,8.4,Left,175257,2082,Frontal,28.6,Left Cerebral White Matter,51.42,Left Cerebral Cortex,35.02,Insular Cortex,5.86
+FeTS2022_00791,191453,-36.3,-49.0,25.5,Left,191083,0,Parietal,26.4,Left Cerebral Cortex,51.27,Left Cerebral White Matter,46.04,"Lateral Occipital Cortex, superior division",15.61
+FeTS2022_00792,316287,31.9,-42.1,10.6,Right,1787,312949,Occipital,24.6,Right Cerebral Cortex,51.16,Right Cerebral White Matter,40.81,"Lateral Occipital Cortex, superior division",7.92
+FeTS2022_00793,261862,22.2,28.8,18.2,Right,20475,233738,Frontal,57.7,Right Cerebral Cortex,49.57,Right Cerebral White Matter,34.59,Frontal Pole,21.37
+FeTS2022_00795,37340,-31.1,-25.3,-9.1,Left,37105,0,Temporal,10.8,Left Cerebral White Matter,53.98,Left Cerebral Cortex,21.79,Left Hippocampus,12.87
+FeTS2022_00796,124235,21.3,-43.2,40.5,Right,2223,121324,Parietal,39.4,Right Cerebral White Matter,49.18,Right Cerebral Cortex,44.61,Precuneous Cortex,15.06
+FeTS2022_00797,248079,23.3,17.6,12.5,Right,9248,236025,Frontal,41.1,Right Cerebral White Matter,45.79,Right Cerebral Cortex,40.03,Frontal Pole,14.5
+FeTS2022_00799,253557,-27.1,-25.1,34.9,Left,253385,77,Parietal,24.6,Left Cerebral White Matter,48.84,Left Cerebral Cortex,47.84,Postcentral Gyrus,7.6
+FeTS2022_00800,48144,-23.1,-70.0,9.8,Left,48144,0,Occipital,41.6,Left Cerebral White Matter,67.27,Left Cerebral Cortex,31.38,Intracalcarine Cortex,9.38
+FeTS2022_00801,167150,40.9,-36.3,6.5,Right,0,165676,Temporal,22.6,Right Cerebral White Matter,48.7,Right Cerebral Cortex,42.62,"Lateral Occipital Cortex, inferior division",5.91
+FeTS2022_00802,16597,22.3,-14.4,-5.9,Right,0,14825,Other,1.3,Right Cerebral White Matter,38.15,Right Amygdala,15.81,Right Thalamus,13.6
+FeTS2022_00803,237624,-36.7,1.2,26.0,Left,230461,0,Frontal,35.2,Left Cerebral Cortex,50.55,Left Cerebral White Matter,44.38,Precentral Gyrus,9.66
+FeTS2022_00804,312151,33.2,-20.8,3.0,Right,5574,298982,Temporal,20.9,Right Cerebral White Matter,46.2,Right Cerebral Cortex,37.8,Temporal Pole,4.57
+FeTS2022_00805,99074,15.3,14.5,33.5,Right,9761,89010,Frontal,45.4,Right Cerebral White Matter,51.62,Right Cerebral Cortex,34.52,"Cingulate Gyrus, anterior division",13.46
+FeTS2022_00806,172663,20.1,22.7,30.9,Right,8259,161559,Frontal,52.5,Right Cerebral Cortex,45.22,Right Cerebral White Matter,43.69,Frontal Pole,13.04
+FeTS2022_00807,160796,33.9,-53.1,4.2,Right,517,158910,Occipital,31.8,Right Cerebral White Matter,48.03,Right Cerebral Cortex,45.86,"Lateral Occipital Cortex, inferior division",8.47
+FeTS2022_00808,170587,37.6,-26.1,12.2,Right,9,170253,Temporal,16.2,Right Cerebral White Matter,51.24,Right Cerebral Cortex,38.63,Angular Gyrus,4.22
+FeTS2022_00809,212254,-39.8,-18.9,-4.5,Left,208632,0,Temporal,34.0,Left Cerebral Cortex,52.08,Left Cerebral White Matter,36.36,Temporal Pole,7.84
+FeTS2022_00810,194960,38.1,-10.1,-0.7,Right,92,191081,Temporal,24.8,Right Cerebral Cortex,43.12,Right Cerebral White Matter,42.42,Temporal Pole,8.79
+FeTS2022_00811,162968,-19.8,9.6,38.5,Left,158644,3959,Frontal,49.0,Left Cerebral White Matter,52.27,Left Cerebral Cortex,42.84,Superior Frontal Gyrus,11.15
+FeTS2022_00814,179694,-38.5,-13.4,-1.3,Left,176378,0,Temporal,27.0,Left Cerebral Cortex,45.53,Left Cerebral White Matter,42.3,Temporal Pole,9.74
+FeTS2022_00816,209337,-34.2,-18.4,-3.5,Left,204170,0,Temporal,25.4,Left Cerebral White Matter,42.09,Left Cerebral Cortex,41.16,Temporal Pole,5.97
+FeTS2022_00818,175070,28.1,-42.1,36.1,Right,9,173594,Parietal,35.2,Right Cerebral White Matter,49.35,Right Cerebral Cortex,46.77,"Lateral Occipital Cortex, superior division",11.43
+FeTS2022_00819,209029,24.0,-45.7,29.9,Right,2051,206107,Parietal,27.1,Right Cerebral White Matter,52.5,Right Cerebral Cortex,41.21,"Lateral Occipital Cortex, superior division",10.1
+FeTS2022_00820,49019,21.1,-10.5,2.3,Right,24,36105,Frontal,5.7,Right Cerebral White Matter,42.75,Brain-Stem,14.4,Right Thalamus,11.52
+FeTS2022_00823,105951,40.4,-24.8,31.5,Right,0,105296,Parietal,33.0,Right Cerebral White Matter,52.9,Right Cerebral Cortex,44.42,Postcentral Gyrus,13.52
+FeTS2022_00824,97424,14.2,-44.1,16.9,Right,17306,78357,Parietal,18.7,Right Cerebral White Matter,50.34,Right Cerebral Cortex,20.16,Left Cerebral White Matter,11.45
+FeTS2022_00828,145473,7.5,-32.7,31.0,Right,43193,101668,Parietal,25.9,Right Cerebral White Matter,38.3,Right Cerebral Cortex,24.95,Left Cerebral White Matter,18.5
+FeTS2022_00830,95695,-12.9,16.0,32.5,Left,90046,5644,Frontal,44.7,Left Cerebral White Matter,52.7,Left Cerebral Cortex,35.04,Superior Frontal Gyrus,12.6
+FeTS2022_00831,52764,-30.5,7.4,27.1,Left,52729,0,Frontal,29.0,Left Cerebral White Matter,71.8,Left Cerebral Cortex,24.47,Middle Frontal Gyrus,14.65
+FeTS2022_00834,108442,-42.1,-31.4,-12.7,Left,107872,0,Temporal,48.4,Left Cerebral Cortex,58.39,Left Cerebral White Matter,36.53,Temporal Pole,10.57
+FeTS2022_00836,26946,-24.3,-43.3,-3.6,Left,26648,0,Occipital,18.5,Left Cerebral White Matter,44.11,Left Cerebral Cortex,36.69,Lingual Gyrus,16.54
+FeTS2022_00837,35012,-15.3,40.7,14.5,Left,34993,1,Frontal,50.0,Left Cerebral Cortex,42.33,Left Cerebral White Matter,41.33,Frontal Pole,33.62
+FeTS2022_00838,185843,24.0,30.1,6.3,Right,8435,171074,Frontal,49.4,Right Cerebral Cortex,47.85,Right Cerebral White Matter,34.08,Frontal Pole,26.78
+FeTS2022_00839,21306,14.9,-73.7,19.4,Right,168,21138,Occipital,59.0,Right Cerebral Cortex,60.15,Right Cerebral White Matter,39.06,Cuneal Cortex,20.16
+FeTS2022_00840,161390,-17.4,14.8,32.3,Left,142204,18244,Frontal,44.6,Left Cerebral White Matter,46.7,Left Cerebral Cortex,38.3,Superior Frontal Gyrus,12.59
+FeTS2022_00999,216652,16.7,26.1,21.7,Right,26507,186951,Frontal,48.8,Right Cerebral Cortex,40.0,Right Cerebral White Matter,38.74,Frontal Pole,18.38
+FeTS2022_01000,96633,-41.5,-17.3,-11.5,Left,96360,0,Temporal,41.9,Left Cerebral Cortex,52.47,Left Cerebral White Matter,39.24,Temporal Pole,10.48
+FeTS2022_01001,47431,-19.3,-12.1,4.8,Left,41268,810,Insula,5.6,Left Cerebral White Matter,42.54,Left Thalamus,19.24,Left Putamen,8.92
+FeTS2022_01002,94065,-44.1,-32.7,-4.0,Left,93804,0,Temporal,42.1,Left Cerebral Cortex,49.93,Left Cerebral White Matter,44.35,"Middle Temporal Gyrus, posterior division",7.75
+FeTS2022_01003,173878,-11.2,-16.3,15.4,Left,119551,34201,Frontal,8.5,Left Cerebral White Matter,42.37,Left Cerebral Cortex,10.68,Right Cerebral White Matter,7.6
+FeTS2022_01004,110460,-35.2,-0.3,22.4,Left,110460,0,Frontal,29.3,Left Cerebral White Matter,57.11,Left Cerebral Cortex,38.61,Precentral Gyrus,9.08
+FeTS2022_01005,152218,14.3,-42.9,28.4,Right,25039,125179,Parietal,27.7,Right Cerebral White Matter,40.59,Right Cerebral Cortex,33.88,Left Cerebral White Matter,12.15
+FeTS2022_01007,66514,-36.7,-39.8,-5.5,Left,65389,0,Temporal,30.8,Left Cerebral White Matter,51.88,Left Cerebral Cortex,39.18,"Temporal Fusiform Cortex, posterior division",6.99
+FeTS2022_01008,56948,29.1,5.1,14.9,Right,159,56789,Insula,14.3,Right Cerebral White Matter,61.51,Right Cerebral Cortex,27.11,Insular Cortex,14.35
+FeTS2022_01009,75778,22.5,19.8,18.9,Right,1242,74534,Frontal,21.4,Right Cerebral White Matter,67.24,Right Cerebral Cortex,17.94,Middle Frontal Gyrus,6.67
+FeTS2022_01010,65950,-37.9,-34.4,-10.8,Left,64565,0,Temporal,33.3,Left Cerebral White Matter,54.39,Left Cerebral Cortex,36.61,"Temporal Fusiform Cortex, posterior division",9.32
+FeTS2022_01011,101411,-37.6,-10.8,29.3,Left,101317,0,Frontal,27.2,Left Cerebral White Matter,49.52,Left Cerebral Cortex,47.43,Postcentral Gyrus,13.49
+FeTS2022_01012,148165,-21.3,-44.7,23.0,Left,126299,20456,Parietal,25.9,Left Cerebral White Matter,49.7,Left Cerebral Cortex,28.34,Right Cerebral White Matter,8.64
+FeTS2022_01013,94994,-22.7,-73.1,28.3,Left,90097,0,Occipital,48.7,Left Cerebral Cortex,50.75,Left Cerebral White Matter,43.28,"Lateral Occipital Cortex, superior division",29.46
+FeTS2022_01014,51030,-44.7,-41.0,8.0,Left,50933,0,Temporal,31.6,Left Cerebral White Matter,57.56,Left Cerebral Cortex,39.79,"Middle Temporal Gyrus, posterior division",9.4
+FeTS2022_01015,327310,-33.0,-13.4,2.6,Left,320380,2151,Temporal,19.8,Left Cerebral White Matter,44.55,Left Cerebral Cortex,42.81,Temporal Pole,5.22
+FeTS2022_01016,113792,-40.4,-8.6,-11.1,Left,109424,0,Temporal,34.3,Left Cerebral Cortex,54.71,Left Cerebral White Matter,33.44,Temporal Pole,15.01
+FeTS2022_01017,127958,20.4,26.0,31.5,Right,1468,124078,Frontal,49.4,Right Cerebral White Matter,50.4,Right Cerebral Cortex,42.04,Frontal Pole,17.09
+FeTS2022_01018,165797,40.1,-20.8,7.5,Right,0,165430,Temporal,18.1,Right Cerebral White Matter,46.31,Right Cerebral Cortex,43.15,Temporal Pole,5.55
+FeTS2022_01019,165299,-21.6,-45.0,28.0,Left,158966,5390,Parietal,24.5,Left Cerebral White Matter,53.09,Left Cerebral Cortex,36.4,"Lateral Occipital Cortex, superior division",9.73
+FeTS2022_01020,207735,-39.8,-10.6,-3.4,Left,201033,0,Temporal,27.9,Left Cerebral Cortex,49.86,Left Cerebral White Matter,35.2,Temporal Pole,8.01
+FeTS2022_01021,206540,39.2,-29.3,20.1,Right,0,206046,Parietal,23.4,Right Cerebral White Matter,45.74,Right Cerebral Cortex,45.46,Postcentral Gyrus,5.73
+FeTS2022_01022,196521,39.7,-14.0,-1.5,Right,0,194112,Temporal,30.2,Right Cerebral Cortex,46.49,Right Cerebral White Matter,43.74,Temporal Pole,8.96
+FeTS2022_01023,122438,32.9,-29.1,38.4,Right,0,122304,Parietal,34.7,Right Cerebral White Matter,56.43,Right Cerebral Cortex,40.86,Postcentral Gyrus,14.27
+FeTS2022_01024,66788,-42.1,12.7,20.2,Left,66320,0,Frontal,55.9,Left Cerebral Cortex,61.01,Left Cerebral White Matter,38.29,Middle Frontal Gyrus,17.26
+FeTS2022_01025,70164,-18.0,10.6,44.1,Left,69697,262,Frontal,51.5,Left Cerebral White Matter,54.34,Left Cerebral Cortex,42.96,Superior Frontal Gyrus,23.73
+FeTS2022_01026,216048,-24.5,23.2,11.8,Left,208825,5746,Frontal,44.2,Left Cerebral White Matter,45.06,Left Cerebral Cortex,42.12,Frontal Pole,17.85
+FeTS2022_01027,84037,-19.3,-53.8,36.3,Left,82750,1237,Parietal,34.9,Left Cerebral Cortex,51.85,Left Cerebral White Matter,45.75,"Lateral Occipital Cortex, superior division",21.9
+FeTS2022_01028,103031,-38.6,-38.3,-6.5,Left,102042,0,Temporal,36.4,Left Cerebral Cortex,47.03,Left Cerebral White Matter,46.39,"Temporal Fusiform Cortex, posterior division",6.36
+FeTS2022_01029,177833,-20.4,39.1,8.1,Left,158336,11255,Frontal,61.9,Left Cerebral Cortex,53.37,Left Cerebral White Matter,31.85,Frontal Pole,30.64
+FeTS2022_01030,183556,38.6,-19.2,-5.6,Right,0,181212,Temporal,33.9,Right Cerebral Cortex,45.77,Right Cerebral White Matter,40.14,Temporal Pole,6.81
+FeTS2022_01031,37048,48.0,-23.6,28.9,Right,0,37010,Parietal,49.2,Right Cerebral Cortex,57.11,Right Cerebral White Matter,42.79,Postcentral Gyrus,23.09
+FeTS2022_01032,189837,-31.1,19.0,18.9,Left,189142,76,Frontal,48.3,Left Cerebral Cortex,48.64,Left Cerebral White Matter,45.14,Frontal Pole,14.94
+FeTS2022_01033,112612,40.4,-41.1,-0.1,Right,0,111950,Temporal,29.6,Right Cerebral White Matter,53.18,Right Cerebral Cortex,41.56,"Middle Temporal Gyrus, posterior division",5.61
+FeTS2022_01034,41976,37.7,5.0,-23.4,Right,0,41575,Temporal,49.9,Right Cerebral Cortex,66.31,Temporal Pole,36.89,Right Cerebral White Matter,22.33
+FeTS2022_01035,5268,5.2,-42.3,-56.0,Right,0,0,Unknown,0.0,Brain-Stem,79.1,,0.0,,0.0
+FeTS2022_01036,20361,-47.9,-20.0,25.5,Left,20356,0,Parietal,42.3,Left Cerebral Cortex,57.39,Left Cerebral White Matter,42.59,Postcentral Gyrus,29.37
+FeTS2022_01037,139577,41.2,-24.3,-3.9,Right,1690,136624,Temporal,34.0,Right Cerebral Cortex,48.32,Right Cerebral White Matter,38.88,"Middle Temporal Gyrus, posterior division",6.92
+FeTS2022_01038,100409,-32.4,-55.9,14.3,Left,100409,0,Occipital,22.0,Left Cerebral White Matter,64.43,Left Cerebral Cortex,32.49,"Lateral Occipital Cortex, superior division",8.49
+FeTS2022_01039,20261,19.8,16.7,48.7,Right,0,20258,Frontal,73.5,Right Cerebral Cortex,64.56,Right Cerebral White Matter,35.43,Superior Frontal Gyrus,32.05
+FeTS2022_01040,111329,32.5,-52.6,24.4,Right,31,110906,Occipital,29.8,Right Cerebral White Matter,51.73,Right Cerebral Cortex,43.16,"Lateral Occipital Cortex, superior division",18.51
+FeTS2022_01041,114895,30.0,4.7,-9.2,Right,1465,111056,Temporal,20.2,Right Cerebral Cortex,40.39,Right Cerebral White Matter,39.16,Temporal Pole,12.09
+FeTS2022_01042,224145,36.3,-30.5,2.5,Right,868,219894,Temporal,23.6,Right Cerebral White Matter,47.38,Right Cerebral Cortex,39.51,"Lateral Occipital Cortex, inferior division",3.49
+FeTS2022_01043,115864,-37.5,-8.9,-7.6,Left,114275,0,Temporal,31.2,Left Cerebral Cortex,57.72,Left Cerebral White Matter,31.81,Temporal Pole,12.97
+FeTS2022_01044,235018,33.4,-31.0,24.7,Right,42,233847,Parietal,21.9,Right Cerebral White Matter,52.88,Right Cerebral Cortex,41.19,"Lateral Occipital Cortex, superior division",7.03
+FeTS2022_01045,249877,-17.9,26.9,10.3,Left,202636,43835,Frontal,45.2,Left Cerebral Cortex,40.3,Left Cerebral White Matter,33.68,Frontal Pole,17.83
+FeTS2022_01046,118676,-21.1,-50.8,44.6,Left,115437,704,Parietal,35.7,Left Cerebral Cortex,52.54,Left Cerebral White Matter,43.81,"Lateral Occipital Cortex, superior division",18.65
+FeTS2022_01047,185843,-38.0,-23.9,5.0,Left,184886,498,Temporal,24.9,Left Cerebral White Matter,47.48,Left Cerebral Cortex,42.24,"Middle Temporal Gyrus, posterior division",5.37
+FeTS2022_01048,69061,-29.7,-22.4,-10.6,Left,64204,3444,Temporal,23.3,Left Cerebral White Matter,46.21,Left Cerebral Cortex,31.36,Left Hippocampus,7.74
+FeTS2022_01049,64464,21.2,-28.4,8.8,Right,3920,55388,Temporal,2.6,Right Cerebral White Matter,52.97,Right Thalamus,15.77,Right Cerebral Cortex,5.2
+FeTS2022_01050,44640,-12.6,-39.1,13.4,Left,41015,3219,Parietal,26.3,Left Cerebral White Matter,36.82,Left Cerebral Cortex,27.44,Precuneous Cortex,17.73
+FeTS2022_01051,120581,42.0,2.6,-3.4,Right,0,116762,Temporal,25.4,Right Cerebral Cortex,58.01,Right Cerebral White Matter,30.88,Insular Cortex,8.58
+FeTS2022_01052,130231,-7.3,21.8,18.6,Left,88011,42204,Frontal,23.7,Left Cerebral White Matter,47.74,Right Cerebral White Matter,21.44,Left Cerebral Cortex,13.64
+FeTS2022_01053,214091,30.5,-26.7,-2.0,Right,7091,193588,Temporal,22.7,Right Cerebral White Matter,40.67,Right Cerebral Cortex,37.28,Insular Cortex,3.87
+FeTS2022_01054,8494,-53.1,-39.2,15.6,Left,8454,40,Parietal,44.0,Left Cerebral Cortex,77.1,"Supramarginal Gyrus, posterior division",25.57,Planum Temporale,25.42
+FeTS2022_01055,85105,-20.5,-34.3,44.4,Left,84737,132,Parietal,32.0,Left Cerebral White Matter,57.61,Left Cerebral Cortex,40.07,Postcentral Gyrus,14.17
+FeTS2022_01056,134191,-27.0,-25.9,-7.3,Left,122301,6895,Temporal,20.9,Left Cerebral White Matter,43.33,Left Cerebral Cortex,31.08,Temporal Pole,5.29
+FeTS2022_01057,55580,-12.8,7.6,12.2,Left,47827,3715,Frontal,15.8,Left Cerebral White Matter,41.05,Left Cerebral Cortex,14.98,Superior Frontal Gyrus,11.89
+FeTS2022_01058,128035,35.1,-48.1,2.2,Right,201,126849,Occipital,22.2,Right Cerebral White Matter,50.82,Right Cerebral Cortex,41.07,"Lateral Occipital Cortex, inferior division",5.98
+FeTS2022_01059,47669,24.1,-28.6,34.9,Right,2099,45570,Parietal,22.5,Right Cerebral White Matter,66.45,Right Cerebral Cortex,22.43,Postcentral Gyrus,10.77
+FeTS2022_01060,150850,36.8,-15.5,2.1,Right,0,150383,Temporal,20.2,Right Cerebral White Matter,50.93,Right Cerebral Cortex,32.84,Insular Cortex,6.12
+FeTS2022_01061,228574,33.0,-26.2,-0.8,Right,3821,211349,Temporal,21.6,Right Cerebral White Matter,43.29,Right Cerebral Cortex,36.08,Right Thalamus,3.41
+FeTS2022_01062,194374,28.5,20.2,18.2,Right,3089,190619,Frontal,44.3,Right Cerebral White Matter,49.45,Right Cerebral Cortex,40.83,Frontal Pole,14.78
+FeTS2022_01063,251063,35.9,-44.0,8.6,Right,134,247180,Occipital,21.8,Right Cerebral Cortex,47.4,Right Cerebral White Matter,43.73,"Lateral Occipital Cortex, superior division",8.43
+FeTS2022_01064,41551,-33.1,-27.7,-6.1,Left,39470,3,Temporal,23.8,Left Cerebral White Matter,51.36,Left Cerebral Cortex,32.91,Left Hippocampus,5.83
+FeTS2022_01065,208523,36.1,-22.5,14.2,Right,79,207614,Temporal,15.9,Right Cerebral White Matter,54.0,Right Cerebral Cortex,35.41,Insular Cortex,3.76
+FeTS2022_01066,99820,15.4,-37.2,40.2,Right,8889,90679,Parietal,39.1,Right Cerebral White Matter,47.01,Right Cerebral Cortex,39.84,Precuneous Cortex,13.02
+FeTS2022_01067,192051,-9.5,24.9,12.0,Left,138652,52751,Frontal,43.5,Left Cerebral White Matter,35.98,Left Cerebral Cortex,33.6,Right Cerebral White Matter,18.88
+FeTS2022_01068,43780,-41.8,-0.8,-16.3,Left,43486,0,Temporal,44.0,Left Cerebral Cortex,71.14,Left Cerebral White Matter,25.94,Temporal Pole,24.58
+FeTS2022_01069,168256,-38.9,-39.9,22.1,Left,166763,0,Parietal,22.2,Left Cerebral White Matter,51.88,Left Cerebral Cortex,42.61,"Lateral Occipital Cortex, superior division",7.6
+FeTS2022_01070,164624,-4.9,-27.7,13.8,Left,85998,77304,Temporal,13.4,Right Cerebral White Matter,32.54,Left Cerebral White Matter,31.65,Left Cerebral Cortex,17.59
+FeTS2022_01071,142026,-27.6,-39.6,13.2,Left,136089,3455,Occipital,11.4,Left Cerebral White Matter,56.17,Left Cerebral Cortex,26.47,"Lateral Occipital Cortex, superior division",6.83
+FeTS2022_01072,182776,-20.3,24.4,7.8,Left,165974,15819,Frontal,42.8,Left Cerebral White Matter,40.44,Left Cerebral Cortex,39.93,Frontal Pole,16.45
+FeTS2022_01073,145727,-22.9,-46.2,31.5,Left,144459,1239,Parietal,29.1,Left Cerebral White Matter,55.31,Left Cerebral Cortex,40.16,Precuneous Cortex,11.58
+FeTS2022_01074,128860,-24.4,22.8,27.7,Left,127137,1586,Frontal,52.8,Left Cerebral White Matter,48.75,Left Cerebral Cortex,46.75,Middle Frontal Gyrus,13.22
+FeTS2022_01075,206665,-10.4,-24.4,36.2,Left,156519,49917,Parietal,17.5,Left Cerebral White Matter,47.69,Left Cerebral Cortex,25.86,Right Cerebral White Matter,21.22
+FeTS2022_01076,145559,-38.6,-36.9,26.1,Left,145559,0,Parietal,27.3,Left Cerebral White Matter,51.26,Left Cerebral Cortex,45.12,"Lateral Occipital Cortex, superior division",7.45
+FeTS2022_01077,7442,51.1,-57.0,39.1,Right,0,7254,Parietal,55.0,Right Cerebral Cortex,88.32,Angular Gyrus,55.05,"Lateral Occipital Cortex, superior division",36.8
+FeTS2022_01078,180577,25.2,13.3,2.7,Right,10261,168436,Frontal,27.0,Right Cerebral White Matter,50.17,Right Cerebral Cortex,31.47,Frontal Pole,6.36
+FeTS2022_01079,246115,-34.9,-19.8,2.9,Left,244317,3,Temporal,22.6,Left Cerebral White Matter,47.59,Left Cerebral Cortex,39.73,Temporal Pole,6.16
+FeTS2022_01080,120625,-44.8,-35.8,-1.2,Left,119621,0,Temporal,40.9,Left Cerebral Cortex,54.33,Left Cerebral White Matter,42.35,"Middle Temporal Gyrus, posterior division",7.7
+FeTS2022_01081,63465,-34.7,-40.5,8.0,Left,62650,705,Temporal,17.8,Left Cerebral White Matter,66.38,Left Cerebral Cortex,23.69,"Middle Temporal Gyrus, temporooccipital part",4.53
+FeTS2022_01082,152803,-34.9,-58.7,-1.0,Left,143315,0,Occipital,30.1,Left Cerebral Cortex,48.68,Left Cerebral White Matter,41.76,"Lateral Occipital Cortex, inferior division",10.35
+FeTS2022_01083,162401,37.3,-13.4,28.7,Right,0,162248,Frontal,21.5,Right Cerebral White Matter,52.89,Right Cerebral Cortex,43.36,Postcentral Gyrus,10.24
+FeTS2022_01084,55148,-14.4,-42.1,13.6,Left,46939,6532,Parietal,9.6,Left Cerebral White Matter,55.03,Left Cerebral Cortex,14.35,Right Cerebral White Matter,8.8
+FeTS2022_01085,190681,-15.8,17.9,28.0,Left,163940,24446,Frontal,46.7,Left Cerebral White Matter,42.02,Left Cerebral Cortex,37.8,Superior Frontal Gyrus,9.8
+FeTS2022_01086,90109,-19.5,14.2,43.9,Left,87315,92,Frontal,53.0,Left Cerebral White Matter,51.0,Left Cerebral Cortex,45.89,Superior Frontal Gyrus,21.87
+FeTS2022_01087,127219,-23.5,-48.2,35.9,Left,126989,0,Parietal,24.2,Left Cerebral White Matter,52.6,Left Cerebral Cortex,45.05,Postcentral Gyrus,10.27
+FeTS2022_01088,22885,-38.7,-7.3,41.7,Left,22837,0,Frontal,48.8,Left Cerebral White Matter,50.04,Left Cerebral Cortex,49.75,Precentral Gyrus,36.26
+FeTS2022_01089,211347,34.3,-22.4,0.3,Right,8720,195493,Temporal,25.0,Right Cerebral White Matter,44.06,Right Cerebral Cortex,35.22,"Middle Temporal Gyrus, posterior division",4.58
+FeTS2022_01090,66856,-30.0,27.2,-0.0,Left,66850,0,Frontal,38.4,Left Cerebral White Matter,52.85,Left Cerebral Cortex,44.97,Frontal Pole,18.99
+FeTS2022_01091,8735,9.4,28.2,44.6,Right,2,8312,Frontal,76.9,Right Cerebral Cortex,71.0,Superior Frontal Gyrus,39.28,Paracingulate Gyrus,27.46
+FeTS2022_01092,222282,-24.4,17.7,12.8,Left,217942,4156,Frontal,40.7,Left Cerebral White Matter,48.6,Left Cerebral Cortex,40.02,Frontal Pole,11.7
+FeTS2022_01093,191806,-36.1,-17.6,-5.0,Left,187813,0,Temporal,28.5,Left Cerebral Cortex,46.46,Left Cerebral White Matter,37.92,Temporal Pole,7.87
+FeTS2022_01094,124006,-24.5,-45.6,43.2,Left,123751,0,Parietal,34.6,Left Cerebral White Matter,51.14,Left Cerebral Cortex,48.36,"Lateral Occipital Cortex, superior division",13.34
+FeTS2022_01095,234503,-27.3,18.2,21.4,Left,232869,463,Frontal,49.0,Left Cerebral Cortex,48.13,Left Cerebral White Matter,47.06,Frontal Pole,15.18
+FeTS2022_01096,178570,-27.8,-50.1,32.3,Left,178570,0,Parietal,28.1,Left Cerebral White Matter,52.27,Left Cerebral Cortex,45.32,"Lateral Occipital Cortex, superior division",15.25
+FeTS2022_01097,76368,-4.6,-48.7,25.7,Left,46488,29842,Parietal,33.6,Left Cerebral White Matter,42.17,Right Cerebral White Matter,25.56,Precuneous Cortex,19.89
+FeTS2022_01098,106268,-29.9,-28.1,27.1,Left,106072,0,Parietal,16.7,Left Cerebral White Matter,71.86,Left Cerebral Cortex,22.09,Postcentral Gyrus,9.06
+FeTS2022_01099,89933,42.6,-6.9,-12.3,Right,0,89102,Temporal,40.2,Right Cerebral Cortex,54.54,Right Cerebral White Matter,34.29,Temporal Pole,11.76
+FeTS2022_01100,86163,-33.3,-55.4,8.1,Left,86158,0,Occipital,24.6,Left Cerebral White Matter,65.84,Left Cerebral Cortex,30.2,"Lateral Occipital Cortex, inferior division",8.11
+FeTS2022_01101,239215,-26.7,16.8,16.7,Left,224926,11931,Frontal,43.1,Left Cerebral Cortex,42.98,Left Cerebral White Matter,42.01,Frontal Pole,12.7
+FeTS2022_01102,28557,17.0,-33.0,60.1,Right,18,28333,Parietal,38.4,Right Cerebral Cortex,52.66,Right Cerebral White Matter,46.55,Precentral Gyrus,21.14
+FeTS2022_01103,120033,37.6,-5.8,25.6,Right,0,120024,Frontal,29.1,Right Cerebral White Matter,54.82,Right Cerebral Cortex,40.59,Precentral Gyrus,11.8
+FeTS2022_01104,132369,39.7,-41.2,9.6,Right,639,131653,Temporal,24.6,Right Cerebral White Matter,58.78,Right Cerebral Cortex,39.78,"Lateral Occipital Cortex, inferior division",5.49
+FeTS2022_01105,160402,-42.0,-27.7,-1.8,Left,158960,0,Temporal,34.8,Left Cerebral Cortex,51.64,Left Cerebral White Matter,40.45,"Middle Temporal Gyrus, posterior division",5.5
+FeTS2022_01106,40569,-39.2,-26.4,36.8,Left,37758,0,Parietal,47.4,Left Cerebral Cortex,56.46,Postcentral Gyrus,29.76,Left Cerebral White Matter,29.7
+FeTS2022_01107,85238,-39.9,-7.1,-15.4,Left,84550,0,Temporal,42.5,Left Cerebral Cortex,59.28,Left Cerebral White Matter,30.46,Temporal Pole,20.34
+FeTS2022_01108,11770,53.6,-42.7,-12.4,Right,0,11766,Temporal,67.3,Right Cerebral Cortex,58.39,Right Cerebral White Matter,41.57,"Inferior Temporal Gyrus, temporooccipital part",35.01
+FeTS2022_01109,76068,0.1,-43.4,27.1,Right,37732,37607,Parietal,21.9,Left Cerebral White Matter,37.49,Right Cerebral White Matter,35.89,"Cingulate Gyrus, posterior division",10.64
+FeTS2022_01110,61576,-1.5,22.4,-1.7,Left,34795,25803,Frontal,44.0,Left Cerebral Cortex,23.93,Left Cerebral White Matter,19.79,Right Cerebral Cortex,19.73
+FeTS2022_01111,133232,-37.0,-26.4,4.7,Left,130619,2060,Temporal,22.9,Left Cerebral White Matter,46.23,Left Cerebral Cortex,40.58,Central Opercular Cortex,4.28
+FeTS2022_01112,215658,16.7,26.5,20.0,Right,31569,179859,Frontal,45.5,Right Cerebral White Matter,38.64,Right Cerebral Cortex,36.82,Frontal Pole,17.38
+FeTS2022_01113,97938,39.2,-34.2,0.4,Right,0,97888,Temporal,29.2,Right Cerebral White Matter,65.3,Right Cerebral Cortex,31.03,"Middle Temporal Gyrus, posterior division",6.69
+FeTS2022_01114,107418,-42.7,-11.2,-4.5,Left,106192,0,Temporal,36.1,Left Cerebral Cortex,55.1,Left Cerebral White Matter,38.63,Temporal Pole,11.75
+FeTS2022_01115,109745,-43.3,-44.6,-0.7,Left,109047,0,Temporal,34.1,Left Cerebral Cortex,50.64,Left Cerebral White Matter,46.41,"Lateral Occipital Cortex, inferior division",8.32
+FeTS2022_01116,92998,38.8,-22.4,-14.6,Right,0,92305,Temporal,41.0,Right Cerebral Cortex,47.39,Right Cerebral White Matter,40.67,Temporal Pole,10.93
+FeTS2022_01117,33405,40.8,-29.5,36.1,Right,0,33405,Parietal,48.1,Right Cerebral White Matter,56.01,Right Cerebral Cortex,43.96,Postcentral Gyrus,17.48
+FeTS2022_01118,60857,-47.1,-23.1,-3.3,Left,60790,0,Temporal,41.1,Left Cerebral Cortex,53.45,Left Cerebral White Matter,42.09,"Middle Temporal Gyrus, posterior division",12.47
+FeTS2022_01119,64804,-15.6,-58.5,-39.4,Left,0,0,Unknown,0.0,Brain-Stem,6.52,,0.0,,0.0
+FeTS2022_01120,155521,-26.1,11.5,7.1,Left,151987,3512,Frontal,26.8,Left Cerebral White Matter,56.37,Left Cerebral Cortex,30.9,Insular Cortex,6.81
+FeTS2022_01121,188531,36.6,-19.7,-1.4,Right,0,187104,Temporal,25.3,Right Cerebral White Matter,46.81,Right Cerebral Cortex,41.9,Temporal Pole,6.5
+FeTS2022_01122,194132,24.3,20.9,25.8,Right,9797,182584,Frontal,53.5,Right Cerebral Cortex,47.13,Right Cerebral White Matter,41.51,Frontal Pole,12.83
+FeTS2022_01123,114182,-44.2,-21.7,-9.8,Left,111609,0,Temporal,45.8,Left Cerebral Cortex,53.7,Left Cerebral White Matter,38.85,"Middle Temporal Gyrus, posterior division",8.73
+FeTS2022_01124,50247,-15.6,-24.0,12.7,Left,44749,3730,Parietal,1.9,Left Cerebral White Matter,53.54,Left Thalamus,19.23,Left Lateral Ventrical,8.73
+FeTS2022_01125,193723,36.7,-13.4,-1.5,Right,0,191758,Temporal,25.6,Right Cerebral White Matter,45.36,Right Cerebral Cortex,42.72,Temporal Pole,8.25
+FeTS2022_01126,101864,27.7,-67.3,17.7,Right,7,101819,Occipital,49.3,Right Cerebral White Matter,50.06,Right Cerebral Cortex,48.28,"Lateral Occipital Cortex, superior division",20.39
+FeTS2022_01127,78373,-51.4,-27.3,-6.8,Left,75200,0,Temporal,52.2,Left Cerebral Cortex,58.63,Left Cerebral White Matter,36.31,"Middle Temporal Gyrus, posterior division",13.95
+FeTS2022_01128,40262,12.0,-13.5,-1.2,Right,1168,28158,Other,0.0,Right Cerebral White Matter,26.8,Right Thalamus,20.49,Brain-Stem,17.55
+FeTS2022_01129,88211,-37.7,-8.1,-14.6,Left,85662,0,Temporal,36.8,Left Cerebral Cortex,51.72,Left Cerebral White Matter,35.35,Temporal Pole,15.74
+FeTS2022_01130,49899,12.8,13.7,0.9,Right,7600,38729,Frontal,12.2,Right Cerebral White Matter,42.88,Right Cerebral Cortex,9.98,Subcallosal Cortex,5.31
+FeTS2022_01131,63394,45.7,-3.3,21.7,Right,0,63248,Frontal,41.3,Right Cerebral Cortex,58.67,Right Cerebral White Matter,40.35,Precentral Gyrus,19.28
+FeTS2022_01132,23042,43.0,-11.3,45.3,Right,0,23028,Frontal,53.3,Right Cerebral Cortex,64.94,Precentral Gyrus,51.48,Right Cerebral White Matter,35.0
+FeTS2022_01133,50520,-20.5,-0.2,46.3,Left,50520,0,Frontal,36.4,Left Cerebral White Matter,72.7,Left Cerebral Cortex,27.25,Superior Frontal Gyrus,16.27
+FeTS2022_01134,136359,31.2,-12.3,15.0,Right,0,135789,Frontal,8.6,Right Cerebral White Matter,64.87,Right Cerebral Cortex,19.68,Insular Cortex,6.39
+FeTS2022_01135,182115,19.8,12.3,26.1,Right,22965,158995,Frontal,36.7,Right Cerebral White Matter,48.76,Right Cerebral Cortex,29.91,Middle Frontal Gyrus,8.21
+FeTS2022_01136,198015,-18.1,28.1,17.9,Left,178956,15719,Frontal,48.0,Left Cerebral White Matter,44.05,Left Cerebral Cortex,39.61,Frontal Pole,19.22
+FeTS2022_01137,61743,7.0,-60.2,-29.5,Right,148,1710,Occipital,2.4,Brain-Stem,10.58,Right Cerebral Cortex,2.77,Lingual Gyrus,2.13
+FeTS2022_01138,175882,20.6,-38.5,18.4,Right,33846,140803,Parietal,15.1,Right Cerebral White Matter,44.21,Right Cerebral Cortex,30.97,Left Cerebral White Matter,14.01
+FeTS2022_01139,197256,26.4,-58.8,22.0,Right,9367,187048,Occipital,35.7,Right Cerebral Cortex,47.08,Right Cerebral White Matter,45.46,"Lateral Occipital Cortex, superior division",15.82
+FeTS2022_01140,125996,-18.5,-49.8,39.3,Left,121675,3173,Parietal,38.1,Left Cerebral Cortex,47.15,Left Cerebral White Matter,47.12,Precuneous Cortex,17.96
+FeTS2022_01141,207957,-25.3,-32.9,41.7,Left,206519,69,Parietal,29.1,Left Cerebral White Matter,49.98,Left Cerebral Cortex,46.45,Postcentral Gyrus,10.15
+FeTS2022_01142,203780,-39.9,-34.8,12.2,Left,203584,0,Temporal,22.7,Left Cerebral Cortex,49.35,Left Cerebral White Matter,44.05,"Lateral Occipital Cortex, superior division",5.89
+FeTS2022_01143,216882,38.0,-28.5,1.0,Right,84,210639,Temporal,24.9,Right Cerebral White Matter,43.12,Right Cerebral Cortex,41.18,"Middle Temporal Gyrus, posterior division",4.37
+FeTS2022_01144,96538,39.1,-34.8,31.6,Right,0,96522,Parietal,35.4,Right Cerebral White Matter,56.98,Right Cerebral Cortex,40.72,Postcentral Gyrus,10.07
+FeTS2022_01145,172580,18.4,36.2,5.9,Right,26666,142499,Frontal,56.0,Right Cerebral Cortex,45.28,Right Cerebral White Matter,32.85,Frontal Pole,28.9
+FeTS2022_01146,206656,27.1,29.6,18.1,Right,4199,197638,Frontal,55.6,Right Cerebral Cortex,51.6,Right Cerebral White Matter,39.13,Frontal Pole,22.39
+FeTS2022_01147,16905,43.6,-46.5,-2.2,Right,0,16905,Temporal,33.3,Right Cerebral Cortex,56.26,Right Cerebral White Matter,43.66,"Lateral Occipital Cortex, inferior division",23.48
+FeTS2022_01148,135388,41.0,-28.0,14.3,Right,0,135373,Parietal,21.1,Right Cerebral White Matter,48.39,Right Cerebral Cortex,42.76,Angular Gyrus,5.69
+FeTS2022_01149,29279,33.5,0.9,-22.6,Right,2,29265,Temporal,36.3,Right Cerebral Cortex,52.38,Right Cerebral White Matter,27.58,Temporal Pole,21.92
+FeTS2022_01150,111460,-28.0,-38.2,4.4,Left,94711,16417,Temporal,22.5,Left Cerebral White Matter,49.09,Left Cerebral Cortex,28.38,Right Cerebral White Matter,13.09
+FeTS2022_01151,187060,-16.0,-32.3,-3.5,Left,143975,33052,Temporal,12.8,Left Cerebral White Matter,35.11,Left Cerebral Cortex,30.76,Right Cerebral White Matter,8.1
+FeTS2022_01152,19581,40.6,22.1,30.5,Right,0,19250,Frontal,63.2,Right Cerebral Cortex,55.91,Middle Frontal Gyrus,49.24,Right Cerebral White Matter,42.4
+FeTS2022_01153,195844,25.1,-46.7,22.6,Right,3840,190276,Parietal,25.3,Right Cerebral White Matter,46.87,Right Cerebral Cortex,46.8,Precuneous Cortex,9.54
+FeTS2022_01154,22591,-23.3,-9.5,-14.6,Left,18329,17,Temporal,8.5,Left Cerebral White Matter,36.3,Left Cerebral Cortex,20.11,Left Hippocampus,11.86
+FeTS2022_01155,239281,19.8,19.7,31.1,Right,14746,215891,Frontal,50.6,Right Cerebral Cortex,43.93,Right Cerebral White Matter,41.71,Frontal Pole,13.71
+FeTS2022_01156,128838,-29.7,0.4,14.7,Left,127889,56,Frontal,17.4,Left Cerebral White Matter,55.15,Left Cerebral Cortex,29.09,Insular Cortex,6.05
+FeTS2022_01157,142223,27.1,-50.5,18.4,Right,5922,134394,Occipital,19.9,Right Cerebral White Matter,56.09,Right Cerebral Cortex,33.26,"Lateral Occipital Cortex, superior division",11.08
+FeTS2022_01158,134153,41.3,-0.2,20.7,Right,0,131217,Frontal,31.0,Right Cerebral Cortex,49.15,Right Cerebral White Matter,45.42,Precentral Gyrus,9.32
+FeTS2022_01159,37101,-27.6,-33.6,31.4,Left,33203,3780,Parietal,27.3,Left Cerebral White Matter,68.49,Left Cerebral Cortex,21.0,Frontal Orbital Cortex,8.92
+FeTS2022_01160,134793,29.6,-41.6,11.2,Right,624,133322,Occipital,10.6,Right Cerebral White Matter,66.78,Right Cerebral Cortex,20.32,Right Thalamus,5.14
+FeTS2022_01161,163730,39.4,-25.2,-9.5,Right,0,154087,Temporal,36.0,Right Cerebral Cortex,51.8,Right Cerebral White Matter,32.75,"Middle Temporal Gyrus, posterior division",5.19
+FeTS2022_01162,140529,-38.3,-8.6,-11.3,Left,133826,0,Temporal,32.0,Left Cerebral Cortex,52.21,Left Cerebral White Matter,32.6,Temporal Pole,13.24
+FeTS2022_01163,88671,-15.3,-9.0,17.8,Left,75788,7903,Frontal,4.8,Left Cerebral White Matter,55.65,Left Thalamus,11.71,Left Lateral Ventrical,5.83
+FeTS2022_01164,101596,-6.4,21.7,16.0,Left,64476,37116,Frontal,20.5,Left Cerebral White Matter,42.44,Right Cerebral White Matter,24.49,Left Cerebral Cortex,12.81
+FeTS2022_01165,84968,-5.5,-10.4,31.1,Left,56411,27594,Parietal,17.5,Left Cerebral White Matter,39.89,Right Cerebral Cortex,17.04,Right Cerebral White Matter,13.9
+FeTS2022_01166,44377,13.3,-38.3,14.9,Right,8696,33143,Parietal,11.7,Right Cerebral White Matter,45.51,Left Cerebral White Matter,13.17,Right Cerebral Cortex,10.33
+FeTS2022_01167,150557,-41.2,-34.1,24.0,Left,145684,0,Parietal,25.9,Left Cerebral White Matter,48.12,Left Cerebral Cortex,45.86,Postcentral Gyrus,7.94
+FeTS2022_01168,154945,-35.7,-10.7,-9.8,Left,149028,0,Temporal,29.7,Left Cerebral Cortex,49.83,Left Cerebral White Matter,32.65,Temporal Pole,9.9
+FeTS2022_01169,230944,16.4,-33.1,11.3,Right,43472,182618,Parietal,17.7,Right Cerebral White Matter,36.39,Right Cerebral Cortex,36.09,Left Cerebral White Matter,11.97
+FeTS2022_01170,133308,-0.4,-44.1,20.1,Left,60547,71570,Parietal,19.4,Right Cerebral White Matter,33.41,Left Cerebral White Matter,32.3,Right Cerebral Cortex,17.3
+FeTS2022_01171,191359,35.8,-17.3,-7.5,Right,0,184145,Temporal,30.3,Right Cerebral Cortex,46.45,Right Cerebral White Matter,36.28,Temporal Pole,7.53
+FeTS2022_01172,139271,-42.5,-41.4,21.6,Left,135170,1,Parietal,25.9,Left Cerebral Cortex,48.89,Left Cerebral White Matter,43.75,"Lateral Occipital Cortex, superior division",7.68
+FeTS2022_01173,89478,-42.4,1.0,-15.3,Left,85278,0,Temporal,39.0,Left Cerebral Cortex,68.31,Left Cerebral White Matter,19.76,Temporal Pole,19.64
+FeTS2022_01174,114964,-27.0,-40.1,40.6,Left,114964,0,Parietal,34.6,Left Cerebral White Matter,57.28,Left Cerebral Cortex,40.49,Postcentral Gyrus,12.08
+FeTS2022_01175,264001,-14.3,-48.0,27.3,Left,174339,87925,Parietal,23.8,Left Cerebral White Matter,37.55,Left Cerebral Cortex,24.66,Right Cerebral Cortex,19.0
+FeTS2022_01176,113629,-12.4,38.4,21.4,Left,94503,14779,Frontal,60.1,Left Cerebral Cortex,43.89,Left Cerebral White Matter,36.21,Frontal Pole,23.11
+FeTS2022_01177,350422,-18.1,19.1,21.0,Left,275534,65050,Frontal,44.9,Left Cerebral Cortex,37.39,Left Cerebral White Matter,36.27,Frontal Pole,13.41
+FeTS2022_01178,40478,19.7,-28.8,55.9,Right,27,40449,Parietal,29.3,Right Cerebral White Matter,52.03,Right Cerebral Cortex,47.9,Precentral Gyrus,27.47
+FeTS2022_01179,134096,-38.1,-8.5,-17.0,Left,123963,0,Temporal,35.5,Left Cerebral Cortex,54.37,Left Cerebral White Matter,25.88,Temporal Pole,13.54
+FeTS2022_01180,189219,39.2,-21.9,-9.0,Right,0,181504,Temporal,36.4,Right Cerebral Cortex,51.1,Right Cerebral White Matter,35.34,Temporal Pole,7.33
+FeTS2022_01181,49405,-42.7,-20.5,7.6,Left,49405,0,Temporal,22.6,Left Cerebral White Matter,50.0,Left Cerebral Cortex,48.06,Central Opercular Cortex,11.15
+FeTS2022_01182,263462,11.1,18.4,19.7,Right,67375,192630,Frontal,39.5,Right Cerebral White Matter,35.47,Right Cerebral Cortex,33.01,Left Cerebral White Matter,16.9
+FeTS2022_01183,196652,20.5,29.1,17.4,Right,17580,176829,Frontal,50.1,Right Cerebral White Matter,42.3,Right Cerebral Cortex,40.66,Frontal Pole,19.46
+FeTS2022_01184,55987,34.5,-5.3,-22.3,Right,0,53879,Temporal,33.9,Right Cerebral Cortex,50.67,Right Cerebral White Matter,27.36,Temporal Pole,10.65
+FeTS2022_01185,152225,34.2,-35.7,4.8,Right,1,149037,Temporal,19.4,Right Cerebral White Matter,53.87,Right Cerebral Cortex,35.18,Right Hippocampus,3.15
+FeTS2022_01186,60638,39.4,-23.6,45.1,Right,0,60251,Parietal,45.8,Right Cerebral Cortex,57.49,Right Cerebral White Matter,41.87,Postcentral Gyrus,28.65
+FeTS2022_01187,70064,-13.6,43.3,16.6,Left,67728,1521,Frontal,66.5,Left Cerebral Cortex,56.38,Left Cerebral White Matter,40.03,Frontal Pole,33.0
+FeTS2022_01188,228768,32.5,-7.8,-8.9,Right,1103,208925,Temporal,24.2,Right Cerebral Cortex,43.77,Right Cerebral White Matter,36.23,Temporal Pole,8.04
+FeTS2022_01189,165751,36.2,-5.6,24.3,Right,0,164241,Frontal,24.8,Right Cerebral White Matter,49.34,Right Cerebral Cortex,41.44,Precentral Gyrus,11.28
+FeTS2022_01190,178316,37.3,-14.0,3.8,Right,317,175897,Temporal,18.6,Right Cerebral White Matter,44.82,Right Cerebral Cortex,39.12,Temporal Pole,6.97
+FeTS2022_01191,190500,39.6,-27.9,29.3,Right,0,185474,Parietal,29.6,Right Cerebral White Matter,47.69,Right Cerebral Cortex,44.64,Postcentral Gyrus,8.29
+FeTS2022_01192,270435,23.3,9.3,35.4,Right,15000,250343,Frontal,49.4,Right Cerebral Cortex,50.97,Right Cerebral White Matter,39.07,Precentral Gyrus,10.08
+FeTS2022_01193,121931,-40.0,-30.6,-7.0,Left,121530,0,Temporal,34.8,Left Cerebral Cortex,48.45,Left Cerebral White Matter,42.23,Insular Cortex,4.57
+FeTS2022_01194,169723,-23.6,22.6,1.2,Left,159538,8328,Frontal,38.1,Left Cerebral White Matter,42.21,Left Cerebral Cortex,41.39,Frontal Pole,12.74
+FeTS2022_01195,182630,31.3,-50.1,17.6,Right,0,182420,Occipital,27.6,Right Cerebral White Matter,53.33,Right Cerebral Cortex,42.12,"Lateral Occipital Cortex, superior division",12.59
+FeTS2022_01196,87635,-27.9,15.0,34.8,Left,86731,0,Frontal,45.3,Left Cerebral White Matter,60.09,Left Cerebral Cortex,38.83,Middle Frontal Gyrus,22.22
+FeTS2022_01197,170569,-34.1,-40.7,31.4,Left,170476,0,Parietal,31.9,Left Cerebral White Matter,51.12,Left Cerebral Cortex,45.36,"Lateral Occipital Cortex, superior division",10.63
+FeTS2022_01198,184858,40.3,-23.8,2.5,Right,0,183796,Temporal,30.1,Right Cerebral White Matter,46.66,Right Cerebral Cortex,43.26,"Middle Temporal Gyrus, posterior division",5.39
+FeTS2022_01199,201267,-28.3,-51.9,12.7,Left,198441,111,Occipital,28.7,Left Cerebral White Matter,52.13,Left Cerebral Cortex,40.03,"Lateral Occipital Cortex, superior division",9.2
+FeTS2022_01200,128694,-30.6,-57.5,27.3,Left,128641,0,Occipital,28.8,Left Cerebral White Matter,50.99,Left Cerebral Cortex,45.65,"Lateral Occipital Cortex, superior division",22.39
+FeTS2022_01201,138703,13.5,15.3,34.6,Right,10169,127848,Frontal,47.6,Right Cerebral White Matter,45.82,Right Cerebral Cortex,40.76,Superior Frontal Gyrus,13.11
+FeTS2022_01202,297283,29.6,-11.9,1.9,Right,19480,262518,Temporal,18.8,Right Cerebral White Matter,42.28,Right Cerebral Cortex,33.43,Temporal Pole,4.99
+FeTS2022_01203,82204,39.1,-6.2,-12.9,Right,0,80608,Temporal,35.4,Right Cerebral Cortex,53.66,Right Cerebral White Matter,30.14,Temporal Pole,13.65
+FeTS2022_01204,43493,-36.2,-42.1,16.8,Left,43493,0,Temporal,15.6,Left Cerebral White Matter,69.33,Left Cerebral Cortex,26.62,"Middle Temporal Gyrus, temporooccipital part",10.28
+FeTS2022_01205,28913,-35.9,-53.7,46.3,Left,27342,0,Parietal,41.8,Left Cerebral Cortex,68.19,Left Cerebral White Matter,26.38,"Lateral Occipital Cortex, superior division",24.98
+FeTS2022_01206,172873,-22.2,21.6,23.6,Left,167477,5337,Frontal,46.4,Left Cerebral White Matter,50.17,Left Cerebral Cortex,41.2,Frontal Pole,13.58
+FeTS2022_01207,54225,-45.6,-36.2,-8.6,Left,52852,0,Temporal,45.8,Left Cerebral White Matter,49.68,Left Cerebral Cortex,46.35,"Inferior Temporal Gyrus, posterior division",10.92
+FeTS2022_01208,40866,35.3,-7.2,-25.2,Right,0,40412,Temporal,40.9,Right Cerebral Cortex,52.23,Right Cerebral White Matter,31.74,Temporal Pole,15.96
+FeTS2022_01209,257757,35.9,-25.9,-0.9,Right,878,250258,Temporal,27.6,Right Cerebral White Matter,43.82,Right Cerebral Cortex,43.23,Temporal Pole,6.24
+FeTS2022_01210,64198,42.8,-32.8,31.7,Right,0,64058,Parietal,38.6,Right Cerebral Cortex,60.19,Right Cerebral White Matter,38.48,Postcentral Gyrus,13.17
+FeTS2022_01211,63046,-38.9,-41.0,22.1,Left,63010,0,Parietal,33.3,Left Cerebral White Matter,61.06,Left Cerebral Cortex,33.21,"Supramarginal Gyrus, anterior division",10.11
+FeTS2022_01212,36916,-49.5,-11.7,-4.0,Left,36643,0,Temporal,49.4,Left Cerebral Cortex,77.1,Left Cerebral White Matter,21.28,Central Opercular Cortex,9.92
+FeTS2022_01213,58081,-18.1,-34.4,29.0,Left,53150,4579,Parietal,12.7,Left Cerebral White Matter,74.51,Left Cerebral Cortex,8.77,"Cingulate Gyrus, posterior division",6.48
+FeTS2022_01214,87702,42.0,-23.9,-11.2,Right,0,87489,Temporal,42.2,Right Cerebral Cortex,47.93,Right Cerebral White Matter,43.96,"Middle Temporal Gyrus, posterior division",6.24
+FeTS2022_01215,142788,-32.6,-14.3,14.6,Left,142537,0,Frontal,10.2,Left Cerebral White Matter,64.69,Left Cerebral Cortex,24.34,Insular Cortex,7.1
+FeTS2022_01216,162906,34.8,-32.1,31.6,Right,0,162880,Parietal,30.6,Right Cerebral White Matter,54.56,Right Cerebral Cortex,41.7,Postcentral Gyrus,8.14
+FeTS2022_01217,119631,-41.6,-28.7,10.8,Left,119476,0,Temporal,20.1,Left Cerebral White Matter,48.52,Left Cerebral Cortex,43.97,"Supramarginal Gyrus, posterior division",4.23
+FeTS2022_01218,64533,12.9,-42.7,15.6,Right,19464,44741,Occipital,6.1,Right Cerebral White Matter,56.38,Left Cerebral White Matter,18.87,Right Cerebral Cortex,6.31
+FeTS2022_01219,148113,10.2,-24.9,-12.2,Right,68617,77418,Temporal,40.5,Right Cerebral Cortex,33.23,Left Cerebral Cortex,21.28,Right Cerebral White Matter,18.52
+FeTS2022_01220,42651,20.2,-30.6,12.8,Right,511,38938,Insula,1.5,Right Cerebral White Matter,59.16,Right Thalamus,16.44,Right Lateral Ventricle,7.28
+FeTS2022_01221,201101,38.3,-8.6,-7.5,Right,0,192748,Temporal,28.8,Right Cerebral Cortex,45.78,Right Cerebral White Matter,39.83,Temporal Pole,9.2
+FeTS2022_01222,54267,10.9,17.5,37.9,Right,7863,46384,Frontal,47.5,Right Cerebral White Matter,45.93,Right Cerebral Cortex,39.34,Left Cerebral White Matter,12.99
+FeTS2022_01223,81972,-15.8,-5.9,34.9,Left,73850,7901,Frontal,25.6,Left Cerebral White Matter,58.58,Left Cerebral Cortex,21.21,Precentral Gyrus,8.74
+FeTS2022_01224,62647,-31.3,-27.4,36.2,Left,62644,2,Parietal,23.7,Left Cerebral White Matter,75.66,Left Cerebral Cortex,23.82,Postcentral Gyrus,16.52
+FeTS2022_01225,201005,-31.2,-10.4,24.4,Left,194078,5195,Frontal,25.3,Left Cerebral White Matter,52.25,Left Cerebral Cortex,34.43,Precentral Gyrus,8.93
+FeTS2022_01226,117628,-39.0,-44.2,17.4,Left,116745,0,Temporal,23.6,Left Cerebral Cortex,53.59,Left Cerebral White Matter,43.67,"Lateral Occipital Cortex, superior division",13.82
+FeTS2022_01227,114404,-21.2,-3.1,41.8,Left,112568,1564,Frontal,39.4,Left Cerebral White Matter,58.53,Left Cerebral Cortex,35.21,Superior Frontal Gyrus,12.75
+FeTS2022_01228,202882,29.4,7.3,8.6,Right,2862,197157,Frontal,23.0,Right Cerebral White Matter,53.3,Right Cerebral Cortex,30.5,Frontal Pole,8.36
+FeTS2022_01229,86480,-35.5,-7.1,-2.2,Left,85760,6,Temporal,25.4,Left Cerebral White Matter,47.2,Left Cerebral Cortex,38.87,Temporal Pole,13.52
+FeTS2022_01230,23859,-37.4,-52.3,-9.2,Left,23791,0,Temporal,38.1,Left Cerebral Cortex,49.74,Left Cerebral White Matter,47.5,Temporal Occipital Fusiform Cortex,15.35
+FeTS2022_01231,92845,41.0,-30.4,16.1,Right,0,92747,Parietal,20.3,Right Cerebral White Matter,57.23,Right Cerebral Cortex,38.92,"Supramarginal Gyrus, posterior division",6.24
+FeTS2022_01232,120279,20.4,24.4,16.4,Right,11668,108353,Frontal,49.4,Right Cerebral Cortex,44.34,Right Cerebral White Matter,41.46,"Cingulate Gyrus, anterior division",11.76
+FeTS2022_01233,99579,-19.5,-37.9,38.7,Left,95544,2880,Parietal,30.9,Left Cerebral White Matter,57.57,Left Cerebral Cortex,35.1,Precuneous Cortex,10.81
+FeTS2022_01234,36436,-14.2,-15.2,59.8,Left,35446,408,Frontal,54.7,Left Cerebral Cortex,50.54,Left Cerebral White Matter,46.74,Precentral Gyrus,30.02
+FeTS2022_01235,179910,34.9,-3.9,29.4,Right,0,179310,Frontal,30.0,Right Cerebral White Matter,51.62,Right Cerebral Cortex,42.79,Precentral Gyrus,11.14
+FeTS2022_01236,130705,-20.6,28.0,27.8,Left,127982,376,Frontal,50.6,Left Cerebral White Matter,51.76,Left Cerebral Cortex,43.34,Frontal Pole,17.65
+FeTS2022_01237,96307,36.5,-16.9,-9.7,Right,1873,93919,Temporal,32.7,Right Cerebral White Matter,46.08,Right Cerebral Cortex,36.52,"Middle Temporal Gyrus, posterior division",7.39
+FeTS2022_01238,143551,37.8,-43.5,19.8,Right,0,143460,Occipital,19.6,Right Cerebral White Matter,57.87,Right Cerebral Cortex,40.64,"Lateral Occipital Cortex, superior division",7.45
+FeTS2022_01239,81339,-36.5,-33.8,21.6,Left,81339,0,Parietal,20.1,Left Cerebral White Matter,63.24,Left Cerebral Cortex,30.57,"Supramarginal Gyrus, anterior division",5.27
+FeTS2022_01240,45853,-26.5,-5.5,-21.4,Left,44931,7,Temporal,27.8,Left Cerebral Cortex,59.75,Left Cerebral White Matter,18.78,Temporal Pole,13.95
+FeTS2022_01241,152435,-4.7,23.2,7.9,Left,85515,65591,Frontal,27.2,Left Cerebral White Matter,32.82,Right Cerebral White Matter,25.09,Left Cerebral Cortex,16.6
+FeTS2022_01242,114040,39.3,-37.4,6.0,Right,0,113957,Temporal,22.4,Right Cerebral White Matter,64.53,Right Cerebral Cortex,30.08,"Middle Temporal Gyrus, temporooccipital part",5.71
+FeTS2022_01243,88546,21.4,-40.7,38.1,Right,631,87900,Parietal,27.9,Right Cerebral White Matter,61.28,Right Cerebral Cortex,37.14,Precuneous Cortex,14.32
+FeTS2022_01244,146367,-22.5,-35.4,46.4,Left,143988,128,Parietal,31.5,Left Cerebral White Matter,48.85,Left Cerebral Cortex,47.18,Postcentral Gyrus,12.24
+FeTS2022_01245,113743,-35.1,-21.7,-0.9,Left,111545,118,Temporal,19.4,Left Cerebral White Matter,48.04,Left Cerebral Cortex,37.67,Insular Cortex,6.28
+FeTS2022_01246,120190,8.9,23.8,24.3,Right,37737,82296,Frontal,31.8,Right Cerebral White Matter,41.35,Left Cerebral White Matter,21.23,Right Cerebral Cortex,20.82
+FeTS2022_01247,35330,-29.4,0.6,-17.2,Left,34677,0,Temporal,21.4,Left Cerebral Cortex,50.67,Left Cerebral White Matter,20.57,Temporal Pole,15.92
+FeTS2022_01248,122372,-43.2,-33.6,-3.4,Left,120846,0,Temporal,36.6,Left Cerebral Cortex,51.09,Left Cerebral White Matter,40.62,"Middle Temporal Gyrus, posterior division",6.45
+FeTS2022_01249,27379,12.7,-25.2,1.4,Right,418,17591,Other,0.8,Right Cerebral White Matter,28.92,Right Thalamus,26.03,Brain-Stem,15.31
+FeTS2022_01250,98625,26.2,-28.8,15.5,Right,1116,96457,Parietal,8.4,Right Cerebral White Matter,65.91,Right Cerebral Cortex,14.12,Right Thalamus,6.49
+FeTS2022_01251,198476,27.8,17.7,19.5,Right,6203,191428,Frontal,41.0,Right Cerebral White Matter,50.01,Right Cerebral Cortex,38.91,Frontal Pole,12.22
+FeTS2022_01252,17126,-9.9,-55.1,23.3,Left,17081,4,Parietal,63.9,Left Cerebral Cortex,59.01,Precuneous Cortex,45.6,Left Cerebral White Matter,40.67
+FeTS2022_01253,137345,34.5,-7.0,-15.2,Right,28,127560,Temporal,31.7,Right Cerebral Cortex,50.73,Right Cerebral White Matter,30.37,Temporal Pole,13.42
+FeTS2022_01254,117804,35.8,-17.1,6.4,Right,8,117691,Temporal,13.7,Right Cerebral White Matter,61.02,Right Cerebral Cortex,28.54,Insular Cortex,9.02
+FeTS2022_01255,8500,-31.1,-34.8,-8.7,Left,8489,0,Occipital,8.1,Left Cerebral White Matter,52.44,Left Hippocampus,32.09,Left Cerebral Cortex,12.33
+FeTS2022_01256,194507,41.0,-23.8,6.3,Right,0,193425,Temporal,25.2,Right Cerebral White Matter,48.43,Right Cerebral Cortex,43.34,"Middle Temporal Gyrus, posterior division",5.46
+FeTS2022_01257,35319,-44.3,-10.6,-6.6,Left,35086,0,Temporal,42.4,Left Cerebral Cortex,62.16,Left Cerebral White Matter,27.12,Temporal Pole,9.71
+FeTS2022_01258,75788,33.5,-8.4,29.6,Right,0,75766,Frontal,33.5,Right Cerebral White Matter,56.1,Right Cerebral Cortex,40.13,Precentral Gyrus,15.12
+FeTS2022_01259,92380,-36.9,-11.9,-14.4,Left,91295,0,Temporal,37.5,Left Cerebral Cortex,50.06,Left Cerebral White Matter,35.74,Temporal Pole,14.05
+FeTS2022_01260,155206,-24.2,-45.7,35.7,Left,153899,119,Parietal,26.1,Left Cerebral White Matter,55.55,Left Cerebral Cortex,40.67,"Lateral Occipital Cortex, superior division",13.46
+FeTS2022_01261,78153,-19.8,-46.1,18.3,Left,71166,5864,Parietal,14.1,Left Cerebral White Matter,67.77,Left Cerebral Cortex,13.22,Precuneous Cortex,7.69
+FeTS2022_01262,228039,-6.9,-21.3,27.1,Left,155315,72396,Parietal,12.0,Left Cerebral White Matter,48.59,Right Cerebral White Matter,25.88,Left Cerebral Cortex,16.9
+FeTS2022_01263,68084,33.6,-4.9,22.0,Right,0,68027,Frontal,24.7,Right Cerebral White Matter,54.28,Right Cerebral Cortex,44.9,"Middle Temporal Gyrus, posterior division",13.04
+FeTS2022_01264,30889,-13.6,-31.5,39.9,Left,30889,0,Parietal,28.1,Left Cerebral White Matter,63.85,Left Cerebral Cortex,34.92,"Cingulate Gyrus, posterior division",14.94
+FeTS2022_01265,65758,-34.3,-63.5,13.9,Left,65758,0,Occipital,35.8,Left Cerebral White Matter,62.52,Left Cerebral Cortex,36.37,"Lateral Occipital Cortex, superior division",19.05
+FeTS2022_01266,210941,-13.8,29.0,22.4,Left,161774,40433,Frontal,51.4,Left Cerebral Cortex,35.67,Left Cerebral White Matter,35.3,Frontal Pole,13.6
+FeTS2022_01267,123486,-32.2,-49.5,23.6,Left,123338,42,Parietal,19.9,Left Cerebral White Matter,56.45,Left Cerebral Cortex,41.12,"Lateral Occipital Cortex, superior division",11.06
+FeTS2022_01268,57287,-36.7,-30.9,28.3,Left,57287,0,Parietal,24.0,Left Cerebral White Matter,66.52,Left Cerebral Cortex,32.53,Parietal Operculum Cortex,7.17
+FeTS2022_01269,97740,-23.2,-50.1,34.3,Left,97657,0,Parietal,27.2,Left Cerebral White Matter,59.5,Left Cerebral Cortex,38.33,"Lateral Occipital Cortex, superior division",11.65
+FeTS2022_01270,201372,-24.2,12.5,13.3,Left,189598,11676,Frontal,30.9,Left Cerebral White Matter,49.37,Left Cerebral Cortex,33.69,Frontal Pole,5.96
+FeTS2022_01271,70442,21.4,-42.2,43.0,Right,34,70076,Parietal,38.5,Right Cerebral White Matter,54.02,Right Cerebral Cortex,43.16,Precuneous Cortex,14.61
+FeTS2022_01272,72228,-44.4,-9.7,-11.3,Left,71105,0,Temporal,44.1,Left Cerebral Cortex,57.27,Left Cerebral White Matter,37.29,Temporal Pole,16.67
+FeTS2022_01273,9834,34.5,-5.4,54.9,Right,0,9719,Frontal,76.6,Right Cerebral Cortex,69.65,Precentral Gyrus,48.33,Right Cerebral White Matter,29.18
+FeTS2022_01274,59155,29.7,-53.7,-2.8,Right,0,57537,Occipital,25.0,Right Cerebral White Matter,46.69,Right Cerebral Cortex,43.04,Lingual Gyrus,11.07
+FeTS2022_01275,39436,-40.0,8.4,29.8,Left,39424,0,Frontal,59.5,Left Cerebral Cortex,50.21,Left Cerebral White Matter,49.76,Middle Frontal Gyrus,25.52
+FeTS2022_01276,13945,3.0,-32.5,1.0,Right,3129,4517,Parietal,4.1,Right Thalamus,14.85,Brain-Stem,13.85,Left Thalamus,13.6
+FeTS2022_01277,88835,-37.6,-30.2,3.8,Left,88671,0,Temporal,19.6,Left Cerebral White Matter,60.05,Left Cerebral Cortex,26.86,"Middle Temporal Gyrus, posterior division",4.63
+FeTS2022_01278,46682,-21.5,-34.2,23.6,Left,46499,143,Parietal,5.6,Left Cerebral White Matter,77.57,Left Lateral Ventrical,6.7,Left Cerebral Cortex,5.84
+FeTS2022_01279,22562,-15.9,-16.7,54.5,Left,22206,0,Frontal,48.4,Left Cerebral Cortex,49.67,Left Cerebral White Matter,48.68,Precentral Gyrus,31.81
+FeTS2022_01280,194780,39.1,-18.2,-1.8,Right,0,190706,Temporal,29.5,Right Cerebral White Matter,44.81,Right Cerebral Cortex,40.55,"Middle Temporal Gyrus, posterior division",5.58
+FeTS2022_01281,189618,-27.3,15.4,31.1,Left,185514,1914,Frontal,54.1,Left Cerebral Cortex,49.98,Left Cerebral White Matter,43.96,Middle Frontal Gyrus,11.05
+FeTS2022_01282,161243,24.1,-42.3,36.4,Right,1128,159890,Parietal,34.9,Right Cerebral White Matter,53.66,Right Cerebral Cortex,42.33,Precuneous Cortex,12.08
+FeTS2022_01283,194563,-33.3,-33.6,3.9,Left,192198,708,Temporal,21.5,Left Cerebral White Matter,52.62,Left Cerebral Cortex,38.25,Temporal Pole,3.99
+FeTS2022_01284,212096,33.4,-39.2,24.5,Right,0,211988,Parietal,21.8,Right Cerebral White Matter,56.12,Right Cerebral Cortex,37.92,"Lateral Occipital Cortex, superior division",10.31
+FeTS2022_01285,158002,-22.2,27.9,17.0,Left,153861,2859,Frontal,52.0,Left Cerebral White Matter,50.37,Left Cerebral Cortex,44.9,Frontal Pole,22.49
+FeTS2022_01286,133130,-24.2,13.2,11.2,Left,131967,1027,Frontal,29.0,Left Cerebral White Matter,62.11,Left Cerebral Cortex,29.21,Frontal Pole,7.89
+FeTS2022_01287,112480,20.8,12.1,39.8,Right,13,110848,Frontal,44.9,Right Cerebral White Matter,56.81,Right Cerebral Cortex,40.17,Superior Frontal Gyrus,15.81
+FeTS2022_01288,150460,-9.9,9.0,30.1,Left,113436,36847,Frontal,34.0,Left Cerebral White Matter,44.61,Left Cerebral Cortex,22.77,Right Cerebral White Matter,12.08
+FeTS2022_01289,123159,-41.7,-37.9,1.9,Left,123156,0,Temporal,30.2,Left Cerebral White Matter,48.11,Left Cerebral Cortex,46.62,"Middle Temporal Gyrus, posterior division",7.1
+FeTS2022_01290,47211,-17.8,-9.9,45.4,Left,46465,0,Frontal,35.5,Left Cerebral White Matter,54.94,Left Cerebral Cortex,34.24,Precentral Gyrus,16.77
+FeTS2022_01291,158426,25.0,-5.1,42.4,Right,1315,156188,Frontal,43.3,Right Cerebral White Matter,49.33,Right Cerebral Cortex,45.85,Precentral Gyrus,15.09
+FeTS2022_01292,115406,31.9,-58.9,27.3,Right,0,114512,Occipital,34.3,Right Cerebral White Matter,51.78,Right Cerebral Cortex,46.03,"Lateral Occipital Cortex, superior division",25.59
+FeTS2022_01293,157390,-21.5,29.1,7.7,Left,144423,12043,Frontal,47.5,Left Cerebral Cortex,42.63,Left Cerebral White Matter,40.45,Frontal Pole,19.62
+FeTS2022_01294,90644,-29.3,-3.6,19.0,Left,90638,0,Frontal,16.9,Left Cerebral White Matter,70.54,Left Cerebral Cortex,18.29,Insular Cortex,5.07
+FeTS2022_01295,58046,-46.6,-27.0,18.1,Left,57961,0,Parietal,26.1,Left Cerebral Cortex,54.75,Left Cerebral White Matter,44.57,Postcentral Gyrus,9.49
+FeTS2022_01296,162059,36.5,-14.0,3.5,Right,101,160689,Temporal,20.7,Right Cerebral White Matter,50.18,Right Cerebral Cortex,35.9,Insular Cortex,5.73
+FeTS2022_01297,101092,28.6,-23.7,4.6,Right,550,97057,Temporal,7.0,Right Cerebral White Matter,65.7,Right Cerebral Cortex,16.47,Insular Cortex,5.92
+FeTS2022_01298,115008,21.0,13.7,42.1,Right,1023,112439,Frontal,56.2,Right Cerebral White Matter,48.38,Right Cerebral Cortex,48.13,Superior Frontal Gyrus,15.23
+FeTS2022_01299,244672,33.7,-24.9,5.2,Right,538,240784,Temporal,23.6,Right Cerebral White Matter,45.14,Right Cerebral Cortex,42.52,Temporal Pole,4.2
+FeTS2022_01300,66056,-40.8,-2.6,-14.5,Left,65938,0,Temporal,41.6,Left Cerebral Cortex,64.48,Left Cerebral White Matter,25.01,Temporal Pole,16.9
+FeTS2022_01301,8698,-7.1,-15.8,55.3,Left,8680,18,Frontal,66.5,Left Cerebral Cortex,56.29,Left Cerebral White Matter,43.5,Precentral Gyrus,36.1
+FeTS2022_01302,222713,28.4,-40.0,19.7,Right,6896,211783,Occipital,16.1,Right Cerebral White Matter,55.55,Right Cerebral Cortex,28.75,"Lateral Occipital Cortex, superior division",9.08
+FeTS2022_01303,160247,-24.1,-48.6,36.9,Left,157884,0,Parietal,31.8,Left Cerebral White Matter,51.44,Left Cerebral Cortex,44.35,"Lateral Occipital Cortex, superior division",12.51
+FeTS2022_01304,164879,39.6,-14.4,-7.5,Right,0,160150,Temporal,33.8,Right Cerebral Cortex,49.9,Right Cerebral White Matter,34.44,Temporal Pole,7.01
+FeTS2022_01305,131214,10.1,22.9,20.7,Right,37050,94022,Frontal,33.4,Right Cerebral White Matter,41.74,Right Cerebral Cortex,22.22,Left Cerebral White Matter,17.02
+FeTS2022_01306,89760,19.4,39.0,-3.4,Right,4908,84370,Frontal,60.9,Right Cerebral Cortex,50.61,Right Cerebral White Matter,39.93,Frontal Pole,29.36
+FeTS2022_01307,210754,-17.0,29.9,13.8,Left,186312,22457,Frontal,52.6,Left Cerebral Cortex,43.32,Left Cerebral White Matter,39.5,Frontal Pole,19.53
+FeTS2022_01308,8763,-59.6,-31.3,29.7,Left,8375,0,Parietal,84.9,Left Cerebral Cortex,88.63,"Supramarginal Gyrus, anterior division",47.3,Postcentral Gyrus,16.2
+FeTS2022_01309,92420,38.7,-2.2,-17.0,Right,0,91883,Temporal,40.2,Right Cerebral Cortex,57.46,Right Cerebral White Matter,29.25,Temporal Pole,16.74
+FeTS2022_01310,61617,23.8,-65.7,24.8,Right,262,61250,Occipital,44.3,Right Cerebral White Matter,48.8,Right Cerebral Cortex,48.11,"Lateral Occipital Cortex, superior division",28.55
+FeTS2022_01311,128539,-28.4,-25.2,28.0,Left,107570,19362,Parietal,33.9,Left Cerebral Cortex,42.17,Left Cerebral White Matter,39.73,Postcentral Gyrus,13.07
+FeTS2022_01312,106935,-40.9,-49.5,25.8,Left,106916,0,Parietal,30.1,Left Cerebral Cortex,52.95,Left Cerebral White Matter,46.01,"Lateral Occipital Cortex, superior division",17.07
+FeTS2022_01313,226420,-33.4,-44.1,27.3,Left,226254,0,Parietal,24.2,Left Cerebral White Matter,50.71,Left Cerebral Cortex,45.04,"Lateral Occipital Cortex, superior division",13.39
+FeTS2022_01314,97647,-19.3,-41.0,45.3,Left,97184,0,Parietal,25.9,Left Cerebral White Matter,58.07,Left Cerebral Cortex,40.84,Precuneous Cortex,11.57
+FeTS2022_01315,177854,-33.2,5.6,15.1,Left,176773,0,Frontal,28.7,Left Cerebral White Matter,50.36,Left Cerebral Cortex,39.21,Insular Cortex,5.89
+FeTS2022_01316,209477,34.0,-47.7,6.8,Right,0,208123,Occipital,27.0,Right Cerebral White Matter,47.17,Right Cerebral Cortex,46.38,"Lateral Occipital Cortex, superior division",8.94
+FeTS2022_01317,174109,40.4,-30.3,-4.1,Right,0,166697,Temporal,32.1,Right Cerebral Cortex,49.24,Right Cerebral White Matter,36.58,"Middle Temporal Gyrus, posterior division",5.87
+FeTS2022_01318,57719,-40.5,-51.6,-1.7,Left,57713,0,Temporal,31.3,Left Cerebral White Matter,48.67,Left Cerebral Cortex,47.62,"Middle Temporal Gyrus, temporooccipital part",10.3
+FeTS2022_01319,100976,-21.1,-43.9,44.7,Left,99721,414,Parietal,37.3,Left Cerebral White Matter,50.85,Left Cerebral Cortex,46.56,Precuneous Cortex,11.48
+FeTS2022_01320,304915,21.0,14.5,8.1,Right,45986,253014,Frontal,34.5,Right Cerebral White Matter,40.41,Right Cerebral Cortex,33.72,Frontal Pole,11.91
+FeTS2022_01321,161987,35.0,12.2,17.3,Right,0,160752,Frontal,35.5,Right Cerebral White Matter,49.59,Right Cerebral Cortex,42.91,Middle Frontal Gyrus,7.36
+FeTS2022_01322,19120,-14.0,21.6,51.3,Left,18747,0,Frontal,66.0,Left Cerebral Cortex,58.77,Superior Frontal Gyrus,55.05,Left Cerebral White Matter,39.28
+FeTS2022_01323,134923,36.0,-26.4,13.5,Right,0,132880,Parietal,17.5,Right Cerebral White Matter,51.5,Right Cerebral Cortex,30.83,Right Thalamus,5.31
+FeTS2022_01324,352238,23.4,18.1,14.3,Right,34532,314178,Frontal,46.9,Right Cerebral Cortex,44.15,Right Cerebral White Matter,38.06,Frontal Pole,14.98
+FeTS2022_01325,162864,32.4,-30.9,-0.6,Right,378,156775,Temporal,20.3,Right Cerebral White Matter,42.69,Right Cerebral Cortex,39.92,Right Thalamus,4.77
+FeTS2022_01326,284581,33.6,-12.0,5.5,Right,4597,273365,Temporal,17.5,Right Cerebral White Matter,45.4,Right Cerebral Cortex,37.68,Temporal Pole,5.87
+FeTS2022_01327,14936,-57.1,-23.3,-7.8,Left,14664,0,Temporal,63.5,Left Cerebral Cortex,68.95,"Middle Temporal Gyrus, posterior division",45.68,Left Cerebral White Matter,29.22
+FeTS2022_01328,160380,21.7,32.1,21.6,Right,5064,151981,Frontal,52.4,Right Cerebral Cortex,45.7,Right Cerebral White Matter,42.74,Frontal Pole,22.79
+FeTS2022_01329,77959,-23.9,-59.8,21.2,Left,77959,0,Occipital,25.0,Left Cerebral White Matter,70.85,Left Cerebral Cortex,25.04,"Lateral Occipital Cortex, superior division",15.62
+FeTS2022_01330,74198,-33.8,-22.7,-11.0,Left,73046,0,Temporal,25.6,Left Cerebral White Matter,44.23,Left Cerebral Cortex,38.84,Left Hippocampus,7.14
+FeTS2022_01331,113574,-14.7,-53.6,-27.9,Left,13771,1874,Occipital,6.9,Brain-Stem,14.03,Left Cerebral Cortex,12.12,Lingual Gyrus,4.79
+FeTS2022_01332,87895,-10.9,-26.4,38.6,Left,66169,21522,Parietal,19.6,Left Cerebral White Matter,50.58,Left Cerebral Cortex,20.62,Right Cerebral White Matter,18.08
+FeTS2022_01333,8314,14.9,-17.1,66.7,Right,0,8283,Frontal,66.0,Precentral Gyrus,54.71,Right Cerebral Cortex,52.77,Right Cerebral White Matter,46.86
+FeTS2022_01334,80993,40.6,-25.0,29.0,Right,0,80641,Parietal,28.1,Right Cerebral White Matter,56.56,Right Cerebral Cortex,41.73,Postcentral Gyrus,8.94
+FeTS2022_01335,173330,-36.8,-29.9,27.9,Left,173325,0,Parietal,25.5,Left Cerebral White Matter,53.09,Left Cerebral Cortex,42.33,Postcentral Gyrus,10.58
+FeTS2022_01336,64057,-36.4,13.7,18.9,Left,64037,0,Frontal,43.7,Left Cerebral White Matter,53.44,Left Cerebral Cortex,42.63,Middle Frontal Gyrus,12.19
+FeTS2022_01337,97006,-20.0,-63.7,20.0,Left,96656,307,Occipital,32.3,Left Cerebral White Matter,59.54,Left Cerebral Cortex,39.03,Precuneous Cortex,12.85
+FeTS2022_01338,126904,-1.4,13.4,8.5,Left,61008,64005,Frontal,16.9,Left Cerebral White Matter,33.89,Right Cerebral White Matter,28.0,Right Cerebral Cortex,11.75
+FeTS2022_01339,152185,24.7,-43.9,36.3,Right,745,151010,Parietal,32.6,Right Cerebral White Matter,53.54,Right Cerebral Cortex,43.44,Precuneous Cortex,10.31
+FeTS2022_01340,44185,15.3,-33.6,37.7,Right,428,43757,Parietal,33.6,Right Cerebral White Matter,65.52,Right Cerebral Cortex,31.38,"Cingulate Gyrus, posterior division",16.54
+FeTS2022_01341,3866,51.5,-0.8,28.4,Right,0,3859,Frontal,60.4,Precentral Gyrus,60.4,Right Cerebral White Matter,58.1,Right Cerebral Cortex,41.72
+FeTS2022_01342,88810,-15.2,37.0,14.9,Left,81978,6718,Frontal,48.5,Left Cerebral White Matter,51.33,Left Cerebral Cortex,38.02,Frontal Pole,23.28
+FeTS2022_01343,235185,14.4,21.7,19.3,Right,47341,187128,Frontal,47.1,Right Cerebral White Matter,42.31,Right Cerebral Cortex,32.19,Frontal Pole,11.05
+FeTS2022_01344,16610,11.6,2.0,54.9,Right,664,15907,Frontal,59.6,Right Cerebral Cortex,48.39,Right Cerebral White Matter,47.38,Juxtapositional Lobule Cortex (formerly Supplementary Motor Cortex),28.34
+FeTS2022_01345,91953,-35.5,-22.0,1.1,Left,81709,10157,Temporal,26.9,Left Cerebral Cortex,42.51,Left Cerebral White Matter,39.38,Right Cerebral White Matter,9.98
+FeTS2022_01346,177657,-15.1,24.3,20.9,Left,152425,24989,Frontal,43.8,Left Cerebral White Matter,46.43,Left Cerebral Cortex,33.04,Frontal Pole,11.91
+FeTS2022_01347,45281,-13.9,36.1,-6.1,Left,42551,1852,Frontal,58.1,Left Cerebral Cortex,58.54,Left Cerebral White Matter,32.3,Frontal Pole,19.67
+FeTS2022_01348,44725,-30.9,-38.8,41.7,Left,44525,0,Parietal,37.0,Left Cerebral White Matter,61.37,Left Cerebral Cortex,37.82,Superior Parietal Lobule,18.05
+FeTS2022_01349,14034,43.4,-11.9,20.7,Right,0,13911,Frontal,26.6,Right Cerebral White Matter,52.99,Right Cerebral Cortex,45.49,Central Opercular Cortex,14.38
+FeTS2022_01350,38968,-50.0,-0.0,-18.0,Left,38288,0,Temporal,66.0,Left Cerebral Cortex,83.66,Temporal Pole,29.14,Left Cerebral White Matter,14.59
+FeTS2022_01351,125653,-38.9,-11.8,-12.0,Left,124327,0,Temporal,39.4,Left Cerebral Cortex,56.74,Left Cerebral White Matter,30.7,Temporal Pole,12.18
+FeTS2022_01352,71315,32.5,-56.9,3.8,Right,0,70941,Occipital,30.2,Right Cerebral White Matter,61.12,Right Cerebral Cortex,31.51,"Lateral Occipital Cortex, inferior division",13.05
+FeTS2022_01353,50550,-32.5,-4.9,-17.0,Left,49877,0,Temporal,26.9,Left Cerebral Cortex,42.53,Left Cerebral White Matter,35.22,Temporal Pole,17.27
+FeTS2022_01354,82140,-44.3,-21.1,20.7,Left,81912,0,Parietal,24.1,Left Cerebral Cortex,59.77,Left Cerebral White Matter,38.77,Precentral Gyrus,10.08
+FeTS2022_01355,147636,-39.7,-11.8,-9.2,Left,145352,0,Temporal,33.4,Left Cerebral Cortex,54.91,Left Cerebral White Matter,31.56,Temporal Pole,8.89
+FeTS2022_01356,175060,37.5,-9.7,-8.8,Right,0,170466,Temporal,32.1,Right Cerebral Cortex,48.58,Right Cerebral White Matter,37.34,Temporal Pole,9.69
+FeTS2022_01357,113481,29.9,-51.4,29.3,Right,345,113023,Parietal,25.1,Right Cerebral White Matter,58.21,Right Cerebral Cortex,38.04,"Lateral Occipital Cortex, superior division",17.77
+FeTS2022_01358,188893,29.0,-55.6,13.6,Right,1253,183689,Occipital,34.3,Right Cerebral White Matter,47.06,Right Cerebral Cortex,45.89,"Lateral Occipital Cortex, superior division",8.91
+FeTS2022_01359,68449,-26.3,-37.3,16.5,Left,68254,18,Parietal,12.1,Left Cerebral White Matter,71.27,Left Cerebral Cortex,16.37,Left Thalamus,5.16
+FeTS2022_01360,221147,38.4,-22.8,14.5,Right,57,217736,Temporal,13.8,Right Cerebral White Matter,47.38,Right Cerebral Cortex,40.91,Precentral Gyrus,4.19
+FeTS2022_01361,131699,-34.7,-52.5,3.8,Left,131011,0,Occipital,23.3,Left Cerebral White Matter,52.6,Left Cerebral Cortex,42.13,"Lateral Occipital Cortex, inferior division",8.9
+FeTS2022_01362,209990,36.6,-17.2,-2.9,Right,119,205471,Temporal,25.4,Right Cerebral Cortex,43.41,Right Cerebral White Matter,42.44,Temporal Pole,6.85
+FeTS2022_01363,9254,7.3,-22.0,54.8,Right,150,9104,Frontal,57.6,Right Cerebral Cortex,64.03,Precentral Gyrus,44.14,Right Cerebral White Matter,34.35
+FeTS2022_01364,67941,-3.2,-38.4,31.8,Left,32861,34994,Parietal,17.9,Left Cerebral White Matter,41.26,Right Cerebral White Matter,39.71,Right Cerebral Cortex,11.35
+FeTS2022_01365,42990,25.6,-14.8,48.4,Right,0,42819,Frontal,31.7,Right Cerebral White Matter,65.98,Right Cerebral Cortex,33.5,Precentral Gyrus,28.54
+FeTS2022_01366,22044,-12.3,-35.4,53.2,Left,21304,4,Frontal,27.0,Left Cerebral Cortex,52.78,Left Cerebral White Matter,43.86,Precentral Gyrus,26.27
+FeTS2022_01367,56541,21.8,-53.2,25.8,Right,0,55257,Occipital,26.5,Right Cerebral White Matter,51.34,Right Cerebral Cortex,36.87,"Lateral Occipital Cortex, superior division",21.1
+FeTS2022_01368,228923,-20.7,28.3,20.1,Left,207688,15123,Frontal,56.1,Left Cerebral Cortex,49.56,Left Cerebral White Matter,36.98,Frontal Pole,18.67
+FeTS2022_01369,70946,-41.5,-30.6,42.0,Left,68944,0,Parietal,58.9,Left Cerebral Cortex,73.99,Postcentral Gyrus,31.57,Left Cerebral White Matter,23.19
+FeTS2022_01370,115259,-42.3,-25.9,35.9,Left,112404,176,Parietal,40.1,Left Cerebral Cortex,72.42,Left Cerebral White Matter,23.15,Postcentral Gyrus,21.71
+FeTS2022_01371,217741,-36.2,-3.8,-5.7,Left,215781,30,Temporal,27.2,Left Cerebral Cortex,49.96,Left Cerebral White Matter,39.87,Temporal Pole,7.12
+FeTS2022_01372,33995,13.6,-39.7,37.3,Right,292,33651,Parietal,43.8,Right Cerebral White Matter,53.32,Right Cerebral Cortex,43.87,Precuneous Cortex,22.61
+FeTS2022_01373,120024,37.9,-16.4,-2.0,Right,14,117466,Temporal,30.2,Right Cerebral White Matter,45.23,Right Cerebral Cortex,39.39,Temporal Pole,7.93
+FeTS2022_01374,175179,-31.6,-44.3,29.0,Left,174514,0,Parietal,20.5,Left Cerebral White Matter,55.55,Left Cerebral Cortex,39.55,"Lateral Occipital Cortex, superior division",17.91
+FeTS2022_01375,67344,-3.4,-45.2,18.7,Left,40511,25384,Parietal,19.2,Left Cerebral White Matter,41.69,Right Cerebral White Matter,20.45,Left Cerebral Cortex,14.74
+FeTS2022_01376,69021,-21.7,-40.0,53.0,Left,67942,0,Parietal,52.0,Left Cerebral Cortex,57.4,Left Cerebral White Matter,40.94,Postcentral Gyrus,24.04
+FeTS2022_01377,143462,6.9,13.8,32.3,Right,49573,91434,Frontal,32.3,Right Cerebral White Matter,38.7,Left Cerebral White Matter,28.28,Right Cerebral Cortex,21.96
+FeTS2022_01378,252460,-36.2,-20.8,4.2,Left,248025,34,Temporal,23.6,Left Cerebral Cortex,43.34,Left Cerebral White Matter,41.27,Temporal Pole,3.93
+FeTS2022_01379,82975,-20.6,-71.0,16.4,Left,81416,1411,Occipital,48.6,Left Cerebral White Matter,52.07,Left Cerebral Cortex,44.51,"Lateral Occipital Cortex, superior division",15.07
+FeTS2022_01380,88403,-33.5,-40.3,0.1,Left,85959,0,Temporal,24.4,Left Cerebral Cortex,46.39,Left Cerebral White Matter,44.65,"Lateral Occipital Cortex, superior division",17.57
+FeTS2022_01381,149504,39.8,-27.2,35.0,Right,0,146237,Parietal,36.1,Right Cerebral Cortex,49.92,Right Cerebral White Matter,46.45,Postcentral Gyrus,12.47
+FeTS2022_01382,52716,29.8,-33.1,-0.9,Right,0,51538,Other,7.7,Right Cerebral White Matter,59.88,Right Cerebral Cortex,17.81,Right Hippocampus,10.41
+FeTS2022_01383,120968,-35.6,-8.1,-9.8,Left,118080,0,Temporal,29.9,Left Cerebral Cortex,47.34,Left Cerebral White Matter,36.37,Temporal Pole,13.05
+FeTS2022_01384,129068,-37.5,-25.9,8.3,Left,128908,0,Temporal,17.3,Left Cerebral White Matter,56.57,Left Cerebral Cortex,32.9,Central Opercular Cortex,5.2
+FeTS2022_01385,157109,25.4,29.2,17.5,Right,4754,150656,Frontal,50.2,Right Cerebral Cortex,46.17,Right Cerebral White Matter,42.92,Frontal Pole,21.54
+FeTS2022_01386,200402,33.8,-53.0,15.9,Right,0,199762,Occipital,31.1,Right Cerebral Cortex,50.13,Right Cerebral White Matter,46.23,"Lateral Occipital Cortex, superior division",11.69
+FeTS2022_01387,118409,36.6,-17.7,-0.1,Right,0,117950,Temporal,22.2,Right Cerebral White Matter,46.89,Right Cerebral Cortex,36.72,Insular Cortex,8.0
+FeTS2022_01388,184014,35.0,-33.4,33.3,Right,0,183658,Parietal,32.0,Right Cerebral White Matter,51.54,Right Cerebral Cortex,45.45,Postcentral Gyrus,9.07
+FeTS2022_01389,21534,-47.8,-46.2,-9.1,Left,21534,0,Temporal,46.5,Left Cerebral White Matter,51.43,Left Cerebral Cortex,48.46,"Inferior Temporal Gyrus, temporooccipital part",18.0
+FeTS2022_01390,77426,29.5,-19.0,32.2,Right,63,77363,Parietal,13.0,Right Cerebral White Matter,73.56,Right Cerebral Cortex,20.59,Precentral Gyrus,9.23
+FeTS2022_01391,136832,-23.4,-47.1,28.3,Left,135989,697,Parietal,28.2,Left Cerebral White Matter,57.0,Left Cerebral Cortex,37.74,Precuneous Cortex,10.77
+FeTS2022_01392,55248,23.4,-26.9,10.4,Right,2670,48995,Temporal,8.1,Right Cerebral White Matter,49.38,Right Thalamus,15.95,Right Cerebral Cortex,13.36
+FeTS2022_01393,96643,31.5,12.3,35.6,Right,0,94558,Frontal,47.9,Right Cerebral White Matter,52.75,Right Cerebral Cortex,43.68,Middle Frontal Gyrus,20.99
+FeTS2022_01394,71490,-46.8,-47.8,10.7,Left,70788,0,Temporal,25.8,Left Cerebral Cortex,53.4,Left Cerebral White Matter,42.87,"Lateral Occipital Cortex, superior division",11.66
+FeTS2022_01395,29642,-50.3,-44.3,19.1,Left,29642,0,Parietal,37.3,Left Cerebral Cortex,61.87,Left Cerebral White Matter,38.13,"Supramarginal Gyrus, posterior division",17.19
+FeTS2022_01396,115299,-35.2,-61.8,23.2,Left,115205,0,Occipital,38.1,Left Cerebral Cortex,52.5,Left Cerebral White Matter,46.26,"Lateral Occipital Cortex, superior division",26.95
+FeTS2022_01397,84662,39.3,-33.4,-10.9,Right,0,83801,Temporal,36.4,Right Cerebral White Matter,45.71,Right Cerebral Cortex,45.41,"Inferior Temporal Gyrus, posterior division",6.57
+FeTS2022_01398,55549,14.1,44.1,10.0,Right,2644,52905,Frontal,58.6,Right Cerebral White Matter,47.73,Right Cerebral Cortex,45.31,Frontal Pole,27.4
+FeTS2022_01399,38585,-44.3,-49.5,17.9,Left,38585,0,Parietal,22.0,Left Cerebral Cortex,54.6,Left Cerebral White Matter,45.17,"Lateral Occipital Cortex, superior division",16.2
+FeTS2022_01400,203785,35.7,-21.4,6.2,Right,224,201437,Temporal,22.2,Right Cerebral White Matter,52.66,Right Cerebral Cortex,34.21,Insular Cortex,4.23
+FeTS2022_01401,196793,38.3,-22.6,0.1,Right,806,192555,Temporal,28.5,Right Cerebral White Matter,43.01,Right Cerebral Cortex,40.5,"Middle Temporal Gyrus, posterior division",4.73
+FeTS2022_01402,99941,37.0,-56.3,20.2,Right,1,99535,Occipital,36.7,Right Cerebral White Matter,50.77,Right Cerebral Cortex,47.95,"Lateral Occipital Cortex, superior division",24.42
+FeTS2022_01403,183125,-13.5,30.0,8.7,Left,146743,35768,Frontal,47.9,Left Cerebral White Matter,37.57,Left Cerebral Cortex,36.34,Frontal Pole,18.42
+FeTS2022_01404,26906,2.4,-8.6,-10.6,Right,5805,8082,Other,1.9,Brain-Stem,9.62,Left Cerebral White Matter,8.33,Right Cerebral Cortex,8.21
+FeTS2022_01405,15041,-9.6,-28.0,47.0,Left,14437,561,Parietal,32.8,Left Cerebral Cortex,54.11,Left Cerebral White Matter,41.84,Precuneous Cortex,15.78
+FeTS2022_01406,227402,32.7,-14.9,0.3,Right,2855,214431,Temporal,18.7,Right Cerebral White Matter,46.92,Right Cerebral Cortex,37.14,Temporal Pole,6.72
+FeTS2022_01407,14871,-29.6,-25.2,-17.6,Left,14775,0,Other,22.1,Left Cerebral Cortex,37.4,Left Cerebral White Matter,31.74,Left Hippocampus,28.54
+FeTS2022_01408,57958,50.8,-33.3,-9.6,Right,0,56491,Temporal,55.0,Right Cerebral Cortex,53.79,Right Cerebral White Matter,41.18,"Middle Temporal Gyrus, posterior division",17.59
+FeTS2022_01409,51959,25.0,-32.0,15.8,Right,7,51514,Parietal,12.4,Right Cerebral White Matter,61.49,Right Cerebral Cortex,17.07,Right Thalamus,6.18
+FeTS2022_01410,98251,-12.1,24.1,13.9,Left,83317,14498,Frontal,30.0,Left Cerebral White Matter,49.93,Left Cerebral Cortex,21.32,"Cingulate Gyrus, anterior division",11.37
+FeTS2022_01411,146332,41.1,-11.7,-3.4,Right,0,143137,Temporal,29.7,Right Cerebral Cortex,48.96,Right Cerebral White Matter,39.03,Temporal Pole,10.75
+FeTS2022_01412,84171,-23.4,-53.6,36.9,Left,84144,0,Parietal,34.0,Left Cerebral White Matter,56.34,Left Cerebral Cortex,43.0,Precuneous Cortex,14.68
+FeTS2022_01413,197427,23.3,-48.5,30.0,Right,16179,178797,Parietal,27.0,Right Cerebral White Matter,45.88,Right Cerebral Cortex,40.6,"Lateral Occipital Cortex, superior division",15.01
+FeTS2022_01414,192038,-36.3,-3.7,24.6,Left,190335,2,Frontal,32.6,Left Cerebral Cortex,49.59,Left Cerebral White Matter,43.05,Precentral Gyrus,11.89
+FeTS2022_01415,104084,36.0,-57.3,31.9,Right,0,101340,Occipital,33.6,Right Cerebral Cortex,56.79,Right Cerebral White Matter,39.91,"Lateral Occipital Cortex, superior division",28.62
+FeTS2022_01416,262256,-17.1,18.8,25.0,Left,217661,38223,Frontal,45.6,Left Cerebral White Matter,39.03,Left Cerebral Cortex,36.22,Frontal Pole,10.26
+FeTS2022_01417,77155,12.0,-14.2,35.9,Right,9637,67517,Frontal,23.1,Right Cerebral White Matter,54.22,Right Cerebral Cortex,27.13,"Cingulate Gyrus, anterior division",12.11
+FeTS2022_01418,230817,36.9,-44.0,5.7,Right,292,228865,Occipital,24.8,Right Cerebral Cortex,47.86,Right Cerebral White Matter,43.55,"Lateral Occipital Cortex, superior division",7.9
+FeTS2022_01419,309974,24.9,16.2,13.2,Right,23344,281270,Frontal,40.7,Right Cerebral White Matter,42.48,Right Cerebral Cortex,40.29,Frontal Pole,13.85
+FeTS2022_01420,25048,-35.3,-54.3,29.7,Left,25048,0,Parietal,19.6,Left Cerebral White Matter,69.85,Left Cerebral Cortex,30.15,"Lateral Occipital Cortex, superior division",18.36
+FeTS2022_01421,196871,-20.7,0.5,38.6,Left,188487,7192,Frontal,38.9,Left Cerebral White Matter,50.79,Left Cerebral Cortex,39.26,Precentral Gyrus,9.29
+FeTS2022_01422,28116,-37.9,8.6,39.1,Left,27789,0,Frontal,66.4,Left Cerebral Cortex,55.79,Middle Frontal Gyrus,47.38,Left Cerebral White Matter,43.05
+FeTS2022_01423,17071,28.9,-22.0,44.0,Right,0,17071,Parietal,21.3,Right Cerebral White Matter,75.04,Right Cerebral Cortex,24.96,Postcentral Gyrus,21.28
+FeTS2022_01424,184471,-25.8,25.6,5.4,Left,171992,9453,Frontal,46.4,Left Cerebral Cortex,48.6,Left Cerebral White Matter,36.82,Frontal Pole,15.98
+FeTS2022_01425,235857,-14.6,29.2,15.6,Left,184793,50633,Frontal,49.9,Left Cerebral Cortex,37.28,Left Cerebral White Matter,36.08,Frontal Pole,16.56
+FeTS2022_01426,103905,-40.7,-7.0,-11.6,Left,100265,0,Temporal,38.0,Left Cerebral Cortex,56.14,Left Cerebral White Matter,31.59,Temporal Pole,15.33
+FeTS2022_01427,157345,40.4,-15.8,-4.2,Right,0,156467,Temporal,33.1,Right Cerebral Cortex,46.41,Right Cerebral White Matter,41.48,"Middle Temporal Gyrus, posterior division",6.3
+FeTS2022_01428,182543,-27.3,4.4,9.2,Left,180812,670,Frontal,18.3,Left Cerebral White Matter,55.54,Left Cerebral Cortex,27.15,Insular Cortex,5.82
+FeTS2022_01429,210668,-35.2,-5.2,4.6,Left,207335,64,Temporal,28.2,Left Cerebral Cortex,55.88,Left Cerebral White Matter,40.16,Frontal Pole,10.18
+FeTS2022_01430,313024,-33.7,-19.3,-1.4,Left,299718,911,Temporal,24.3,Left Cerebral Cortex,42.65,Left Cerebral White Matter,42.2,Temporal Pole,5.35
+FeTS2022_01431,73218,13.9,-22.6,-11.3,Right,1285,40427,Other,4.9,Brain-Stem,22.14,Right Cerebral White Matter,19.85,Right Thalamus,10.38
+FeTS2022_01432,322095,-13.8,24.2,16.2,Left,242889,69577,Frontal,47.0,Left Cerebral Cortex,37.24,Left Cerebral White Matter,31.52,Frontal Pole,15.45
+FeTS2022_01433,80699,-41.5,-21.8,11.1,Left,80660,0,Temporal,19.1,Left Cerebral White Matter,48.78,Left Cerebral Cortex,48.14,Insular Cortex,9.42
+FeTS2022_01434,43193,-14.5,21.1,48.6,Left,41927,105,Frontal,64.0,Left Cerebral Cortex,58.69,Superior Frontal Gyrus,38.55,Left Cerebral White Matter,38.37
+FeTS2022_01435,31535,35.6,44.1,-1.1,Right,0,30201,Frontal,63.6,Frontal Pole,57.06,Right Cerebral Cortex,54.07,Right Cerebral White Matter,41.7
+FeTS2022_01436,94997,-33.3,-3.9,13.1,Left,94970,0,Frontal,18.1,Left Cerebral White Matter,56.89,Left Cerebral Cortex,33.2,Insular Cortex,11.17
+FeTS2022_01437,74826,-38.7,3.4,32.7,Left,73582,0,Frontal,52.7,Left Cerebral White Matter,49.12,Left Cerebral Cortex,49.06,Middle Frontal Gyrus,20.65
+FeTS2022_01438,107601,-45.9,-14.4,-17.1,Left,101522,0,Temporal,55.7,Left Cerebral Cortex,64.91,Left Cerebral White Matter,26.12,Temporal Pole,14.88
+FeTS2022_01439,24620,41.5,-35.1,-14.6,Right,0,24548,Temporal,48.1,Right Cerebral White Matter,49.84,Right Cerebral Cortex,45.22,Temporal Occipital Fusiform Cortex,15.2
+FeTS2022_01440,49131,-18.6,46.2,14.5,Left,49006,67,Frontal,58.3,Left Cerebral Cortex,49.7,Left Cerebral White Matter,49.49,Frontal Pole,40.71
+FeTS2022_01441,143349,30.1,15.7,25.5,Right,275,143067,Frontal,45.7,Right Cerebral White Matter,52.05,Right Cerebral Cortex,42.06,Middle Frontal Gyrus,12.31
+FeTS2022_01442,142542,-42.1,-20.6,-3.6,Left,141326,0,Temporal,35.3,Left Cerebral Cortex,49.97,Left Cerebral White Matter,39.92,"Middle Temporal Gyrus, posterior division",6.17
+FeTS2022_01443,61278,-36.5,0.2,-19.6,Left,59393,0,Temporal,37.1,Left Cerebral Cortex,58.46,Left Cerebral White Matter,28.23,Temporal Pole,20.52
+FeTS2022_01444,236557,-35.7,-17.1,-2.0,Left,232473,231,Temporal,26.6,Left Cerebral Cortex,45.14,Left Cerebral White Matter,41.87,Temporal Pole,6.94
+FeTS2022_01445,187044,28.4,24.5,13.1,Right,2145,184430,Frontal,47.8,Right Cerebral White Matter,45.33,Right Cerebral Cortex,44.58,Frontal Pole,20.17
+FeTS2022_01446,144814,43.2,-19.5,-4.8,Right,0,144080,Temporal,35.6,Right Cerebral Cortex,48.33,Right Cerebral White Matter,40.25,"Middle Temporal Gyrus, posterior division",7.28
+FeTS2022_01447,108838,21.4,-46.5,45.4,Right,1146,106901,Parietal,44.6,Right Cerebral Cortex,55.33,Right Cerebral White Matter,41.9,Precuneous Cortex,16.54
+FeTS2022_01448,58712,38.5,4.0,-17.8,Right,0,58626,Temporal,41.1,Right Cerebral Cortex,63.18,Right Cerebral White Matter,26.03,Temporal Pole,23.96
+FeTS2022_01449,120461,-29.5,-67.0,14.1,Left,120453,0,Occipital,44.3,Left Cerebral White Matter,51.98,Left Cerebral Cortex,46.8,"Lateral Occipital Cortex, superior division",16.68
+FeTS2022_01450,119166,-40.8,-16.8,-0.4,Left,118968,2,Temporal,28.3,Left Cerebral Cortex,50.92,Left Cerebral White Matter,42.32,Temporal Pole,6.97
+FeTS2022_01451,24397,52.3,-5.6,-11.9,Right,0,24362,Temporal,65.6,Right Cerebral Cortex,75.03,Right Cerebral White Matter,24.83,"Middle Temporal Gyrus, posterior division",19.87
+FeTS2022_01452,37059,-37.6,-43.3,35.0,Left,37059,0,Parietal,40.4,Left Cerebral White Matter,59.92,Left Cerebral Cortex,40.08,Superior Parietal Lobule,9.15
+FeTS2022_01453,37571,36.5,-15.3,-16.7,Right,0,37332,Temporal,30.3,Right Cerebral White Matter,44.51,Right Cerebral Cortex,40.26,Right Hippocampus,11.89
+FeTS2022_01454,71846,-42.0,-2.6,26.4,Left,71598,104,Frontal,46.4,Left Cerebral Cortex,58.65,Left Cerebral White Matter,40.96,Precentral Gyrus,20.53
+FeTS2022_01455,239316,-17.6,22.0,16.5,Left,205709,32270,Frontal,44.9,Left Cerebral White Matter,41.01,Left Cerebral Cortex,36.28,Frontal Pole,11.78
+FeTS2022_01456,180214,40.7,-14.5,-6.2,Right,0,177520,Temporal,33.1,Right Cerebral Cortex,50.88,Right Cerebral White Matter,35.19,Temporal Pole,8.22
+FeTS2022_01457,110550,-43.8,-25.4,-4.3,Left,107177,0,Temporal,36.6,Left Cerebral Cortex,45.29,Left Cerebral White Matter,42.92,"Middle Temporal Gyrus, posterior division",9.61
+FeTS2022_01458,101139,-24.8,-57.1,17.9,Left,98290,2844,Occipital,26.0,Left Cerebral White Matter,66.23,Left Cerebral Cortex,25.27,"Lateral Occipital Cortex, superior division",14.87
+FeTS2022_01459,27027,-37.3,-72.1,7.3,Left,27014,0,Occipital,59.6,Left Cerebral Cortex,49.97,Left Cerebral White Matter,49.92,"Lateral Occipital Cortex, inferior division",33.27
+FeTS2022_01460,150381,-33.0,-0.9,-10.8,Left,146617,141,Temporal,25.2,Left Cerebral Cortex,47.63,Left Cerebral White Matter,35.69,Temporal Pole,11.52
+FeTS2022_01461,107182,-46.0,-4.7,-8.6,Left,105562,0,Temporal,41.9,Left Cerebral Cortex,69.41,Left Cerebral White Matter,24.05,Temporal Pole,12.94
+FeTS2022_01462,140768,33.7,-32.0,34.1,Right,20,140744,Parietal,28.4,Right Cerebral White Matter,61.33,Right Cerebral Cortex,36.8,"Lateral Occipital Cortex, superior division",8.37
+FeTS2022_01463,193230,-32.4,-49.9,19.1,Left,190861,1827,Occipital,22.8,Left Cerebral White Matter,51.7,Left Cerebral Cortex,42.23,"Lateral Occipital Cortex, superior division",12.33
+FeTS2022_01464,42523,28.2,-20.7,48.4,Right,0,42477,Frontal,30.5,Right Cerebral White Matter,61.2,Right Cerebral Cortex,38.2,Precentral Gyrus,25.41
+FeTS2022_01465,204077,19.7,27.9,19.4,Right,17800,185379,Frontal,52.1,Right Cerebral White Matter,42.51,Right Cerebral Cortex,42.44,Frontal Pole,18.52
+FeTS2022_01466,197422,-36.9,-14.1,0.8,Left,193471,0,Temporal,21.7,Left Cerebral White Matter,44.42,Left Cerebral Cortex,41.45,Temporal Pole,7.13
+FeTS2022_01467,281042,28.5,-32.6,33.4,Right,6242,273338,Parietal,25.2,Right Cerebral White Matter,46.78,Right Cerebral Cortex,44.36,"Lateral Occipital Cortex, superior division",9.17
+FeTS2022_01468,94504,-32.5,-15.0,-14.0,Left,89488,0,Temporal,27.1,Left Cerebral Cortex,42.06,Left Cerebral White Matter,36.74,Temporal Pole,7.67
+FeTS2022_01469,69610,-26.4,-12.2,-12.9,Left,61547,4569,Temporal,23.6,Left Cerebral Cortex,34.6,Left Cerebral White Matter,28.69,Temporal Pole,10.09
+FeTS2022_01470,107568,46.7,-15.0,-11.0,Right,0,107457,Temporal,50.2,Right Cerebral Cortex,63.81,Right Cerebral White Matter,31.34,Temporal Pole,10.65
+FeTS2022_01471,238905,18.6,16.7,30.1,Right,34434,201785,Frontal,49.6,Right Cerebral White Matter,39.59,Right Cerebral Cortex,39.21,Frontal Pole,10.47
+FeTS2022_01472,68273,-34.6,-5.8,-16.4,Left,67721,0,Temporal,32.1,Left Cerebral Cortex,53.01,Left Cerebral White Matter,29.43,Temporal Pole,17.57
+FeTS2022_01473,210413,-35.3,-13.7,-3.4,Left,204822,1989,Temporal,27.6,Left Cerebral Cortex,44.32,Left Cerebral White Matter,41.2,Temporal Pole,7.72
+FeTS2022_01474,113807,-42.4,-43.3,3.8,Left,112711,0,Temporal,27.4,Left Cerebral Cortex,46.64,Left Cerebral White Matter,45.94,"Lateral Occipital Cortex, inferior division",7.83
+FeTS2022_01475,234116,-22.1,26.8,8.0,Left,210765,20769,Frontal,49.0,Left Cerebral Cortex,46.37,Left Cerebral White Matter,35.82,Frontal Pole,18.63
+FeTS2022_01476,78382,35.1,-8.6,9.5,Right,0,78379,Insula,13.2,Right Cerebral White Matter,57.4,Right Cerebral Cortex,32.53,Insular Cortex,13.23
+FeTS2022_01477,264664,34.5,-23.5,-4.3,Right,142,249976,Temporal,25.7,Right Cerebral Cortex,44.52,Right Cerebral White Matter,38.02,Temporal Pole,4.46
+FeTS2022_01478,302512,-26.4,-23.3,-3.9,Left,260314,20962,Temporal,19.7,Left Cerebral Cortex,40.77,Left Cerebral White Matter,37.22,Temporal Pole,4.53
+FeTS2022_01479,263583,20.4,29.0,15.8,Right,39779,215716,Frontal,55.1,Right Cerebral Cortex,45.58,Right Cerebral White Matter,31.17,Frontal Pole,21.19
+FeTS2022_01480,51306,-30.4,-16.1,-18.1,Left,50983,0,Temporal,27.2,Left Cerebral Cortex,40.78,Left Cerebral White Matter,39.64,Temporal Pole,11.94
+FeTS2022_01481,71989,31.0,-28.0,39.4,Right,0,71989,Parietal,31.0,Right Cerebral White Matter,65.27,Right Cerebral Cortex,34.14,Postcentral Gyrus,15.01
+FeTS2022_01482,33419,-44.6,-66.0,24.5,Left,33382,0,Occipital,63.9,Left Cerebral Cortex,83.6,"Lateral Occipital Cortex, superior division",51.0,Left Cerebral White Matter,16.29
+FeTS2022_01483,158043,34.3,-51.8,27.1,Right,0,156560,Parietal,26.0,Right Cerebral White Matter,50.0,Right Cerebral Cortex,46.84,"Lateral Occipital Cortex, superior division",18.61
+FeTS2022_01484,195154,28.6,-49.8,30.8,Right,69,193900,Parietal,31.2,Right Cerebral Cortex,48.91,Right Cerebral White Matter,45.67,"Lateral Occipital Cortex, superior division",16.94
+FeTS2022_01485,54168,-43.4,6.5,13.1,Left,52789,0,Frontal,44.2,Left Cerebral Cortex,62.49,Left Cerebral White Matter,33.05,Precentral Gyrus,12.72
+FeTS2022_01486,204333,31.8,-20.7,24.3,Right,1229,203008,Parietal,21.4,Right Cerebral White Matter,55.2,Right Cerebral Cortex,35.55,Postcentral Gyrus,7.82
+FeTS2022_01487,123129,31.0,-1.0,-11.8,Right,341,116097,Temporal,23.5,Right Cerebral Cortex,47.82,Right Cerebral White Matter,31.26,Temporal Pole,12.2
+FeTS2022_01488,65631,16.1,-37.9,51.6,Right,2177,62719,Parietal,43.5,Right Cerebral Cortex,50.75,Right Cerebral White Matter,44.06,Precentral Gyrus,14.33
+FeTS2022_01489,243448,14.8,33.5,12.9,Right,48449,185753,Frontal,51.5,Right Cerebral Cortex,37.35,Right Cerebral White Matter,32.56,Frontal Pole,23.18
+FeTS2022_01490,167829,-21.8,23.9,21.1,Left,155524,11374,Frontal,47.2,Left Cerebral White Matter,44.24,Left Cerebral Cortex,40.74,Frontal Pole,14.53
+FeTS2022_01491,31158,-12.7,46.9,8.1,Left,31121,20,Frontal,57.0,Left Cerebral White Matter,52.83,Left Cerebral Cortex,47.03,Frontal Pole,23.64
+FeTS2022_01492,70134,46.7,-30.8,39.9,Right,1,68871,Parietal,60.7,Right Cerebral Cortex,67.65,Right Cerebral White Matter,30.55,Postcentral Gyrus,21.59
+FeTS2022_01493,87765,46.0,-28.1,-12.4,Right,0,86306,Temporal,49.7,Right Cerebral Cortex,54.21,Right Cerebral White Matter,38.86,"Middle Temporal Gyrus, posterior division",11.18
+FeTS2022_01494,286608,30.7,2.5,2.9,Right,8586,269167,Frontal,22.1,Right Cerebral White Matter,44.73,Right Cerebral Cortex,39.58,Temporal Pole,4.09
+FeTS2022_01495,292812,-21.7,16.2,25.4,Left,256121,28795,Frontal,51.3,Left Cerebral Cortex,44.79,Left Cerebral White Matter,36.97,Frontal Pole,11.53
+FeTS2022_01496,263263,28.9,9.8,7.8,Right,5108,256074,Frontal,28.0,Right Cerebral White Matter,49.71,Right Cerebral Cortex,37.22,Frontal Pole,7.91
+FeTS2022_01497,109256,34.1,-32.1,-12.1,Right,0,99011,Temporal,29.3,Right Cerebral White Matter,40.23,Right Cerebral Cortex,39.67,Temporal Occipital Fusiform Cortex,5.89
+FeTS2022_01498,398775,23.1,15.2,11.0,Right,54164,337559,Frontal,39.8,Right Cerebral White Matter,38.54,Right Cerebral Cortex,38.54,Frontal Pole,14.24
+FeTS2022_01499,96094,41.1,-14.3,-15.0,Right,0,95800,Temporal,42.8,Right Cerebral Cortex,54.91,Right Cerebral White Matter,33.66,Temporal Pole,8.92
+FeTS2022_01500,39773,21.6,26.1,46.9,Right,0,36461,Frontal,59.2,Right Cerebral Cortex,54.11,Right Cerebral White Matter,37.56,Superior Frontal Gyrus,26.18
+FeTS2022_01501,242617,-37.1,-23.2,-6.6,Left,223695,0,Temporal,30.6,Left Cerebral Cortex,50.13,Left Cerebral White Matter,31.97,Temporal Pole,5.81
+FeTS2022_01502,96145,-27.5,-55.0,42.9,Left,95433,1,Parietal,35.8,Left Cerebral Cortex,59.91,Left Cerebral White Matter,38.77,"Lateral Occipital Cortex, superior division",26.62
+FeTS2022_01503,63460,17.1,39.1,-2.0,Right,1035,61922,Frontal,47.6,Right Cerebral White Matter,48.48,Right Cerebral Cortex,39.11,Frontal Pole,31.8
+FeTS2022_01504,131579,-41.9,-10.5,26.9,Left,128341,0,Frontal,30.2,Left Cerebral Cortex,53.49,Left Cerebral White Matter,42.31,Precentral Gyrus,14.38
+FeTS2022_01505,141639,-18.4,30.3,31.1,Left,132033,1584,Frontal,55.7,Left Cerebral Cortex,50.08,Left Cerebral White Matter,39.43,Frontal Pole,19.63
+FeTS2022_01506,242102,-14.1,20.4,28.7,Left,203470,32328,Frontal,50.4,Left Cerebral White Matter,40.87,Left Cerebral Cortex,39.03,Frontal Pole,12.27
+FeTS2022_01507,146042,50.0,-14.5,-4.7,Right,0,137964,Temporal,36.8,Right Cerebral Cortex,60.42,Right Cerebral White Matter,28.85,"Middle Temporal Gyrus, posterior division",7.49
+FeTS2022_01508,51163,-11.4,42.6,32.0,Left,45073,1695,Frontal,70.3,Left Cerebral Cortex,63.88,Frontal Pole,29.02,Left Cerebral White Matter,24.22
+FeTS2022_01509,48995,31.0,0.3,-20.7,Right,0,47490,Temporal,28.9,Right Cerebral Cortex,49.48,Right Cerebral White Matter,27.01,Temporal Pole,19.34
+FeTS2022_01510,167767,14.1,24.1,30.0,Right,19655,143834,Frontal,49.5,Right Cerebral White Matter,41.11,Right Cerebral Cortex,40.51,Frontal Pole,15.96
+FeTS2022_01511,234109,-15.9,9.4,36.1,Left,192564,32999,Frontal,49.8,Left Cerebral Cortex,42.62,Left Cerebral White Matter,36.15,Superior Frontal Gyrus,10.21
+FeTS2022_01512,211399,30.5,7.3,0.2,Right,3932,206095,Frontal,20.1,Right Cerebral White Matter,51.3,Right Cerebral Cortex,35.84,Frontal Pole,6.86
+FeTS2022_01513,292561,25.0,23.7,23.2,Right,16856,263618,Frontal,52.8,Right Cerebral Cortex,48.71,Right Cerebral White Matter,36.07,Frontal Pole,17.29
+FeTS2022_01514,201749,-34.0,-14.1,-7.9,Left,191731,1942,Temporal,27.1,Left Cerebral Cortex,45.01,Left Cerebral White Matter,39.88,Temporal Pole,8.73
+FeTS2022_01515,204950,25.7,12.7,-3.8,Right,16285,182854,Frontal,27.1,Right Cerebral White Matter,39.8,Right Cerebral Cortex,38.62,Frontal Pole,8.46
+FeTS2022_01516,36148,-31.8,-0.7,54.9,Left,34591,0,Frontal,76.0,Left Cerebral Cortex,68.37,Precentral Gyrus,31.76,Middle Frontal Gyrus,30.64
+FeTS2022_01517,219216,-10.6,25.7,14.0,Left,165640,48220,Frontal,43.6,Left Cerebral White Matter,36.76,Left Cerebral Cortex,32.41,Frontal Pole,14.05
+FeTS2022_01518,222711,20.1,1.3,34.5,Right,16272,205663,Frontal,38.6,Right Cerebral White Matter,47.35,Right Cerebral Cortex,35.59,Superior Frontal Gyrus,8.15
+FeTS2022_01519,38641,-32.4,-59.4,39.1,Left,38629,0,Occipital,39.4,Left Cerebral Cortex,65.78,"Lateral Occipital Cortex, superior division",38.83,Left Cerebral White Matter,34.1
+FeTS2022_01520,45764,-39.3,-4.6,39.3,Left,45760,0,Frontal,54.6,Left Cerebral Cortex,53.43,Left Cerebral White Matter,46.56,Precentral Gyrus,34.43
+FeTS2022_01521,319069,17.0,17.8,18.3,Right,70391,245830,Frontal,41.2,Right Cerebral White Matter,38.15,Right Cerebral Cortex,34.68,Left Cerebral White Matter,14.44
+FeTS2022_01522,25161,-50.7,-43.3,27.4,Left,25161,0,Parietal,61.0,Left Cerebral Cortex,67.25,Left Cerebral White Matter,32.75,"Supramarginal Gyrus, posterior division",21.24
+FeTS2022_01523,251182,29.8,10.6,14.5,Right,14553,232958,Frontal,33.8,Right Cerebral White Matter,44.34,Right Cerebral Cortex,38.24,Frontal Pole,6.53
+FeTS2022_01524,174869,42.7,-16.1,3.2,Right,0,173041,Temporal,22.8,Right Cerebral Cortex,47.23,Right Cerebral White Matter,42.42,Insular Cortex,5.7
+FeTS2022_01525,44337,37.7,32.4,12.0,Right,0,43815,Frontal,59.1,Right Cerebral Cortex,59.82,Frontal Pole,37.84,Right Cerebral White Matter,35.25
+FeTS2022_01526,92090,-16.4,-10.0,58.7,Left,76406,398,Frontal,44.4,Left Cerebral Cortex,45.15,Left Cerebral White Matter,36.85,Precentral Gyrus,18.76
+FeTS2022_01527,115671,-37.7,-1.9,-16.9,Left,107414,0,Temporal,35.8,Left Cerebral Cortex,58.35,Left Cerebral White Matter,23.13,Temporal Pole,16.14
+FeTS2022_01528,323640,36.3,-28.8,-0.0,Right,2284,300673,Temporal,23.4,Right Cerebral Cortex,47.34,Right Cerebral White Matter,37.01,Temporal Pole,3.95
+FeTS2022_01529,78154,30.0,15.5,-11.9,Right,1,77788,Frontal,28.9,Right Cerebral Cortex,54.96,Right Cerebral White Matter,34.4,Frontal Orbital Cortex,13.83
+FeTS2022_01530,22288,2.8,-66.5,-27.7,Right,74,370,Occipital,1.3,Right Cerebral Cortex,1.66,Lingual Gyrus,1.33,Left Cerebral Cortex,0.33
+FeTS2022_01531,180233,-20.8,-47.6,32.2,Left,174980,4189,Parietal,33.1,Left Cerebral Cortex,47.96,Left Cerebral White Matter,44.64,"Lateral Occipital Cortex, superior division",12.37
+FeTS2022_01532,189356,28.6,22.8,20.6,Right,2934,181484,Frontal,45.9,Right Cerebral White Matter,43.35,Right Cerebral Cortex,43.32,Frontal Pole,16.96
+FeTS2022_01533,434823,19.5,18.2,10.0,Right,86569,336191,Frontal,40.0,Right Cerebral Cortex,38.75,Right Cerebral White Matter,31.9,Frontal Pole,13.63
+FeTS2022_01534,81311,32.9,-35.9,-6.1,Right,11,80298,Temporal,22.7,Right Cerebral White Matter,53.98,Right Cerebral Cortex,32.23,"Temporal Fusiform Cortex, posterior division",5.68
+FeTS2022_01535,78272,-33.6,3.9,-13.1,Left,76721,0,Temporal,24.8,Left Cerebral Cortex,56.2,Left Cerebral White Matter,24.73,Temporal Pole,18.07
+FeTS2022_01536,67714,-49.5,-22.7,-18.4,Left,65828,0,Temporal,62.6,Left Cerebral Cortex,64.86,Left Cerebral White Matter,29.07,"Middle Temporal Gyrus, posterior division",15.26
+FeTS2022_01537,243936,18.1,20.9,20.9,Right,35529,204797,Frontal,43.5,Right Cerebral White Matter,43.48,Right Cerebral Cortex,34.27,Frontal Pole,12.64
+FeTS2022_01538,35044,-48.7,-42.8,30.7,Left,35044,0,Parietal,64.5,Left Cerebral Cortex,65.61,Left Cerebral White Matter,34.39,"Supramarginal Gyrus, posterior division",19.47
+FeTS2022_01539,123969,-36.4,-11.2,-7.3,Left,120899,0,Temporal,26.5,Left Cerebral Cortex,52.35,Left Cerebral White Matter,29.47,Temporal Pole,9.41
+FeTS2022_01540,150490,-38.1,-8.6,-9.1,Left,146520,0,Temporal,30.4,Left Cerebral Cortex,53.33,Left Cerebral White Matter,31.5,Temporal Pole,11.2
+FeTS2022_01541,178109,13.0,10.9,-5.2,Right,46514,127413,Frontal,24.7,Right Cerebral Cortex,29.91,Right Cerebral White Matter,27.82,Left Cerebral Cortex,12.72
+FeTS2022_01542,141581,-38.1,-28.1,30.8,Left,141578,0,Parietal,27.6,Left Cerebral White Matter,51.99,Left Cerebral Cortex,44.28,Precentral Gyrus,11.3
+FeTS2022_01543,31595,-41.5,-29.9,7.0,Left,31595,0,Temporal,24.4,Left Cerebral White Matter,49.47,Left Cerebral Cortex,43.97,Planum Temporale,10.53
+FeTS2022_01544,95917,-35.5,-60.0,15.8,Left,95917,0,Occipital,29.7,Left Cerebral White Matter,56.12,Left Cerebral Cortex,42.7,"Lateral Occipital Cortex, superior division",17.1
+FeTS2022_01545,48152,-17.5,-50.6,33.7,Left,47787,365,Parietal,37.4,Left Cerebral White Matter,63.12,Left Cerebral Cortex,34.76,Precuneous Cortex,22.88
+FeTS2022_01546,222174,35.9,-26.3,-2.0,Right,64,218755,Temporal,29.6,Right Cerebral White Matter,45.97,Right Cerebral Cortex,42.09,Temporal Pole,6.86
+FeTS2022_01547,170548,23.1,-44.2,19.0,Right,7441,157525,Parietal,22.2,Right Cerebral White Matter,55.28,Right Cerebral Cortex,30.48,Precuneous Cortex,9.54
+FeTS2022_01548,90298,-42.4,-17.1,-17.2,Left,86556,0,Temporal,46.1,Left Cerebral Cortex,55.24,Left Cerebral White Matter,30.56,"Inferior Temporal Gyrus, posterior division",8.85
+FeTS2022_01549,74526,-29.9,-61.4,-0.1,Left,73244,0,Occipital,30.9,Left Cerebral White Matter,53.41,Left Cerebral Cortex,41.5,"Lateral Occipital Cortex, inferior division",8.99
+FeTS2022_01550,61648,-27.5,13.5,-13.1,Left,59482,183,Temporal,18.7,Left Cerebral Cortex,49.34,Left Cerebral White Matter,38.83,Temporal Pole,16.91
+FeTS2022_01551,22888,-32.4,-75.0,-8.8,Left,21707,0,Occipital,53.9,Left Cerebral Cortex,57.13,Left Cerebral White Matter,37.71,"Lateral Occipital Cortex, inferior division",22.63
+FeTS2022_01552,179116,-26.0,28.5,8.8,Left,176099,1596,Frontal,51.6,Left Cerebral Cortex,48.46,Left Cerebral White Matter,43.69,Frontal Pole,23.32
+FeTS2022_01553,312950,36.5,-35.4,20.6,Right,4118,304395,Parietal,23.4,Right Cerebral Cortex,52.1,Right Cerebral White Matter,38.47,"Lateral Occipital Cortex, superior division",9.67
+FeTS2022_01554,290721,19.8,22.0,13.4,Right,45281,243392,Frontal,45.8,Right Cerebral Cortex,37.99,Right Cerebral White Matter,37.81,Frontal Pole,15.7
+FeTS2022_01555,82731,42.0,-14.7,27.5,Right,0,82614,Parietal,31.4,Right Cerebral White Matter,50.88,Right Cerebral Cortex,48.63,Postcentral Gyrus,12.3
+FeTS2022_01556,50110,-28.8,-14.6,-18.0,Left,48673,0,Temporal,25.2,Left Cerebral Cortex,43.1,Left Cerebral White Matter,33.7,Temporal Pole,13.51
+FeTS2022_01557,25514,-41.2,2.7,-19.7,Left,25481,0,Temporal,53.8,Left Cerebral Cortex,64.01,Temporal Pole,38.56,Left Cerebral White Matter,33.66
+FeTS2022_01558,87939,-52.2,-32.5,-3.6,Left,86440,18,Temporal,54.1,Left Cerebral Cortex,69.52,Left Cerebral White Matter,28.75,"Middle Temporal Gyrus, posterior division",12.14
+FeTS2022_01559,21055,47.3,-53.7,0.5,Right,0,21043,Temporal,40.3,Right Cerebral White Matter,51.24,Right Cerebral Cortex,48.59,"Middle Temporal Gyrus, temporooccipital part",24.42
+FeTS2022_01560,39000,-29.2,30.0,31.9,Left,37211,971,Frontal,84.4,Left Cerebral Cortex,75.77,Middle Frontal Gyrus,40.87,Frontal Pole,20.64
+FeTS2022_01561,65808,31.0,-71.9,4.3,Right,0,65481,Occipital,54.7,Right Cerebral White Matter,51.61,Right Cerebral Cortex,47.37,"Lateral Occipital Cortex, inferior division",18.02
+FeTS2022_01562,141298,34.0,-41.9,26.6,Right,0,141287,Parietal,22.0,Right Cerebral White Matter,61.78,Right Cerebral Cortex,35.74,"Lateral Occipital Cortex, superior division",9.72
+FeTS2022_01563,154517,-37.1,-22.3,2.3,Left,151207,0,Temporal,25.0,Left Cerebral White Matter,42.19,Left Cerebral Cortex,39.05,"Middle Temporal Gyrus, posterior division",6.1
+FeTS2022_01564,125147,43.3,-36.1,4.5,Right,0,124784,Temporal,26.3,Right Cerebral White Matter,52.72,Right Cerebral Cortex,41.6,"Middle Temporal Gyrus, posterior division",6.8
+FeTS2022_01565,140049,-17.9,1.8,37.1,Left,127900,11149,Frontal,38.3,Left Cerebral White Matter,51.37,Left Cerebral Cortex,32.24,Superior Frontal Gyrus,12.51
+FeTS2022_01566,54562,-32.9,-11.3,-21.5,Left,53799,0,Temporal,35.8,Left Cerebral Cortex,47.38,Left Cerebral White Matter,34.21,Temporal Pole,14.76
+FeTS2022_01567,147736,22.5,-41.1,41.0,Right,5287,142289,Parietal,36.4,Right Cerebral White Matter,50.0,Right Cerebral Cortex,44.24,Precuneous Cortex,11.06
+FeTS2022_01568,196365,27.4,-47.7,19.0,Right,11215,182361,Occipital,19.0,Right Cerebral White Matter,51.57,Right Cerebral Cortex,34.65,"Lateral Occipital Cortex, superior division",11.7
+FeTS2022_01569,271808,37.5,-18.4,5.2,Right,238,269995,Temporal,21.6,Right Cerebral White Matter,44.33,Right Cerebral Cortex,43.02,Insular Cortex,3.85
+FeTS2022_01570,169702,-38.5,-9.1,-9.7,Left,161787,0,Temporal,32.0,Left Cerebral Cortex,53.17,Left Cerebral White Matter,31.47,Temporal Pole,10.99
+FeTS2022_01571,78118,-32.4,12.8,32.6,Left,77879,0,Frontal,48.5,Left Cerebral White Matter,57.05,Left Cerebral Cortex,42.63,Middle Frontal Gyrus,23.49
+FeTS2022_01572,133113,-34.7,-2.5,-11.8,Left,129026,0,Temporal,29.4,Left Cerebral Cortex,51.62,Left Cerebral White Matter,31.51,Temporal Pole,13.59
+FeTS2022_01573,233049,25.6,29.9,18.2,Right,7020,215175,Frontal,54.8,Right Cerebral Cortex,49.84,Right Cerebral White Matter,37.6,Frontal Pole,21.97
+FeTS2022_01574,97921,-37.9,-17.0,-0.7,Left,96795,0,Temporal,26.7,Left Cerebral White Matter,54.51,Left Cerebral Cortex,37.66,Insular Cortex,8.46
+FeTS2022_01575,218390,23.2,19.1,26.4,Right,11208,206862,Frontal,50.6,Right Cerebral Cortex,45.69,Right Cerebral White Matter,42.04,Frontal Pole,11.88
+FeTS2022_01576,113129,28.9,-58.3,28.1,Right,0,113082,Occipital,32.1,Right Cerebral White Matter,53.99,Right Cerebral Cortex,44.01,"Lateral Occipital Cortex, superior division",22.79
+FeTS2022_01577,120647,-32.4,-13.5,-8.2,Left,116266,14,Temporal,27.4,Left Cerebral Cortex,38.94,Left Cerebral White Matter,38.64,Temporal Pole,9.54
+FeTS2022_01578,286240,-5.4,-7.3,23.5,Left,126099,159679,Frontal,30.3,Right Cerebral White Matter,29.44,Right Cerebral Cortex,22.48,Left Cerebral Cortex,21.35
+FeTS2022_01579,143574,-39.9,-8.9,-12.7,Left,139499,0,Temporal,38.1,Left Cerebral Cortex,58.93,Left Cerebral White Matter,27.33,Temporal Pole,11.25
+FeTS2022_01580,11644,-50.9,-5.4,12.7,Left,11644,0,Frontal,63.3,Left Cerebral Cortex,77.54,Central Opercular Cortex,43.06,Left Cerebral White Matter,22.46
+FeTS2022_01581,218336,30.4,-22.6,14.1,Right,3274,206983,Parietal,10.8,Right Cerebral White Matter,55.1,Right Cerebral Cortex,25.24,Right Thalamus,4.57
+FeTS2022_01582,107585,-34.1,-24.0,11.5,Left,107378,0,Temporal,12.6,Left Cerebral White Matter,59.8,Left Cerebral Cortex,26.51,Insular Cortex,5.69
+FeTS2022_01583,89105,-36.9,8.9,14.9,Left,89066,0,Frontal,35.7,Left Cerebral White Matter,47.03,Left Cerebral Cortex,45.31,Insular Cortex,8.05
+FeTS2022_01584,118115,41.9,-35.0,28.9,Right,16,118050,Parietal,33.1,Right Cerebral Cortex,50.84,Right Cerebral White Matter,47.03,"Lateral Occipital Cortex, superior division",10.41
+FeTS2022_01585,108581,-42.6,-17.0,-12.1,Left,106016,0,Temporal,43.6,Left Cerebral Cortex,54.2,Left Cerebral White Matter,34.67,Temporal Pole,9.06
+FeTS2022_01586,74975,-40.5,-27.2,27.0,Left,74975,0,Parietal,29.7,Left Cerebral White Matter,54.54,Left Cerebral Cortex,43.04,Postcentral Gyrus,10.76
+FeTS2022_01587,279748,18.5,26.3,17.2,Right,46385,230396,Frontal,52.3,Right Cerebral Cortex,42.12,Right Cerebral White Matter,34.41,Frontal Pole,17.96
+FeTS2022_01588,58727,-39.0,-1.2,-18.7,Left,58345,0,Temporal,44.7,Left Cerebral Cortex,63.63,Left Cerebral White Matter,24.71,Temporal Pole,23.21
+FeTS2022_01589,173727,35.7,-30.5,30.8,Right,0,173714,Parietal,30.5,Right Cerebral White Matter,51.27,Right Cerebral Cortex,43.89,Postcentral Gyrus,7.93
+FeTS2022_01590,78330,-40.2,9.4,22.8,Left,77358,0,Frontal,54.6,Left Cerebral Cortex,58.32,Left Cerebral White Matter,38.61,Middle Frontal Gyrus,17.83
+FeTS2022_01591,61249,-39.1,-2.9,-13.7,Left,58946,46,Temporal,41.5,Left Cerebral Cortex,56.01,Left Cerebral White Matter,24.3,Temporal Pole,23.93
+FeTS2022_01592,56095,-42.1,-39.1,-11.1,Left,55663,0,Temporal,49.7,Left Cerebral Cortex,53.07,Left Cerebral White Matter,41.31,"Inferior Temporal Gyrus, temporooccipital part",9.51
+FeTS2022_01593,112880,37.8,-8.1,22.2,Right,0,112701,Frontal,23.6,Right Cerebral White Matter,50.57,Right Cerebral Cortex,40.29,Precentral Gyrus,10.21
+FeTS2022_01594,11587,10.4,-40.7,46.7,Right,19,11568,Parietal,69.7,Right Cerebral Cortex,68.34,Precuneous Cortex,36.51,Right Cerebral White Matter,31.49
+FeTS2022_01595,142771,22.2,-61.3,30.5,Right,2189,139030,Occipital,35.8,Right Cerebral Cortex,49.36,Right Cerebral White Matter,46.27,"Lateral Occipital Cortex, superior division",17.32
+FeTS2022_01596,159945,-29.2,-21.7,38.4,Left,154664,0,Frontal,21.1,Left Cerebral White Matter,55.71,Left Cerebral Cortex,38.95,Postcentral Gyrus,13.11
+FeTS2022_01597,155016,43.0,-17.5,25.9,Right,134,152517,Parietal,24.5,Right Cerebral Cortex,52.43,Right Cerebral White Matter,43.69,Postcentral Gyrus,11.18
+FeTS2022_01598,223778,-19.5,22.9,-0.5,Left,185057,33269,Frontal,39.9,Left Cerebral Cortex,39.39,Left Cerebral White Matter,36.34,Frontal Pole,14.73
+FeTS2022_01599,49416,-22.7,-66.5,16.5,Left,49413,2,Occipital,35.8,Left Cerebral White Matter,67.61,Left Cerebral Cortex,28.88,"Lateral Occipital Cortex, superior division",16.07
+FeTS2022_01600,66487,-37.4,-0.9,-21.2,Left,64278,0,Temporal,40.2,Left Cerebral Cortex,66.8,Left Cerebral White Matter,21.42,Temporal Pole,20.0
+FeTS2022_01601,127755,-19.9,-54.2,21.0,Left,122776,2264,Parietal,21.8,Left Cerebral White Matter,55.97,Left Cerebral Cortex,34.53,Precuneous Cortex,11.29
+FeTS2022_01602,147672,27.2,-57.5,9.8,Right,303,143134,Occipital,35.7,Right Cerebral White Matter,50.71,Right Cerebral Cortex,42.17,"Lateral Occipital Cortex, superior division",10.35
+FeTS2022_01603,242770,-36.6,-36.5,7.3,Left,240509,0,Temporal,19.1,Left Cerebral White Matter,46.25,Left Cerebral Cortex,45.22,"Lateral Occipital Cortex, inferior division",5.22
+FeTS2022_01604,155744,25.9,-25.5,36.4,Right,4309,151398,Parietal,20.1,Right Cerebral White Matter,63.56,Right Cerebral Cortex,29.8,Precentral Gyrus,8.45
+FeTS2022_01605,159135,-8.3,26.2,16.5,Left,118237,40140,Frontal,40.5,Left Cerebral White Matter,40.57,Left Cerebral Cortex,25.5,Paracingulate Gyrus,11.32
+FeTS2022_01606,177458,-1.8,29.7,15.2,Left,93433,83053,Frontal,35.1,Left Cerebral White Matter,35.05,Right Cerebral White Matter,31.37,Frontal Pole,20.45
+FeTS2022_01607,76675,21.3,-23.2,47.4,Right,980,75675,Frontal,24.9,Right Cerebral White Matter,60.66,Right Cerebral Cortex,37.22,Precentral Gyrus,16.75
+FeTS2022_01608,251420,22.9,19.2,21.1,Right,12043,237477,Frontal,45.6,Right Cerebral White Matter,45.82,Right Cerebral Cortex,41.68,Frontal Pole,15.25
+FeTS2022_01609,140151,-37.6,-31.7,31.6,Left,140134,0,Parietal,33.4,Left Cerebral White Matter,50.01,Left Cerebral Cortex,46.68,Postcentral Gyrus,12.49
+FeTS2022_01610,31658,15.6,-25.8,-1.5,Right,106,23118,Other,3.5,Right Cerebral White Matter,31.56,Right Thalamus,21.62,Brain-Stem,12.36
+FeTS2022_01611,38783,-48.6,-24.0,-2.8,Left,38783,0,Temporal,47.2,Left Cerebral Cortex,54.99,Left Cerebral White Matter,42.7,"Middle Temporal Gyrus, posterior division",16.54
+FeTS2022_01612,80378,-33.0,-11.8,10.4,Left,80278,0,Frontal,10.4,Left Cerebral White Matter,63.66,Left Cerebral Cortex,25.42,Insular Cortex,9.07
+FeTS2022_01613,69802,-31.1,6.5,8.0,Left,69800,0,Frontal,17.6,Left Cerebral White Matter,58.6,Left Cerebral Cortex,31.44,Insular Cortex,14.41
+FeTS2022_01614,53746,-26.2,-47.4,44.3,Left,53745,0,Parietal,37.7,Left Cerebral White Matter,55.77,Left Cerebral Cortex,43.96,Superior Parietal Lobule,19.28
+FeTS2022_01615,4144,-51.0,-38.9,-4.1,Left,4144,0,Temporal,45.1,Left Cerebral Cortex,72.95,"Lateral Occipital Cortex, inferior division",28.14,"Middle Temporal Gyrus, posterior division",27.58
+FeTS2022_01616,34566,55.7,-9.9,-11.3,Right,0,33090,Temporal,70.3,Right Cerebral Cortex,78.23,"Middle Temporal Gyrus, posterior division",27.58,Right Cerebral White Matter,17.5
+FeTS2022_01617,98958,-16.4,-25.0,45.2,Left,96534,1935,Parietal,22.7,Left Cerebral White Matter,60.26,Left Cerebral Cortex,34.27,Precentral Gyrus,11.5
+FeTS2022_01618,199314,22.2,18.9,28.9,Right,7147,190618,Frontal,48.2,Right Cerebral White Matter,47.64,Right Cerebral Cortex,42.3,Frontal Pole,12.57
+FeTS2022_01619,253802,-36.7,-17.6,-2.8,Left,246079,3,Temporal,28.8,Left Cerebral Cortex,47.81,Left Cerebral White Matter,36.5,Temporal Pole,5.83
+FeTS2022_01620,9282,43.7,-47.6,19.1,Right,0,9282,Parietal,32.3,Right Cerebral White Matter,72.36,Angular Gyrus,29.02,Right Cerebral Cortex,27.64
+FeTS2022_01621,192583,38.2,-9.6,25.1,Right,0,192464,Frontal,21.7,Right Cerebral White Matter,47.81,Right Cerebral Cortex,45.23,Precentral Gyrus,8.49
+FeTS2022_01622,20203,-31.3,-57.0,-8.1,Left,20175,0,Temporal,35.5,Left Cerebral White Matter,58.19,Left Cerebral Cortex,40.64,Temporal Occipital Fusiform Cortex,14.76
+FeTS2022_01623,91373,21.0,9.1,41.8,Right,1178,89710,Frontal,49.3,Right Cerebral White Matter,54.65,Right Cerebral Cortex,40.52,Superior Frontal Gyrus,16.02
+FeTS2022_01624,46518,-46.7,-3.1,-22.2,Left,41845,0,Temporal,52.2,Left Cerebral Cortex,60.47,Left Cerebral White Matter,24.6,Temporal Pole,18.8
+FeTS2022_01625,211860,24.2,-52.0,26.0,Right,19823,189739,Parietal,25.7,Right Cerebral White Matter,44.59,Right Cerebral Cortex,42.36,"Lateral Occipital Cortex, superior division",13.31
+FeTS2022_01626,60901,32.7,-9.7,-21.8,Right,11,60152,Temporal,35.5,Right Cerebral Cortex,49.95,Right Cerebral White Matter,31.44,Temporal Pole,16.12
+FeTS2022_01627,316647,-27.7,15.0,10.0,Left,293784,19891,Frontal,39.7,Left Cerebral Cortex,46.13,Left Cerebral White Matter,39.82,Frontal Pole,12.61
+FeTS2022_01628,4534,22.2,-47.4,-26.0,Right,0,47,Temporal,0.6,Brain-Stem,1.81,Right Cerebral Cortex,1.04,Temporal Occipital Fusiform Cortex,0.33
+FeTS2022_01629,61690,-19.8,-27.9,4.0,Left,49801,763,Temporal,2.5,Left Cerebral White Matter,47.54,Left Thalamus,15.77,Brain-Stem,8.97
+FeTS2022_01630,124493,29.8,-16.0,42.2,Right,0,124465,Frontal,32.7,Right Cerebral White Matter,54.18,Right Cerebral Cortex,44.72,Precentral Gyrus,20.8
+FeTS2022_01631,131248,24.1,-38.2,41.3,Right,730,130406,Parietal,35.4,Right Cerebral White Matter,53.83,Right Cerebral Cortex,43.78,Postcentral Gyrus,9.93
+FeTS2022_01632,196354,42.0,-20.6,-1.4,Right,0,194491,Temporal,32.1,Right Cerebral Cortex,48.62,Right Cerebral White Matter,42.05,Temporal Pole,8.2
+FeTS2022_01633,147402,30.7,-40.4,0.4,Right,348,144339,Occipital,23.0,Right Cerebral White Matter,48.84,Right Cerebral Cortex,45.78,Temporal Pole,9.37
+FeTS2022_01634,221082,-35.0,-41.9,5.3,Left,218532,41,Temporal,20.7,Left Cerebral White Matter,48.63,Left Cerebral Cortex,43.34,"Lateral Occipital Cortex, superior division",4.45
+FeTS2022_01635,149185,-27.1,-34.7,42.9,Left,149008,0,Parietal,34.3,Left Cerebral White Matter,50.01,Left Cerebral Cortex,46.64,Postcentral Gyrus,11.85
+FeTS2022_01636,97364,47.2,8.3,23.8,Right,11,92602,Frontal,54.6,Right Cerebral Cortex,66.1,Right Cerebral White Matter,29.01,Middle Frontal Gyrus,18.99
+FeTS2022_01637,8474,-52.2,3.4,-20.8,Left,8211,0,Temporal,80.4,Left Cerebral Cortex,80.43,Temporal Pole,44.45,"Middle Temporal Gyrus, anterior division",23.16
+FeTS2022_01638,83760,-16.7,-8.1,38.8,Left,75703,7985,Frontal,25.5,Left Cerebral White Matter,60.1,Left Cerebral Cortex,21.21,Precentral Gyrus,10.34
+FeTS2022_01639,154529,40.0,-8.1,20.2,Right,0,152811,Frontal,22.1,Right Cerebral White Matter,51.01,Right Cerebral Cortex,42.28,Precentral Gyrus,8.43
+FeTS2022_01640,24128,-44.5,0.9,9.0,Left,23935,0,Frontal,47.0,Left Cerebral Cortex,70.57,Left Cerebral White Matter,24.62,Central Opercular Cortex,20.03
+FeTS2022_01641,180056,14.5,21.7,15.8,Right,74237,105258,Frontal,53.0,Right Cerebral Cortex,32.36,Right Cerebral White Matter,25.98,Left Cerebral Cortex,21.5
+FeTS2022_01642,150683,28.3,-41.3,11.1,Right,1154,147627,Occipital,12.4,Right Cerebral White Matter,62.62,Right Cerebral Cortex,22.73,Right Thalamus,5.4
+FeTS2022_01643,43747,44.4,-21.3,29.9,Right,0,43747,Parietal,36.1,Right Cerebral White Matter,54.63,Right Cerebral Cortex,45.37,Postcentral Gyrus,14.85
+FeTS2022_01644,51526,-26.5,-25.5,28.2,Left,50208,1318,Parietal,14.0,Left Cerebral White Matter,70.78,Left Cerebral Cortex,24.31,"Cingulate Gyrus, posterior division",6.08
+FeTS2022_01645,126100,-17.5,-43.6,23.4,Left,108361,17738,Occipital,24.5,Left Cerebral White Matter,56.56,Left Cerebral Cortex,27.36,Right Cerebral White Matter,11.52
+FeTS2022_01646,92720,-27.3,-21.4,38.4,Left,92514,167,Frontal,26.3,Left Cerebral White Matter,72.94,Left Cerebral Cortex,26.42,Precentral Gyrus,17.51
+FeTS2022_01647,36365,48.9,7.8,-23.3,Right,87,31500,Temporal,60.7,Right Cerebral Cortex,67.94,Temporal Pole,33.99,Right Cerebral White Matter,18.68
+FeTS2022_01648,206784,24.6,20.8,19.3,Right,2186,204423,Frontal,45.1,Right Cerebral White Matter,50.07,Right Cerebral Cortex,40.64,Frontal Pole,15.57
+FeTS2022_01649,136595,-41.9,-15.7,-2.3,Left,135425,0,Temporal,32.0,Left Cerebral Cortex,61.85,Left Cerebral White Matter,29.79,Temporal Pole,12.8
+FeTS2022_01650,200097,-29.3,8.9,12.3,Left,199213,744,Frontal,29.1,Left Cerebral White Matter,55.56,Left Cerebral Cortex,32.99,Frontal Pole,6.42
+FeTS2022_01651,26217,-22.4,12.4,43.5,Left,26216,0,Frontal,61.0,Left Cerebral Cortex,52.18,Left Cerebral White Matter,47.82,Superior Frontal Gyrus,35.52
+FeTS2022_01652,152063,-30.3,-36.8,42.1,Left,150349,0,Parietal,37.6,Left Cerebral Cortex,50.7,Left Cerebral White Matter,46.28,Postcentral Gyrus,14.63
+FeTS2022_01653,151487,27.6,10.2,21.3,Right,9469,141799,Frontal,33.2,Right Cerebral White Matter,50.74,Right Cerebral Cortex,37.87,Middle Frontal Gyrus,11.19
+FeTS2022_01654,155950,-33.6,-7.7,2.2,Left,155512,0,Temporal,21.9,Left Cerebral White Matter,54.58,Left Cerebral Cortex,34.48,Temporal Pole,6.97
+FeTS2022_01655,150740,-19.7,-19.6,11.5,Left,119441,17395,Frontal,4.6,Left Cerebral White Matter,48.11,Left Cerebral Cortex,12.58,Left Thalamus,6.87
+FeTS2022_01656,81972,34.5,-6.5,-13.2,Right,724,78597,Temporal,25.9,Right Cerebral Cortex,44.65,Right Cerebral White Matter,35.32,Insular Cortex,9.43
+FeTS2022_01657,195707,-41.9,-29.8,8.1,Left,193811,0,Temporal,27.1,Left Cerebral Cortex,52.37,Left Cerebral White Matter,40.78,Temporal Pole,6.25
+FeTS2022_01658,229224,-21.8,25.3,15.9,Left,209360,17664,Frontal,53.7,Left Cerebral Cortex,45.48,Left Cerebral White Matter,41.3,Frontal Pole,17.72
+FeTS2022_01659,242600,34.6,-13.9,2.7,Right,2290,237414,Temporal,21.3,Right Cerebral White Matter,49.16,Right Cerebral Cortex,36.46,Temporal Pole,5.43
+FeTS2022_01660,127413,20.2,9.9,36.3,Right,12609,110527,Frontal,44.0,Right Cerebral White Matter,48.01,Right Cerebral Cortex,35.14,Middle Frontal Gyrus,11.65
+FeTS2022_01661,230614,-33.2,-19.3,1.5,Left,214321,5864,Temporal,19.7,Left Cerebral White Matter,41.94,Left Cerebral Cortex,37.43,Insular Cortex,4.09
+FeTS2022_01662,126639,22.4,15.8,36.7,Right,88,126005,Frontal,48.2,Right Cerebral White Matter,56.81,Right Cerebral Cortex,40.74,Frontal Pole,11.6
+FeTS2022_01663,60827,-21.1,22.7,45.2,Left,58483,35,Frontal,63.9,Left Cerebral Cortex,57.75,Left Cerebral White Matter,38.39,Superior Frontal Gyrus,27.37
+FeTS2022_01664,219656,-34.1,-45.0,32.1,Left,213848,87,Parietal,29.5,Left Cerebral Cortex,51.2,Left Cerebral White Matter,41.19,"Lateral Occipital Cortex, superior division",16.38
+FeTS2022_01665,190611,41.5,-30.4,4.9,Right,4,189838,Temporal,25.2,Right Cerebral White Matter,46.62,Right Cerebral Cortex,43.72,"Middle Temporal Gyrus, posterior division",4.88
+FeTS2022_01666,186391,-28.1,11.9,-3.4,Left,178678,2267,Frontal,24.0,Left Cerebral Cortex,42.08,Left Cerebral White Matter,41.61,Temporal Pole,8.68

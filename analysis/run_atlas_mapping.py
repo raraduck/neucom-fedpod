@@ -148,9 +148,9 @@ def analyze_case(case_id: str, atlas: dict) -> dict | None:
     wt_vox      = np.argwhere(wt_mask)
     ctr_vox     = wt_vox.mean(axis=0)
     ctr_mm      = nib.affines.apply_affine(affine, ctr_vox)
-    # MNI LAS: x_mm < 0 → Right, x_mm > 0 → Left
+    # MNI 좌표: affine x=-1*voxel+90 → x_mm > 0 = Right, x_mm < 0 = Left
     lat_x       = float(ctr_mm[0])
-    laterality  = "Left" if lat_x > 0 else "Right"
+    laterality  = "Right" if lat_x > 0 else "Left"
 
     # ── subcortical 명시적 laterality 확인 (Left/Right 라벨 포함) ─────────
     sub_vals    = sub_arr[wt_mask]

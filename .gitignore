@@ -14,8 +14,11 @@ logs/*
 runs/*
 !runs/.gitkeep
 
-# 분석 결과물
-analysis/results/
+# 분석 결과물 (summary.csv 제외)
+analysis/results/*
+!analysis/results/atlas/
+analysis/results/atlas/*
+!analysis/results/atlas/summary.csv
 
 # =============================================================
 # 데이터 — 무거운 원본/전처리 데이터 (폴더 구조만 유지)
