@@ -1,11 +1,12 @@
 """FeTS dataset loader for fedpod-new."""
+import json
 import os
 
 import nibabel as nib
 import numpy as np
 import torch
 import monai.transforms as T
-from torch.utils.data import Dataset
+from torch.utils.data import Dataset, WeightedRandomSampler
 
 
 # ── MONAI custom transform ────────────────────────────────────────────────────
@@ -81,16 +82,37 @@ class FeTSDataset(Dataset):
         flip_lr:       apply random L/R flip during training
     """
 
+    def make_sampler(self) -> WeightedRandomSampler | None:
+        """Return WeightedRandomSampler if priority_path was set, else None."""
+        if self._weights is None:
+            return None
+        return WeightedRandomSampler(
+            weights=self._weights,
+            num_samples=len(self._weights),
+            replacement=True,
+        )
+
     def __init__(self, data_root: str, case_names: list,
                  channel_names: list, label_groups: list,
                  mode: str = 'train', flip_lr: bool = True,
-                 mask_channels: list = None):
+                 mask_channels: list = None,
+                 priority_path: str = None):
         self.data_root     = data_root
         self.case_names    = case_names
         self.channel_names = channel_names
         self.label_groups  = label_groups
         self.mode          = mode.lower()
         self.flip_lr       = flip_lr and self.mode == 'train'
+
+        # ── priority weights (Committee-guided sampling) ─────────────────────
+        self._weights = None
+        if priority_path and os.path.exists(priority_path):
+            with open(priority_path) as f:
+                pdata = json.load(f)
+            # align weights to case_names order
+            w_map = dict(zip(pdata['cases'], pdata['weights']))
+            self._weights = torch.tensor(
+                [w_map.get(n, 1.0) for n in case_names], dtype=torch.float32)
 
         mask_ch  = mask_channels or []
         mri_ch   = [c for c in channel_names if c not in mask_ch]

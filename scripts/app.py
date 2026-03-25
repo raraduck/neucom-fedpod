@@ -113,6 +113,7 @@ class App:
             mode          = 'train',
             flip_lr       = bool(args.flip_lr),
             mask_channels = args.mask_channel_names,
+            priority_path = args.priority_path or None,
         )
         val_ds = FeTSDataset(
             data_root     = args.data_root,
@@ -124,12 +125,20 @@ class App:
             mask_channels = args.mask_channel_names,
         )
 
+        priority_sampler = train_ds.make_sampler()  # None if no priority_path
+
         if self.is_ddp:
             train_sampler = DistributedSampler(
                 train_ds, num_replicas=self.world_size, rank=self.rank, shuffle=True)
             train_dl = DataLoader(train_ds, batch_size=args.batch_size,
                                   sampler=train_sampler,
                                   num_workers=2, pin_memory=True)
+        elif priority_sampler is not None:
+            train_dl = DataLoader(train_ds, batch_size=args.batch_size,
+                                  sampler=priority_sampler,
+                                  num_workers=2, pin_memory=True)
+            if self._is_main():
+                self.logger.info('  [Committee] WeightedRandomSampler enabled')
         else:
             train_dl = DataLoader(train_ds, batch_size=args.batch_size,
                                   shuffle=True, num_workers=2, pin_memory=True)

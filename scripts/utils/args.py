@@ -59,6 +59,9 @@ def parse_args(argv=None):
     p.add_argument('--label_names',    type=str,
                    default='[wt]',
                    help='label names, e.g. [wt] or [ncr,ed,et]')
+    p.add_argument('--priority_path',  type=str, default='',
+                   help='path to priority.json from run_committee.py; '
+                        'enables WeightedRandomSampler in Stage 2')
     p.add_argument('--mask_channels',  type=str, default='[]',
                    help='input channels to binarize (>0) instead of z-score, '
                         'e.g. [seg] for Stage 2 WT mask input')
