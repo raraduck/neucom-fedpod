@@ -9,6 +9,7 @@
 SEED=42; SAVE=0; FREQ=5; MILE="[20]"; GPU=1; MASK_CHAN="[]"; PRIORITY=""
 NPROC="${NPROC:-1}"   # number of GPUs for DDP; 1 = single-process
 ZOOM=0; FLIP=1
+SELECT_PCT=1.0; SELECT_MODE="all"
 JOB="test_job"
 ROUNDS=1; ROUND=0; EPOCHS=30; EPOCH=0
 INST=1
@@ -25,7 +26,7 @@ BATCH=1; DEEP_SUP=0; DS_LAYER=1; DROPOUT="None"
 NORM="instance"; KSIZE=3
 
 # ── parse flags ─────────────────────────────────────────────────────────────
-while getopts "S:s:f:m:g:W:Z:L:J:R:r:E:e:i:c:M:p:D:d:C:G:N:I:a:u:b:l:Q:w:q:B:P:x:n:k:X:T:" opt; do
+while getopts "S:s:f:m:g:W:Z:L:J:R:r:E:e:i:c:M:p:D:d:C:G:N:I:a:u:b:l:Q:w:q:B:P:x:n:k:X:T:y:Y:" opt; do
   case $opt in
     S) SEED="$OPTARG"    ;; s) SAVE="$OPTARG"    ;; f) FREQ="$OPTARG"    ;;
     m) MILE="$OPTARG"    ;; g) GPU="$OPTARG"     ;; W) NPROC="$OPTARG"   ;;
@@ -39,6 +40,7 @@ while getopts "S:s:f:m:g:W:Z:L:J:R:r:E:e:i:c:M:p:D:d:C:G:N:I:a:u:b:l:Q:w:q:B:P:x
     Q) LR="$OPTARG"      ;; w) WD="$OPTARG"      ;; q) LR_GAMMA="$OPTARG";;
     B) BATCH="$OPTARG"   ;; P) DEEP_SUP="$OPTARG";; x) DS_LAYER="$OPTARG";;
     n) NORM="$OPTARG"    ;; k) KSIZE="$OPTARG"   ;; X) MASK_CHAN="$OPTARG" ;; T) PRIORITY="$OPTARG" ;;
+    y) SELECT_PCT="$OPTARG" ;; Y) SELECT_MODE="$OPTARG" ;;
   esac
 done
 
@@ -85,4 +87,6 @@ ${LAUNCHER} scripts/run_train.py \
   --norm          "$NORM"      \
   --kernel_size   "$KSIZE"     \
   --mask_channels "$MASK_CHAN" \
-  --priority_path "$PRIORITY"
+  --priority_path "$PRIORITY"  \
+  --select_pct    "$SELECT_PCT" \
+  --select_mode   "$SELECT_MODE"

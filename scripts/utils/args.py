@@ -60,8 +60,17 @@ def parse_args(argv=None):
                    default='[wt]',
                    help='label names, e.g. [wt] or [ncr,ed,et]')
     p.add_argument('--priority_path',  type=str, default='',
-                   help='path to priority.json from run_committee.py; '
-                        'enables WeightedRandomSampler in Stage 2')
+                   help='path to priority.json (local) or global_priority.json; '
+                        'used by WeightedRandomSampler (select_mode=all) or '
+                        'committee case filtering (select_mode=committee)')
+    p.add_argument('--select_pct',    type=float, default=1.0,
+                   help='fraction of train cases to use for Static AL '
+                        '(0 < x <= 1.0). Applied before data_pct.')
+    p.add_argument('--select_mode',   type=str, default='all',
+                   choices=['all', 'committee', 'random'],
+                   help='all: use all cases (or WeightedRandomSampler if priority_path set); '
+                        'committee: top select_pct%% by global_priority score; '
+                        'random: seed-based random select_pct%% subset')
     p.add_argument('--mask_channels',  type=str, default='[]',
                    help='input channels to binarize (>0) instead of z-score, '
                         'e.g. [seg] for Stage 2 WT mask input')

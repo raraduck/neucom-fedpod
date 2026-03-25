@@ -10,7 +10,9 @@ PID values in _last.pth:
   I = (pre_loss + post_loss)/2 (average quality indicator)
   D = pre_loss - post_loss     (improvement delta, always >= 0)
 """
+import json
 import os
+import random
 import time
 from pathlib import Path
 
@@ -72,6 +74,56 @@ class App:
 
     def _is_main(self):
         return self.rank == 0
+
+    # ── static AL case selection ──────────────────────────────────────────────
+
+    def _select_cases(self, cases: list, args) -> list:
+        """Filter train cases for Static Active Learning.
+
+        select_mode='all':       return all cases unchanged
+        select_mode='committee': top select_pct% by global_priority score
+        select_mode='random':    seed-based random select_pct% subset
+        """
+        mode = getattr(args, 'select_mode', 'all')
+        pct  = getattr(args, 'select_pct',  1.0)
+
+        if mode == 'all' or pct >= 1.0:
+            return cases
+
+        n = max(1, int(len(cases) * pct))
+
+        if mode == 'committee':
+            priority_path = getattr(args, 'priority_path', '')
+            if not priority_path or not Path(priority_path).exists():
+                self.logger.warning(
+                    f'[AL] select_mode=committee but priority_path not found '
+                    f'({priority_path}). Falling back to random.')
+                mode = 'random'
+            else:
+                with open(priority_path) as f:
+                    gp = json.load(f)
+                ranked   = gp['all_cases']           # score-descending global list
+                n_global = max(1, int(len(ranked) * pct))
+                top_set  = set(ranked[:n_global])
+                # preserve global ranking order, keep only institution's cases
+                selected = [c for c in ranked if c in set(cases) and c in top_set]
+                selected = selected[:n]
+                self.logger.info(
+                    f'[AL] committee top-{pct*100:.0f}%: '
+                    f'{len(cases)} → {len(selected)} cases')
+                return selected
+
+        if mode == 'random':
+            rng = random.Random(args.seed)
+            shuffled = list(cases)
+            rng.shuffle(shuffled)
+            selected = shuffled[:n]
+            self.logger.info(
+                f'[AL] random {pct*100:.0f}%: '
+                f'{len(cases)} → {len(selected)} cases')
+            return selected
+
+        return cases
 
     # ── model ────────────────────────────────────────────────────────────────
 
@@ -273,6 +325,9 @@ class App:
 
         train_cases = load_subjects(args.cases_split, args.inst_ids, 'train')
         val_cases   = load_subjects(args.cases_split, args.inst_ids, 'val')
+
+        # ── Static AL case selection (applied before data_pct) ────────────────
+        train_cases = self._select_cases(train_cases, args)
 
         if args.data_pct < 1.0:
             n = max(1, int(len(train_cases) * args.data_pct))
