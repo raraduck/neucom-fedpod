@@ -81,10 +81,18 @@ def parse_args(argv=None):
 
     # ── augmentation ────────────────────────────────────────────────────────
     p.add_argument('--zoom',      type=int, default=0,
-                   help='0 = no resize (use when data is already target size)')
+                   help='legacy flag (unused); resize is now always applied via _FGZoomCenter')
     p.add_argument('--flip_lr',   type=int, default=1)
-    p.add_argument('--patch_size',type=int, default=128)
-    p.add_argument('--resize',    type=int, default=128)
+    p.add_argument('--resize',    type=int, default=128,
+                   help='target cubic preprocessing size. '
+                        'Raw volumes are zoomed so FG fills this cube, '
+                        'then padded/cropped to resize³. '
+                        'e.g. 128 (fets128) or 192 (for fets240).')
+    p.add_argument('--patch_size',type=int, default=128,
+                   help='cubic patch size for training. '
+                        'If patch_size == resize: full preprocessed volume is used. '
+                        'If patch_size < resize: one FG-guaranteed random crop '
+                        'of patch_size³ is extracted per sample per iteration.')
 
     # ── model ───────────────────────────────────────────────────────────────
     p.add_argument('--weight_path',   type=str,   default='none')

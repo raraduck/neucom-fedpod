@@ -175,6 +175,9 @@ class App:
             flip_lr       = bool(args.flip_lr),
             mask_channels = args.mask_channel_names,
             priority_path = sampler_priority,
+            resize        = args.resize,
+            patch_size    = args.patch_size,
+            zoom          = bool(args.zoom),
         )
         val_ds = FeTSDataset(
             data_root     = args.data_root,
@@ -184,6 +187,9 @@ class App:
             mode          = 'val',
             flip_lr       = False,
             mask_channels = args.mask_channel_names,
+            resize        = args.resize,
+            patch_size    = args.resize,   # val always uses full preprocessed volume
+            zoom          = bool(args.zoom),
         )
 
         priority_sampler = train_ds.make_sampler()  # None if no priority_path
