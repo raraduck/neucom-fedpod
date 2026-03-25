@@ -1,0 +1,28 @@
+# FedAVG baseline — partition2, fets128
+experiment: fedavg_p2_fets128
+algorithm:  fedavg
+
+rounds:     3
+epochs:     30
+eval_freq:  5
+
+data_root:      /data/fets128/trainval
+split_csv:      experiments/partition2/fets_split.csv
+input_channels: "[t1,t1ce,t2,flair]"
+label_groups:   "[[1,2,4]]"
+label_names:    "[wt]"
+label_index:    "0"
+
+init_model:     "none"
+block:          residual
+channels:       "[32,64,128,256]"
+
+institutions:
+  - {id:  1, seed: 1001, data_pct: "1.0",  gpu: 4}
+  - {id:  2, seed: 1002, data_pct: "1.0",  gpu: 4}
+  - {id:  3, seed: 1003, data_pct: "0.5",  gpu: 4}
+  - {id:  4, seed: 1004, data_pct: "1.0",  gpu: 4}
+  - {id:  5, seed: 1005, data_pct: "1.0",  gpu: 4}
+
+agg_name:   fedavg_p2_fets128_global
+agg_gpu:    0

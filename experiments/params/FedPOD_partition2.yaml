@@ -1,0 +1,44 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# FedPOD experiment params — partition2, fets128, 3-class WT
+#
+# 이 파일이 Argo Workflow의 유일한 설정 소스입니다.
+# argo-workflow.yaml 에서 이 파일을 --param-file 로 참조합니다.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── experiment identity ───────────────────────────────────────────────────────
+experiment: fedpod_p2_fets128   # job-prefix, checkpoint 경로에 사용됨
+algorithm:  fedpod               # fedavg | fedwavg | fedprox | fedpod | fedpid
+
+# ── FL schedule ──────────────────────────────────────────────────────────────
+rounds:     3     # 총 FL round 수
+epochs:     30    # round당 local epoch 수
+eval_freq:  5     # mid-round validation 주기
+
+# ── data ─────────────────────────────────────────────────────────────────────
+data_root:      /data/fets128/trainval
+split_csv:      experiments/partition2/fets_split.csv
+input_channels: "[t1,t1ce,t2,flair]"
+label_groups:   "[[1,2,4]]"
+label_names:    "[wt]"
+label_index:    "0"
+
+# ── model ────────────────────────────────────────────────────────────────────
+init_model:     "none"   # 초기 round: 랜덤 초기화. 이후 round는 Argo가 agg.pth 경로를 전달
+block:          residual
+channels:       "[32,64,128,256]"
+
+# ── institutions ─────────────────────────────────────────────────────────────
+# id:       Partition_ID (CSV 기준, 폴더와 무관)
+# seed:     재현성 seed (기관별로 다르게)
+# data_pct: 학습 데이터 사용 비율 (불균형 시뮬레이션에 활용)
+# gpu:      pod당 요청할 GPU 수
+institutions:
+  - {id:  1, seed: 1001, data_pct: "1.0",  gpu: 4}
+  - {id:  2, seed: 1002, data_pct: "1.0",  gpu: 4}
+  - {id:  3, seed: 1003, data_pct: "0.5",  gpu: 4}
+  - {id:  4, seed: 1004, data_pct: "1.0",  gpu: 4}
+  - {id:  5, seed: 1005, data_pct: "1.0",  gpu: 4}
+
+# ── aggregation node ─────────────────────────────────────────────────────────
+agg_name:   fedpod_p2_fets128_global   # 집계 결과 저장 job 이름
+agg_gpu:    0                           # 집계는 CPU-only

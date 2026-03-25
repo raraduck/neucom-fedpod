@@ -1,0 +1,257 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# fedpod-new Argo Workflow
+#
+# 실행 방법:
+#   argo submit k8s/argo-workflow.yaml \
+#     --parameter-file experiments/params/FedPOD_partition2.yaml \
+#     -p job-prefix=fedpod_p2_230125 \
+#     -n <namespace>
+#
+# 구조:
+#   round-loop (steps: sequential)
+#     └─ round-N
+#           ├─ train-step  (withItems: institutions → fan-out)
+#           └─ agg-step    (depends on train-step)
+#
+# fedpod-old 대비 개선:
+#   - round별 hard-coded task 제거 → steps 기반 sequential loop
+#   - inst_XX_ratio_YY_ZZ 파라미터 제거 → institutions 리스트로 통합
+#   - train-script / agg-script 파라미터 제거 → 이미지에 고정
+#   - 모든 실험 설정을 params YAML 한 파일에서 관리
+# ─────────────────────────────────────────────────────────────────────────────
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: fedpod-
+
+spec:
+  entrypoint: round-loop
+  serviceAccountName: argo-workflow
+
+  # ── global parameters (params YAML에서 override) ──────────────────────────
+  arguments:
+    parameters:
+    # experiment
+    - name: job-prefix
+      value: "fedpod_p2"
+    - name: algorithm
+      value: "fedpod"
+    - name: agg-name
+      value: "fedpod_p2_global"
+    - name: rounds
+      value: "3"
+    - name: epochs
+      value: "30"
+    - name: eval-freq
+      value: "5"
+    # data
+    - name: data-root
+      value: "/data/fets128/trainval"
+    - name: split-csv
+      value: "experiments/partition2/fets_split.csv"
+    - name: input-channels
+      value: "[t1,t1ce,t2,flair]"
+    - name: label-groups
+      value: "[[1,2,4]]"
+    - name: label-names
+      value: "[wt]"
+    - name: label-index
+      value: "0"
+    # model
+    - name: init-model
+      value: "none"
+    - name: block
+      value: "residual"
+    - name: channels
+      value: "[32,64,128,256]"
+    # institutions (JSON array — withItems로 fan-out)
+    - name: institutions
+      value: |
+        [
+          {"id": "1", "seed": "1001", "data_pct": "1.0", "gpu": "4"},
+          {"id": "2", "seed": "1002", "data_pct": "1.0", "gpu": "4"},
+          {"id": "3", "seed": "1003", "data_pct": "0.5", "gpu": "4"},
+          {"id": "4", "seed": "1004", "data_pct": "1.0", "gpu": "4"},
+          {"id": "5", "seed": "1005", "data_pct": "1.0", "gpu": "4"}
+        ]
+
+  # ── volume templates (PVC — 클러스터에 미리 생성 필요) ──────────────────────
+  volumeClaimTemplates: []   # PVC는 아래 volumes에서 참조
+
+  volumes:
+  - name: data-pvc
+    persistentVolumeClaim:
+      claimName: fets128-data-pvc
+  - name: states-pvc
+    persistentVolumeClaim:
+      claimName: fedpod-states-pvc
+  - name: logs-pvc
+    persistentVolumeClaim:
+      claimName: fedpod-logs-pvc
+
+  # ── templates ─────────────────────────────────────────────────────────────
+  templates:
+
+  # ── 1. round-loop: sequential steps over rounds ───────────────────────────
+  #
+  # Argo의 steps는 단계별 순차 실행을 보장합니다.
+  # round 수가 바뀌어도 이 template은 변경 없이 params만 수정합니다.
+  # (현재 3 rounds 기준. 더 많은 rounds가 필요하면 round-N 블록 추가)
+  - name: round-loop
+    steps:
+    # ── Round 0 ──
+    - - name: round-0
+        template: one-round
+        arguments:
+          parameters:
+          - name: round
+            value: "0"
+          - name: model-path
+            value: "{{workflow.parameters.init-model}}"
+
+    # ── Round 1 (agg-0 결과 모델 사용) ──
+    - - name: round-1
+        template: one-round
+        arguments:
+          parameters:
+          - name: round
+            value: "1"
+          - name: model-path
+            value: "/workspace/states/{{workflow.parameters.agg-name}}/R{{workflow.parameters.rounds}}r01/models/R{{workflow.parameters.rounds}}r01_agg.pth"
+
+    # ── Round 2 ──
+    - - name: round-2
+        template: one-round
+        arguments:
+          parameters:
+          - name: round
+            value: "2"
+          - name: model-path
+            value: "/workspace/states/{{workflow.parameters.agg-name}}/R{{workflow.parameters.rounds}}r02/models/R{{workflow.parameters.rounds}}r02_agg.pth"
+
+
+  # ── 2. one-round: 기관 병렬 학습 → 집계 ─────────────────────────────────
+  - name: one-round
+    inputs:
+      parameters:
+      - name: round
+      - name: model-path
+    steps:
+    # 모든 기관 병렬 학습
+    - - name: train
+        template: train-job
+        arguments:
+          parameters:
+          - name: round
+            value: "{{inputs.parameters.round}}"
+          - name: model-path
+            value: "{{inputs.parameters.model-path}}"
+          - name: inst-id
+            value: "{{item.id}}"
+          - name: seed
+            value: "{{item.seed}}"
+          - name: data-pct
+            value: "{{item.data_pct}}"
+          - name: gpu
+            value: "{{item.gpu}}"
+        withParam: "{{workflow.parameters.institutions}}"  # fan-out
+
+    # 모든 학습 완료 후 집계
+    - - name: aggregate
+        template: agg-job
+        arguments:
+          parameters:
+          - name: round
+            value: "{{inputs.parameters.round}}"
+
+
+  # ── 3. train-job template ────────────────────────────────────────────────
+  - name: train-job
+    inputs:
+      parameters:
+      - name: round
+      - name: model-path
+      - name: inst-id
+      - name: seed
+      - name: data-pct
+      - name: gpu
+    container:
+      image: <registry>/fedpod-new:latest
+      imagePullPolicy: Always
+      command: ["/bin/bash", "-c"]
+      args:
+        - >
+          bash /workspace/run_train.sh
+          -W {{inputs.parameters.gpu}}
+          -S {{inputs.parameters.seed}}
+          -f {{workflow.parameters.eval-freq}}
+          -g 1
+          -J {{workflow.parameters.job-prefix}}_inst{{inputs.parameters.inst-id}}
+          -R {{workflow.parameters.rounds}}
+          -r {{inputs.parameters.round}}
+          -E {{workflow.parameters.epochs}}
+          -e 0
+          -i {{inputs.parameters.inst-id}}
+          -c {{workflow.parameters.split-csv}}
+          -M {{inputs.parameters.model-path}}
+          -p {{inputs.parameters.data-pct}}
+          -D {{workflow.parameters.data-root}}
+          -C "{{workflow.parameters.input-channels}}"
+          -G "{{workflow.parameters.label-groups}}"
+          -N "{{workflow.parameters.label-names}}"
+          -I {{workflow.parameters.label-index}}
+          -a {{workflow.parameters.algorithm}}
+          -b {{workflow.parameters.block}}
+          -l "{{workflow.parameters.channels}}"
+      resources:
+        requests:
+          cpu: "4"
+          memory: "16Gi"
+          nvidia.com/gpu: "{{inputs.parameters.gpu}}"
+        limits:
+          nvidia.com/gpu: "{{inputs.parameters.gpu}}"
+      volumeMounts:
+      - name: data-pvc
+        mountPath: /data
+        readOnly: true
+      - name: states-pvc
+        mountPath: /workspace/states
+      - name: logs-pvc
+        mountPath: /workspace/logs
+
+
+  # ── 4. agg-job template ──────────────────────────────────────────────────
+  - name: agg-job
+    inputs:
+      parameters:
+      - name: round
+    container:
+      image: <registry>/fedpod-new:latest
+      imagePullPolicy: Always
+      command: ["/bin/bash", "-c"]
+      args:
+        - |
+          # 기관 목록을 job_names 문자열로 변환
+          # institutions JSON → "job1 job2 job3 ..."
+          JOB_NAMES=$(python3 -c "
+          import json, sys
+          insts = json.loads('''{{workflow.parameters.institutions}}''')
+          prefix = '{{workflow.parameters.job-prefix}}'
+          print(' '.join(f'{prefix}_inst{i[\"id\"]}' for i in insts))
+          ")
+          bash /workspace/run_aggregation.sh \
+            -j "${JOB_NAMES}" \
+            -A {{workflow.parameters.agg-name}} \
+            -R {{workflow.parameters.rounds}} \
+            -r {{inputs.parameters.round}} \
+            -a {{workflow.parameters.algorithm}} \
+            -s /workspace/states
+      resources:
+        requests:
+          cpu: "2"
+          memory: "8Gi"
+      volumeMounts:
+      - name: states-pvc
+        mountPath: /workspace/states
+      - name: logs-pvc
+        mountPath: /workspace/logs
