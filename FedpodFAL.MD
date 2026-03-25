@@ -56,26 +56,78 @@ Global Top 30% → 98개: 기관1 42개 + 기관2 56개
 
 ---
 
-## 3. 방법론 — Global Committee Scoring
+## 3. 방법론 — Global Committee Uncertainty Scoring
 
-### 3.1 평가 프로세스
+### 3.1 불확실성 계산 (Reviewer 요구사항)
+
+K개의 Stage 1 모델이 **모든** 케이스를 평가하여 확률 맵을 생성합니다.
+각 케이스에 대해 K개의 확률 맵 {p_1, ..., p_K} 으로 불확실성을 계산합니다.
+
+#### BALD (Mutual Information) — 핵심 지표
 
 ```
-각 기관 k:
-  M_k = Stage 1 WT 모델 (기관 k의 로컬 특화 모델)
-  for each train case x_i in institution k:
-      score_i = Dice(M_k(x_i), GT_WT_i)    ← Stage 1 WT 예측 vs 실제 WT
+p_mean = (1/K) Σ_k p_k                    ← 위원회 평균 예측
 
-모든 기관의 (case_id, score) 쌍을 통합
-→ 전체 케이스를 score 내림차순으로 정렬
-→ global_priority.json 저장
+H_pred    = H[p_mean]                      ← 예측 엔트로피 (전체 불확실성)
+           = -p_mean·log(p_mean) - (1-p_mean)·log(1-p_mean)
+
+H_expected = (1/K) Σ_k H[p_k]             ← 기대 엔트로피 (데이터 고유 모호성, Aleatoric)
+
+MI (BALD) = H_pred - H_expected            ← 순수 모델 간 불일치 (Epistemic)
 ```
 
-### 3.2 케이스 선택 모드
+| 성분 | 수식 | 의미 |
+|------|------|------|
+| **Predictive entropy** | `H[E_k(p)]` | 전체 불확실성 (aleatoric + epistemic) |
+| **Aleatoric** | `E_k[H(p_k)]` | 데이터 고유 모호성 (어노테이션 노이즈 등) |
+| **Epistemic (BALD MI)** | `H[E_k(p)] − E_k[H(p_k)]` | 모델 간 불일치 — **학습 유용성** 지표 |
+| **Variance** | `Var_k(p_k)` | 예측 분산 (직관적 불일치 지표) |
+
+#### 핵심 인사이트
+
+- **GT 라벨 불필요**: BALD와 Variance는 모델 예측만으로 계산 가능
+- **높은 Epistemic**: 서로 다른 데이터 분포에서 학습된 K개 모델이 동의하지 않음 → 연합학습에서 정보량이 높은 케이스
+- **높은 Aleatoric**: 데이터 자체가 모호함 (모든 모델이 불확실) → 학습 효과 낮을 수 있음
+
+#### Cross-Institution 평가
+
+각 모델이 **자신의 기관 데이터만 평가**하는 기존 방식이 아닌, **모든 K개 모델이 모든 케이스를 평가**합니다.
+
+```
+기존 (로컬):  M_1 → inst1 데이터만 | M_2 → inst2 데이터만
+신규 (글로벌): M_1, M_2, ..., M_K → 전체 데이터 (cross-institution)
+```
+
+이를 통해 기관 간 데이터 분포 차이에 의한 불일치(= 실질적인 학습 기회)를 포착합니다.
+
+### 3.2 평가 프로세스
+
+```
+모든 K개 모델 로드
+
+for each case x_i (전체 기관 통합):
+    prob_maps = [sigmoid(M_k(x_i)) for k in 1..K]  ← K개 확률 맵 수집
+
+    # BALD 계산
+    p_mean      = mean(prob_maps)
+    H_pred      = entropy(p_mean)                    ← 전체 불확실성
+    H_aleatoric = mean([entropy(p_k) for p_k])       ← Aleatoric
+    bald_mi     = H_pred - H_aleatoric               ← Epistemic (핵심 지표)
+
+    # Variance 계산
+    variance = var(prob_maps)
+
+    # Dice (선택적, GT 필요)
+    mean_dice = mean([Dice(p_k > 0.5, GT) for p_k])
+
+score_key 로 전체 케이스를 내림차순 정렬 → global_priority.json
+```
+
+### 3.3 케이스 선택 모드
 
 #### Static AL (Committee Mode)
 ```
-global_priority.json 로드
+global_priority.json 로드 (all_cases = score 내림차순 = 불확실성 높은 순)
 train_cases 중 global 상위 K%에 속하는 케이스만 유지
 나머지 케이스는 학습에서 제외 (hard filter)
 ```
@@ -87,34 +139,37 @@ train_cases를 seed로 shuffle
 committee 점수와 무관한 무작위 선택
 ```
 
-### 3.3 global_priority.json 형식
+### 3.4 global_priority.json 형식
 
 ```json
 {
-  "all_cases": ["FeTS2022_00206", "FeTS2022_01328", ...],
-  "all_scores": [0.951, 0.934, ...],
-  "institutions": {
-    "1": {
-      "cases":  ["FeTS2022_00206", ...],
-      "scores": [0.951, ...]
+  "all_cases":  ["FeTS2022_01328", "FeTS2022_00206", ...],
+  "all_scores": [0.1842, 0.1654, ...],
+  "score_key":  "bald_mi",
+  "metrics": {
+    "FeTS2022_01328": {
+      "bald_mi":    0.1842,
+      "aleatoric":  0.3211,
+      "predictive": 0.5053,
+      "variance":   0.0934,
+      "mean_dice":  0.0
     },
-    "2": {
-      "cases":  ["FeTS2022_01328", ...],
-      "scores": [0.934, ...]
-    }
+    ...
+  },
+  "institutions": {
+    "1": {"cases": [...], "scores": [...]},
+    "2": {"cases": [...], "scores": [...]}
   },
   "config": {
-    "models": {
-      "1": "states/stage1_local/inst1/R01r00/models/R01r00_last.pth",
-      "2": "states/stage1_local/inst2/R01r00/models/R01r00_last.pth"
-    },
-    "input_channels":  "[t1,t1ce,t2,flair]",
-    "label_groups":    "[[1,2,4]]"
+    "models":     {"1": "path1.pth", "2": "path2.pth"},
+    "num_models": 2,
+    "input_channels": "[t1,t1ce,t2,flair]",
+    "label_groups":   "[[1,2,4]]"
   }
 }
 ```
 
-`all_cases` / `all_scores`는 **score 내림차순** 정렬 (index 0 = 최고점).
+`all_cases` / `all_scores`는 **score 내림차순** 정렬 (index 0 = 가장 불확실한 케이스 = 가장 정보량 높은 케이스).
 
 ---
 
@@ -155,20 +210,32 @@ AL-30 ≥ RND-100  (30%의 Committee 선택이 전체 Random 학습과 경쟁)
 
 ```
 입력:
-  --inst_models   "1:path1.pth 2:path2.pth"  ← 기관ID:모델경로 쌍
-  --cases_split   CSV 경로
-  --data_root     데이터 루트
+  --inst_models    "1:path1.pth,2:path2.pth"  ← 기관ID:모델경로 쌍 (콤마 구분)
+  --cases_split    CSV 경로
+  --data_root      데이터 루트
   --input_channels "[t1,t1ce,t2,flair]"
-  --label_groups  "[[1,2,4]]"
-  --output_path   global_priority.json 저장 경로
-  --use_gpu       1
+  --label_groups   "[[1,2,4]]"
+  --output_path    global_priority.json 저장 경로
+  --score_key      bald_mi | variance | mean_dice  (default: bald_mi)
+  --use_gpu        1
+
+핵심 동작:
+  - 모든 K개 모델을 메모리에 로드
+  - 각 케이스에 대해 K개 모델 모두 추론 → K개 확률 맵
+  - compute_uncertainty(prob_maps) 호출:
+      BALD MI   = H[mean(p_k)] - mean(H[p_k])   ← epistemic
+      Aleatoric = mean(H[p_k])
+      Variance  = var(p_k)
+  - score_key로 내림차순 정렬 (높을수록 정보량 높음)
 
 출력:
   global_priority.json
-    - all_cases: 전체 케이스 (score 내림차순)
+    - all_cases:  전체 케이스 (score 내림차순)
     - all_scores: 대응 점수
+    - score_key:  사용된 지표
+    - metrics:    케이스별 전체 지표 (bald_mi, aleatoric, predictive, variance, mean_dice)
     - institutions: 기관별 breakdown
-    - config: 사용된 모델 경로 등 메타정보
+    - config:     모델 경로, 기관 수 등 메타정보
 ```
 
 ### 5.2 수정 파일

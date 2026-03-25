@@ -1,16 +1,24 @@
 #!/bin/bash
 # Usage: bash run_committee_global.sh [options]
-# Global committee evaluation: pool all institutions' scores → global_priority.json
+# Global committee uncertainty evaluation → global_priority.json
 #
-# -m  inst_models   "1:path1.pth,2:path2.pth"   (required)
-# -c  cases_split   CSV path
-# -D  data_root
-# -C  input_channels
-# -G  label_groups
-# -b  block         residual|plain
-# -l  channels_list
-# -o  output_path   (required)
-# -g  use_gpu       0|1
+# All K institution models evaluate ALL cases (cross-institution).
+# Uncertainty is computed from K probability maps per case:
+#   BALD MI  : epistemic (inter-model) uncertainty  [default, recommended]
+#   variance : prediction variance across models
+#   mean_dice: committee mean Dice vs GT (requires GT labels)
+#
+# Options:
+#   -m  inst_models   "1:path1.pth,2:path2.pth"   (required)
+#   -c  cases_split   CSV path
+#   -D  data_root
+#   -C  input_channels
+#   -G  label_groups
+#   -b  block         residual|plain
+#   -l  channels_list
+#   -o  output_path   (required)
+#   -k  score_key     bald_mi|variance|mean_dice  (default: bald_mi)
+#   -g  use_gpu       0|1
 
 INST_MODELS=""
 SPLIT="experiments/partition2/fets_split.csv"
@@ -20,13 +28,15 @@ LGRP="[[1,2,4]]"
 BLOCK="residual"
 CHANNELS="[32,64,128,256]"
 OUTPUT=""
+SCORE_KEY="bald_mi"
 GPU=1
 
-while getopts "m:c:D:C:G:b:l:o:g:" opt; do
+while getopts "m:c:D:C:G:b:l:o:k:g:" opt; do
   case $opt in
     m) INST_MODELS="$OPTARG" ;; c) SPLIT="$OPTARG"    ;; D) DATA="$OPTARG"    ;;
     C) CHAN="$OPTARG"        ;; G) LGRP="$OPTARG"     ;; b) BLOCK="$OPTARG"   ;;
-    l) CHANNELS="$OPTARG"   ;; o) OUTPUT="$OPTARG"   ;; g) GPU="$OPTARG"     ;;
+    l) CHANNELS="$OPTARG"   ;; o) OUTPUT="$OPTARG"   ;; k) SCORE_KEY="$OPTARG" ;;
+    g) GPU="$OPTARG"        ;;
   esac
 done
 
@@ -35,7 +45,8 @@ if [ -z "$INST_MODELS" ] || [ -z "$OUTPUT" ]; then
   echo "Example:"
   echo "  bash run_committee_global.sh \\"
   echo "    -m \"1:states/s1/inst1/R01r00/models/R01r00_last.pth,2:states/s1/inst2/R01r00/models/R01r00_last.pth\" \\"
-  echo "    -o states/stage1_local/global_priority.json"
+  echo "    -o states/stage1_local/global_priority.json \\"
+  echo "    -k bald_mi"
   exit 1
 fi
 
@@ -48,4 +59,5 @@ python scripts/run_committee_global.py \
   --block          "$BLOCK"        \
   --channels_list  "$CHANNELS"     \
   --output_path    "$OUTPUT"       \
+  --score_key      "$SCORE_KEY"    \
   --use_gpu        "$GPU"
