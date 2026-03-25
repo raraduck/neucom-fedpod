@@ -8,13 +8,15 @@
 #     -n <namespace>
 #
 # 출력 폴더 구조 (job-prefix 하나로 모든 결과 구분):
-#   states/{job-prefix}/inst{id}/R{R}r{r}/models/   ← 기관별 학습 체크포인트
-#   states/{job-prefix}/global/R{R}r{r}/models/     ← 집계 모델 (_agg.pth)
+#   states/{job-prefix}/global/init.pth                  ← 공유 초기 모델
+#   states/{job-prefix}/inst{id}/R{R}r{r}/models/        ← 기관별 학습 체크포인트
+#   states/{job-prefix}/global/R{R}r{r}/models/          ← 집계 모델 (_agg.pth)
 #   logs/{job-prefix}/inst{id}/train.log
 #   logs/{job-prefix}/global/aggregation.log
 #
 # 구조:
 #   round-loop (steps: sequential)
+#     ├─ init          (공유 초기 모델 생성 → global/init.pth)
 #     └─ round-N
 #           ├─ train-step  (withItems: institutions → fan-out)
 #           └─ agg-step    (depends on train-step)
@@ -25,6 +27,7 @@
 #   - train-script / agg-script 파라미터 제거 → 이미지에 고정
 #   - agg-name 제거 → {job-prefix}/global 으로 자동 결정
 #   - 출력물이 states/{job-prefix}/ 하위로 계층 구조화
+#   - init step 추가 → round 0에서 모든 기관이 동일한 초기 모델 로드
 #   - 모든 실험 설정을 params YAML 한 파일에서 관리
 # ─────────────────────────────────────────────────────────────────────────────
 apiVersion: argoproj.io/v1alpha1
@@ -64,8 +67,6 @@ spec:
     - name: label-index
       value: "0"
     # model
-    - name: init-model
-      value: "none"
     - name: block
       value: "residual"
     - name: channels
@@ -98,14 +99,18 @@ spec:
   # ── templates ─────────────────────────────────────────────────────────────
   templates:
 
-  # ── 1. round-loop: sequential steps over rounds ───────────────────────────
+  # ── 1. round-loop: init → sequential rounds ───────────────────────────────
   #
-  # Argo의 steps는 단계별 순차 실행을 보장합니다.
+  # init step: 모든 기관이 동일한 초기 모델에서 출발하도록 보장
   # round 수가 바뀌어도 이 template은 변경 없이 params만 수정합니다.
   # (현재 3 rounds 기준. 더 많은 rounds가 필요하면 round-N 블록 추가)
   - name: round-loop
     steps:
-    # ── Round 0 ──
+    # ── Init: 공유 초기 모델 생성 ──
+    - - name: init
+        template: init-job
+
+    # ── Round 0 (공유 init.pth 에서 시작) ──
     - - name: round-0
         template: one-round
         arguments:
@@ -113,7 +118,7 @@ spec:
           - name: round
             value: "0"
           - name: model-path
-            value: "{{workflow.parameters.init-model}}"
+            value: "/workspace/states/{{workflow.parameters.job-prefix}}/global/init.pth"
 
     # ── Round 1 (agg-0 결과 모델 사용) ──
     - - name: round-1
@@ -171,7 +176,31 @@ spec:
             value: "{{inputs.parameters.round}}"
 
 
-  # ── 3. train-job template ────────────────────────────────────────────────
+  # ── 3. init-job template ─────────────────────────────────────────────────
+  - name: init-job
+    container:
+      image: <registry>/fedpod-new:latest
+      imagePullPolicy: Always
+      command: ["/bin/bash", "-c"]
+      args:
+        - >
+          bash /workspace/run_init.sh
+          -A {{workflow.parameters.job-prefix}}/global
+          -b {{workflow.parameters.block}}
+          -l "{{workflow.parameters.channels}}"
+          -C "{{workflow.parameters.input-channels}}"
+          -G "{{workflow.parameters.label-groups}}"
+          -s /workspace/states
+      resources:
+        requests:
+          cpu: "1"
+          memory: "4Gi"
+      volumeMounts:
+      - name: states-pvc
+        mountPath: /workspace/states
+
+
+  # ── 4. train-job template ────────────────────────────────────────────────
   - name: train-job
     inputs:
       parameters:
@@ -226,7 +255,7 @@ spec:
         mountPath: /workspace/logs
 
 
-  # ── 4. agg-job template ──────────────────────────────────────────────────
+  # ── 5. agg-job template ──────────────────────────────────────────────────
   - name: agg-job
     inputs:
       parameters:

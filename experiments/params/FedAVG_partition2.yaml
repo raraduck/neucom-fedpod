@@ -14,7 +14,6 @@ label_groups:   "[[1,2,4]]"
 label_names:    "[wt]"
 label_index:    "0"
 
-init_model:     "none"
 block:          residual
 channels:       "[32,64,128,256]"
 

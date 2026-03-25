@@ -25,7 +25,6 @@ label_names:    "[wt]"
 label_index:    "0"
 
 # ── model ────────────────────────────────────────────────────────────────────
-init_model:     "none"   # 초기 round: 랜덤 초기화. 이후 round는 Argo가 agg.pth 경로를 전달
 block:          residual
 channels:       "[32,64,128,256]"
 
