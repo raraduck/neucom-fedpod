@@ -61,11 +61,11 @@ spec:
     - name: input-channels
       value: "[t1,t1ce,t2,flair]"
     - name: label-groups
-      value: "[[1,2,4]]"
+      value: "[[1,2,4],[1,4],[4,4]]"
     - name: label-names
-      value: "[wt]"
+      value: "[wt,tc,et]"
     - name: label-index
-      value: "0"
+      value: "[2,1,4]"
     # model
     - name: block
       value: "residual"

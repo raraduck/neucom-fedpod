@@ -20,9 +20,9 @@ eval_freq:  5     # mid-round validation 주기
 data_root:      /data/fets128/trainval
 split_csv:      experiments/partition2/fets_split.csv
 input_channels: "[t1,t1ce,t2,flair]"
-label_groups:   "[[1,2,4]]"
-label_names:    "[wt]"
-label_index:    "0"
+label_groups:   "[[1,2,4],[1,4],[4,4]]"
+label_names:    "[wt,tc,et]"
+label_index:    "[2,1,4]"
 
 # ── model ────────────────────────────────────────────────────────────────────
 block:          residual

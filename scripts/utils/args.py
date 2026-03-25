@@ -59,7 +59,10 @@ def parse_args(argv=None):
     p.add_argument('--label_names',    type=str,
                    default='[wt]',
                    help='label names, e.g. [wt] or [ncr,ed,et]')
-    p.add_argument('--label_index',    type=int, default=0)
+    p.add_argument('--label_index',    type=str, default='[]',
+                   help='original NIfTI label values per output class, '
+                        'e.g. [1] for WT-only, [2,1,4] for WT/TC/ET. '
+                        'Defaults to [1..num_classes] if omitted.')
 
     # ── augmentation ────────────────────────────────────────────────────────
     p.add_argument('--zoom',      type=int, default=0,
@@ -97,5 +100,13 @@ def parse_args(argv=None):
     args.milestones          = ast.literal_eval(args.milestones)
     args.num_classes         = len(args.label_groups)
     args.in_channels         = len(args.input_channel_names)
+
+    # label_index: list of original NIfTI values per output class
+    # e.g. WT-only → [1], three-class WT/TC/ET → [2,1,4]
+    # Falls back to [1, 2, ..., num_classes] when not provided or mismatched.
+    raw_idx = ast.literal_eval(args.label_index) if args.label_index.strip() else []
+    if not raw_idx or len(raw_idx) != args.num_classes:
+        raw_idx = list(range(1, args.num_classes + 1))
+    args.label_index = raw_idx
 
     return args

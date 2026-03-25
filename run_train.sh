@@ -17,7 +17,7 @@ MODEL="none"
 PCT=1.0
 DATA="data/fets128/trainval"; DSET="fets"
 CHAN="[t1,t1ce,t2,flair]"
-LGRP="[[1,2,4]]"; LNAM="[wt]"; LIDX=0
+LGRP="[[1,2,4]]"; LNAM="[wt]"; LIDX="[1]"
 ALGO="fedavg"; MU=0.001
 BLOCK="residual"; CHANNELS="[32,64,128,256]"
 LR=1e-3; WD=1e-5; LR_GAMMA=0.1

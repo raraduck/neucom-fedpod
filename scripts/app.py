@@ -189,7 +189,13 @@ class App:
         net = model.module if isinstance(model, DDP) else model
         net.eval()
 
+        label_names = self.args.label_names  # e.g. ['wt'] or ['wt','tc','et']
+
         dsc_m, tot_m = AverageMeter(), AverageMeter()
+        # accumulate per-class dice across batches
+        class_dsc_sum = [0.0] * self.args.num_classes
+        n_batches = 0
+
         for img, lbl, _ in loader:
             img, lbl = img.to(self.device), lbl.to(self.device)
             out = net(img)
@@ -201,13 +207,21 @@ class App:
             tot_m.update(total.item())
 
             pred_bin = (torch.sigmoid(out) > 0.5).float()
-            dc = dice(pred_bin, lbl).mean().item()
-            dsc_m.update(dc)
+            dc_per_class = dice(pred_bin, lbl).mean(dim=0)  # [C]
+            dsc_m.update(dc_per_class.mean().item())
+            for c, v in enumerate(dc_per_class.cpu().tolist()):
+                class_dsc_sum[c] += v
+            n_batches += 1
+
+        class_avgs = [v / max(n_batches, 1) for v in class_dsc_sum]
+        class_str  = '  '.join(
+            f'{n}={v:.4f}' for n, v in zip(label_names, class_avgs))
 
         self.logger.info(
             f'  [val]   E{epoch:03d}  '
-            f'Total={tot_m.avg:.4f}  Dice={dsc_m.avg:.4f}')
-        return {'total': tot_m.avg, 'dice': dsc_m.avg}
+            f'Total={tot_m.avg:.4f}  Dice={dsc_m.avg:.4f}  [{class_str}]')
+        return {'total': tot_m.avg, 'dice': dsc_m.avg,
+                'dice_per_class': class_avgs}
 
     # ── save checkpoint (rank 0 only) ─────────────────────────────────────────
 
