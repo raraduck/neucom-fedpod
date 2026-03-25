@@ -149,6 +149,7 @@ def _get_aug_transforms(channel_names, mask_ch, patch_size, resize, flip_lr):
 
     # Concat → 'image'
     aug += [
+        T.EnsureTyped(keys=channel_names),   # unify types after Binarize/ZScore
         T.ConcatItemsd(keys=channel_names, name='image', dim=0),
         T.DeleteItemsd(keys=channel_names),
     ]
@@ -187,6 +188,7 @@ def _get_val_transforms(channel_names, mask_ch):
     if mask_ch:
         tfms += [_Binarize(keys=mask_ch)]
     tfms += [
+        T.EnsureTyped(keys=channel_names),   # unify types after Binarize/ZScore
         T.ConcatItemsd(keys=channel_names, name='image', dim=0),
         T.DeleteItemsd(keys=channel_names),
         T.EnsureTyped(keys=['image', 'label']),
