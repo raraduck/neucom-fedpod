@@ -146,6 +146,8 @@ def main():
     p.add_argument('--block',          default='residual', choices=['plain', 'residual'])
     p.add_argument('--channels_list',  default='[32,64,128,256]')
     p.add_argument('--output_path',    required=True)
+    p.add_argument('--resize',         type=int, default=128,
+                   help='target preprocessing cube size (must match training resize)')
     p.add_argument('--score_key',      default='bald_mi',
                    choices=['bald_mi', 'variance', 'mean_dice'],
                    help='Metric used for ranking cases (all_cases sorted descending). '
@@ -201,6 +203,8 @@ def main():
         label_groups=label_groups,
         mode='val',
         flip_lr=False,
+        resize=args.resize,
+        patch_size=args.resize,   # always full volume for evaluation
     )
 
     # ── evaluate each case with ALL models ────────────────────────────────────
