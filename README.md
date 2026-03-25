@@ -250,8 +250,7 @@ fedpod-new/
 │   └── flirt-retry-job.yaml         ← 대안 재처리 (미사용)
 │
 ├── preproc/
-│   ├── run_fg_resize.py             ← fets240 → fets128 crop+resize
-│   └── sample_align_to_mni.py       ← MNI 정합 샘플 (Python 참고용)
+│   └── run_fg_resize.py             ← fets240 → fets128 crop+resize
 │
 ├── analysis/
 │   ├── run_seg_stats.py             ← seg 통계 추출
