@@ -6,7 +6,9 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 # ── experiment identity ───────────────────────────────────────────────────────
-experiment: fedpod_p2_fets128   # job-prefix, checkpoint 경로에 사용됨
+# job-prefix: argo submit 시 -p job-prefix=<실험명> 으로 override
+# 출력물: states/{job-prefix}_inst{id}/... 와 states/{job-prefix}_global/...
+job-prefix: fedpod_p2_fets128
 algorithm:  fedpod               # fedavg | fedwavg | fedprox | fedpod | fedpid
 
 # ── FL schedule ──────────────────────────────────────────────────────────────
@@ -39,6 +41,4 @@ institutions:
   - {id:  4, seed: 1004, data_pct: "1.0",  gpu: 4}
   - {id:  5, seed: 1005, data_pct: "1.0",  gpu: 4}
 
-# ── aggregation node ─────────────────────────────────────────────────────────
-agg_name:   fedpod_p2_fets128_global   # 집계 결과 저장 job 이름
-agg_gpu:    0                           # 집계는 CPU-only
+# agg_name 은 {job-prefix}_global 으로 자동 결정되므로 별도 설정 불필요

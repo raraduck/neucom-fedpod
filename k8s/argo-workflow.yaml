@@ -7,6 +7,12 @@
 #     -p job-prefix=fedpod_p2_230125 \
 #     -n <namespace>
 #
+# 출력 폴더 구조 (job-prefix 하나로 모든 결과 구분):
+#   states/{job-prefix}_inst{id}/R{R}r{r}/models/   ← 기관별 학습 체크포인트
+#   states/{job-prefix}_global/R{R}r{r}/models/     ← 집계 모델 (_agg.pth)
+#   logs/{job-prefix}_inst{id}/train.log
+#   logs/{job-prefix}_global/aggregation.log
+#
 # 구조:
 #   round-loop (steps: sequential)
 #     └─ round-N
@@ -17,6 +23,7 @@
 #   - round별 hard-coded task 제거 → steps 기반 sequential loop
 #   - inst_XX_ratio_YY_ZZ 파라미터 제거 → institutions 리스트로 통합
 #   - train-script / agg-script 파라미터 제거 → 이미지에 고정
+#   - agg-name 제거 → {job-prefix}_global 으로 자동 결정
 #   - 모든 실험 설정을 params YAML 한 파일에서 관리
 # ─────────────────────────────────────────────────────────────────────────────
 apiVersion: argoproj.io/v1alpha1
@@ -31,13 +38,11 @@ spec:
   # ── global parameters (params YAML에서 override) ──────────────────────────
   arguments:
     parameters:
-    # experiment
+    # experiment  (submit 시 -p job-prefix=<실험명> 으로 override)
     - name: job-prefix
       value: "fedpod_p2"
     - name: algorithm
       value: "fedpod"
-    - name: agg-name
-      value: "fedpod_p2_global"
     - name: rounds
       value: "3"
     - name: epochs
@@ -117,7 +122,7 @@ spec:
           - name: round
             value: "1"
           - name: model-path
-            value: "/workspace/states/{{workflow.parameters.agg-name}}/R{{workflow.parameters.rounds}}r01/models/R{{workflow.parameters.rounds}}r01_agg.pth"
+            value: "/workspace/states/{{workflow.parameters.job-prefix}}_global/R{{workflow.parameters.rounds}}r01/models/R{{workflow.parameters.rounds}}r01_agg.pth"
 
     # ── Round 2 ──
     - - name: round-2
@@ -127,7 +132,7 @@ spec:
           - name: round
             value: "2"
           - name: model-path
-            value: "/workspace/states/{{workflow.parameters.agg-name}}/R{{workflow.parameters.rounds}}r02/models/R{{workflow.parameters.rounds}}r02_agg.pth"
+            value: "/workspace/states/{{workflow.parameters.job-prefix}}_global/R{{workflow.parameters.rounds}}r02/models/R{{workflow.parameters.rounds}}r02_agg.pth"
 
 
   # ── 2. one-round: 기관 병렬 학습 → 집계 ─────────────────────────────────
@@ -241,7 +246,7 @@ spec:
           ")
           bash /workspace/run_aggregation.sh \
             -j "${JOB_NAMES}" \
-            -A {{workflow.parameters.agg-name}} \
+            -A {{workflow.parameters.job-prefix}}_global \
             -R {{workflow.parameters.rounds}} \
             -r {{inputs.parameters.round}} \
             -a {{workflow.parameters.algorithm}} \

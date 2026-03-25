@@ -1,5 +1,6 @@
 # FedAVG baseline — partition2, fets128
-experiment: fedavg_p2_fets128
+# job-prefix: argo submit 시 -p job-prefix=<실험명> 으로 override
+job-prefix: fedavg_p2_fets128
 algorithm:  fedavg
 
 rounds:     3
@@ -24,5 +25,4 @@ institutions:
   - {id:  4, seed: 1004, data_pct: "1.0",  gpu: 4}
   - {id:  5, seed: 1005, data_pct: "1.0",  gpu: 4}
 
-agg_name:   fedavg_p2_fets128_global
-agg_gpu:    0
+# agg_name 은 {job-prefix}_global 으로 자동 결정
