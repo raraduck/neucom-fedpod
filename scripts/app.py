@@ -1,5 +1,17 @@
-"""Training application for fedpod-new."""
+"""Training application for fedpod-new.
+
+Round structure (one pod run = one FL round):
+  1. pre_validation  → states/.../R{R}r{r}_prev.pth  (baseline metrics)
+  2. train epochs    → states/.../R{R}r{r}_best.pth  (optional best)
+  3. post_validation → states/.../R{R}r{r}_last.pth  (PID for aggregator)
+
+PID values in _last.pth:
+  P = |train dataset|          (data volume for aggregation weighting)
+  I = (pre_loss + post_loss)/2 (average quality indicator)
+  D = pre_loss - post_loss     (improvement delta, always >= 0)
+"""
 import os
+import time
 from pathlib import Path
 
 import torch
@@ -130,7 +142,6 @@ class App:
 
     def train_epoch(self, epoch, model, loader, optimizer, loss_fn):
         model.train()
-        # set epoch for DistributedSampler to shuffle differently each epoch
         if self.is_ddp and hasattr(loader.sampler, 'set_epoch'):
             loader.sampler.set_epoch(epoch)
 
@@ -173,11 +184,10 @@ class App:
 
     @torch.no_grad()
     def val_epoch(self, epoch, model, loader, loss_fn):
-        # val runs only on rank 0 to avoid duplicate results
+        """Run validation on rank 0 only. Returns metrics dict."""
         if not self._is_main():
             return {'total': 0.0, 'dice': 0.0}
 
-        # unwrap DDP for inference
         net = model.module if isinstance(model, DDP) else model
         net.eval()
 
@@ -204,6 +214,7 @@ class App:
     # ── save checkpoint (rank 0 only) ─────────────────────────────────────────
 
     def save_ckpt(self, model, tag: str, extra: dict = None):
+        """Save checkpoint to states/{job_name}/R{R:02}r{r:02}/models/{tag}.pth"""
         if not self._is_main():
             return None
         args     = self.args
@@ -223,8 +234,16 @@ class App:
     # ── main train loop ──────────────────────────────────────────────────────
 
     def run_train(self):
+        """
+        One pod run = one FL round.
+
+        Flow:
+          pre_validation  → _prev.pth
+          epoch 1..N      → _best.pth (if improved)
+          post_validation → PID → _last.pth
+        """
         args = self.args
-        seed_everything(args.seed + self.rank)   # different seed per rank
+        seed_everything(args.seed + self.rank)
         self.logger.info('=' * 60)
         self.logger.info(f'Job: {args.job_name}  Round: {args.round}/{args.rounds}')
         self.logger.info(f'Inst: {args.inst_ids}  Split: {args.cases_split}')
@@ -245,32 +264,75 @@ class App:
 
         train_dl, val_dl = self.build_loaders(train_cases, val_cases)
 
-        from_epoch = args.epoch
-        to_epoch   = args.epochs
-        best_dice  = -1.0
-        best_path  = None
+        # P = total local training samples (all ranks combined)
+        # DistributedSampler splits per rank, but P represents total data volume
+        P = len(train_dl.dataset)
 
+        from_epoch = args.epoch          # epoch offset for resume (normally 0)
+        to_epoch   = args.epochs         # total epochs in this round
+
+        # ── PRE-VALIDATION ────────────────────────────────────────────────────
         self._barrier()
-        self.logger.info('Pre-validation (epoch 0):')
-        self.val_epoch(0, model, val_dl, loss_fn)
+        self.logger.info(f'[Round {args.round}] Pre-validation:')
+        pre_metrics = self.val_epoch(from_epoch, model, val_dl, loss_fn)
+        self.save_ckpt(model, f'R{args.rounds:02d}r{args.round:02d}_prev',
+                       {'pre_metrics': pre_metrics})
         self._barrier()
+
+        # ── TRAINING EPOCHS ───────────────────────────────────────────────────
+        time_start = time.time()
+        best_dice  = pre_metrics.get('dice', -1.0)
 
         for epoch in range(from_epoch + 1, to_epoch + 1):
             self.train_epoch(epoch, model, train_dl, optimizer, loss_fn)
             scheduler.step()
 
-            if epoch % args.eval_freq == 0 or epoch == to_epoch:
+            # mid-round validation (not on final epoch; post-val covers that)
+            if epoch % args.eval_freq == 0 and epoch < to_epoch:
                 self._barrier()
-                metrics = self.val_epoch(epoch, model, val_dl, loss_fn)
-                if self._is_main() and metrics['dice'] > best_dice:
-                    best_dice = metrics['dice']
-                    best_path = self.save_ckpt(
-                        model, f'R{args.round:02d}e{epoch:03d}_best',
-                        {'dice': best_dice, 'epoch': epoch})
+                m = self.val_epoch(epoch, model, val_dl, loss_fn)
+                if self._is_main() and m['dice'] > best_dice:
+                    best_dice = m['dice']
+                    self.save_ckpt(model, f'R{args.rounds:02d}r{args.round:02d}_best',
+                                   {'epoch': epoch, 'dice': best_dice})
                 self._barrier()
 
-        self.save_ckpt(model, f'R{args.round:02d}_last', {'epoch': to_epoch})
-        self.logger.info(f'Done. Best Dice={best_dice:.4f}  ({best_path})')
+        # ── POST-VALIDATION ───────────────────────────────────────────────────
+        elapsed = time.time() - time_start
+
+        self._barrier()
+        self.logger.info(f'[Round {args.round}] Post-validation:')
+        post_metrics = self.val_epoch(to_epoch, model, val_dl, loss_fn)
+        self._barrier()
+
+        # ── PID COMPUTATION & FINAL SAVE ──────────────────────────────────────
+        if self._is_main():
+            pre_loss  = pre_metrics['total']
+            post_loss = post_metrics['total']
+            # Safety: if training degraded the model, treat post = pre (D = 0)
+            post_loss = min(post_loss, pre_loss)
+
+            I = (pre_loss + post_loss) / 2.0
+            D = pre_loss - post_loss      # improvement delta (>= 0)
+
+            self.logger.info(
+                f'[Round {args.round}] PID  '
+                f'P={P}  I={I:.4f}  D={D:.4f}  '
+                f'({elapsed:.1f}s)')
+
+            self.save_ckpt(
+                model,
+                f'R{args.rounds:02d}r{args.round:02d}_last',
+                {
+                    'pre_metrics':  pre_metrics,
+                    'post_metrics': post_metrics,
+                    'P': P,
+                    'I': I,
+                    'D': D,
+                    'time': elapsed,
+                })
+
+        self._barrier()
 
         if self.is_ddp:
             dist.destroy_process_group()
