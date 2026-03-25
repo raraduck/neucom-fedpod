@@ -1,0 +1,27 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Stage 1 — Whole Tumor (WT) detection
+#
+# Input : [t1, t1ce, t2, flair]  (4 modalities)
+# Target: sub.nii.gz → WT = union of labels 1+2+4 → single binary output
+# ─────────────────────────────────────────────────────────────────────────────
+job-prefix: stage1_p2
+algorithm:  fedpod
+
+rounds:     3
+epochs:     5
+eval_freq:  5
+
+data_root:      /data/fets128/trainval
+split_csv:      experiments/partition2/fets_split.csv
+input_channels: "[t1,t1ce,t2,flair]"
+mask_channels:  "[]"
+label_groups:   "[[1,2,4]]"
+label_names:    "[wt]"
+label_index:    "[1]"
+
+block:    residual
+channels: "[32,64,128,256]"
+
+institutions:
+  - {id: 1, seed: 1001, data_pct: "1.0", gpu: 4}
+  - {id: 2, seed: 1002, data_pct: "1.0", gpu: 4}

@@ -1,0 +1,28 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Stage 2 — Sub-region segmentation (NCR / ED / ET)
+#
+# Input : [t1, t1ce, t2, flair, seg]  (5ch — seg.nii.gz as WT mask proxy)
+#          seg channel is binarized (>0), NOT z-score normalised
+# Target: sub.nii.gz → labels 1, 2, 4 as 3 separate binary outputs
+# ─────────────────────────────────────────────────────────────────────────────
+job-prefix: stage2_p2
+algorithm:  fedpod
+
+rounds:     3
+epochs:     5
+eval_freq:  5
+
+data_root:      /data/fets128/trainval
+split_csv:      experiments/partition2/fets_split.csv
+input_channels: "[t1,t1ce,t2,flair,seg]"
+mask_channels:  "[seg]"
+label_groups:   "[[1],[2],[4]]"
+label_names:    "[ncr,ed,et]"
+label_index:    "[1,2,4]"
+
+block:    residual
+channels: "[32,64,128,256]"
+
+institutions:
+  - {id: 1, seed: 1001, data_pct: "1.0", gpu: 4}
+  - {id: 2, seed: 1002, data_pct: "1.0", gpu: 4}

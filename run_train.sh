@@ -6,7 +6,7 @@
 #   NPROC=4 bash run_train.sh ...   or   bash run_train.sh -W 4 ...
 
 # ── defaults ────────────────────────────────────────────────────────────────
-SEED=42; SAVE=0; FREQ=5; MILE="[20]"; GPU=1
+SEED=42; SAVE=0; FREQ=5; MILE="[20]"; GPU=1; MASK_CHAN="[]"
 NPROC="${NPROC:-1}"   # number of GPUs for DDP; 1 = single-process
 ZOOM=0; FLIP=1
 JOB="test_job"
@@ -25,7 +25,7 @@ BATCH=1; DEEP_SUP=0; DS_LAYER=1; DROPOUT="None"
 NORM="instance"; KSIZE=3
 
 # ── parse flags ─────────────────────────────────────────────────────────────
-while getopts "S:s:f:m:g:W:Z:L:J:R:r:E:e:i:c:M:p:D:d:C:G:N:I:a:u:b:l:Q:w:q:B:P:x:n:k:" opt; do
+while getopts "S:s:f:m:g:W:Z:L:J:R:r:E:e:i:c:M:p:D:d:C:G:N:I:a:u:b:l:Q:w:q:B:P:x:n:k:X:" opt; do
   case $opt in
     S) SEED="$OPTARG"    ;; s) SAVE="$OPTARG"    ;; f) FREQ="$OPTARG"    ;;
     m) MILE="$OPTARG"    ;; g) GPU="$OPTARG"     ;; W) NPROC="$OPTARG"   ;;
@@ -38,7 +38,7 @@ while getopts "S:s:f:m:g:W:Z:L:J:R:r:E:e:i:c:M:p:D:d:C:G:N:I:a:u:b:l:Q:w:q:B:P:x
     u) MU="$OPTARG"      ;; b) BLOCK="$OPTARG"   ;; l) CHANNELS="$OPTARG";;
     Q) LR="$OPTARG"      ;; w) WD="$OPTARG"      ;; q) LR_GAMMA="$OPTARG";;
     B) BATCH="$OPTARG"   ;; P) DEEP_SUP="$OPTARG";; x) DS_LAYER="$OPTARG";;
-    n) NORM="$OPTARG"    ;; k) KSIZE="$OPTARG"   ;;
+    n) NORM="$OPTARG"    ;; k) KSIZE="$OPTARG"   ;; X) MASK_CHAN="$OPTARG" ;;
   esac
 done
 
@@ -83,4 +83,5 @@ ${LAUNCHER} scripts/run_train.py \
   --deep_supervision "$DEEP_SUP" \
   --ds_layer      "$DS_LAYER"  \
   --norm          "$NORM"      \
-  --kernel_size   "$KSIZE"
+  --kernel_size   "$KSIZE"     \
+  --mask_channels "$MASK_CHAN"

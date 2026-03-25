@@ -59,6 +59,9 @@ def parse_args(argv=None):
     p.add_argument('--label_names',    type=str,
                    default='[wt]',
                    help='label names, e.g. [wt] or [ncr,ed,et]')
+    p.add_argument('--mask_channels',  type=str, default='[]',
+                   help='input channels to binarize (>0) instead of z-score, '
+                        'e.g. [seg] for Stage 2 WT mask input')
     p.add_argument('--label_index',    type=str, default='[]',
                    help='original NIfTI label values per output class, '
                         'e.g. [1] for WT-only, [2,1,4] for WT/TC/ET. '
@@ -93,8 +96,9 @@ def parse_args(argv=None):
     args = p.parse_args(argv)
 
     # ── post-parse conversions ───────────────────────────────────────────────
-    args.input_channel_names = _parse_list(args.input_channels)
-    args.label_groups        = ast.literal_eval(args.label_groups)
+    args.input_channel_names  = _parse_list(args.input_channels)
+    args.mask_channel_names   = _parse_list(args.mask_channels) if args.mask_channels.strip() != '[]' else []
+    args.label_groups         = ast.literal_eval(args.label_groups)
     args.label_names         = _parse_list(args.label_names)
     args.channels_list       = ast.literal_eval(args.channels_list)
     args.milestones          = ast.literal_eval(args.milestones)

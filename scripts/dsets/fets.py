@@ -28,6 +28,15 @@ class _RobustZScore(T.MapTransform):
         return d
 
 
+class _Binarize(T.MapTransform):
+    """Convert a mask channel to binary (> 0). Used for seg input in Stage 2."""
+    def __call__(self, data):
+        d = dict(data)
+        for key in self.key_iterator(d):
+            d[key] = (d[key] > 0).astype(np.float32)
+        return d
+
+
 class _ToMultiChannel(T.MapTransform):
     """Convert integer label map to multi-channel binary masks."""
     def __init__(self, keys, label_groups):
@@ -74,7 +83,8 @@ class FeTSDataset(Dataset):
 
     def __init__(self, data_root: str, case_names: list,
                  channel_names: list, label_groups: list,
-                 mode: str = 'train', flip_lr: bool = True):
+                 mode: str = 'train', flip_lr: bool = True,
+                 mask_channels: list = None):
         self.data_root     = data_root
         self.case_names    = case_names
         self.channel_names = channel_names
@@ -82,15 +92,22 @@ class FeTSDataset(Dataset):
         self.mode          = mode.lower()
         self.flip_lr       = flip_lr and self.mode == 'train'
 
+        mask_ch  = mask_channels or []
+        mri_ch   = [c for c in channel_names if c not in mask_ch]
+
         # base: normalise + stack → image tensor; convert label
         base_keys = channel_names + ['label']
-        self._base = T.Compose([
-            T.EnsureTyped(keys=base_keys),
-            _RobustZScore(keys=channel_names),
+        tfms = [T.EnsureTyped(keys=base_keys)]
+        if mri_ch:
+            tfms.append(_RobustZScore(keys=mri_ch))
+        if mask_ch:
+            tfms.append(_Binarize(keys=mask_ch))
+        tfms += [
             T.ConcatItemsd(keys=channel_names, name='image', dim=0),
             T.DeleteItemsd(keys=channel_names),
             _ToMultiChannel(keys=['label'], label_groups=label_groups),
-        ])
+        ]
+        self._base = T.Compose(tfms)
 
         # aug: random flips (train only)
         aug_list = []

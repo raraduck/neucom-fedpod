@@ -112,6 +112,7 @@ class App:
             label_groups  = args.label_groups,
             mode          = 'train',
             flip_lr       = bool(args.flip_lr),
+            mask_channels = args.mask_channel_names,
         )
         val_ds = FeTSDataset(
             data_root     = args.data_root,
@@ -120,6 +121,7 @@ class App:
             label_groups  = args.label_groups,
             mode          = 'val',
             flip_lr       = False,
+            mask_channels = args.mask_channel_names,
         )
 
         if self.is_ddp:
