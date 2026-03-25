@@ -1,0 +1,37 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kaniko-fedpod-new
+  namespace: dwnkim
+spec:
+  ttlSecondsAfterFinished: 300
+  template:
+    spec:
+      restartPolicy: Never
+      nodeName: gn144   # fedpod PVC(RWO/Longhorn)가 이미 마운트된 노드
+
+      containers:
+      - name: kaniko
+        image: gcr.io/kaniko-project/executor:latest
+        args:
+        - "--dockerfile=/workspace/fedpod-new/Dockerfile"
+        - "--context=dir:///workspace/fedpod-new"
+        - "--destination=192.168.0.80:30002/dwnkim/fedpod-new:latest"
+        - "--insecure"
+        - "--skip-tls-verify"
+        volumeMounts:
+        - name: fedpod
+          mountPath: /workspace
+        - name: kaniko-secret
+          mountPath: /kaniko/.docker
+
+      volumes:
+      - name: fedpod
+        persistentVolumeClaim:
+          claimName: fedpod
+      - name: kaniko-secret
+        secret:
+          secretName: harbor-secret
+          items:
+          - key: .dockerconfigjson
+            path: config.json
