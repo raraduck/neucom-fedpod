@@ -38,10 +38,15 @@ def parse_args(argv=None):
                    help='epoch offset (resume from)')
 
     # ── data ────────────────────────────────────────────────────────────────
-    p.add_argument('--data_root',  type=str,   default='data/fets128')
+    p.add_argument('--data_root',  type=str,   default='data/fets128/trainval',
+                   help='path to folder containing case directories '
+                        '(e.g. data/fets128/trainval). '
+                        'FL institution split is done via --cases_split CSV.')
     p.add_argument('--dataset',    type=str,   default='fets')
     p.add_argument('--cases_split',type=str,   default='experiments/partition2/fets_split.csv')
-    p.add_argument('--inst_ids',   type=int,   nargs='+', default=[1])
+    p.add_argument('--inst_ids',   type=int,   nargs='+', default=[1],
+                   help='Partition_ID values to include from the CSV '
+                        '(FL institution filter, not a folder name)')
     p.add_argument('--data_pct',   type=float, default=1.0,
                    help='fraction of training data to use')
 

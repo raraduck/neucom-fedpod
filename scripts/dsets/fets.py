@@ -61,20 +61,21 @@ class FeTSDataset(Dataset):
     """FeTS dataset for fets128 (128³ volumes, no resize needed).
 
     Args:
-        data_root:     root path, e.g. 'data/fets128'
-        inst_id:       partition/institution id, e.g. 1 → 'inst_01'
-        case_names:    list of case IDs
+        data_root:     path to the folder containing case directories,
+                       e.g. 'data/fets128/trainval'
+                       FL institution split is handled by the CSV (Partition_ID),
+                       not by folder structure.
+        case_names:    list of case IDs (filtered from CSV by Partition_ID)
         channel_names: list of modality names, e.g. ['t1','t1ce','t2','flair']
         label_groups:  label groups for segmentation, e.g. [[1,2,4]]
         mode:          'train' or 'val'
         flip_lr:       apply random L/R flip during training
     """
 
-    def __init__(self, data_root: str, inst_id: int, case_names: list,
+    def __init__(self, data_root: str, case_names: list,
                  channel_names: list, label_groups: list,
                  mode: str = 'train', flip_lr: bool = True):
         self.data_root     = data_root
-        self.inst_dir      = f'inst_{inst_id:02d}'
         self.case_names    = case_names
         self.channel_names = channel_names
         self.label_groups  = label_groups
@@ -105,8 +106,8 @@ class FeTSDataset(Dataset):
         return len(self.case_names)
 
     def __getitem__(self, index):
-        name    = self.case_names[index]
-        case_dir = os.path.join(self.data_root, self.inst_dir, name)
+        name     = self.case_names[index]
+        case_dir = os.path.join(self.data_root, name)
 
         # load modalities
         d = {}

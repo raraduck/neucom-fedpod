@@ -15,7 +15,7 @@ INST=1
 SPLIT="experiments/partition2/fets_split.csv"
 MODEL="none"
 PCT=1.0
-DATA="data/fets128"; DSET="fets"
+DATA="data/fets128/trainval"; DSET="fets"
 CHAN="[t1,t1ce,t2,flair]"
 LGRP="[[1,2,4]]"; LNAM="[wt]"; LIDX=0
 ALGO="fedavg"; MU=0.001

@@ -107,7 +107,6 @@ class App:
         args = self.args
         train_ds = FeTSDataset(
             data_root     = args.data_root,
-            inst_id       = args.inst_ids[0],
             case_names    = train_cases,
             channel_names = args.input_channel_names,
             label_groups  = args.label_groups,
@@ -116,7 +115,6 @@ class App:
         )
         val_ds = FeTSDataset(
             data_root     = args.data_root,
-            inst_id       = args.inst_ids[0],
             case_names    = val_cases,
             channel_names = args.input_channel_names,
             label_groups  = args.label_groups,
