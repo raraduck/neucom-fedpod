@@ -38,10 +38,11 @@ WORKDIR /workspace
 # code (data and states are mounted as PVCs at runtime)
 COPY run_train.sh         /workspace/run_train.sh
 COPY run_aggregation.sh   /workspace/run_aggregation.sh
+COPY run_init.sh          /workspace/run_init.sh
 COPY scripts/             /workspace/scripts/
 COPY experiments/         /workspace/experiments/
 
-RUN chmod +x /workspace/run_train.sh /workspace/run_aggregation.sh
+RUN chmod +x /workspace/run_train.sh /workspace/run_aggregation.sh /workspace/run_init.sh
 
 # verify
 RUN python -c "import torch; print(f'torch {torch.__version__} / cuda {torch.version.cuda}')"
