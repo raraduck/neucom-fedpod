@@ -9,17 +9,19 @@ fedpod-new의 Federated Learning 실험을 Argo Workflows로 실행하는 방법
 ```
 argo submit
   └─ round-loop (sequential steps)
+       ├─ init          ← 공유 초기 모델 생성 (global/init.pth)
        ├─ round-0
-       │    ├─ train (inst1, inst2, inst3, inst4, inst5 — 병렬)
-       │    └─ aggregate
+       │    ├─ train (inst1~5 병렬, init.pth 로드)
+       │    └─ aggregate → R03r01_agg.pth
        ├─ round-1
-       │    ├─ train × 5 (agg-0 모델 로드)
-       │    └─ aggregate
+       │    ├─ train × 5 (R03r01_agg.pth 로드)
+       │    └─ aggregate → R03r02_agg.pth
        └─ round-2
-            ├─ train × 5 (agg-1 모델 로드)
-            └─ aggregate
+            ├─ train × 5 (R03r02_agg.pth 로드)
+            └─ aggregate → R03r03_agg.pth
 ```
 
+- **init pod**: 워크플로우 시작 시 딱 한 번 실행. 모든 기관이 동일한 파라미터에서 round 0을 시작하도록 공유 초기 모델을 생성합니다.
 - **train pod**: 기관 수만큼 병렬 실행 (`withParam` fan-out)
 - **aggregate pod**: 모든 train pod 완료 후 순차 실행
 - **round**: 이전 round의 aggregate 완료 후 다음 round 시작
@@ -34,21 +36,26 @@ argo submit
 ```
 /workspace/
 ├── states/
-│   └── {job-prefix}/              ← 실험 이름 폴더
+│   └── {job-prefix}/                ← 실험 이름 폴더
+│       ├── global/
+│       │   ├── init.pth             ← init step에서 생성한 공유 초기 모델
+│       │   ├── metrics.json         ← 라운드별 pre/post 메트릭 이력
+│       │   ├── R03r01/models/
+│       │   │   └── R03r01_agg.pth   ← round 0 집계 결과 (round 1 시작 모델)
+│       │   └── R03r02/models/
+│       │       └── R03r02_agg.pth   ← round 1 집계 결과 (round 2 시작 모델)
 │       ├── inst1/
-│       │   └── R03r01/models/
-│       │       ├── R03r01_prev.pth   ← pre-validation 체크포인트
-│       │       ├── R03r01_best.pth   ← 학습 중 최적 체크포인트
-│       │       └── R03r01_last.pth   ← post-validation + PID 저장
+│       │   └── R03r00/models/
+│       │       ├── R03r00_prev.pth  ← pre-validation 체크포인트
+│       │       ├── R03r00_best.pth  ← 학습 중 최적 체크포인트 (optional)
+│       │       └── R03r00_last.pth  ← post-validation + PID 저장
 │       ├── inst2/ ...
-│       └── global/
-│           └── R03r01/models/
-│               └── R03r01_agg.pth    ← 집계 결과 모델
+│       └── inst5/ ...
 └── logs/
     └── {job-prefix}/
+        ├── global/aggregation.log
         ├── inst1/train.log
-        ├── inst2/train.log
-        └── global/aggregation.log
+        └── inst5/train.log
 ```
 
 체크포인트 파일명 규칙: `R{총라운드:02}r{현재라운드:02}_{suffix}.pth`
@@ -77,7 +84,7 @@ docker build -t <registry>/fedpod-new:latest .
 docker push <registry>/fedpod-new:latest
 ```
 
-이미지 하나에 학습(train)과 집계(aggregate) 기능이 모두 포함되며,
+이미지 하나에 init / train / aggregate 기능이 모두 포함되며,
 Argo에서 step별로 다른 커맨드를 호출합니다.
 
 ### 3. ServiceAccount
@@ -119,7 +126,6 @@ experiments/params/
 | `label_groups` | 레이블 그룹핑 | `"[[1,2,4]]"` (WT = NCR+ED+ET) |
 | `label_names` | 레이블 이름 | `"[wt]"` |
 | `label_index` | 사용할 레이블 인덱스 | `0` |
-| `init_model` | 초기 모델 경로 (`none` = 랜덤) | `none` |
 | `block` | UNet 블록 유형 | `residual` \| `plain` |
 | `channels` | UNet 채널 수 | `"[32,64,128,256]"` |
 | `institutions` | 참여 기관 목록 (JSON 배열) | 아래 참조 |
@@ -133,7 +139,7 @@ experiments/params/
 | `data_pct` | 학습 데이터 사용 비율 (불균형 시뮬레이션) |
 | `gpu` | pod당 요청 GPU 수 (DDP 적용) |
 
-> `agg_name`은 `{job-prefix}_global`로 자동 결정되므로 별도 설정 불필요합니다.
+> `agg_name`은 `{job-prefix}/global`로 자동 결정되므로 별도 설정 불필요합니다.
 
 ---
 
@@ -217,7 +223,6 @@ label_groups:   "[[1,2,4]]"
 label_names:    "[wt]"
 label_index:    "0"
 
-init_model:     "none"
 block:          residual
 channels:       "[32,64,128,256]"
 
@@ -245,7 +250,7 @@ argo submit k8s/argo-workflow.yaml \
 `k8s/argo-workflow.yaml`의 `round-loop` 섹션에 round 블록을 추가합니다.
 
 ```yaml
-# Round 3 추가 예시
+# Round 3 추가 예시 (rounds: 4로 설정 시)
 - - name: round-3
     template: one-round
     arguments:
@@ -253,23 +258,50 @@ argo submit k8s/argo-workflow.yaml \
       - name: round
         value: "3"
       - name: model-path
-        value: "/workspace/states/{{workflow.parameters.job-prefix}}_global/R{{workflow.parameters.rounds}}r03/models/R{{workflow.parameters.rounds}}r03_agg.pth"
+        value: "/workspace/states/{{workflow.parameters.job-prefix}}/global/R{{workflow.parameters.rounds}}r03/models/R{{workflow.parameters.rounds}}r03_agg.pth"
 ```
 
 그리고 params YAML에서 `rounds: 4`로 변경합니다.
 
 ---
 
-## FL 라운드 내부 흐름
+## FL 전체 흐름
 
-각 기관 pod는 아래 순서로 실행됩니다.
+```
+[init pod]
+  └─ UNet 랜덤 초기화 (seed=0)
+  └─ states/{job-prefix}/global/init.pth 저장
+
+[round 0 — train pods × N기관, 병렬]
+  └─ init.pth 로드  ← 모든 기관 동일 출발점
+  └─ pre_validation → R03r00_prev.pth
+  └─ training (epochs회)
+  └─ post_validation + PID 계산 → R03r00_last.pth
+
+[round 0 — aggregate pod]
+  └─ 각 기관의 R03r00_last.pth 로드
+  └─ FedPOD 가중치 계산 (P, I, D 기반)
+  └─ R03r01_agg.pth 저장
+  └─ metrics.json 업데이트
+
+[round 1 — train pods × N기관, 병렬]
+  └─ R03r01_agg.pth 로드
+  └─ pre_validation → R03r01_prev.pth
+  └─ training → post_validation + PID → R03r01_last.pth
+
+[round 1 — aggregate pod]
+  └─ R03r02_agg.pth 저장
+  ...
+```
+
+### 각 기관 pod 내부 흐름
 
 ```
 pod 시작
   │
   ├─ 1. pre_validation
-  │     └─ 모델 로드 (이전 round agg.pth 또는 랜덤 초기화)
-  │     └─ validation 실행 → pre_loss, pre_metrics
+  │     └─ 이전 round agg.pth 로드 (round 0: init.pth)
+  │     └─ validation → pre_loss, pre_metrics
   │     └─ R{R}r{r}_prev.pth 저장
   │
   ├─ 2. training  (epochs회 반복)
@@ -277,19 +309,11 @@ pod 시작
   │     └─ R{R}r{r}_best.pth 저장 (best val 갱신 시)
   │
   └─ 3. post_validation + PID 계산
-        └─ validation 실행 → post_loss, post_metrics
+        └─ validation → post_loss, post_metrics
         └─ P = |train dataset|
            I = (pre_loss + post_loss) / 2
            D = pre_loss - post_loss  (≥ 0)
         └─ R{R}r{r}_last.pth 저장 (model + PID 포함)
-
-모든 기관 pod 완료
-  │
-  └─ aggregate pod 시작
-        └─ 각 기관의 _last.pth 로드
-        └─ algorithm에 따른 가중치 계산
-        └─ R{R}r{next}_agg.pth 저장
-        └─ metrics.json 업데이트
 ```
 
 ### FedPOD 가중치 공식
@@ -314,25 +338,50 @@ W_k = α·(P_k/ΣP) + β·(I_k/ΣI) + γ·(D_k/ΣD)
 pod 단위 동작을 로컬에서 검증할 때 사용합니다.
 
 ```bash
-# Round 0, 기관 1, GPU 4개 DDP
-bash run_train.sh \
-  -W 4 \
-  -S 1001 \
-  -J fedpod_debug/inst1 \
-  -R 3 -r 0 \
-  -E 5 \
-  -i 1 \
-  -a fedpod \
-  -M none
+# Step 1: 공유 초기 모델 생성
+bash run_init.sh \
+  -A fedpod_debug/global \
+  -b residual \
+  -l "[32,64,128,256]" \
+  -C "[t1,t1ce,t2,flair]" \
+  -G "[[1,2,4]]"
+# → states/fedpod_debug/global/init.pth
 
-# Round 0 집계
+# Step 2: Round 0 학습 (inst1, inst2 각각 실행)
+bash run_train.sh \
+  -W 4 -S 1001 -J fedpod_debug/inst1 \
+  -R 3 -r 0 -E 5 -i 1 -a fedpod \
+  -M states/fedpod_debug/global/init.pth
+
+bash run_train.sh \
+  -W 4 -S 1002 -J fedpod_debug/inst2 \
+  -R 3 -r 0 -E 5 -i 2 -a fedpod \
+  -M states/fedpod_debug/global/init.pth
+
+# Step 3: Round 0 집계
 bash run_aggregation.sh \
   -j "fedpod_debug/inst1 fedpod_debug/inst2" \
   -A fedpod_debug/global \
-  -R 3 -r 0 \
-  -a fedpod
+  -R 3 -r 0 -a fedpod
+# → states/fedpod_debug/global/R03r01/models/R03r01_agg.pth
+
+# Step 4: Round 1 학습
+bash run_train.sh \
+  -W 4 -S 1001 -J fedpod_debug/inst1 \
+  -R 3 -r 1 -E 5 -i 1 -a fedpod \
+  -M states/fedpod_debug/global/R03r01/models/R03r01_agg.pth
+
+bash run_train.sh \
+  -W 4 -S 1002 -J fedpod_debug/inst2 \
+  -R 3 -r 1 -E 5 -i 2 -a fedpod \
+  -M states/fedpod_debug/global/R03r01/models/R03r01_agg.pth
+
+# Step 5: Round 1 집계
+bash run_aggregation.sh \
+  -j "fedpod_debug/inst1 fedpod_debug/inst2" \
+  -A fedpod_debug/global \
+  -R 3 -r 1 -a fedpod
 
 # 결과 확인
-ls states/fedpod_debug/
-#  inst1/  inst2/  global/
+find states/fedpod_debug -type f | sort
 ```
