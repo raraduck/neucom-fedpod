@@ -157,6 +157,15 @@ class App:
 
     def build_loaders(self, train_cases, val_cases):
         args = self.args
+        # priority_path is for WeightedRandomSampler only when select_mode='all'.
+        # In committee/random modes the path is consumed by _select_cases(),
+        # not by the dataset sampler.
+        sampler_priority = (
+            args.priority_path
+            if (args.priority_path and
+                getattr(args, 'select_mode', 'all') == 'all')
+            else None
+        )
         train_ds = FeTSDataset(
             data_root     = args.data_root,
             case_names    = train_cases,
@@ -165,7 +174,7 @@ class App:
             mode          = 'train',
             flip_lr       = bool(args.flip_lr),
             mask_channels = args.mask_channel_names,
-            priority_path = args.priority_path or None,
+            priority_path = sampler_priority,
         )
         val_ds = FeTSDataset(
             data_root     = args.data_root,
