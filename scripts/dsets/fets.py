@@ -84,6 +84,11 @@ def _nib_load(path: str) -> np.ndarray:
     return np.expand_dims(data, axis=0).astype(np.float32)   # (1, D, H, W)
 
 
+def _nib_affine(path: str) -> np.ndarray:
+    """Load only the affine matrix from a NIfTI file."""
+    return nib.load(path).affine
+
+
 # ── Transform builders (fedpod-old style) ─────────────────────────────────────
 
 def _get_base_transforms(channel_names, label_groups, mask_ch, resize, zoom):
@@ -275,10 +280,14 @@ class FeTSDataset(Dataset):
         name     = self.case_names[index]
         case_dir = os.path.join(self.data_root, name)
 
-        # Load raw NIfTI
+        # Load raw NIfTI; capture affine from first channel for later NIfTI saving
         d = {}
+        affine = None
         for mod in self.channel_names:
-            d[mod] = _nib_load(os.path.join(case_dir, f'{name}_{mod}.nii.gz'))
+            path = os.path.join(case_dir, f'{name}_{mod}.nii.gz')
+            d[mod] = _nib_load(path)
+            if affine is None:
+                affine = _nib_affine(path)
         d['label'] = _nib_load(os.path.join(case_dir, f'{name}_sub.nii.gz'))
 
         # Spatial preprocessing (full volume)
@@ -292,6 +301,7 @@ class FeTSDataset(Dataset):
         else:
             d = self._val(d)
 
-        image = torch.as_tensor(np.asarray(d['image']), dtype=torch.float32)
-        label = torch.as_tensor(np.asarray(d['label']), dtype=torch.float32)
-        return image, label, name
+        image  = torch.as_tensor(np.asarray(d['image']), dtype=torch.float32)
+        label  = torch.as_tensor(np.asarray(d['label']), dtype=torch.float32)
+        affine = torch.as_tensor(affine, dtype=torch.float64)  # (4, 4)
+        return image, label, name, affine

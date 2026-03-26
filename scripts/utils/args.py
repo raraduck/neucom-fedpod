@@ -93,6 +93,10 @@ def parse_args(argv=None):
                         'If patch_size == resize: full preprocessed volume is used. '
                         'If patch_size < resize: one FG-guaranteed random crop '
                         'of patch_size³ is extracted per sample per iteration.')
+    p.add_argument('--sw_overlap', type=float, default=0.25,
+                   help='sliding window overlap ratio for inference '
+                        '(used when patch_size < resize). '
+                        '0.25 recommended for 128→96: stride=72, 2 windows/dim.')
 
     # ── model ───────────────────────────────────────────────────────────────
     p.add_argument('--weight_path',   type=str,   default='none')
@@ -108,9 +112,17 @@ def parse_args(argv=None):
     # ── optimiser ───────────────────────────────────────────────────────────
     p.add_argument('--lr',           type=float, default=1e-3)
     p.add_argument('--weight_decay', type=float, default=1e-5)
+    p.add_argument('--scheduler',    type=str,   default='cosine',
+                   choices=['multistep', 'cosine'],
+                   help='LR scheduler type. '
+                        'cosine: CosineAnnealingLR continuous across FL rounds. '
+                        'multistep: drops by lr_gamma at each milestone epoch.')
     p.add_argument('--milestones',   type=str,   default='[30]',
-                   help='epoch milestones for LR decay, e.g. [20,40]')
-    p.add_argument('--lr_gamma',     type=float, default=0.1)
+                   help='epoch milestones for multistep LR decay, e.g. [20,40]')
+    p.add_argument('--lr_gamma',     type=float, default=0.1,
+                   help='LR decay factor for multistep scheduler')
+    p.add_argument('--eta_min',      type=float, default=1e-6,
+                   help='minimum LR for cosine scheduler')
     p.add_argument('--batch_size',   type=int,   default=1)
 
     args = p.parse_args(argv)

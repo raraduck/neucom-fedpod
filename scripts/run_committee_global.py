@@ -1,30 +1,33 @@
 """Global committee evaluation: score all cases using ALL institution models
 and produce a globally-ranked priority file for Static Active Learning.
 
-Uncertainty metrics (Reviewer requirements):
+Uncertainty metrics:
   BALD (Mutual Information):
     MI = H[E_k(p)] - E_k[H(p)]
        = Predictive entropy  -  Expected entropy
        = Total uncertainty   -  Aleatoric uncertainty
        = Epistemic (inter-model) uncertainty
 
-    H[E_k(p)]: entropy of the mean prediction across K models
-               → measures total spread of the committee
-    E_k[H(p)]: mean of each model's own entropy
-               → measures data-intrinsic ambiguity (aleatoric)
-    MI (BALD): difference → pure inter-model disagreement (epistemic)
+  roi_bald:
+    Same as BALD, but averaged only within the predicted WT foreground ROI
+    (p_mean > roi_threshold).  Background voxels are excluded so that
+    large empty regions do not dilute the epistemic signal.
 
-  Variance:
-    Var_k(p): prediction variance across K models (voxel-wise, then averaged)
-              → direct, intuitive measure of committee disagreement
+  texture_bald  (recommended):
+    roi_bald × (1 + λ × texture_complexity)
 
-All K models evaluate ALL cases (cross-institution evaluation).
-Epistemic uncertainty is high when models trained on different institution
-distributions strongly disagree → those cases are most informative for
-Stage 2 federated learning.
+    texture_complexity is the mean of min-max normalised texture features
+    extracted from each input modality within the WT ROI:
+      • intensity entropy  (histogram-based, 32 bins)
+      • intensity std-dev
+      • ROI volume ratio   (tumour load)
+
+    Cases with both high model-disagreement AND high structural diversity
+    in the ROI receive the highest scores, correcting the tendency of pure
+    BALD to cluster selections around a narrow texture subspace.
 
 Ranking convention: all_cases sorted DESCENDING by chosen score_key
-  → top-K% = most uncertain = most informative for active learning
+  → top-K% = most uncertain / most texture-diverse = best for AL
 
 Usage:
     python scripts/run_committee_global.py \\
@@ -35,7 +38,8 @@ Usage:
         --input_channels "[t1,t1ce,t2,flair]" \\
         --label_groups   "[[1,2,4]]" \\
         --output_path    states/stage1_local/global_priority.json \\
-        --score_key      bald_mi
+        --score_key      texture_bald \\
+        --diversity_lambda 0.5
 """
 import argparse
 import ast
@@ -56,41 +60,55 @@ _EPS = 1e-6
 
 # ── uncertainty computation ───────────────────────────────────────────────────
 
-def compute_uncertainty(prob_maps: list) -> dict:
-    """Compute BALD (MI) and Variance from K probability maps.
+def compute_uncertainty(prob_maps: list, roi_threshold: float = 0.3) -> dict:
+    """Compute BALD (MI), ROI-BALD, and Variance from K probability maps.
 
     Args:
-        prob_maps: list of K tensors, each shape (1, C, D, H, W), values in [0,1]
+        prob_maps:     list of K tensors, each shape (1, C, D, H, W), values in [0,1]
+        roi_threshold: probability threshold to define the WT foreground ROI
 
-    Returns dict of scalar scores (mean over all voxels and classes):
-        bald_mi:    Epistemic uncertainty — inter-model mutual information
+    Returns dict of scalar scores:
+        bald_mi:    Epistemic uncertainty averaged over the full volume
+        roi_bald:   Epistemic uncertainty averaged only within predicted WT ROI
         aleatoric:  Expected entropy per model (data ambiguity)
         predictive: Total predictive entropy of committee mean
         variance:   Prediction variance across models
+        p_mean:     (1, C, D, H, W) mean probability map (returned for texture extraction)
     """
     # p_stack: (K, C, D, H, W)
-    p_stack = torch.cat(prob_maps, dim=0)      # (K, C, D, H, W)
+    p_stack = torch.cat(prob_maps, dim=0)
 
-    p_mean = p_stack.mean(dim=0, keepdim=True) # (1, C, D, H, W)
+    p_mean = p_stack.mean(dim=0, keepdim=True)   # (1, C, D, H, W)
 
-    # Predictive entropy: H[E_k[p]]  — total uncertainty
-    H_pred = _binary_entropy(p_mean)           # (1, C, D, H, W)
+    # Predictive entropy: H[E_k[p]]
+    H_pred = _binary_entropy(p_mean)             # (1, C, D, H, W)
 
-    # Expected entropy: E_k[H[p_k]]  — aleatoric uncertainty
-    H_each = _binary_entropy(p_stack)          # (K, C, D, H, W)
-    H_exp  = H_each.mean(dim=0, keepdim=True)  # (1, C, D, H, W)
+    # Expected entropy: E_k[H[p_k]]
+    H_each = _binary_entropy(p_stack)            # (K, C, D, H, W)
+    H_exp  = H_each.mean(dim=0, keepdim=True)    # (1, C, D, H, W)
 
     # BALD mutual information (epistemic)
-    bald_mi = (H_pred - H_exp).clamp(min=0.0)  # (1, C, D, H, W)
+    bald = (H_pred - H_exp).clamp(min=0.0)       # (1, C, D, H, W)
 
     # Variance across models
-    variance = p_stack.var(dim=0, unbiased=False, keepdim=True)  # (1, C, D, H, W)
+    variance = p_stack.var(dim=0, unbiased=False, keepdim=True)
+
+    # ROI-masked BALD: restrict to predicted foreground to avoid background dilution
+    # ROI = any channel where committee mean probability exceeds threshold
+    roi_mask = (p_mean.squeeze(0) > roi_threshold).any(dim=0)  # (D, H, W)
+    bald_vol = bald.squeeze(0).mean(dim=0)                      # (D, H, W)
+    if roi_mask.sum() > 10:
+        roi_bald = bald_vol[roi_mask].mean().item()
+    else:
+        roi_bald = bald.mean().item()   # fallback when no ROI detected
 
     return {
-        'bald_mi':    bald_mi.mean().item(),
+        'bald_mi':    bald.mean().item(),
+        'roi_bald':   roi_bald,
         'aleatoric':  H_exp.mean().item(),
         'predictive': H_pred.mean().item(),
         'variance':   variance.mean().item(),
+        '_p_mean':    p_mean,   # internal; stripped before saving
     }
 
 
@@ -98,6 +116,105 @@ def _binary_entropy(p: torch.Tensor) -> torch.Tensor:
     """Element-wise binary entropy: -p*log(p) - (1-p)*log(1-p)."""
     return -(p * torch.log(p + _EPS)
              + (1 - p) * torch.log(1 - p + _EPS))
+
+
+# ── ROI texture extraction ────────────────────────────────────────────────────
+
+def extract_roi_texture(img: torch.Tensor, p_mean: torch.Tensor,
+                        roi_threshold: float = 0.3) -> np.ndarray:
+    """Extract texture descriptors from input image within predicted WT ROI.
+
+    For each input modality:
+      • intensity entropy  (histogram-based, 32 bins)
+      • intensity std-dev  within ROI
+    Plus:
+      • ROI volume ratio   (tumour load, fraction of total voxels)
+
+    These features characterise whether a case has rich / heterogeneous
+    tissue within the tumour region — complementing the model-uncertainty
+    signal from BALD, which does not encode image appearance.
+
+    Args:
+        img:           (1, C, D, H, W) input image (z-scored)
+        p_mean:        (1, C_cls, D, H, W) mean committee probability map
+        roi_threshold: threshold to binarise the soft ROI mask
+
+    Returns:
+        float32 array of length 2*C + 1
+    """
+    C = img.shape[1]
+
+    p_sq = p_mean.squeeze(0)                          # (C_cls, D, H, W) or (D,H,W)
+    if p_sq.ndim == 4:
+        mask = (p_sq > roi_threshold).any(dim=0)      # (D, H, W)
+    else:
+        mask = (p_sq > roi_threshold)                 # (D, H, W)
+
+    mask_np = mask.cpu().numpy()
+    n_roi   = int(mask_np.sum())
+
+    feats = []
+    for c in range(C):
+        ch_np = img[0, c].cpu().numpy()               # (D, H, W)
+
+        if n_roi >= 8:
+            roi_vals = ch_np[mask_np].astype(np.float64)
+            # Intensity histogram entropy
+            hist, _ = np.histogram(roi_vals, bins=32)
+            hist     = hist.astype(np.float64) + 1e-8
+            hist    /= hist.sum()
+            entropy  = float(-np.sum(hist * np.log(hist)))
+            # Intensity std
+            std = float(roi_vals.std())
+        else:
+            entropy = 0.0
+            std     = 0.0
+
+        feats.append(entropy)
+        feats.append(std)
+
+    # Tumour load
+    vol_ratio = n_roi / float(mask_np.size)
+    feats.append(vol_ratio)
+
+    return np.array(feats, dtype=np.float32)
+
+
+# ── texture-aware combined score ──────────────────────────────────────────────
+
+def compute_texture_bald(case_metrics: dict, texture_feats: dict,
+                         lambda_div: float = 0.5) -> None:
+    """Add 'texture_bald' to each entry in case_metrics (in-place).
+
+    texture_bald[i] = roi_bald[i] × (1 + λ × texture_complexity[i])
+
+    texture_complexity is the mean of min-max normalised texture features,
+    rewarding cases that are uncertain AND texturally diverse.
+
+    Args:
+        case_metrics:  {case_name: metric_dict}  (modified in-place)
+        texture_feats: {case_name: float32 array}
+        lambda_div:    diversity weight (0 = pure roi_bald, 1 = equal weight)
+    """
+    cases = list(case_metrics.keys())
+    if not cases:
+        return
+
+    feat_matrix = np.stack([
+        texture_feats.get(c, np.zeros(1)) for c in cases
+    ])                                                  # (N, D)
+
+    # Normalise each feature dimension to [0, 1] across the dataset
+    feat_min  = feat_matrix.min(axis=0, keepdims=True)
+    feat_max  = feat_matrix.max(axis=0, keepdims=True)
+    feat_norm = (feat_matrix - feat_min) / (feat_max - feat_min + 1e-8)
+
+    tex_complexity = feat_norm.mean(axis=1)             # (N,)
+
+    for i, c in enumerate(cases):
+        rb = case_metrics[c].get('roi_bald', case_metrics[c].get('bald_mi', 0.0))
+        case_metrics[c]['texture_bald'] = float(
+            rb * (1.0 + lambda_div * tex_complexity[i]))
 
 
 # ── helpers ───────────────────────────────────────────────────────────────────
@@ -148,12 +265,20 @@ def main():
     p.add_argument('--output_path',    required=True)
     p.add_argument('--resize',         type=int, default=128,
                    help='target preprocessing cube size (must match training resize)')
-    p.add_argument('--score_key',      default='bald_mi',
-                   choices=['bald_mi', 'variance', 'mean_dice'],
-                   help='Metric used for ranking cases (all_cases sorted descending). '
-                        'bald_mi: epistemic inter-model uncertainty (recommended); '
+    p.add_argument('--score_key',      default='texture_bald',
+                   choices=['bald_mi', 'roi_bald', 'variance', 'mean_dice', 'texture_bald'],
+                   help='Metric used for ranking cases (sorted descending). '
+                        'texture_bald: roi_bald weighted by ROI texture complexity (recommended); '
+                        'roi_bald: BALD within predicted WT foreground only; '
+                        'bald_mi: BALD over full volume; '
                         'variance: prediction variance; '
-                        'mean_dice: committee mean Dice vs GT (requires GT labels)')
+                        'mean_dice: committee mean Dice vs GT')
+    p.add_argument('--diversity_lambda', type=float, default=0.5,
+                   help='Weight of texture diversity in texture_bald score. '
+                        '0 = pure roi_bald, 1 = equal weight to texture complexity.')
+    p.add_argument('--roi_threshold',  type=float, default=0.3,
+                   help='Probability threshold to define the WT ROI mask '
+                        'for roi_bald and texture feature extraction.')
     p.add_argument('--use_gpu',        type=int, default=1)
     args = p.parse_args()
 
@@ -168,7 +293,8 @@ def main():
 
     print(f'Institutions : {sorted(inst_models.keys())}')
     print(f'Input        : {in_ch}ch  Classes: {num_classes}  Device: {device}')
-    print(f'Score key    : {args.score_key}')
+    print(f'Score key    : {args.score_key}  (λ_div={args.diversity_lambda})')
+    print(f'ROI threshold: {args.roi_threshold}')
     print(f'Cross-eval   : ALL {len(inst_models)} models on ALL cases')
 
     # ── collect all cases across institutions ─────────────────────────────────
@@ -209,19 +335,20 @@ def main():
 
     # ── evaluate each case with ALL models ────────────────────────────────────
     print(f'\nEvaluating {len(ds)} cases × {len(models)} models...')
-    case_metrics = {}  # {case_name: {bald_mi, aleatoric, predictive, variance, mean_dice}}
+    case_metrics  = {}   # {case_name: metric_dict}
+    texture_feats = {}   # {case_name: float32 feature array}
 
-    K = len(models)
+    K          = len(models)
     model_list = [models[k] for k in sorted(models.keys())]
 
     with torch.no_grad():
         for idx in range(len(ds)):
-            img, lbl, name = ds[idx]
+            img, lbl, name, _aff = ds[idx]
             img = img.unsqueeze(0).to(device)   # (1, C, D, H, W)
             lbl = lbl.unsqueeze(0).to(device)   # (1, cls, D, H, W)
 
             # collect probability maps from all K models
-            prob_maps = []
+            prob_maps   = []
             dice_scores = []
             for model in model_list:
                 out = model(img)
@@ -230,27 +357,46 @@ def main():
                 prob = torch.sigmoid(out)         # (1, C, D, H, W)
                 prob_maps.append(prob)
 
-                # Dice (requires GT) — used only when score_key='mean_dice'
                 if args.score_key == 'mean_dice':
                     pred_bin = (prob > 0.5).float()
                     dc = dice(pred_bin, lbl).mean().item()
                     dice_scores.append(dc)
 
-            # compute uncertainty from K probability maps
-            unc = compute_uncertainty(prob_maps)
+            # uncertainty (returns p_mean for texture extraction)
+            unc   = compute_uncertainty(prob_maps, roi_threshold=args.roi_threshold)
+            p_mean = unc.pop('_p_mean')          # (1, C, D, H, W); not saved to JSON
             unc['mean_dice'] = float(np.mean(dice_scores)) if dice_scores else 0.0
             case_metrics[name] = unc
+
+            # texture features within predicted WT ROI
+            texture_feats[name] = extract_roi_texture(
+                img.cpu(), p_mean.cpu(), roi_threshold=args.roi_threshold)
 
             if (idx + 1) % 50 == 0:
                 print(f'  {idx+1}/{len(ds)}  '
                       f'bald={unc["bald_mi"]:.4f}  '
+                      f'roi_bald={unc["roi_bald"]:.4f}  '
                       f'aleatoric={unc["aleatoric"]:.4f}  '
                       f'variance={unc["variance"]:.4f}')
+
+    # ── compute texture-aware combined score ──────────────────────────────────
+    compute_texture_bald(case_metrics, texture_feats, lambda_div=args.diversity_lambda)
+
+    # ── store texture features in metrics (for analysis) ─────────────────────
+    feat_len = len(channel_names) * 2 + 1
+    feat_names = []
+    for ch in channel_names:
+        feat_names += [f'tex_entropy_{ch}', f'tex_std_{ch}']
+    feat_names.append('tex_vol_ratio')
+
+    for name in all_cases_flat:
+        fv = texture_feats.get(name, np.zeros(feat_len))
+        for fn, fval in zip(feat_names, fv):
+            case_metrics[name][fn] = round(float(fval), 6)
 
     # ── global ranking ────────────────────────────────────────────────────────
     score_values = [case_metrics[c][args.score_key] for c in all_cases_flat]
 
-    # always sort DESCENDING: highest score = most informative = top of list
     sorted_pairs      = sorted(zip(score_values, all_cases_flat), reverse=True)
     all_scores_sorted = [s for s, _ in sorted_pairs]
     all_cases_sorted  = [c for _, c in sorted_pairs]
@@ -285,6 +431,7 @@ def main():
         'all_cases':    all_cases_sorted,
         'all_scores':   [round(s, 6) for s in all_scores_sorted],
         'score_key':    args.score_key,
+        'diversity_lambda': args.diversity_lambda,
         'metrics':      {c: {k: round(v, 6) for k, v in m.items()}
                          for c, m in case_metrics.items()},
         'institutions': inst_results,
@@ -295,6 +442,7 @@ def main():
             'data_root':      args.data_root,
             'cases_split':    args.cases_split,
             'num_models':     K,
+            'roi_threshold':  args.roi_threshold,
         },
     }
 

@@ -52,24 +52,24 @@ def compute_weights(algorithm: str,
         weight list (same length as local_states, sums to 1.0)
     """
     K = len(local_states)
-
-    if algorithm == 'fedavg':
-        return [1.0 / K] * K
-
     P = [float(s['P']) for s in local_states]
 
+    if algorithm == 'fedavg':
+        # Equal weight among active (P>0) clients only
+        raw = [1.0 if p > 0 else 0.0 for p in P]
+        return _apply_p_mask(raw, P)
+
     if algorithm in ('fedwavg', 'fedprox'):
-        return _normalize(P)
+        return _apply_p_mask(_normalize(P), P)
 
     if algorithm == 'fedpod':
         I = [float(s['I']) for s in local_states]
         D = [float(s['D']) for s in local_states]
-        return _pod_weights(P, I, D)
+        return _apply_p_mask(_pod_weights(P, I, D), P)
 
     if algorithm == 'fedpid':
         if curr_round < 2:
-            # not enough history: fall back to fedwavg
-            return _normalize(P)
+            return _apply_p_mask(_normalize(P), P)
         job_names  = [s['args']['job_name'] for s in local_states]
         prev_round = json_history.get(str(curr_round - 1), {})
         this_round = json_history.get(str(curr_round), {})
@@ -77,7 +77,7 @@ def compute_weights(algorithm: str,
         loss_curr  = [float(this_round[j]['post']['total']) for j in job_names]
         I = [(a + b) / 2.0 for a, b in zip(loss_prev, loss_curr)]
         D = [max(0.0, a - b)  for a, b in zip(loss_prev, loss_curr)]
-        return _pod_weights(P, I, D)
+        return _apply_p_mask(_pod_weights(P, I, D), P)
 
     raise NotImplementedError(f'Unknown algorithm: {algorithm}')
 
@@ -87,6 +87,16 @@ def compute_weights(algorithm: str,
 def _normalize(values: list[float]) -> list[float]:
     total = sum(values)
     return [v / total for v in values]
+
+
+def _apply_p_mask(weights: list[float], P: list[float]) -> list[float]:
+    """Zero out weights for P=0 clients (pre-val only) and renormalize."""
+    masked = [w if p > 0 else 0.0 for w, p in zip(weights, P)]
+    total  = sum(masked)
+    if total == 0:
+        # All clients are P=0: fall back to equal weights (edge case)
+        return [1.0 / len(weights)] * len(weights)
+    return [w / total for w in masked]
 
 
 def _pod_weights(P: list[float],

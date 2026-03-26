@@ -9,7 +9,7 @@
 SEED=42; SAVE=0; FREQ=5; MILE="[20]"; GPU=1; MASK_CHAN="[]"; PRIORITY=""
 NPROC="${NPROC:-1}"   # number of GPUs for DDP; 1 = single-process
 ZOOM=0; FLIP=1
-RESIZE=128; PATCH_SIZE=128
+RESIZE=128; PATCH_SIZE=128; SW_OVERLAP=0.25
 SELECT_PCT=1.0; SELECT_MODE="all"
 JOB="test_job"
 ROUNDS=1; ROUND=0; EPOCHS=30; EPOCH=0
@@ -22,7 +22,7 @@ CHAN="[t1,t1ce,t2,flair]"
 LGRP="[[1,2,4]]"; LNAM="[wt]"; LIDX="[1]"
 ALGO="fedavg"; MU=0.001
 BLOCK="residual"; CHANNELS="[32,64,128,256]"
-LR=1e-3; WD=1e-5; LR_GAMMA=0.1
+LR=1e-3; WD=1e-5; LR_GAMMA=0.1; SCHEDULER="cosine"; ETA_MIN=1e-6
 BATCH=1; DEEP_SUP=0; DS_LAYER=1; DROPOUT="None"
 NORM="instance"; KSIZE=3
 
@@ -32,7 +32,7 @@ while getopts "S:s:f:m:g:W:Z:L:J:R:r:E:e:i:c:M:p:D:d:C:G:N:I:a:u:b:l:Q:w:q:B:P:x
     S) SEED="$OPTARG"    ;; s) SAVE="$OPTARG"    ;; f) FREQ="$OPTARG"    ;;
     m) MILE="$OPTARG"    ;; g) GPU="$OPTARG"     ;; W) NPROC="$OPTARG"   ;;
     Z) ZOOM="$OPTARG"    ;; L) FLIP="$OPTARG"    ;; J) JOB="$OPTARG"     ;;
-    z) RESIZE="$OPTARG"  ;; H) PATCH_SIZE="$OPTARG" ;;
+    z) RESIZE="$OPTARG"  ;; H) PATCH_SIZE="$OPTARG" ;; O) SW_OVERLAP="$OPTARG" ;;
     R) ROUNDS="$OPTARG"  ;; r) ROUND="$OPTARG"   ;; E) EPOCHS="$OPTARG"  ;;
     e) EPOCH="$OPTARG"   ;; i) INST="$OPTARG"    ;; c) SPLIT="$OPTARG"   ;;
     M) MODEL="$OPTARG"   ;; p) PCT="$OPTARG"     ;; D) DATA="$OPTARG"    ;;
@@ -40,6 +40,7 @@ while getopts "S:s:f:m:g:W:Z:L:J:R:r:E:e:i:c:M:p:D:d:C:G:N:I:a:u:b:l:Q:w:q:B:P:x
     N) LNAM="$OPTARG"    ;; I) LIDX="$OPTARG"    ;; a) ALGO="$OPTARG"    ;;
     u) MU="$OPTARG"      ;; b) BLOCK="$OPTARG"   ;; l) CHANNELS="$OPTARG";;
     Q) LR="$OPTARG"      ;; w) WD="$OPTARG"      ;; q) LR_GAMMA="$OPTARG";;
+    v) SCHEDULER="$OPTARG" ;; V) ETA_MIN="$OPTARG" ;;
     B) BATCH="$OPTARG"   ;; P) DEEP_SUP="$OPTARG";; x) DS_LAYER="$OPTARG";;
     n) NORM="$OPTARG"    ;; k) KSIZE="$OPTARG"   ;; X) MASK_CHAN="$OPTARG" ;; T) PRIORITY="$OPTARG" ;;
     y) SELECT_PCT="$OPTARG" ;; Y) SELECT_MODE="$OPTARG" ;;
@@ -82,7 +83,9 @@ ${LAUNCHER} scripts/run_train.py \
   --channels_list "$CHANNELS"  \
   --lr            "$LR"        \
   --weight_decay  "$WD"        \
+  --scheduler     "$SCHEDULER" \
   --lr_gamma      "$LR_GAMMA"  \
+  --eta_min       "$ETA_MIN"   \
   --batch_size    "$BATCH"     \
   --deep_supervision "$DEEP_SUP" \
   --ds_layer      "$DS_LAYER"  \
@@ -93,4 +96,5 @@ ${LAUNCHER} scripts/run_train.py \
   --select_pct    "$SELECT_PCT" \
   --select_mode   "$SELECT_MODE" \
   --resize        "$RESIZE"     \
-  --patch_size    "$PATCH_SIZE"
+  --patch_size    "$PATCH_SIZE" \
+  --sw_overlap    "$SW_OVERLAP"

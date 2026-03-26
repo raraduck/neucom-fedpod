@@ -9,7 +9,7 @@
 #   2. states/p2_formal/s2/global/init.pth (5ch/3class)
 #
 # Usage:
-#   bash run_stage2_compare.sh [-E epochs] [-g gpu]
+#   bash run_stage2_compare.sh [-E epochs] [-g gpu] [-W nproc]
 #
 # Output:
 #   states/p2_formal/s2_{al,rnd}{10,20,30}/inst{N}/  (local models)
@@ -22,20 +22,24 @@ SPLIT="experiments/partition2/fets_split.csv"
 DATA="data/fets128/trainval"
 CHAN="[t1,t1ce,t2,flair,seg]"
 MASK="[seg]"
-LGRP="[[1],[2],[4]]"
-LNAM="[ncr,ed,et]"
-ROUNDS=1; EPOCHS=50
-GPU=1; FREQ=10
+LGRP="[[1,2,4],[1,4],[4]]"
+LNAM="[wt,tc,et]"
+LIDX="[1,2,4]"
+ROUNDS=20; EPOCHS=3
+GPU=1; FREQ=1; NPROC=1; SAVE=1; ALGO="fedavg"
 
 # Institutions for Stage 2 comparison (3 largest, equal size)
 INSTS=(1 2 3)
 PCTS=(10 20 30)   # select percentages
 
-while getopts "E:g:f:" opt; do
+while getopts "E:R:g:f:W:a:" opt; do
   case $opt in
     E) EPOCHS="$OPTARG"  ;;
+    R) ROUNDS="$OPTARG"  ;;
     g) GPU="$OPTARG"     ;;
     f) FREQ="$OPTARG"    ;;
+    W) NPROC="$OPTARG"   ;;
+    a) ALGO="$OPTARG"    ;;
   esac
 done
 
@@ -46,7 +50,11 @@ echo "============================================================"
 echo " Stage 2 AL vs RND comparison (partition2)"
 echo " Institutions : ${INSTS[*]}"
 echo " Percentages  : ${PCTS[*]}%"
-echo " Epochs       : $EPOCHS"
+echo " Rounds       : $ROUNDS"
+echo " Epochs/round : $EPOCHS"
+echo " Total epochs : $((ROUNDS * EPOCHS))  (= T_max for cosine)"
+echo " nproc (DDP)  : $NPROC"
+echo " Algorithm    : $ALGO"
 echo " Init model   : $INIT"
 echo " Priority     : $PRIORITY"
 echo "============================================================"
@@ -64,7 +72,7 @@ if [ ! -f "$PRIORITY" ]; then
   exit 1
 fi
 
-# ── helper: run one condition ─────────────────────────────────────────────────
+# ── helper: run one condition (multi-round FL loop) ───────────────────────────
 run_condition() {
   local TAG=$1 MODE=$2 PCT_FLOAT=$3 PPATH=$4
   echo ""
@@ -72,27 +80,45 @@ run_condition() {
   echo " Condition: $TAG  (mode=$MODE  pct=$PCT_FLOAT)"
   echo "========================================"
 
-  for INST in "${INSTS[@]}"; do
-    JOB="${EXP}/${TAG}/inst${INST}"
-    echo "--- inst${INST} ---"
-    bash run_train.sh \
-      -J "$JOB"    -i "$INST"   -R "$ROUNDS"    -r 0          \
-      -E "$EPOCHS" -e 0         -M "$INIT"       -D "$DATA"    \
-      -c "$SPLIT"  -C "$CHAN"   -G "$LGRP"       -N "$LNAM"    \
-      -X "$MASK"   -Y "$MODE"   -y "$PCT_FLOAT"               \
-      ${PPATH:+-T "$PPATH"}                                     \
-      -f "$FREQ"   -L 1         -g "$GPU"
-  done
+  local ROUND_MODEL="$INIT"
 
-  JOB_LIST=$(printf "${EXP}/${TAG}/inst%s " "${INSTS[@]}")
-  echo "--- Aggregation: $TAG ---"
-  bash run_aggregation.sh \
-    -j "$JOB_LIST" -A "${EXP}/${TAG}/global" -R "$ROUNDS" -r 0 -a fedavg
+  for (( R=0; R<ROUNDS; R++ )); do
+    # epoch_start / epoch_end keep the cosine curve continuous across rounds:
+    #   round 0: train epoch 1 → EPOCHS
+    #   round 1: train epoch EPOCHS+1 → 2*EPOCHS
+    #   ...
+    local EPOCH_START=$(( R * EPOCHS ))
+    local EPOCH_END=$(( (R + 1) * EPOCHS ))
+    echo ""
+    echo "  -- Round $R / $(( ROUNDS - 1 )) --"
+
+    for INST in "${INSTS[@]}"; do
+      JOB="${EXP}/${TAG}/inst${INST}"
+      echo "--- inst${INST} ---"
+      bash run_train.sh \
+        -J "$JOB"    -i "$INST"   -R "$ROUNDS"     -r "$R"          \
+        -E "$EPOCH_END" -e "$EPOCH_START" -M "$ROUND_MODEL" -D "$DATA" \
+        -c "$SPLIT"  -C "$CHAN"   -G "$LGRP"        -N "$LNAM"       \
+        -X "$MASK"   -Y "$MODE"   -y "$PCT_FLOAT"   -I "$LIDX"        \
+        ${PPATH:+-T "$PPATH"}                                         \
+        -f "$FREQ"   -L 1         -g "$GPU"         -W "$NPROC"      \
+        -s "$SAVE"
+    done
+
+    JOB_LIST=$(printf "${EXP}/${TAG}/inst%s " "${INSTS[@]}")
+    echo "--- Aggregation: $TAG round $R ---"
+    bash run_aggregation.sh \
+      -j "$JOB_LIST" -A "${EXP}/${TAG}/global" -R "$ROUNDS" -r "$R" -a "$ALGO"
+
+    # next round uses the freshly aggregated model
+    ROUND_MODEL=$(printf "states/${EXP}/${TAG}/global/R%02dr%02d/models/R%02dr%02d_agg.pth" \
+                  "$ROUNDS" "$(( R + 1 ))" "$ROUNDS" "$(( R + 1 ))")
+  done
 }
 
 # ── run all 6 conditions ──────────────────────────────────────────────────────
 for PCT in "${PCTS[@]}"; do
-  PCT_FLOAT=$(echo "scale=2; $PCT / 100" | bc)
+  PCT_FLOAT=$(python3 -c "print($PCT / 100)")
   run_condition "s2_al${PCT}"  committee "$PCT_FLOAT" "$PRIORITY"
   run_condition "s2_rnd${PCT}" random    "$PCT_FLOAT" ""
 done
@@ -105,7 +131,7 @@ import sys, torch, glob
 exp    = sys.argv[1]
 insts  = [int(x) for x in sys.argv[2:]]
 pcts   = [10, 20, 30]
-labels = ['ncr', 'ed', 'et']
+labels = ['wt', 'tc', 'et']
 
 def load_post(job, inst):
     pat = f'states/{job}/inst{inst}/R*/models/*_last.pth'

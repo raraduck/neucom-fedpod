@@ -17,8 +17,9 @@
 #   -b  block         residual|plain
 #   -l  channels_list
 #   -o  output_path   (required)
-#   -k  score_key     bald_mi|variance|mean_dice  (default: bald_mi)
-#   -g  use_gpu       0|1
+#   -k  score_key       bald_mi|roi_bald|variance|mean_dice|texture_bald  (default: texture_bald)
+#   -L  diversity_lambda  texture diversity weight for texture_bald (default: 0.5)
+#   -g  use_gpu         0|1
 
 INST_MODELS=""
 SPLIT="experiments/partition2/fets_split.csv"
@@ -28,15 +29,16 @@ LGRP="[[1,2,4]]"
 BLOCK="residual"
 CHANNELS="[32,64,128,256]"
 OUTPUT=""
-SCORE_KEY="bald_mi"
+SCORE_KEY="texture_bald"
+DIVERSITY_LAMBDA=0.5
 GPU=1
 
-while getopts "m:c:D:C:G:b:l:o:k:g:" opt; do
+while getopts "m:c:D:C:G:b:l:o:k:L:g:" opt; do
   case $opt in
-    m) INST_MODELS="$OPTARG" ;; c) SPLIT="$OPTARG"    ;; D) DATA="$OPTARG"    ;;
-    C) CHAN="$OPTARG"        ;; G) LGRP="$OPTARG"     ;; b) BLOCK="$OPTARG"   ;;
-    l) CHANNELS="$OPTARG"   ;; o) OUTPUT="$OPTARG"   ;; k) SCORE_KEY="$OPTARG" ;;
-    g) GPU="$OPTARG"        ;;
+    m) INST_MODELS="$OPTARG"      ;; c) SPLIT="$OPTARG"    ;; D) DATA="$OPTARG"    ;;
+    C) CHAN="$OPTARG"             ;; G) LGRP="$OPTARG"     ;; b) BLOCK="$OPTARG"   ;;
+    l) CHANNELS="$OPTARG"        ;; o) OUTPUT="$OPTARG"   ;; k) SCORE_KEY="$OPTARG" ;;
+    L) DIVERSITY_LAMBDA="$OPTARG" ;; g) GPU="$OPTARG"      ;;
   esac
 done
 
@@ -51,13 +53,14 @@ if [ -z "$INST_MODELS" ] || [ -z "$OUTPUT" ]; then
 fi
 
 python scripts/run_committee_global.py \
-  --inst_models    "$INST_MODELS"  \
-  --cases_split    "$SPLIT"        \
-  --data_root      "$DATA"         \
-  --input_channels "$CHAN"         \
-  --label_groups   "$LGRP"         \
-  --block          "$BLOCK"        \
-  --channels_list  "$CHANNELS"     \
-  --output_path    "$OUTPUT"       \
-  --score_key      "$SCORE_KEY"    \
-  --use_gpu        "$GPU"
+  --inst_models      "$INST_MODELS"      \
+  --cases_split      "$SPLIT"            \
+  --data_root        "$DATA"             \
+  --input_channels   "$CHAN"             \
+  --label_groups     "$LGRP"             \
+  --block            "$BLOCK"            \
+  --channels_list    "$CHANNELS"         \
+  --output_path      "$OUTPUT"           \
+  --score_key        "$SCORE_KEY"        \
+  --diversity_lambda "$DIVERSITY_LAMBDA" \
+  --use_gpu          "$GPU"

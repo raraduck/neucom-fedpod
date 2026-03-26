@@ -11,14 +11,16 @@ SPLIT="experiments/partition2/fets_split.csv"
 DATA="data/fets128/trainval"
 CHAN="[t1,t1ce,t2,flair]"
 LGRP="[[1,2,4]]"
-SCORE_KEY="bald_mi"
+SCORE_KEY="texture_bald"
+DIVERSITY_LAMBDA=0.5
 GPU=1
 ROUNDS=1
 
-while getopts "k:g:" opt; do
+while getopts "k:L:g:" opt; do
   case $opt in
-    k) SCORE_KEY="$OPTARG" ;;
-    g) GPU="$OPTARG"       ;;
+    k) SCORE_KEY="$OPTARG"        ;;
+    L) DIVERSITY_LAMBDA="$OPTARG" ;;
+    g) GPU="$OPTARG"              ;;
   esac
 done
 
@@ -53,13 +55,14 @@ echo "$INST_MODELS" | tr ',' '\n' | sed 's/^/   /'
 echo "============================================================"
 
 bash run_committee_global.sh \
-  -m "$INST_MODELS" \
-  -c "$SPLIT"       \
-  -D "$DATA"        \
-  -C "$CHAN"        \
-  -G "$LGRP"        \
-  -o "$OUTPUT"      \
-  -k "$SCORE_KEY"   \
+  -m "$INST_MODELS"      \
+  -c "$SPLIT"            \
+  -D "$DATA"             \
+  -C "$CHAN"             \
+  -G "$LGRP"             \
+  -o "$OUTPUT"           \
+  -k "$SCORE_KEY"        \
+  -L "$DIVERSITY_LAMBDA" \
   -g "$GPU"
 
 echo ""

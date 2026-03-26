@@ -16,9 +16,12 @@ import random
 import time
 from pathlib import Path
 
+import numpy as np
+import pandas as pd
 import torch
 import torch.nn as nn
 import torch.distributed as dist
+from monai.inferers import sliding_window_inference
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.utils.data import DataLoader
 from torch.utils.data.distributed import DistributedSampler
@@ -54,17 +57,23 @@ class App:
             self.device = torch.device(
                 'cuda' if args.use_gpu and torch.cuda.is_available() else 'cpu')
 
-        # only rank 0 writes logs
+        # only rank 0 writes logs / tensorboard
         if self.rank == 0:
             log_dir = Path('logs') / args.job_name
             self.logger = init_logger(args.job_name, log_dir)
             self.logger.info(
                 f'Device: {self.device}'
                 + (f'  (DDP world_size={self.world_size})' if self.is_ddp else ''))
+            try:
+                from torch.utils.tensorboard import SummaryWriter
+                self.writer = SummaryWriter(str(Path('runs') / args.job_name))
+            except ImportError:
+                self.writer = None
         else:
             import logging
             self.logger = logging.getLogger('null')
             self.logger.addHandler(logging.NullHandler())
+            self.writer = None
 
     # ── helpers ───────────────────────────────────────────────────────────────
 
@@ -102,15 +111,21 @@ class App:
             else:
                 with open(priority_path) as f:
                     gp = json.load(f)
-                ranked   = gp['all_cases']           # score-descending global list
-                n_global = max(1, int(len(ranked) * pct))
-                top_set  = set(ranked[:n_global])
-                # preserve global ranking order, keep only institution's cases
-                selected = [c for c in ranked if c in set(cases) and c in top_set]
-                selected = selected[:n]
+                # Per-institution top-k%: score each institution's cases by their
+                # own scores to avoid cross-institution imbalance.
+                # (Global top-k% concentrates selections in high-BALD institutions,
+                # leaving others with only 1-2 cases regardless of pct.)
+                metrics   = gp.get('metrics', {})
+                score_key = gp.get('score_key', 'bald_mi')
+                case_scores = [
+                    (c, metrics.get(c, {}).get(score_key, 0.0)) for c in cases
+                ]
+                case_scores.sort(key=lambda x: x[1], reverse=True)
+                selected = [c for c, _ in case_scores[:n]]
                 self.logger.info(
                     f'[AL] committee top-{pct*100:.0f}%: '
-                    f'{len(cases)} → {len(selected)} cases')
+                    f'{len(cases)} → {len(selected)} cases '
+                    f'(score={score_key})')
                 return selected
 
         if mode == 'random':
@@ -124,6 +139,40 @@ class App:
             return selected
 
         return cases
+
+    def _save_selection_csv(self, all_train: list, selected: list):
+        """Write selection marks to a per-job copy of fets_split.csv (rank 0 only).
+
+        R{round} column: 1 = selected for training, 0 = not selected.
+        Val/test rows are left unchanged.
+        Saved to: states/{job_name}/R{R:02d}r{r:02d}/fets_split.csv
+        """
+        if not self._is_main():
+            return
+        args = self.args
+        r_col        = f'R{args.round}'
+        selected_set = set(selected)
+        all_train_set = set(all_train)
+
+        df = pd.read_csv(args.cases_split)
+        if r_col not in df.columns:
+            df[r_col] = ''
+
+        def _mark(row):
+            if row['Subject_ID'] in all_train_set:
+                return 1 if row['Subject_ID'] in selected_set else 0
+            return row[r_col]
+
+        df[r_col] = df.apply(_mark, axis=1).astype('Int64')
+
+        out_dir = (Path('states') / args.job_name
+                   / f'R{args.rounds:02d}r{args.round:02d}')
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out_path = out_dir / 'fets_split.csv'
+        df.to_csv(out_path, index=False)
+        self.logger.info(
+            f'  Selection CSV → {out_path}  '
+            f'({len(selected)}/{len(all_train)} cases used)')
 
     # ── model ────────────────────────────────────────────────────────────────
 
@@ -223,7 +272,7 @@ class App:
 
         bce_m, dsc_m, tot_m = AverageMeter(), AverageMeter(), AverageMeter()
 
-        for img, lbl, _ in loader:
+        for img, lbl, _, _aff in loader:
             img, lbl = img.to(self.device), lbl.to(self.device)
 
             optimizer.zero_grad()
@@ -256,6 +305,38 @@ class App:
             f'Total={tot_m.avg:.4f}')
         return {'bce': bce_m.avg, 'dsc_loss': dsc_m.avg, 'total': tot_m.avg}
 
+    # ── inference helper (sliding window or direct) ───────────────────────────
+
+    def _infer(self, net: nn.Module, img: torch.Tensor) -> torch.Tensor:
+        """Forward pass for inference.
+
+        Uses sliding_window_inference when patch_size < resize so the model
+        sees patch_size³ crops at test time (same receptive field as training).
+        Falls back to a single forward pass when patch_size == resize.
+
+        Args:
+            net: unwrapped model (not DDP)
+            img: (B, C, D, H, W) input tensor on device
+        Returns:
+            logits (B, num_classes, D, H, W)
+        """
+        args = self.args
+        if args.patch_size < args.resize:
+            roi = (args.patch_size,) * 3
+            out = sliding_window_inference(
+                inputs=img,
+                roi_size=roi,
+                sw_batch_size=1,
+                predictor=net,
+                overlap=args.sw_overlap,
+                mode='constant',
+            )
+        else:
+            out = net(img)
+        if isinstance(out, list):
+            out = out[0]
+        return out
+
     # ── validate (rank 0 only) ────────────────────────────────────────────────
 
     @torch.no_grad()
@@ -274,11 +355,9 @@ class App:
         class_dsc_sum = [0.0] * self.args.num_classes
         n_batches = 0
 
-        for img, lbl, _ in loader:
+        for img, lbl, _, _aff in loader:
             img, lbl = img.to(self.device), lbl.to(self.device)
-            out = net(img)
-            if isinstance(out, list):
-                out = out[0]
+            out = self._infer(net, img)
 
             bce, dsc = loss_fn(out, lbl)
             total = bce + dsc.mean()
@@ -321,6 +400,126 @@ class App:
         self.logger.info(f'  Saved → {path}')
         return path
 
+    # ── tensorboard helpers (rank 0 only) ────────────────────────────────────
+
+    def _tb_train(self, epoch: int, m: dict):
+        if not (self._is_main() and self.writer):
+            return
+        self.writer.add_scalar('train/total',    m['total'],    epoch)
+        self.writer.add_scalar('train/bce',      m['bce'],      epoch)
+        self.writer.add_scalar('train/dsc_loss', m['dsc_loss'], epoch)
+
+    def _tb_val(self, epoch: int, m: dict):
+        if not (self._is_main() and self.writer):
+            return
+        self.writer.add_scalar('val/loss', m['total'], epoch)
+        self.writer.add_scalar('val/dice', m['dice'],  epoch)
+        for name, v in zip(self.args.label_names, m.get('dice_per_class', [])):
+            self.writer.add_scalar(f'val/dice_{name}', v, epoch)
+
+    def _tb_lr(self, epoch: int, optimizer):
+        if not (self._is_main() and self.writer):
+            return
+        self.writer.add_scalar('train/lr', optimizer.param_groups[0]['lr'], epoch)
+
+    # ── inference save (rank 0 only) ─────────────────────────────────────────
+
+    @torch.no_grad()
+    def _save_val_predictions(self, model: nn.Module, val_dl: DataLoader,
+                              save_dir: Path):
+        """Run inference on val set and save predictions as NIfTI (rank 0 only).
+
+        Saves per case to save_dir/{case_name}/{case_name}_pred.nii.gz.
+        Label map encoding: each output class c gets value label_groups[c][0].
+          e.g. Stage 1 [[1,2,4]] → {0,1}
+               Stage 2 [[1,2,4],[1,4],[4]] → {0,1,2,4}  (label_index=[1,2,4])
+        Affine is taken from the batch (loaded from first input channel NIfTI).
+        """
+        if not self._is_main():
+            return
+
+        import nibabel as nib
+
+        label_groups = self.args.label_groups
+        net = model.module if isinstance(model, DDP) else model
+        net.eval()
+        n_saved = 0
+
+        for img, _, names, affines in val_dl:
+            img = img.to(self.device)
+            out = self._infer(net, img)
+
+            pred = (torch.sigmoid(out) > 0.5).cpu().numpy()  # (B, C, D, H, W)
+            B = pred.shape[0]
+
+            for b in range(B):
+                name   = names[b] if isinstance(names, (list, tuple)) else names
+                affine = affines[b].numpy()                  # (4, 4)
+
+                # Build integer label map
+                H, W, D = pred.shape[2], pred.shape[3], pred.shape[4]
+                seg_img = np.zeros((H, W, D), dtype=np.uint16)
+                for idx, group in enumerate(label_groups):
+                    seg_img[pred[b, idx].astype(bool)] = self.args.label_index[idx]
+
+                case_dir = save_dir / name
+                case_dir.mkdir(parents=True, exist_ok=True)
+                nib.save(nib.Nifti1Image(seg_img, affine),
+                         str(case_dir / f'{name}_pred.nii.gz'))
+                n_saved += 1
+
+        self.logger.info(f'  Infer saved → {save_dir}  ({n_saved} cases)')
+
+    # ── pre-validation only (P=0 branch) ─────────────────────────────────────
+
+    def _run_preval_only(self, model: nn.Module, val_cases: list,
+                         loss_fn: nn.Module):
+        """Run pre-validation only when no train cases were selected.
+
+        Saves _prev.pth and _last.pth (P=0, D=0) so the aggregator can load
+        the checkpoint and track validation metrics on this institution.
+        """
+        args = self.args
+        val_ds = FeTSDataset(
+            data_root     = args.data_root,
+            case_names    = val_cases,
+            channel_names = args.input_channel_names,
+            label_groups  = args.label_groups,
+            mode          = 'val',
+            flip_lr       = False,
+            mask_channels = args.mask_channel_names,
+            resize        = args.resize,
+            patch_size    = args.resize,
+        )
+        val_dl = DataLoader(val_ds, batch_size=1,
+                            shuffle=False, num_workers=2, pin_memory=True)
+
+        self._barrier()
+        self.logger.info(f'[Round {args.round}] Pre-validation (P=0):')
+        pre_metrics = self.val_epoch(args.epoch, model, val_dl, loss_fn)
+        self._tb_val(args.epoch, pre_metrics)
+
+        self.save_ckpt(model, f'R{args.rounds:02d}r{args.round:02d}_prev',
+                       {'pre_metrics': pre_metrics})
+        self.save_ckpt(model, f'R{args.rounds:02d}r{args.round:02d}_last', {
+            'pre_metrics':  pre_metrics,
+            'post_metrics': pre_metrics,
+            'P': 0, 'I': pre_metrics['total'], 'D': 0.0,
+            'time': 0.0,
+        })
+
+        if args.save_infer:
+            infer_dir = (Path('states') / args.job_name
+                         / f'R{args.rounds:02d}r{args.round:02d}' / 'infer' / 'pre')
+            self._save_val_predictions(model, val_dl, infer_dir)
+
+        self._barrier()
+
+        if self._is_main() and self.writer:
+            self.writer.close()
+        if self.is_ddp:
+            dist.destroy_process_group()
+
     # ── main train loop ──────────────────────────────────────────────────────
 
     def run_train(self):
@@ -338,11 +537,12 @@ class App:
         self.logger.info(f'Job: {args.job_name}  Round: {args.round}/{args.rounds}')
         self.logger.info(f'Inst: {args.inst_ids}  Split: {args.cases_split}')
 
-        train_cases = load_subjects(args.cases_split, args.inst_ids, 'train')
-        val_cases   = load_subjects(args.cases_split, args.inst_ids, 'val')
+        all_train_cases = load_subjects(args.cases_split, args.inst_ids, 'train')
+        val_cases       = load_subjects(args.cases_split, args.inst_ids, 'val')
 
         # ── Static AL case selection (applied before data_pct) ────────────────
-        train_cases = self._select_cases(train_cases, args)
+        train_cases = self._select_cases(all_train_cases, args)
+        self._save_selection_csv(all_train_cases, train_cases)
 
         if args.data_pct < 1.0:
             n = max(1, int(len(train_cases) * args.data_pct))
@@ -350,10 +550,30 @@ class App:
 
         self.logger.info(f'Train: {len(train_cases)}  Val: {len(val_cases)}')
 
-        model     = self.build_model()
+        model   = self.build_model()
+        loss_fn = SoftDiceBCEWithLogitsLoss()
+
+        # ── P=0: no cases selected — pre-validation only ──────────────────────
+        if len(train_cases) == 0:
+            self.logger.warning(
+                '[AL] No cases selected (P=0) — skipping training, '
+                'pre-validation only.')
+            self._run_preval_only(model, val_cases, loss_fn)
+            return
+
         optimizer = get_optimizer(model, args.lr, args.weight_decay)
-        scheduler = get_scheduler(optimizer, args.milestones, args.lr_gamma)
-        loss_fn   = SoftDiceBCEWithLogitsLoss()
+        # For cosine: T_max spans all rounds so the curve is continuous.
+        # last_epoch positions the scheduler at the start of this round,
+        # e.g. round=1, epochs=50 → last_epoch=49 means step() resumes at epoch 50.
+        scheduler = get_scheduler(
+            optimizer,
+            milestones  = args.milestones,
+            gamma       = args.lr_gamma,
+            scheduler_type = args.scheduler,
+            t_max       = args.rounds * args.epochs,
+            last_epoch  = args.round * args.epochs + args.epoch - 1,
+            eta_min     = args.eta_min,
+        )
 
         train_dl, val_dl = self.build_loaders(train_cases, val_cases)
 
@@ -368,8 +588,13 @@ class App:
         self._barrier()
         self.logger.info(f'[Round {args.round}] Pre-validation:')
         pre_metrics = self.val_epoch(from_epoch, model, val_dl, loss_fn)
+        self._tb_val(from_epoch, pre_metrics)
         self.save_ckpt(model, f'R{args.rounds:02d}r{args.round:02d}_prev',
                        {'pre_metrics': pre_metrics})
+        if args.save_infer:
+            infer_dir = (Path('states') / args.job_name
+                         / f'R{args.rounds:02d}r{args.round:02d}' / 'infer' / 'pre')
+            self._save_val_predictions(model, val_dl, infer_dir)
         self._barrier()
 
         # ── TRAINING EPOCHS ───────────────────────────────────────────────────
@@ -377,13 +602,16 @@ class App:
         best_dice  = pre_metrics.get('dice', -1.0)
 
         for epoch in range(from_epoch + 1, to_epoch + 1):
-            self.train_epoch(epoch, model, train_dl, optimizer, loss_fn)
+            self._tb_lr(epoch, optimizer)
+            train_m = self.train_epoch(epoch, model, train_dl, optimizer, loss_fn)
+            self._tb_train(epoch, train_m)
             scheduler.step()
 
             # mid-round validation (not on final epoch; post-val covers that)
             if epoch % args.eval_freq == 0 and epoch < to_epoch:
                 self._barrier()
                 m = self.val_epoch(epoch, model, val_dl, loss_fn)
+                self._tb_val(epoch, m)
                 if self._is_main() and m['dice'] > best_dice:
                     best_dice = m['dice']
                     self.save_ckpt(model, f'R{args.rounds:02d}r{args.round:02d}_best',
@@ -396,6 +624,7 @@ class App:
         self._barrier()
         self.logger.info(f'[Round {args.round}] Post-validation:')
         post_metrics = self.val_epoch(to_epoch, model, val_dl, loss_fn)
+        self._tb_val(to_epoch, post_metrics)
         self._barrier()
 
         # ── PID COMPUTATION & FINAL SAVE ──────────────────────────────────────
@@ -425,7 +654,15 @@ class App:
                     'time': elapsed,
                 })
 
+            if args.save_infer:
+                infer_dir = (Path('states') / args.job_name
+                             / f'R{args.rounds:02d}r{args.round:02d}' / 'infer' / 'post')
+                self._save_val_predictions(model, val_dl, infer_dir)
+
         self._barrier()
+
+        if self._is_main() and self.writer:
+            self.writer.close()
 
         if self.is_ddp:
             dist.destroy_process_group()

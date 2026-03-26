@@ -104,7 +104,7 @@ def main():
     scores = {}
     with torch.no_grad():
         for idx in range(len(ds)):
-            img, lbl, name = ds[idx]
+            img, lbl, name, _aff = ds[idx]
             img = img.unsqueeze(0).to(device)
             lbl = lbl.unsqueeze(0).to(device)
 
