@@ -21,7 +21,7 @@ S1_EPOCHS=60        # Stage 1: 1 round × S1_EPOCHS  = total
 S2_ROUNDS=20        # Stage 2: S2_ROUNDS × S2_EPOCHS = total (= S1_EPOCHS)
 NPROC=1
 FREQ=10
-ALGO="fedavg"
+ALGO="fedwavg"
 
 while getopts "E:R:W:f:a:" opt; do
   case $opt in
