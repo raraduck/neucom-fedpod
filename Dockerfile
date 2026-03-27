@@ -25,24 +25,53 @@ RUN pip3 install --no-cache-dir --break-system-packages \
     --index-url https://download.pytorch.org/whl/cu128
 
 # ── project dependencies ─────────────────────────────────────────────────────
+# scipy: required by monai RandRotated (scipy.ndimage)
 RUN pip3 install --no-cache-dir --break-system-packages \
     numpy==1.26.4 \
     pandas==2.2.0 \
     monai==1.3.0 \
     nibabel==5.2.1 \
-    natsort==8.4.0
+    natsort==8.4.0 \
+    scipy>=1.10
 
 # ── workspace ────────────────────────────────────────────────────────────────
 WORKDIR /workspace
 
-# code (data and states are mounted as PVCs at runtime)
-COPY run_train.sh         /workspace/run_train.sh
-COPY run_aggregation.sh   /workspace/run_aggregation.sh
-COPY run_init.sh          /workspace/run_init.sh
+# Python source code
 COPY scripts/             /workspace/scripts/
+
+# Experiment configs: split CSVs + param YAMLs (referenced by relative path in Argo)
 COPY experiments/         /workspace/experiments/
 
-RUN chmod +x /workspace/run_train.sh /workspace/run_aggregation.sh /workspace/run_init.sh
+# Shell launchers — all entry points called by Argo container args
+# Runtime path layout:
+#   /workspace/states/  ← checkpoints  (PVC: fedpod-states-pvc)
+#   /workspace/logs/    ← training logs (PVC: fedpod-logs-pvc)
+#   /data/              ← MRI dataset   (PVC: fets128-data-pvc, read-only)
+COPY run_init.sh \
+     run_train.sh \
+     run_aggregation.sh \
+     run_committee.sh \
+     run_committee_global.sh \
+     run_committee_stage1.sh \
+     run_stage1.sh \
+     run_stage2_compare.sh \
+     run_e2e.sh \
+     /workspace/
+
+RUN chmod +x \
+    /workspace/run_init.sh \
+    /workspace/run_train.sh \
+    /workspace/run_aggregation.sh \
+    /workspace/run_committee.sh \
+    /workspace/run_committee_global.sh \
+    /workspace/run_committee_stage1.sh \
+    /workspace/run_stage1.sh \
+    /workspace/run_stage2_compare.sh \
+    /workspace/run_e2e.sh
+
+# Pre-create PVC mount-point directories (populated via volumeMounts at runtime)
+RUN mkdir -p /workspace/states /workspace/logs /data
 
 # verify
 RUN python -c "import torch; print(f'torch {torch.__version__} / cuda {torch.version.cuda}')"

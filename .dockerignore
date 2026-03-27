@@ -1,0 +1,47 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# .dockerignore for fedpod-new
+# Kaniko build context = /workspace/fedpod-new  (entire project dir)
+# Exclude heavy / generated / irrelevant paths from the build context.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── MRI data (PVC mounts at runtime — never bake into image) ─────────────────
+data/
+
+# ── Training outputs (PVC mounts at runtime) ─────────────────────────────────
+states/
+logs/
+results/
+
+# ── Jupyter checkpoints / notebooks ──────────────────────────────────────────
+**/.ipynb_checkpoints/
+*.ipynb
+
+# ── Python cache ─────────────────────────────────────────────────────────────
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# ── Git ───────────────────────────────────────────────────────────────────────
+.git/
+.gitignore
+
+# ── Analysis outputs (not needed at training runtime) ────────────────────────
+analysis/results/
+preproc/
+
+# ── Documentation (not needed inside container) ──────────────────────────────
+*.md
+docs/
+
+# ── k8s manifests (not needed inside container) ──────────────────────────────
+k8s/
+
+# ── Misc ─────────────────────────────────────────────────────────────────────
+.dockerignore
+*.sh.bak
+*_bak*
