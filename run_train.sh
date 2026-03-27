@@ -22,7 +22,7 @@ CHAN="[t1,t1ce,t2,flair]"
 LGRP="[[1,2,4]]"; LNAM="[wt]"; LIDX="[1]"
 ALGO="fedavg"; MU=0.001
 BLOCK="residual"; CHANNELS="[32,64,128,256]"
-LR=1e-3; WD=1e-5; LR_GAMMA=0.1; SCHEDULER="cosine"; ETA_MIN=1e-6
+LR=5e-3; WD=1e-5; LR_GAMMA=0.1; SCHEDULER="cosine"; ETA_MIN=1e-6
 BATCH=2; DEEP_SUP=0; DS_LAYER=1; DROPOUT="None"
 NORM="instance"; KSIZE=3
 
