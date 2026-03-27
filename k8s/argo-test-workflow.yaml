@@ -135,7 +135,7 @@ spec:
   # ── 2. init-job ───────────────────────────────────────────────────────────
   - name: init-job
     container:
-      image: 192.168.0.80:30002/dwnkim/fedpod-new:latest
+      image: 192.168.0.80:30002/dwnkim/fedpod-new:v1
       imagePullPolicy: Always
       command: ["/bin/bash", "-c"]
       args:
@@ -167,7 +167,7 @@ spec:
       - name: seed
       - name: gpu
     container:
-      image: 192.168.0.80:30002/dwnkim/fedpod-new:latest
+      image: 192.168.0.80:30002/dwnkim/fedpod-new:v1
       imagePullPolicy: Always
       command: ["/bin/bash", "-c"]
       args:
@@ -216,7 +216,7 @@ spec:
   # ── 4. agg-job ────────────────────────────────────────────────────────────
   - name: agg-job
     container:
-      image: 192.168.0.80:30002/dwnkim/fedpod-new:latest
+      image: 192.168.0.80:30002/dwnkim/fedpod-new:v1
       imagePullPolicy: Always
       command: ["/bin/bash", "-c"]
       args:
