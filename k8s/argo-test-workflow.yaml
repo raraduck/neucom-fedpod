@@ -1,0 +1,242 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# fedpod-new  Test DAG Workflow
+#
+# 목적  : 이미지 빌드 후 전체 파이프라인(init → train×2 → agg) 연기 테스트
+# 규모  : 1 round × 2 epochs, 기관 2개, 데이터 10%, GPU 1개/기관
+#
+# 실행:
+#   argo submit k8s/argo-test-workflow.yaml \
+#     -p job-prefix=smoke_$(date +%y%m%d_%H%M) \
+#     -n dwnkim
+#
+# 또는 파라미터 오버라이드:
+#   argo submit k8s/argo-test-workflow.yaml \
+#     -p job-prefix=smoke_test \
+#     -p epochs=3 \
+#     -p data-pct=0.05 \
+#     -n dwnkim
+#
+# DAG 구조:
+#
+#   [init]
+#      ├──→ [train-inst1]──┐
+#      └──→ [train-inst2]──┴──→ [aggregate]
+#
+# ─────────────────────────────────────────────────────────────────────────────
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: fedpod-test-
+
+spec:
+  entrypoint: test-dag
+  serviceAccountName: argo-workflow
+
+  # 완료 후 1시간 자동 삭제
+  ttlStrategy:
+    secondsAfterCompletion: 3600
+    secondsAfterSuccess: 3600
+    secondsAfterFailure: 7200
+
+  # ── 실험 파라미터 (submit 시 -p 로 override 가능) ────────────────────────────
+  arguments:
+    parameters:
+    - name: job-prefix
+      value: "smoke_test"
+    - name: algorithm
+      value: "fedavg"
+
+    # 규모 조절 파라미터 ───────────────────────────────────────────────────────
+    - name: rounds
+      value: "1"
+    - name: epochs
+      value: "2"           # 에폭 수 (빠른 확인용)
+    - name: eval-freq
+      value: "1"           # 매 에폭마다 검증
+    - name: data-pct
+      value: "0.1"         # 데이터 10% 사용
+
+    # 데이터 ─────────────────────────────────────────────────────────────────
+    - name: data-root
+      value: "/data/fets128/trainval"
+    - name: split-csv
+      value: "experiments/partition2/fets_split.csv"
+    - name: input-channels
+      value: "[t1,t1ce,t2,flair]"
+    - name: label-groups
+      value: "[[1,2,4]]"
+    - name: label-names
+      value: "[wt]"
+    - name: label-index
+      value: "[1]"
+
+    # 모델 ───────────────────────────────────────────────────────────────────
+    - name: block
+      value: "residual"
+    - name: channels
+      value: "[32,64,128,256]"
+
+  # ── PVC 바인딩 ────────────────────────────────────────────────────────────
+  volumes:
+  - name: data-pvc
+    persistentVolumeClaim:
+      claimName: fets128-data-pvc
+  - name: states-pvc
+    persistentVolumeClaim:
+      claimName: fedpod-states-pvc
+  - name: logs-pvc
+    persistentVolumeClaim:
+      claimName: fedpod-logs-pvc
+
+  # ── Templates ─────────────────────────────────────────────────────────────
+  templates:
+
+  # ── 1. test-dag: 메인 DAG ─────────────────────────────────────────────────
+  - name: test-dag
+    dag:
+      tasks:
+
+      # Step 1: 공유 초기 모델 생성
+      - name: init
+        template: init-job
+
+      # Step 2a: 기관 1 로컬 학습 (init 완료 후)
+      - name: train-inst1
+        template: train-job
+        dependencies: [init]
+        arguments:
+          parameters:
+          - name: inst-id
+            value: "1"
+          - name: seed
+            value: "1001"
+          - name: gpu
+            value: "1"
+
+      # Step 2b: 기관 2 로컬 학습 (init 완료 후, inst1과 병렬)
+      - name: train-inst2
+        template: train-job
+        dependencies: [init]
+        arguments:
+          parameters:
+          - name: inst-id
+            value: "2"
+          - name: seed
+            value: "1002"
+          - name: gpu
+            value: "1"
+
+      # Step 3: 집계 (양쪽 학습 완료 후)
+      - name: aggregate
+        template: agg-job
+        dependencies: [train-inst1, train-inst2]
+
+
+  # ── 2. init-job ───────────────────────────────────────────────────────────
+  - name: init-job
+    container:
+      image: 192.168.0.80:30002/dwnkim/fedpod-new:latest
+      imagePullPolicy: Always
+      command: ["/bin/bash", "-c"]
+      args:
+        - >
+          bash /workspace/run_init.sh
+          -A {{workflow.parameters.job-prefix}}/global
+          -b {{workflow.parameters.block}}
+          -l "{{workflow.parameters.channels}}"
+          -C "{{workflow.parameters.input-channels}}"
+          -G "{{workflow.parameters.label-groups}}"
+          -s /workspace/states
+      resources:
+        requests:
+          cpu: "1"
+          memory: "2Gi"
+        limits:
+          cpu: "2"
+          memory: "4Gi"
+      volumeMounts:
+      - name: states-pvc
+        mountPath: /workspace/states
+
+
+  # ── 3. train-job ──────────────────────────────────────────────────────────
+  - name: train-job
+    inputs:
+      parameters:
+      - name: inst-id
+      - name: seed
+      - name: gpu
+    container:
+      image: 192.168.0.80:30002/dwnkim/fedpod-new:latest
+      imagePullPolicy: Always
+      command: ["/bin/bash", "-c"]
+      args:
+        - >
+          bash /workspace/run_train.sh
+          -W {{inputs.parameters.gpu}}
+          -S {{inputs.parameters.seed}}
+          -f {{workflow.parameters.eval-freq}}
+          -g 1
+          -J {{workflow.parameters.job-prefix}}/inst{{inputs.parameters.inst-id}}
+          -R {{workflow.parameters.rounds}}
+          -r 0
+          -E {{workflow.parameters.epochs}}
+          -e 0
+          -i {{inputs.parameters.inst-id}}
+          -c {{workflow.parameters.split-csv}}
+          -M /workspace/states/{{workflow.parameters.job-prefix}}/global/init.pth
+          -p {{workflow.parameters.data-pct}}
+          -D {{workflow.parameters.data-root}}
+          -C "{{workflow.parameters.input-channels}}"
+          -G "{{workflow.parameters.label-groups}}"
+          -N "{{workflow.parameters.label-names}}"
+          -I {{workflow.parameters.label-index}}
+          -a {{workflow.parameters.algorithm}}
+          -b {{workflow.parameters.block}}
+          -l "{{workflow.parameters.channels}}"
+      resources:
+        requests:
+          cpu: "4"
+          memory: "16Gi"
+          nvidia.com/gpu: "{{inputs.parameters.gpu}}"
+        limits:
+          cpu: "8"
+          memory: "32Gi"
+          nvidia.com/gpu: "{{inputs.parameters.gpu}}"
+      volumeMounts:
+      - name: data-pvc
+        mountPath: /data
+        readOnly: true
+      - name: states-pvc
+        mountPath: /workspace/states
+      - name: logs-pvc
+        mountPath: /workspace/logs
+
+
+  # ── 4. agg-job ────────────────────────────────────────────────────────────
+  - name: agg-job
+    container:
+      image: 192.168.0.80:30002/dwnkim/fedpod-new:latest
+      imagePullPolicy: Always
+      command: ["/bin/bash", "-c"]
+      args:
+        - |
+          bash /workspace/run_aggregation.sh \
+            -j "{{workflow.parameters.job-prefix}}/inst1 {{workflow.parameters.job-prefix}}/inst2" \
+            -A {{workflow.parameters.job-prefix}}/global \
+            -R {{workflow.parameters.rounds}} \
+            -r 0 \
+            -a {{workflow.parameters.algorithm}} \
+            -s /workspace/states
+      resources:
+        requests:
+          cpu: "2"
+          memory: "8Gi"
+        limits:
+          cpu: "4"
+          memory: "16Gi"
+      volumeMounts:
+      - name: states-pvc
+        mountPath: /workspace/states
+      - name: logs-pvc
+        mountPath: /workspace/logs
