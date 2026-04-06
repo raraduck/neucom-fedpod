@@ -1,0 +1,4 @@
+FROM 192.168.0.80:30002/dwnkim/pytorch-mnist-gpu:v1.0
+
+# 기존 mnist.py를 NAS 버전으로 교체
+COPY mnist_nas.py /opt/pytorch-mnist/mnist.py
